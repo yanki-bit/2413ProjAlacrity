@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7b62emyxw0av"]
+[gd_scene load_steps=8 format=3 uid="uid://b7b62emyxw0av"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_5fnw4"]
-[ext_resource type="Texture2D" uid="uid://d2js65vhxhim0" path="res://Assets/BG/Visible.PNG" id="1_is06h"]
+[ext_resource type="Texture2D" uid="uid://d2js65vhxhim0" path="res://Assets/BG/Visible.PNG" id="2_uojlt"]
+[ext_resource type="PackedScene" uid="uid://blnmcvgjngnth" path="res://Menus/settings_menu.tscn" id="3_2fcug"]
 
 [sub_resource type="SystemFont" id="SystemFont_wqwvt"]
 font_names = PackedStringArray("Monospace")
@@ -30,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_is06h")
+texture = ExtResource("2_uojlt")
 expand_mode = 1
 
 [node name="BG_Margin" type="MarginContainer" parent="Menu_BG"]
@@ -54,7 +55,7 @@ vertical = true
 [node name="Separator" type="Control" parent="Menu_BG/BG_Margin/BoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menu_BG/BG_Margin/BoxContainer"]
+[node name="Menu_Title" type="Label" parent="Menu_BG/BG_Margin/BoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -148,3 +149,7 @@ theme_override_constants/outline_size = 2
 theme_override_fonts/font = SubResource("SystemFont_62231")
 theme_override_font_sizes/font_size = 24
 text = "EXIT GAME"
+
+[node name="Settings_Menu" parent="." instance=ExtResource("3_2fcug")]
+visible = false
+layout_mode = 1

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7b62emyxw0av"]
+[gd_scene load_steps=10 format=3 uid="uid://b7b62emyxw0av"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_5fnw4"]
 [ext_resource type="Texture2D" uid="uid://d2js65vhxhim0" path="res://Assets/BG/Visible.PNG" id="2_uojlt"]
 [ext_resource type="PackedScene" uid="uid://blnmcvgjngnth" path="res://Menus/settings_menu.tscn" id="3_2fcug"]
 [ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Menus/settings_tab_container.tscn" id="4_khit5"]
+[ext_resource type="AudioStream" uid="uid://cj3lb6khjldmo" path="res://Assets/Music/Lobby-Time(chosic.com).mp3" id="5_eojqo"]
 
 [sub_resource type="SystemFont" id="SystemFont_wqwvt"]
 font_names = PackedStringArray("Monospace")
@@ -158,3 +159,9 @@ layout_mode = 1
 [node name="Settings_tab_container" parent="Settings_Menu" instance=ExtResource("4_khit5")]
 visible = false
 layout_mode = 1
+
+[node name="MainBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eojqo")
+volume_db = -15.0
+autoplay = true
+bus = &"BGM"

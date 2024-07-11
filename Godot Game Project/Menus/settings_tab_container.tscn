@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2lpyrt22y6n"]
+[gd_scene load_steps=6 format=3 uid="uid://b2lpyrt22y6n"]
 
 [ext_resource type="PackedScene" uid="uid://c7t33ij8kgbde" path="res://Menus/hotkey_rebind_btn.tscn" id="1_btvoe"]
 [ext_resource type="PackedScene" uid="uid://b74vpslukmcoi" path="res://Menus/general_window_btn.tscn" id="1_tpxgg"]
 [ext_resource type="PackedScene" uid="uid://daje7c2ld4ue2" path="res://Menus/general_resolution_btn.tscn" id="2_y7p67"]
+[ext_resource type="PackedScene" uid="uid://d033l0sj8uk8v" path="res://Menus/general_audio_settings.tscn" id="3_reu10"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chyfk"]
 
@@ -54,6 +55,17 @@ layout_mode = 2
 
 [node name="general_resolution_btn" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_y7p67")]
 layout_mode = 2
+
+[node name="general_audio_settings" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_reu10")]
+layout_mode = 2
+
+[node name="general_audio_settings2" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_reu10")]
+layout_mode = 2
+bus_name = "BGM"
+
+[node name="general_audio_settings3" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_reu10")]
+layout_mode = 2
+bus_name = "SoundFX"
 
 [node name="KEYBINDS" type="TabBar" parent="Tab_Container"]
 visible = false

@@ -10,6 +10,10 @@ extends TextureRect
 		ATK = value
 		#update ATK through atkCount
 		%atkCount.text = str(ATK) 
+		
+		#call the calculateATK function for any change in ATK stat for Passive Inventory Slots
+		if get_parent() is PassiveSlot:
+			get_parent().get_parent().calculateATK()
 
 #add a Dictionary Type variable
 @onready var property: Dictionary = {

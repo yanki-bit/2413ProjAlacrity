@@ -1,11 +1,6 @@
 extends Slot
 class_name PassiveSlot
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# override the function from Slot class and check slot type 
+func _can_drop_data(_pos, data):
+	return data is TextureRect and data.slot_type == slot_type

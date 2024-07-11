@@ -8,7 +8,7 @@ class_name Slot
 @onready var texture_rect = $TextureRect
 
 #add export_enum and variable slot_type
-@export_enum("NONE:0","BODY:2","LEG:3","ACTIVE:4") var slot_type : int
+@export_enum("NONE:0","HEAD:1", "BODY:2","LEG:3","ACTIVE:4") var slot_type : int
 
 #return texture_rect as drag data
 func _get_drag_data(at_position):
@@ -44,3 +44,7 @@ func get_preview():
 	preview.add_child(preview_texture)
 	
 	return preview
+
+#return atk using get_atk
+func get_ATK():
+	return texture_rect.ATK

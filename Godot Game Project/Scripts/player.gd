@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player_menu = $Camera2D2/Player_Menu
 var paused = false
 
-#export allows us to adjust variables on game engine
+ #export allows us to adjust variables on game engine
 @export var move_speed : float = 100
 @export var start_dir : Vector2 = Vector2(0,1)
 

@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt6br4sodganl"]
+
+[ext_resource type="PackedScene" uid="uid://cff2t27y335hh" path="res://scenes/inventory_slot.tscn" id="1_d7rvi"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r8v4i"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerInventory" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 4
+
+[node name="inventorySlot" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="TextureRect" parent="UI/PlayerInventory/inventorySlot" index="0"]
+texture = SubResource("PlaceholderTexture2D_r8v4i")
+ATK = 2
+
+[node name="inventorySlot2" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot3" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot4" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot5" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot6" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot7" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot8" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot9" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot10" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot11" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[node name="inventorySlot12" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
+layout_mode = 2
+
+[editable path="UI/PlayerInventory/inventorySlot"]

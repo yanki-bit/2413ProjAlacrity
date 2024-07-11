@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d033l0sj8uk8v"]
+[gd_scene load_steps=3 format=3 uid="uid://d033l0sj8uk8v"]
 
-[ext_resource type="Script" path="res://Menus/general_audio_settings.gd" id="1_ltp2a"]
+[ext_resource type="Script" path="res://Main Menu/general_audio_settings.gd" id="1_ltp2a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5qhv"]
 
 [node name="general_audio_settings" type="Control"]
 layout_mode = 3
@@ -25,6 +27,7 @@ text = "Master Volume
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_v5qhv")
 
 [node name="HSlider" type="HSlider" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 32)

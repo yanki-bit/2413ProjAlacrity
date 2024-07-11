@@ -1,21 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7b62emyxw0av"]
+[gd_scene load_steps=10 format=3 uid="uid://b47qubd7ekm80"]
 
-[ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_5fnw4"]
+[ext_resource type="Script" path="res://Main Menu/main_menu.gd" id="1_5fnw4"]
 [ext_resource type="Texture2D" uid="uid://d2js65vhxhim0" path="res://Assets/BG/Visible.PNG" id="2_uojlt"]
-[ext_resource type="PackedScene" uid="uid://blnmcvgjngnth" path="res://Menus/settings_menu.tscn" id="3_2fcug"]
-[ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Menus/settings_tab_container.tscn" id="4_khit5"]
+[ext_resource type="PackedScene" uid="uid://dq1f22rga64vb" path="res://Main Menu/settings_menu.tscn" id="3_2fcug"]
+[ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Main Menu/settings_tab_container.tscn" id="4_khit5"]
 [ext_resource type="AudioStream" uid="uid://cj3lb6khjldmo" path="res://Assets/Music/Lobby-Time(chosic.com).mp3" id="5_eojqo"]
 
 [sub_resource type="SystemFont" id="SystemFont_wqwvt"]
 font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_svyuh"]
 
 [sub_resource type="SystemFont" id="SystemFont_sijyv"]
 font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_62231"]
 font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3

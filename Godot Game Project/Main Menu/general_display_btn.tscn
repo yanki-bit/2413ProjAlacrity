@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c3lwfmqkj8jfq"]
+[gd_scene load_steps=2 format=3 uid="uid://c3lwfmqkj8jfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdwkf"]
 
 [node name="general_display_btn" type="Control"]
 layout_mode = 3
@@ -20,8 +22,8 @@ text = "Base_Label"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 150
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mdwkf")
 
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2

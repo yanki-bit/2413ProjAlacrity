@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Character/player.tscn" id="1_20idg"]
-[ext_resource type="Texture2D" uid="uid://djhc6m7o0c4hk" path="res://Assets/TileMap/Bedroom_0001.png" id="2_e4xmo"]
+[ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Player Menu/Player_Menu.tscn" id="3_kalfj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -97,7 +97,6 @@ texture_region_size = Vector2i(32, 32)
 2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.0992126, -16, -16, -16, -16, 16, 16, 16, 16, -16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_anfe1"]
-texture = ExtResource("2_e4xmo")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(32, 32)
 7:0/0 = 0
@@ -202,3 +201,12 @@ layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 26
 
 [node name="Player" parent="." instance=ExtResource("1_20idg")]
 z_index = 1
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+
+[node name="Player_Menu" parent="Player/Camera2D2" instance=ExtResource("3_kalfj")]
+visibility_layer = 513
+offset_left = -401.0
+offset_top = -122.0
+offset_right = -401.0
+offset_bottom = -122.0

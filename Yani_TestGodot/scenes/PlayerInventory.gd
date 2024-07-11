@@ -1,11 +1,12 @@
 extends GridContainer
 
-func _ready():
-	add_item() #for testing purposes
-	add_item("1")
-	add_item("2")
-	add_item("3")
-	add_item("4")
+#uncomment for functional unit testing
+#func _ready():
+#	add_item() #for testing purposes
+#	add_item("1")
+#	add_item("2")
+#	add_item("3")
+#	add_item("4")
 
 # get texture, slot type and attack stat then store it in dictionary
 func add_item(ID = "0"):

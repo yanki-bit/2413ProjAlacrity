@@ -1,17 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt6br4sodganl"]
+[gd_scene load_steps=8 format=3 uid="uid://dt6br4sodganl"]
 
+[ext_resource type="Script" path="res://scenes/UI.gd" id="1_85eag"]
 [ext_resource type="PackedScene" uid="uid://cff2t27y335hh" path="res://scenes/inventory_slot.tscn" id="1_d7rvi"]
 [ext_resource type="Script" path="res://scenes/PlayerInventory.gd" id="1_psoqf"]
 [ext_resource type="Script" path="res://scenes/Character.gd" id="2_sonyh"]
 [ext_resource type="PackedScene" uid="uid://b7tbusgsep3ug" path="res://scenes/inventory_slot_passive.tscn" id="2_twhw8"]
+[ext_resource type="PackedScene" uid="uid://7ocu08yu1eaa" path="res://scenes/test_player.tscn" id="5_8onkw"]
+[ext_resource type="PackedScene" uid="uid://dijvdftqjjdig" path="res://scenes/abstract_item.tscn" id="6_66l4q"]
 
 [node name="TestScene" type="Node2D"]
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_85eag")
 
 [node name="PlayerInventory" type="GridContainer" parent="UI"]
 layout_mode = 0
@@ -90,3 +95,17 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="testPlayer" parent="." instance=ExtResource("5_8onkw")]
+position = Vector2(45, 37)
+
+[node name="AbstractItem" parent="." instance=ExtResource("6_66l4q")]
+position = Vector2(101, 125)
+
+[node name="AbstractItem2" parent="." instance=ExtResource("6_66l4q")]
+position = Vector2(132, 42)
+ID = "1"
+
+[node name="AbstractItem3" parent="." instance=ExtResource("6_66l4q")]
+position = Vector2(264, 113)
+ID = "3"

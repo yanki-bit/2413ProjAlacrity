@@ -1,0 +1,27 @@
+{
+	"0" : {
+		"texture" : "helmet.png",
+		"slot_type" : 1,
+		"ATK" : 2
+	},
+	"1" : {
+		"texture" : "armor.png",
+		"slot_type" : 2,
+		"ATK" : 4
+	},
+	"2" : {
+		"texture" : "boots.png",
+		"slot_type" : 3,
+		"ATK" : 1
+	},
+	"3" : {
+		"texture" : "sword.png",
+		"slot_type" : 1,
+		"ATK" : 5
+	},
+	"4" : {
+		"texture" : "greenPotion",
+		"slot_type" : 1,
+		"ATK" : 0
+	},
+}

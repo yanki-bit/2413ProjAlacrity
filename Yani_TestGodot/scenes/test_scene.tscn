@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt6br4sodganl"]
+[gd_scene load_steps=5 format=3 uid="uid://dt6br4sodganl"]
 
 [ext_resource type="PackedScene" uid="uid://cff2t27y335hh" path="res://scenes/inventory_slot.tscn" id="1_d7rvi"]
+[ext_resource type="Script" path="res://scenes/PlayerInventory.gd" id="1_psoqf"]
 [ext_resource type="Script" path="res://scenes/Character.gd" id="2_sonyh"]
 [ext_resource type="PackedScene" uid="uid://b7tbusgsep3ug" path="res://scenes/inventory_slot_passive.tscn" id="2_twhw8"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r8v4i"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_unvnk"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -22,25 +19,16 @@ offset_left = 86.0
 offset_right = 258.0
 offset_bottom = 128.0
 columns = 4
+script = ExtResource("1_psoqf")
 
 [node name="inventorySlot" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
 layout_mode = 2
-
-[node name="TextureRect" parent="UI/PlayerInventory/inventorySlot" index="0"]
-texture = SubResource("PlaceholderTexture2D_r8v4i")
-slot_type = 1
-ATK = 2
 
 [node name="inventorySlot2" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
 layout_mode = 2
 
 [node name="inventorySlot3" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
 layout_mode = 2
-
-[node name="TextureRect" parent="UI/PlayerInventory/inventorySlot3" index="0"]
-texture = SubResource("PlaceholderTexture2D_unvnk")
-slot_type = 3
-ATK = 4
 
 [node name="inventorySlot4" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
 layout_mode = 2
@@ -102,6 +90,3 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-
-[editable path="UI/PlayerInventory/inventorySlot"]
-[editable path="UI/PlayerInventory/inventorySlot3"]

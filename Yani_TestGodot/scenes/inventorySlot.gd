@@ -10,6 +10,11 @@ class_name Slot
 #add export_enum and variable slot_type
 @export_enum("NONE:0","HEAD:1", "BODY:2","LEG:3","ACTIVE:4") var slot_type : int
 
+
+#boolean for checking if a slot is filled and initialize to false
+var filled : bool = false
+
+
 #return texture_rect as drag data
 func _get_drag_data(at_position):
 	
@@ -48,3 +53,13 @@ func get_preview():
 #return atk using get_atk
 func get_ATK():
 	return texture_rect.ATK
+
+#define set_property function
+func set_property(data):
+	texture_rect.property = data 
+	
+	#check if the texture is null or not to make it filled
+	if data["TEXTURE"] == null:
+		filled = false
+	else:
+		filled = true

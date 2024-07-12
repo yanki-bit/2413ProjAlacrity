@@ -15,14 +15,15 @@
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 61.0
+offset_top = 19.0
+offset_right = 101.0
+offset_bottom = 59.0
 script = ExtResource("1_85eag")
 
 [node name="PlayerInventory" type="GridContainer" parent="UI"]
 layout_mode = 0
-offset_left = 86.0
-offset_right = 258.0
+offset_right = 172.0
 offset_bottom = 128.0
 columns = 4
 script = ExtResource("1_psoqf")
@@ -66,7 +67,8 @@ layout_mode = 2
 
 [node name="Character" type="Control" parent="UI"]
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -60.0
+offset_right = -20.0
 offset_bottom = 40.0
 script = ExtResource("2_sonyh")
 

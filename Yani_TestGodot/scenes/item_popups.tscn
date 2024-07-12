@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp6koqpffs7w0"]
+[gd_scene load_steps=3 format=3 uid="uid://bp6koqpffs7w0"]
 
 [ext_resource type="Script" path="res://scenes/item_popups.gd" id="1_w44o3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqdtp"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.823222, 0.515518, 0.2978, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.957132, 0.769701, 0.650417, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="ItemPopups" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -14,22 +31,26 @@ script = ExtResource("1_w44o3")
 [node name="ItemPopup" type="PopupPanel" parent="UI"]
 unique_name_in_owner = true
 position = Vector2i(100, 35)
-size = Vector2i(310, 119)
+size = Vector2i(322, 131)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_xqdtp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ItemPopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 306.0
-offset_bottom = 115.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 312.0
+offset_bottom = 121.0
 
 [node name="Name" type="Label" parent="UI/ItemPopup/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 text = "Item Name "
 
 [node name="Item Info" type="Label" parent="UI/ItemPopup/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 8
 text = "Information"
 
@@ -38,7 +59,9 @@ layout_mode = 2
 
 [node name="Item Type" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "Item Type"
 
@@ -46,6 +69,7 @@ text = "Item Type"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "Weapon"
 
@@ -54,7 +78,9 @@ layout_mode = 2
 
 [node name="Item Price" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "Item Price"
 
@@ -62,6 +88,7 @@ text = "Item Price"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "$5"
 
@@ -71,6 +98,7 @@ layout_mode = 2
 [node name="Item HP" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "HP  "
 
@@ -78,12 +106,14 @@ text = "HP  "
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "0"
 
 [node name="Item ATK" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "ATK"
 
@@ -91,12 +121,14 @@ text = "ATK"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "1"
 
 [node name="Item DEF" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "DEF"
 
@@ -104,6 +136,7 @@ text = "DEF"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "0"
 
@@ -113,6 +146,7 @@ layout_mode = 2
 [node name="Item SPD" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "SPD"
 
@@ -120,12 +154,14 @@ text = "SPD"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "0"
 
 [node name="Item LCK" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "LCK"
 
@@ -133,5 +169,6 @@ text = "LCK"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.239216, 0.152941, 0.6)
 theme_override_font_sizes/font_size = 10
 text = "1"

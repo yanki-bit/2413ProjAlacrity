@@ -12,6 +12,7 @@ extends Control
 func ItemPopup(slot : Rect2i, item : Item): #data is used in the inventorySlot script
 	if item != null:
 		set_value(item) #set values before showing the popup
+		%ItemPopup.size = Vector2i.ZERO #removes extra space for long name weapon items
 	
 	#get mouse position relative to viewport and store it in mouse_pos
 	var mouse_pos = get_viewport().get_mouse_position()

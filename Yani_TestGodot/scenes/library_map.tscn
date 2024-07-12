@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddw54tc5fm2qt"]
+[gd_scene load_steps=21 format=3 uid="uid://ddw54tc5fm2qt"]
 
 [ext_resource type="Texture2D" uid="uid://d0x7ycum7s24i" path="res://art/tilesets/TilesetInteriorFloor.png" id="1_87n76"]
 [ext_resource type="PackedScene" uid="uid://djifcvmdd7nlh" path="res://player/test_player.tscn" id="1_pfdhv"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://he5ousvsw6qq" path="res://art/tilesets/TilesetFloor.png" id="6_v85q7"]
 [ext_resource type="Texture2D" uid="uid://buukmjepnmgn4" path="res://art/tilesets/Interiors_free_32x32.png" id="7_ju4ah"]
 [ext_resource type="PackedScene" uid="uid://do1cle5v7qrl6" path="res://scenes/test_npc.tscn" id="9_3rhvy"]
+[ext_resource type="PackedScene" uid="uid://5qvxry4bwxds" path="res://helpers/actionable.tscn" id="10_cck82"]
+[ext_resource type="Resource" uid="uid://cp4ejdlkh030h" path="res://dialogue/sample.dialogue" id="11_pett4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jb1n"]
 texture = ExtResource("1_87n76")
@@ -4806,6 +4808,9 @@ sources/4 = SubResource("TileSetAtlasSource_kpajd")
 sources/5 = SubResource("TileSetAtlasSource_f7nbt")
 sources/6 = SubResource("TileSetAtlasSource_twgdw")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntwim"]
+radius = 8.0
+
 [node name="LibraryMap" type="Node2D"]
 
 [node name="testEnvironment" type="TileMap" parent="."]
@@ -4828,3 +4833,10 @@ limit_bottom = 288
 
 [node name="testNPC" parent="." instance=ExtResource("9_3rhvy")]
 position = Vector2(139, 24)
+
+[node name="Actionable" parent="testNPC" instance=ExtResource("10_cck82")]
+dialogue_resource = ExtResource("11_pett4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testNPC/Actionable"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_ntwim")

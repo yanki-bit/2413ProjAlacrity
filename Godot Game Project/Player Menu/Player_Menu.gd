@@ -12,15 +12,30 @@ func _ready():
 
 #recieve input
 func _unhandled_input(event):
+	#check what the status of the menu is
 	match menu_status:
+		#if menu is currently closed
 		menuState.CLOSED:
 			if event.is_action_pressed("pause"):
+				#obtain reference to player node
+				var player = find_parent("Player")
+				#pause physics to stop movement
+				player.set_physics_process(false)
 				player_menu.show()
+				#set menu state to pause
 				menu_status = menuState.PAUSE_MENU
-		
+				#set focus to first menu option
+				$"Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/ID Card".grab_focus()
+				
+		#if menu is currently open
 		menuState.PAUSE_MENU:
 			if event.is_action_pressed("pause"):
+				#obtain reference to player node
+				var player = find_parent("Player")
+				#restart physics to restart movement
+				player.set_physics_process(true)
 				player_menu.hide()
+				#set menu state to closed
 				menu_status = menuState.CLOSED
 	# recieve pause input
 # Called every frame. 'delta' is the elapsed time since the previous frame.

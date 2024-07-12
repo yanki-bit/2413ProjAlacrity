@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://d0u3aasjbv5ul"]
+[gd_scene load_steps=29 format=3 uid="uid://d0u3aasjbv5ul"]
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
+[ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Player Menu/Player_Menu.tscn" id="3_81lt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeicx"]
 size = Vector2(32, 24)
@@ -297,3 +298,13 @@ tree_root = SubResource("AnimationNodeStateMachine_k8ge2")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.9616, 0.0925109)
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+
+[node name="Player_Menu" parent="Camera2D2" instance=ExtResource("3_81lt5")]
+visible = false
+visibility_layer = 513
+offset_left = -401.0
+offset_top = -122.0
+offset_right = -401.0
+offset_bottom = -122.0

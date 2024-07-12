@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=6 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Character/player.tscn" id="1_20idg"]
-[ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Player Menu/Player_Menu.tscn" id="3_kalfj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -201,12 +200,3 @@ layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 26
 
 [node name="Player" parent="." instance=ExtResource("1_20idg")]
 z_index = 1
-
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-
-[node name="Player_Menu" parent="Player/Camera2D2" instance=ExtResource("3_kalfj")]
-visibility_layer = 513
-offset_left = -401.0
-offset_top = -122.0
-offset_right = -401.0
-offset_bottom = -122.0

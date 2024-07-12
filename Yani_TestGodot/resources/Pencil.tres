@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cpci2sidlyxnf"]
+
+[ext_resource type="Script" path="res://Item.gd" id="1_px5a2"]
+[ext_resource type="Texture2D" uid="uid://cybis8lpxed15" path="res://art/objects/sword.png" id="2_figaj"]
+
+[resource]
+script = ExtResource("1_px5a2")
+name = "Pencil"
+attribute_type = "Weapon"
+price = 2
+desc = "A No. 2 Pencil. You've used one since Grade School."
+texture = ExtResource("2_figaj")
+item_HP = 0
+item_ATK = 1
+item_DEF = 0
+item_SPD = 0
+item_LCK = 0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt6br4sodganl"]
+[gd_scene load_steps=9 format=3 uid="uid://dt6br4sodganl"]
 
 [ext_resource type="Script" path="res://scenes/UI.gd" id="1_85eag"]
 [ext_resource type="PackedScene" uid="uid://cff2t27y335hh" path="res://scenes/inventory_slot.tscn" id="1_d7rvi"]
 [ext_resource type="Script" path="res://scenes/PlayerInventory.gd" id="1_psoqf"]
 [ext_resource type="Script" path="res://scenes/Character.gd" id="2_sonyh"]
 [ext_resource type="PackedScene" uid="uid://b7tbusgsep3ug" path="res://scenes/inventory_slot_passive.tscn" id="2_twhw8"]
+[ext_resource type="Resource" uid="uid://c4quxyd337ngk" path="res://resources/Hoodie.tres" id="4_l4qmo"]
 [ext_resource type="PackedScene" uid="uid://7ocu08yu1eaa" path="res://scenes/test_player.tscn" id="5_8onkw"]
 [ext_resource type="PackedScene" uid="uid://dijvdftqjjdig" path="res://scenes/abstract_item.tscn" id="6_66l4q"]
 
@@ -28,6 +29,7 @@ script = ExtResource("1_psoqf")
 
 [node name="inventorySlot" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
 layout_mode = 2
+item = ExtResource("4_l4qmo")
 
 [node name="inventorySlot2" parent="UI/PlayerInventory" instance=ExtResource("1_d7rvi")]
 layout_mode = 2

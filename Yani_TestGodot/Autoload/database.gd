@@ -1,5 +1,10 @@
 extends Node
 
+# ################################################################################################
+# programmer: Yani
+# desc: This script is to load the JSON file items database 
+# usage: Script is added to autoload as a default, go to Project > Project Settings > Autoload
+##################################################################################################
 
 # declare a dictionary var called content
 var content : Dictionary 

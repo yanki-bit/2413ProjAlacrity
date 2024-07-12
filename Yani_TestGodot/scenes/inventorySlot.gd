@@ -10,7 +10,6 @@ class_name Slot
 #add export_enum and variable slot_type
 @export_enum("NONE:0","HEAD:1", "BODY:2","LEG:3","ACTIVE:4") var slot_type : int
 
-
 #boolean for checking if a slot is filled and initialize to false
 var filled : bool = false
 
@@ -63,3 +62,30 @@ func set_property(data):
 		filled = false
 	else:
 		filled = true
+
+# ################################################################################################
+# programmer: Yani
+# desc: This script portion below is related to the Item Tooltip Popup Window; 
+# and is attached to the Inventory Slot Parent Node
+# usage: --
+##################################################################################################
+
+#Make a setter variable to store the item
+@export var item: Item = null:
+	set(value):
+		item = value
+		if value != null:
+			$TextureRect.texture = value.texture
+
+# connect with the Node > Signal > Control mouse_entered & mouse_exited
+func _on_mouse_entered():
+	if item == null: #if item is null, return and skip it
+		return
+	ItemPopups.ItemPopup(Rect2i( Vector2i(global_position), Vector2i(size) ), item) #call ItemPopup when the mouse enters the slot
+
+#Hide when the mouse exits the slot 
+func _on_mouse_exited():
+	ItemPopups.HideItemPopup()
+	
+
+

@@ -1,0 +1,137 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp6koqpffs7w0"]
+
+[ext_resource type="Script" path="res://scenes/item_popups.gd" id="1_w44o3"]
+
+[node name="ItemPopups" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_w44o3")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ItemPopup" type="PopupPanel" parent="UI"]
+unique_name_in_owner = true
+position = Vector2i(100, 35)
+size = Vector2i(310, 119)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ItemPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 306.0
+offset_bottom = 115.0
+
+[node name="Name" type="Label" parent="UI/ItemPopup/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item Name "
+
+[node name="Item Info" type="Label" parent="UI/ItemPopup/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Information"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ItemPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Item Type" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Item Type"
+
+[node name="Item Type Text" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Weapon"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/ItemPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Item Price" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Item Price"
+
+[node name="Item Price Text" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "$5"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/ItemPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Item HP" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "HP  "
+
+[node name="Item HP Value" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Item ATK" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "ATK"
+
+[node name="Item ATK Value" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="Item DEF" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "DEF"
+
+[node name="Item DEF Value" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/ItemPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Item SPD" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "SPD"
+
+[node name="Item SPD Value" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Item LCK" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "LCK"
+
+[node name="Item LCK Value" type="Label" parent="UI/ItemPopup/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1"

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemData="*res://Autoload/database.gd"
+ItemPopups="*res://scenes/item_popups.tscn"
 
 [input]
 

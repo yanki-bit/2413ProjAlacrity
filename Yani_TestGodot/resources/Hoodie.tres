@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c4quxyd337ngk"]
+
+[ext_resource type="Script" path="res://Item.gd" id="1_ra3g8"]
+[ext_resource type="Texture2D" uid="uid://c3w1agdijr4jn" path="res://art/objects/armor.png" id="2_eekjs"]
+
+[resource]
+script = ExtResource("1_ra3g8")
+name = "Hoodie"
+attribute_type = "Clothes"
+price = 5
+desc = "Good enough for school, don't wear it to an interview."
+texture = ExtResource("2_eekjs")
+item_HP = 10
+item_ATK = 0
+item_DEF = 2
+item_SPD = 0
+item_LCK = 0

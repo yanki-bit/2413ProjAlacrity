@@ -14,7 +14,6 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdmgs"]
 
 [node name="Player_Menu" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 280.0
@@ -70,7 +69,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+text = "ID Card
 "
 
 [node name="HSeparator2" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -81,7 +80,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+text = "Equipment
 "
 
 [node name="HSeparator3" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -92,7 +91,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+text = "Item
 "
 
 [node name="HSeparator4" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -103,7 +102,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+text = "Ability
 "
 
 [node name="HSeparator5" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -114,7 +113,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+text = "Settings
 "
 
 [node name="HSeparator6" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -125,8 +124,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
-"
+text = "Exit"
 
 [node name="Information_Container" type="VBoxContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
 custom_minimum_size = Vector2(0, 400)

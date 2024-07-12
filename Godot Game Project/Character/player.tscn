@@ -297,6 +297,3 @@ tree_root = SubResource("AnimationNodeStateMachine_k8ge2")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.9616, 0.0925109)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1.04356, 1)

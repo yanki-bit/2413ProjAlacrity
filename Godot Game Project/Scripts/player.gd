@@ -4,7 +4,7 @@ extends CharacterBody2D
 var paused = false
 
  #export allows us to adjust variables on game engine
-@export var move_speed : float = 100
+@export var move_speed : float = 200
 @export var start_dir : Vector2 = Vector2(0,1)
 
 #Finds the node called animation tree and stores it in variable
@@ -21,14 +21,8 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	if Input.is_action_pressed("pause"):
-		pause_menu()
-	
 	#get input direction
-	var input_dir = Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"), 
-		Input.get_action_strength("down") - Input.get_action_strength("up")
-		)
+	var input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	#updates the direction based on input
 	update_animation_parameter(input_dir)
@@ -56,19 +50,11 @@ func new_state():
 		
 		
 #keypress handler
-func handle_connect() -> void:
-	pass
+#func handle_connect() -> void:
+#	pass
 #function to open menu when user presses esc key
-func on_esc_pressed() -> void:
-	pass
+#func on_esc_pressed() -> void:
+#	pass
 
 #function to show and hide the pause menu will be moved later to limit where the player can pause
-func pause_menu():
-	if paused:
-		player_menu.hide()
-		Engine.time_scale = 1
-		get_tree
-	else:
-		player_menu.show()
-		Engine.time_scale = 0
-	paused = !paused
+

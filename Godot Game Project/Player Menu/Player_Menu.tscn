@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpm3eishnn7dd"]
+[gd_scene load_steps=6 format=3 uid="uid://dpm3eishnn7dd"]
 
 [ext_resource type="Script" path="res://Player Menu/Player_Menu.gd" id="1_4s7nh"]
 [ext_resource type="PackedScene" uid="uid://bbwufrwgjp7oo" path="res://Player Menu/inventory_container.tscn" id="2_tm1ut"]
+[ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Main Menu/settings_tab_container.tscn" id="3_1t8pl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3a87"]
 bg_color = Color(1, 1, 1, 0.611765)
@@ -141,6 +142,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Inventory_Container" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container" instance=ExtResource("2_tm1ut")]
+visible = false
 layout_mode = 2
 
+[node name="Settings_tab_container" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container" instance=ExtResource("3_1t8pl")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tab_Container" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container" index="0"]
+anchors_preset = 15
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
 [connection signal="button_down" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn" to="." method="_on_equipment_btn_button_down"]
+
+[editable path="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]

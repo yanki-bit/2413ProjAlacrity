@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpm3eishnn7dd"]
 
 [ext_resource type="Script" path="res://Player Menu/Player_Menu.gd" id="1_4s7nh"]
+[ext_resource type="PackedScene" uid="uid://bbwufrwgjp7oo" path="res://Player Menu/inventory_container.tscn" id="2_tm1ut"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3a87"]
 bg_color = Color(1, 1, 1, 0.611765)
@@ -11,21 +12,17 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4taa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdmgs"]
-
-[node name="Player_Menu" type="Control"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 280.0
-offset_bottom = 480.0
+[node name="Player_Menu" type="Camera2D"]
 script = ExtResource("1_4s7nh")
 
 [node name="Menu_Margin" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -537.0
+offset_top = -359.0
+offset_right = 544.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
@@ -40,11 +37,9 @@ theme_override_constants/separation = 10
 [node name="Player_Data_Container" type="HBoxContainer" parent="Menu_Margin/Player_Menu_Container"]
 custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
-size_flags_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="Panel" type="Panel" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
-self_modulate = Color(1, 1, 1, 0.611765)
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p3a87")
@@ -66,44 +61,52 @@ layout_mode = 2
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="ID Card" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="ID_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+toggle_mode = true
+button_pressed = true
+text = "Player_name
 "
 
 [node name="HSeparator2" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Equipment" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="Equipment_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+toggle_mode = true
+button_pressed = true
+text = "Equipment
 "
 
 [node name="HSeparator3" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Item" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="Item_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+toggle_mode = true
+button_pressed = true
+text = "Items
 "
 
 [node name="HSeparator4" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Ability" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="Ability_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+toggle_mode = true
+button_pressed = true
+text = "Abilities
 "
 
 [node name="HSeparator5" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -114,7 +117,9 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+toggle_mode = true
+button_pressed = true
+text = "Settings
 "
 
 [node name="HSeparator6" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
@@ -125,7 +130,9 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 custom_minimum_size = Vector2(230, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Button
+toggle_mode = true
+button_pressed = true
+text = "Exit Game
 "
 
 [node name="Information_Container" type="VBoxContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
@@ -133,7 +140,7 @@ custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="Menu_Margin/Player_Menu_Container"]
+[node name="Inventory_Container" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container" instance=ExtResource("2_tm1ut")]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_tdmgs")
+
+[connection signal="button_down" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn" to="." method="_on_equipment_btn_button_down"]

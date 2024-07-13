@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@onready var player_menu = $Camera2D2/Player_Menu
-var paused = false
+@onready var player_menu = $Player_Menu
+
+
+
 
  #export allows us to adjust variables on game engine
 @export var move_speed : float = 100
@@ -19,11 +21,7 @@ func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir)
 	
-	
 func _physics_process(delta):
-	if Input.is_action_pressed("pause"):
-		pause_menu()
-	
 	#get input direction
 	var input_dir = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
@@ -62,13 +60,4 @@ func handle_connect() -> void:
 func on_esc_pressed() -> void:
 	pass
 
-#function to show and hide the pause menu will be moved later to limit where the player can pause
-func pause_menu():
-	if paused:
-		player_menu.hide()
-		Engine.time_scale = 1
-		get_tree
-	else:
-		player_menu.show()
-		Engine.time_scale = 0
-	paused = !paused
+

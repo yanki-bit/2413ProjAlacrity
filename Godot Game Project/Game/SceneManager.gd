@@ -21,3 +21,6 @@ func transition_to_next_scene(new_scene: String):
 	next_scene = new_scene
 	$CurrentScene.get_child(0).queue_free()
 	$CurrentScene.add_child(load(next_scene).instantiate())
+
+func transition_to_combat():
+	$Player

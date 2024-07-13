@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=7 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
-[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Character/player.tscn" id="1_20idg"]
+[ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
+[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -198,5 +199,8 @@ layer_2/name = "L2"
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 262145, 1, 3, 262145, 1, 65538, 327681, 1, 65539, 393217, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_20idg")]
+[node name="Player" parent="." instance=ExtResource("2_37xrm")]
+
+[node name="CountBook" parent="." instance=ExtResource("1_glpmx")]
 z_index = 1
+position = Vector2(20, 80)

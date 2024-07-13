@@ -21,7 +21,7 @@ func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	#get input direction
 	var input_dir = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 

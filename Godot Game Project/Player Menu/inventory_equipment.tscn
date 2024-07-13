@@ -1,4 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceqyh5kgdtkew"]
+[gd_scene load_steps=6 format=3 uid="uid://ceqyh5kgdtkew"]
+
+[sub_resource type="SystemFont" id="SystemFont_yo4cx"]
+font_names = PackedStringArray("Monospace")
+font_weight = 600
+multichannel_signed_distance_field = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ktryy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0equ"]
+
+[sub_resource type="SystemFont" id="SystemFont_bf8tw"]
+font_names = PackedStringArray("Monospace")
+font_weight = 600
+multichannel_signed_distance_field = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4shq"]
 corner_radius_top_left = 10
@@ -21,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
 [node name="Equipment_Options" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -32,18 +46,72 @@ alignment = 1
 [node name="Weapon_btn" type="Button" parent="VBoxContainer/Equipment_Options"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("SystemFont_yo4cx")
+theme_override_font_sizes/font_size = 18
 text = "Weapon"
 
 [node name="Armor_btn" type="Button" parent="VBoxContainer/Equipment_Options"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("SystemFont_yo4cx")
+theme_override_font_sizes/font_size = 18
 text = "Armor"
 
 [node name="Accessory_btn" type="Button" parent="VBoxContainer/Equipment_Options"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("SystemFont_yo4cx")
+theme_override_font_sizes/font_size = 18
 text = "Accessories
 "
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ktryy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_t0equ")
+
+[node name="ItemQty_Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_bf8tw")
+theme_override_font_sizes/normal_font_size = 14
+text = "Item Quantity
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_t0equ")
+
+[node name="ItemName_Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_bf8tw")
+theme_override_font_sizes/normal_font_size = 14
+text = "Item Quantity
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
 
 [node name="Inventory_Items_Container" type="Panel" parent="VBoxContainer"]
 layout_mode = 2
@@ -67,9 +135,4 @@ layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Panel" type="Panel" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3

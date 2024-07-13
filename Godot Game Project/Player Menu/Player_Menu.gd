@@ -13,6 +13,7 @@ extends Camera2D
 @onready var exit = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Exit as Button
 
 @onready var information_container = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container
+@onready var exit_confirmation_dialog = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog as ConfirmationDialog
 
 @onready var inventory_container = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container
 @onready var settings_tab_container = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container
@@ -25,7 +26,7 @@ func _ready():
 	player_menu.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		pause_menu()
 
@@ -33,7 +34,6 @@ func _process(delta):
 func pause_menu():
 	if paused:
 		player_menu.hide()
-		get_tree
 		player.set_physics_process(true) #resumes player movement
 	else:
 		player_menu.show()
@@ -53,6 +53,7 @@ func handle_connect_signal() -> void:
 func on_equipment_button_press() -> void:
 	on_button_press(information_container)
 	inventory_container.visible = !inventory_container.visible
+	$Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment.visible = !$Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment.visible
 	
 func on_id_button_press() -> void:
 	pass
@@ -63,8 +64,10 @@ func on_item_button_press() -> void:
 func on_settings_button_press() -> void:
 	on_button_press(information_container)
 	settings_tab_container.visible =!settings_tab_container.visible
+
 func on_exit_button_press() -> void:
-	pass
+	on_button_press(information_container)
+	exit_confirmation_dialog.popup_centered()
 	
 #hides all children of container when button pressed
 func on_button_press(container: Node) -> void:
@@ -72,4 +75,7 @@ func on_button_press(container: Node) -> void:
 		if child is Node:
 			child.visible = false
 
+#Exits game Upon confirmation
+func on_exit_confirmed():
+	get_tree().exit()
 

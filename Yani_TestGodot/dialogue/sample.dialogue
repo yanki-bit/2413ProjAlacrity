@@ -1,5 +1,6 @@
 ~ start
 
-test_npc: Hello world!
+npc1: Hello world!
+player: Hello!
 
 => END

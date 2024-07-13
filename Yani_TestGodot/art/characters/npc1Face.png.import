@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brj4emlpvubxc"
-path="res://.godot/imported/carpet.png-2f768dd105f4ec08f1e9cef999965e56.ctex"
+uid="uid://c53ami04b2jm0"
+path="res://.godot/imported/npc1Face.png-6ab6dd6d4fece251053e6869db425072.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/floors/carpet.png"
-dest_files=["res://.godot/imported/carpet.png-2f768dd105f4ec08f1e9cef999965e56.ctex"]
+source_file="res://art/characters/npc1Face.png"
+dest_files=["res://.godot/imported/npc1Face.png-6ab6dd6d4fece251053e6869db425072.ctex"]
 
 [params]
 

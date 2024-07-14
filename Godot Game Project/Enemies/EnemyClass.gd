@@ -32,6 +32,15 @@ func show_in_fight():
 	show()
 	$AnimatedSprite2D.play("default")
 
+func initialize_stats_in_combat():
+	MAX_HP = statsheet.MAX_HP
+	CURR_HP = statsheet.CURR_HP
+	ATK = statsheet.ATK
+	DEF = statsheet.DEF
+	SPD = statsheet.SPD
+	LCK = statsheet.LCK
+	
+
 # Generate the number of minions to spawn with this enemy
 func generate_number_of_minions() -> int:
 	var numberOfMinions = randi_range(0,2)

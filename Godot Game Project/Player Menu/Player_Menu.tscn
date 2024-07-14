@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpm3eishnn7dd"]
+[gd_scene load_steps=12 format=3 uid="uid://dpm3eishnn7dd"]
 
 [ext_resource type="Script" path="res://Player Menu/Player_Menu.gd" id="1_4s7nh"]
 [ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_dm40a"]
 [ext_resource type="PackedScene" uid="uid://bbwufrwgjp7oo" path="res://Player Menu/inventory_container.tscn" id="2_tm1ut"]
 [ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Main Menu/settings_tab_container.tscn" id="3_1t8pl"]
 [ext_resource type="PackedScene" uid="uid://d4hkro4xymogt" path="res://Player Menu/Exit_ConfirmationDialog.tscn" id="4_k4pmu"]
+[ext_resource type="PackedScene" uid="uid://mludnrhfsb7i" path="res://Player Menu/inventory_items.tscn" id="4_tekhp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4taa"]
 
@@ -204,9 +205,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Inventory_Container" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container" instance=ExtResource("2_tm1ut")]
+visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 size_flags_vertical = 1
+
+[node name="Inventory_Equipment" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer" index="0"]
+visible = false
+
+[node name="Inventory_Items" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer" index="1" instance=ExtResource("4_tekhp")]
+visible = false
+layout_mode = 2
 
 [node name="Settings_tab_container" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container" instance=ExtResource("3_1t8pl")]
 visible = false
@@ -224,8 +233,8 @@ offset_bottom = 0.0
 visible = false
 
 [connection signal="button_down" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn" to="." method="_on_equipment_btn_button_down"]
-[connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="_on_exit_confirmation_dialog_confirmed"]
 [connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="on_exit_confirmed"]
+[connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="_on_exit_confirmation_dialog_confirmed"]
 
 [editable path="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]

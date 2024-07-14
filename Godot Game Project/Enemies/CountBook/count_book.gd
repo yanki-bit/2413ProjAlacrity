@@ -1,9 +1,12 @@
-extends Area2D
+extends EnemyClass
 
 var battle = preload("res://Game/battle_scene.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite2D.play("default")
+	#hid unit on load
+	hide()
+	await get_tree().create_timer(5.0).timeout
+	show_on_map()
 	pass # Replace with function body.
 
 
@@ -12,12 +15,12 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	if "Player" in body.name:
-		var numberOfMinions: int = randi_range(0,2)
-		get_tree().paused = true
-		
-		var fight = battle.instantiate()
-		for n in numberOfMinions:
-			battle.addEnemy()
-		get_parent().add_child(fight)
-		queue_free()
+	if "Player" in body.name && self.visible == true:
+		var numberOfMinions: int = generate_number_of_minions()
+		#get_tree().paused = true
+		#
+		#var fight = battle.instantiate()
+		#for n in numberOfMinions:
+			#battle.addEnemy()
+		#get_parent().add_child(fight)
+		#queue_free()

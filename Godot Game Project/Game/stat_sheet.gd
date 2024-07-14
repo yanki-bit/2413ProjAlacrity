@@ -2,7 +2,8 @@ extends Resource
 
 class_name StatSheet
 
-@export var HP: int
+@export var MAX_HP: int
+@export var CURR_HP: int 
 @export var ATK: int
 @export var DEF: int
 @export var SPD: int

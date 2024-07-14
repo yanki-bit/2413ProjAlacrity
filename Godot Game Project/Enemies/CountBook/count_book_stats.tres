@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_6d1q7")
-HP = 0
-ATK = 0
-DEF = 0
-SPD = 0
-LCK = 0
+MAX_HP = 100
+CURR_HP = 100
+ATK = 10
+DEF = 4
+SPD = 5
+LCK = 2

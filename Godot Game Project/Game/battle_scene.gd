@@ -15,7 +15,11 @@ func _process(_delta):
 	pass
 	
 func add_enemies( mainEnemy, minion, numberOfMinions):
-	$EnemiesVContainer/EnemiesHContainer/MiddleEnemy/MiddleEnemyControl.add_child(mainEnemy.instantiate())
+	enemy1 = load(mainEnemy).instantiate()
+	$EnemiesVContainer/EnemiesHContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemy1)
+	enemy1.hide()
+	await get_tree().create_timer(1.5).timeout
+	enemy1.show()
 	match numberOfMinions:
 		2:
 			$EnemiesVContainer/EnemiesHContainer/RightEnemy/RightEnemyControl.add_child(minion.instantiate())

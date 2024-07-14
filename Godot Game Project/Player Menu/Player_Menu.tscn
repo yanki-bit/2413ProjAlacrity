@@ -1,16 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpm3eishnn7dd"]
+[gd_scene load_steps=11 format=3 uid="uid://dpm3eishnn7dd"]
 
 [ext_resource type="Script" path="res://Player Menu/Player_Menu.gd" id="1_4s7nh"]
+[ext_resource type="Texture2D" uid="uid://bnutb1mt4b6mi" path="res://Assets/UI/menu_box_1.png" id="2_b05da"]
 [ext_resource type="PackedScene" uid="uid://bbwufrwgjp7oo" path="res://Player Menu/inventory_container.tscn" id="2_tm1ut"]
 [ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Main Menu/settings_tab_container.tscn" id="3_1t8pl"]
 [ext_resource type="PackedScene" uid="uid://d4hkro4xymogt" path="res://Player Menu/Exit_ConfirmationDialog.tscn" id="4_k4pmu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3a87"]
-bg_color = Color(1, 1, 1, 0.611765)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4taa"]
 
@@ -19,11 +13,13 @@ font_names = PackedStringArray("Monospace")
 font_weight = 600
 multichannel_signed_distance_field = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arfej"]
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8xwv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyg76"]
+bg_color = Color(0.6, 1, 0, 0.678431)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpf07"]
+bg_color = Color(0.6, 1, 0, 0.678431)
 
 [node name="Player_Menu" type="Camera2D"]
 script = ExtResource("1_4s7nh")
@@ -52,12 +48,16 @@ custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Panel" type="Panel" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
+[node name="Menu_BG" type="NinePatchRect" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p3a87")
+texture = ExtResource("2_b05da")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,100 +65,136 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
 
-[node name="Player_Menu_Btn_Clstr" type="VBoxContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer"]
-custom_minimum_size = Vector2(250, 0)
+[node name="Player_Menu_Btn_Clstr" type="VBoxContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
-
-[node name="ID_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-custom_minimum_size = Vector2(230, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_hm8e7")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arfej")
-text = "Player_name
-"
-
-[node name="HSeparator2" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="HSeparator" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Equipment_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-custom_minimum_size = Vector2(230, 50)
+[node name="ID_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_hm8e7")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arfej")
-text = "Equipment
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8xwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyg76")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hpf07")
+text = " Player_name
 "
+alignment = 0
 
-[node name="HSeparator3" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="HSeparator2" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Item_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-custom_minimum_size = Vector2(230, 50)
+[node name="Equipment_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_hm8e7")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arfej")
-text = "Items
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8xwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyg76")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hpf07")
+text = " Equipment
 "
+alignment = 0
 
-[node name="HSeparator4" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="HSeparator3" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Ability_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-custom_minimum_size = Vector2(230, 50)
+[node name="Item_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_hm8e7")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arfej")
-text = "Abilities
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8xwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyg76")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hpf07")
+text = " Items
 "
+alignment = 0
 
-[node name="HSeparator5" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="HSeparator4" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Settings" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-custom_minimum_size = Vector2(230, 50)
+[node name="Ability_btn" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_hm8e7")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arfej")
-text = "Settings
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8xwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyg76")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hpf07")
+text = " Abilities
 "
+alignment = 0
 
-[node name="HSeparator6" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
+[node name="HSeparator5" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
 
-[node name="Exit" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr"]
-custom_minimum_size = Vector2(230, 50)
+[node name="Settings" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_hm8e7")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arfej")
-text = "Exit Game
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8xwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyg76")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hpf07")
+text = " Settings
 "
+alignment = 0
+
+[node name="HSeparator6" type="HSeparator" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_f4taa")
+
+[node name="Exit" type="Button" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_hm8e7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8xwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyg76")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hpf07")
+text = " Exit Game
+"
+alignment = 0
 
 [node name="Information_Container" type="VBoxContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
 custom_minimum_size = Vector2(0, 400)
@@ -185,7 +221,7 @@ offset_bottom = 0.0
 [node name="Exit_ConfirmationDialog" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container" instance=ExtResource("4_k4pmu")]
 visible = false
 
-[connection signal="button_down" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn" to="." method="_on_equipment_btn_button_down"]
+[connection signal="button_down" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn" to="." method="_on_equipment_btn_button_down"]
 [connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="_on_exit_confirmation_dialog_confirmed"]
 [connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="on_exit_confirmed"]
 

@@ -5,12 +5,12 @@ extends Camera2D
 @onready var player_menu = $"."
 @onready var player = $".."
 
-@onready var id_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/ID_btn as Button
-@onready var equipment_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn as Button
-@onready var item_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Item_btn as Button
-@onready var ability_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Ability_btn as Button
-@onready var settings = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Settings as Button
-@onready var exit = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Panel/MarginContainer/Player_Menu_Btn_Clstr/Exit as Button
+@onready var id_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/ID_btn as Button
+@onready var equipment_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn as Button
+@onready var item_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Item_btn as Button
+@onready var ability_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Ability_btn as Button
+@onready var settings = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Settings as Button
+@onready var exit = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Exit as Button
 
 @onready var information_container = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container
 @onready var exit_confirmation_dialog = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog as ConfirmationDialog

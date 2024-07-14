@@ -1,5 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ceqyh5kgdtkew"]
 
+[ext_resource type="Texture2D" uid="uid://bnutb1mt4b6mi" path="res://Assets/UI/menu_box_1.png" id="1_87b8s"]
+
 [sub_resource type="SystemFont" id="SystemFont_yo4cx"]
 font_names = PackedStringArray("Monospace")
 font_weight = 600
@@ -13,12 +15,6 @@ multichannel_signed_distance_field = true
 font_names = PackedStringArray("Monospace")
 font_weight = 600
 multichannel_signed_distance_field = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4shq"]
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="Inventory_Equipment" type="Control"]
 layout_mode = 3
@@ -113,10 +109,14 @@ scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
 
-[node name="Inventory_Items_Container" type="Panel" parent="VBoxContainer"]
+[node name="Inventory_Items_Container" type="NinePatchRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_l4shq")
+texture = ExtResource("1_87b8s")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Inventory_Items_Container"]
 layout_mode = 1
@@ -133,6 +133,17 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+[node name="Weapon_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Armor_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Accessory_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3

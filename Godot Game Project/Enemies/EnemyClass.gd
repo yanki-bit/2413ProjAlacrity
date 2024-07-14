@@ -6,26 +6,15 @@ enum EnemyType { Minion, Boss }
 var Name: String
 var type: EnemyType
 @export var minion: EnemyClass
+@export var stats: Resource
 
 # Enemy Stats
-var HP: int
-var ATK: int
-var DEF: int
-var SPD: int
-var LCK: int
 
 # placeholder var, will be changed dictionary taken from database
 var Abilities
 
 
 # give the unit stats, functionality temporary for testing, should grab information from database not pass by value
-func add_stats(name: String, hp: int, atk: int, def: int, spd: int, lck: int):
-	Name = name
-	HP = hp
-	ATK = atk
-	DEF = def 
-	SPD = spd
-	LCK = lck
 
 func show_on_map():
 	show()

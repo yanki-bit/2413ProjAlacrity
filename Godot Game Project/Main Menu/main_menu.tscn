@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2js65vhxhim0" path="res://Assets/BG/Visible.PNG" id="2_uojlt"]
 [ext_resource type="PackedScene" uid="uid://dq1f22rga64vb" path="res://Main Menu/settings_menu.tscn" id="3_2fcug"]
 [ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Main Menu/settings_tab_container.tscn" id="4_khit5"]
-[ext_resource type="AudioStream" uid="uid://cj3lb6khjldmo" path="res://Assets/Music/Lobby-Time(chosic.com).mp3" id="5_eojqo"]
+[ext_resource type="AudioStream" uid="uid://b61wsk7p1x8mv" path="res://Assets/Music/Monplaisir_-_04_-_Calamity_Kick(chosic.com).mp3" id="5_50fij"]
 
 [sub_resource type="SystemFont" id="SystemFont_wqwvt"]
 font_names = PackedStringArray("Monospace")
@@ -20,7 +20,9 @@ subpixel_positioning = 0
 font_names = PackedStringArray("Monospace")
 subpixel_positioning = 0
 
-[node name="Main_Menu" type="Control"]
+[node name="Main_Menu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5fnw4")
 
-[node name="Menu_BG" type="TextureRect" parent="."]
+[node name="Menu_BG" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +41,7 @@ grow_vertical = 2
 texture = ExtResource("2_uojlt")
 expand_mode = 1
 
-[node name="BG_Margin" type="MarginContainer" parent="Menu_BG"]
+[node name="BG_Margin" type="MarginContainer" parent="Control/Menu_BG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,15 +54,15 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="BoxContainer" type="BoxContainer" parent="Menu_BG/BG_Margin"]
+[node name="BoxContainer" type="BoxContainer" parent="Control/Menu_BG/BG_Margin"]
 layout_mode = 2
 theme_override_constants/separation = 0
 vertical = true
 
-[node name="Separator" type="Control" parent="Menu_BG/BG_Margin/BoxContainer"]
+[node name="Separator" type="Control" parent="Control/Menu_BG/BG_Margin/BoxContainer"]
 layout_mode = 2
 
-[node name="Menu_Title" type="Label" parent="Menu_BG/BG_Margin/BoxContainer"]
+[node name="Menu_Title" type="Label" parent="Control/Menu_BG/BG_Margin/BoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -71,7 +73,7 @@ ALACRITY"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Menu_Options" type="TextureRect" parent="."]
+[node name="Menu_Options" type="TextureRect" parent="Control"]
 self_modulate = Color(1, 1, 1, 0.611765)
 layout_mode = 1
 anchors_preset = -1
@@ -81,7 +83,7 @@ grow_vertical = 2
 scale = Vector2(1.21197, 1)
 texture = SubResource("CanvasTexture_svyuh")
 
-[node name="Options_Margin" type="MarginContainer" parent="Menu_Options"]
+[node name="Options_Margin" type="MarginContainer" parent="Control/Menu_Options"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,16 +95,16 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu_Options/Options_Margin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Menu_Options/Options_Margin"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu_Options/Options_Margin/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu_Options/Options_Margin/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 2
 
-[node name="START" type="Button" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="START" type="Button" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
@@ -113,10 +115,10 @@ theme_override_fonts/font = SubResource("SystemFont_sijyv")
 theme_override_font_sizes/font_size = 24
 text = "START GAME"
 
-[node name="Separator" type="Control" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="Separator" type="Control" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="LOAD" type="Button" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="LOAD" type="Button" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
@@ -127,10 +129,10 @@ theme_override_fonts/font = SubResource("SystemFont_62231")
 theme_override_font_sizes/font_size = 24
 text = "LOAD GAME"
 
-[node name="Separator2" type="Control" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="Separator2" type="Control" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="SETTINGS" type="Button" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="SETTINGS" type="Button" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
@@ -141,10 +143,10 @@ theme_override_fonts/font = SubResource("SystemFont_62231")
 theme_override_font_sizes/font_size = 24
 text = "SETTINGS"
 
-[node name="Separator3" type="Control" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="Separator3" type="Control" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="EXIT" type="Button" parent="Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
+[node name="EXIT" type="Button" parent="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer"]
 self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
@@ -155,16 +157,16 @@ theme_override_fonts/font = SubResource("SystemFont_62231")
 theme_override_font_sizes/font_size = 24
 text = "EXIT GAME"
 
-[node name="Settings_Menu" parent="." instance=ExtResource("3_2fcug")]
+[node name="Settings_Menu" parent="Control" instance=ExtResource("3_2fcug")]
 visible = false
 layout_mode = 1
 
-[node name="Settings_tab_container" parent="Settings_Menu" instance=ExtResource("4_khit5")]
+[node name="Settings_tab_container" parent="Control/Settings_Menu" instance=ExtResource("4_khit5")]
 visible = false
 layout_mode = 1
 
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_eojqo")
+stream = ExtResource("5_50fij")
 volume_db = -15.0
 autoplay = true
 bus = &"BGM"

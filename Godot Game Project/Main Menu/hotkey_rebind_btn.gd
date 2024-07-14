@@ -3,7 +3,7 @@ extends Control
 @onready var label = $HBoxContainer/Label as Label
 @onready var button = $HBoxContainer/Button as Button
 
-@export var action_name : String = "left"
+@export var action_name : String = "move_left"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,20 +11,20 @@ func _ready():
 	#When a key is pressed and isnt being handling another action it will be picked up (true) otherwise do nothing (false)
 	set_process_unhandled_key_input(false)
 	set_action_name()
-	set_text_for_key()	
+	set_text_for_key()
 	
 #sets the text for the labels	
 func set_action_name() -> void:
 	label.text = "Unassigned"
 	#match statement for labels used in godot inspector
 	match action_name:
-		"left":
+		"move_left":
 			label.text = "Move Left"
-		"right":
+		"move_right":
 			label.text = "Move Right"
-		"up":
+		"move_up":
 			label.text = "Move Up"
-		"down":
+		"move_down":
 			label.text = "Move Down"
 		"interact":
 			label.text = "Interact"
@@ -33,11 +33,12 @@ func set_action_name() -> void:
 func set_text_for_key() -> void:
 	#filtering for key input
 	var action_events = InputMap.action_get_events(action_name)
-	var action_event = action_events[0]
-	var action_keycode = OS.get_keycode_string(action_event.physical_keycode)
-	
-	#sets the button's text to the keycode assigned to it
-	button.text = "%s" % action_keycode
+	if action_events.size() > 0:
+		var action_event = action_events[0]
+		var action_keycode = OS.get_keycode_string(action_event.physical_keycode)
+		button.text = "%s" % action_keycode
+	else:
+		button.text = "Unassigned"
 	
 func _on_button_toggled(button_pressed):
 	if button_pressed:

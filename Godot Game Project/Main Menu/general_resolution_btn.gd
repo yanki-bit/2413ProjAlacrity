@@ -5,18 +5,25 @@ extends Control
 #resolution options
 const RESOLUTION_DICTIONARY: Dictionary = {
 	"1080 x 720" : Vector2i(1080, 720),
-	"1280 x 720" : Vector2i(1280, 720),
-	"1920 x 1080" : Vector2i(1920,1080)
+	"1800 x 1200" : Vector2i(1800, 1200),
+	"2160 x 1440" : Vector2i(2160, 1440)
 }
 
 func _ready():
 	option_button.item_selected.connect(on_resolution_selected)
 	add_resolution_items()
+	load_data()
+
+#loads saved resolution data
+func load_data() -> void:
+	on_resolution_selected(SettingsDataContainer.get_resolution_index())
+	option_button.select(SettingsDataContainer.get_resolution_index())
 	
 #handles change resolution. use this for save files later
 func on_resolution_selected(index : int) -> void:
 	DisplayServer.window_set_size(RESOLUTION_DICTIONARY.values()[index])
 	center_window()
+	SettingsSignalBus.emit_on_resolution_selected(index)
 	
 #adds the text to the dropdown	
 func add_resolution_items() -> void:

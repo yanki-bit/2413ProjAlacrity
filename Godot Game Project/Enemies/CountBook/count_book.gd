@@ -17,9 +17,10 @@ func _process(delta):
 func _on_body_entered(body):
 	if "Player" in body.name && self.visible == true:
 		var numberOfMinions: int = generate_number_of_minions()
-		#get_tree().paused = true
-		#
-		#var fight = battle.instantiate()
+		get_tree().paused = true
+		
+		# Create instance of Battle Scene and add enemies to it
+		var fight = battle.instantiate()
 		#for n in numberOfMinions:
 			#battle.addEnemy()
 		#get_parent().add_child(fight)

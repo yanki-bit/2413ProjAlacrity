@@ -5,13 +5,15 @@ enum EnemyType { Minion, Boss }
 # Enemy Information
 var Name: String
 var type: EnemyType
-var minion: EnemyClass
+@export var minion: EnemyClass
+
 # Enemy Stats
 var HP: int
 var ATK: int
 var DEF: int
 var SPD: int
 var LCK: int
+
 # placeholder var, will be changed dictionary taken from database
 var Abilities
 

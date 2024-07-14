@@ -77,5 +77,5 @@ func on_button_press(container: Node) -> void:
 
 #Exits game Upon confirmation
 func on_exit_confirmed():
-	get_tree().exit()
+	get_tree().quit()
 

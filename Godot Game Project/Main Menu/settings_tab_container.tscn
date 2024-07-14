@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2lpyrt22y6n"]
+[gd_scene load_steps=7 format=3 uid="uid://b2lpyrt22y6n"]
 
+[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Player Menu/Menu_Theme.tres" id="1_bh7wm"]
 [ext_resource type="PackedScene" uid="uid://c7t33ij8kgbde" path="res://Main Menu/hotkey_rebind_btn.tscn" id="1_btvoe"]
 [ext_resource type="PackedScene" uid="uid://b74vpslukmcoi" path="res://Main Menu/general_window_btn.tscn" id="1_tpxgg"]
 [ext_resource type="PackedScene" uid="uid://daje7c2ld4ue2" path="res://Main Menu/general_resolution_btn.tscn" id="2_y7p67"]
@@ -27,9 +28,11 @@ offset_right = -50.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bh7wm")
 
 [node name="GENERAL" type="TabBar" parent="Tab_Container"]
 layout_mode = 2
+theme = ExtResource("1_bh7wm")
 
 [node name="MarginContainer" type="MarginContainer" parent="Tab_Container/GENERAL"]
 layout_mode = 1
@@ -52,19 +55,24 @@ theme_override_constants/separation = 48
 
 [node name="general_window_btn" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_tpxgg")]
 layout_mode = 2
+theme = ExtResource("1_bh7wm")
 
 [node name="general_resolution_btn" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_y7p67")]
 layout_mode = 2
+theme = ExtResource("1_bh7wm")
 
 [node name="general_audio_settings" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_reu10")]
 layout_mode = 2
+theme = ExtResource("1_bh7wm")
 
 [node name="general_audio_settings2" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_reu10")]
 layout_mode = 2
+theme = ExtResource("1_bh7wm")
 bus_name = "BGM"
 
 [node name="general_audio_settings3" parent="Tab_Container/GENERAL/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_reu10")]
 layout_mode = 2
+theme = ExtResource("1_bh7wm")
 bus_name = "SoundFX"
 
 [node name="KEYBINDS" type="TabBar" parent="Tab_Container"]

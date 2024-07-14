@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dpm3eishnn7dd"]
 
 [ext_resource type="Script" path="res://Player Menu/Player_Menu.gd" id="1_4s7nh"]
-[ext_resource type="Texture2D" uid="uid://bnutb1mt4b6mi" path="res://Assets/UI/menu_box_1.png" id="2_b05da"]
+[ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_dm40a"]
 [ext_resource type="PackedScene" uid="uid://bbwufrwgjp7oo" path="res://Player Menu/inventory_container.tscn" id="2_tm1ut"]
 [ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Main Menu/settings_tab_container.tscn" id="3_1t8pl"]
 [ext_resource type="PackedScene" uid="uid://d4hkro4xymogt" path="res://Player Menu/Exit_ConfirmationDialog.tscn" id="4_k4pmu"]
@@ -11,6 +11,7 @@
 [sub_resource type="SystemFont" id="SystemFont_hm8e7"]
 font_names = PackedStringArray("Monospace")
 font_weight = 600
+subpixel_positioning = 0
 multichannel_signed_distance_field = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8xwv"]
@@ -51,11 +52,12 @@ theme_override_constants/separation = 10
 [node name="Menu_BG" type="NinePatchRect" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-texture = ExtResource("2_b05da")
-patch_margin_left = 7
-patch_margin_top = 7
-patch_margin_right = 7
-patch_margin_bottom = 7
+texture = ExtResource("2_dm40a")
+region_rect = Rect2(10, 0, 81, 31)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 12
+patch_margin_bottom = 11
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG"]
 layout_mode = 1

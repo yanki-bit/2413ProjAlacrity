@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://x0lg22i75uwa"]
+
+[ext_resource type="Script" path="res://Enemies/VampBook/vamp_book.gd" id="1_acleu"]
+[ext_resource type="Resource" uid="uid://d1leijaqbjfy6" path="res://Enemies/VampBook/vamp_book_stats.tres" id="2_aksld"]
+[ext_resource type="Texture2D" uid="uid://dinbgyed251uq" path="res://Assets/Sprite/vampBookSheet.png" id="2_geo08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5wuj"]
+size = Vector2(31, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwux5"]
+atlas = ExtResource("2_geo08")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqbmb"]
+atlas = ExtResource("2_geo08")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqwpd"]
+atlas = ExtResource("2_geo08")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmko1"]
+atlas = ExtResource("2_geo08")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwefo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwux5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqbmb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqwpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmko1")
+}],
+"loop": true,
+"name": &"left",
+"speed": 4.0
+}]
+
+[node name="vamp_book" type="Area2D"]
+script = ExtResource("1_acleu")
+type = null
+statsheet = ExtResource("2_aksld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_e5wuj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hwefo")

@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpmp5gryv6lts"]
+
+[ext_resource type="Script" path="res://Game/battle_scene.gd" id="1_oktsy"]
+[ext_resource type="Texture2D" uid="uid://ceqaecl5j5wd1" path="res://Assets/Portraits/friend.png" id="3_h8atp"]
+
+[node name="BattleScene" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_oktsy")
+
+[node name="EnemiesVContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+
+[node name="Spacer" type="Control" parent="EnemiesVContainer"]
+layout_mode = 2
+
+[node name="EnemiesHContainer" type="HBoxContainer" parent="EnemiesVContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftEnemy" type="CenterContainer" parent="EnemiesVContainer/EnemiesHContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftEnemyController" type="Control" parent="EnemiesVContainer/EnemiesHContainer/LeftEnemy"]
+layout_mode = 2
+
+[node name="MiddleEnemy" type="CenterContainer" parent="EnemiesVContainer/EnemiesHContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MiddleEnemyControl" type="Control" parent="EnemiesVContainer/EnemiesHContainer/MiddleEnemy"]
+layout_mode = 2
+
+[node name="RightEnemy" type="CenterContainer" parent="EnemiesVContainer/EnemiesHContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightEnemyControl" type="Control" parent="EnemiesVContainer/EnemiesHContainer/RightEnemy"]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="EnemiesVContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="PlayerPortrait" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.62
+anchor_right = 0.3
+anchor_bottom = 0.92
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerPortrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PlayerPortrait/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerPortrait/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerPortrait/VBoxContainer/CenterContainer/Control"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_h8atp")
+
+[node name="Label" type="Label" parent="PlayerPortrait/VBoxContainer"]
+layout_mode = 2
+text = "This Guy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PlayerPortrait/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerOptionsContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.6
+anchor_right = 0.9
+anchor_bottom = 0.9
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PlayerOptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Attack" type="Button" parent="PlayerOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "Attack"
+
+[node name="Control" type="Control" parent="PlayerOptionsContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Items" type="Button" parent="PlayerOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "Run"
+
+[node name="Control2" type="Control" parent="PlayerOptionsContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Run" type="Button" parent="PlayerOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "Items
+"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+z_as_relative = false
+anchors_preset = -1
+anchor_top = 0.55
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.41598, 0.41598, 0.41598, 1)
+
+[connection signal="pressed" from="PlayerOptionsContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]

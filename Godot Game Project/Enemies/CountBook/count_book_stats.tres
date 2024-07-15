@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatSheet" load_steps=2 format=3 uid="uid://bbiufgk36mkxv"]
+
+[ext_resource type="Script" path="res://Game/stat_sheet.gd" id="1_6d1q7"]
+
+[resource]
+script = ExtResource("1_6d1q7")
+MAX_HP = 100
+CURR_HP = 100
+ATK = 10
+DEF = 4
+SPD = 5
+LCK = 2

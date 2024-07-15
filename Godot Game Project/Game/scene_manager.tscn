@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuksomiq3831w"]
+
+[ext_resource type="Script" path="res://Game/SceneManager.gd" id="1_thawi"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_thawi")
+
+[node name="CurrentScene" type="Node2D" parent="."]

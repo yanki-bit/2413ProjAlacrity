@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://dapvpk2ptfo8k"]
+
+[ext_resource type="Texture2D" uid="uid://7rmjb4jyw048" path="res://Assets/Sprite/countBookSheet.png" id="1_5jxl0"]
+[ext_resource type="Script" path="res://Enemies/CountBook/count_book.gd" id="1_s6c0n"]
+[ext_resource type="Resource" uid="uid://bbiufgk36mkxv" path="res://Enemies/CountBook/count_book_stats.tres" id="2_50vw4"]
+[ext_resource type="Texture2D" uid="uid://dftkeucp8cir0" path="res://Assets/Sprite/bookTransformationSheet.png" id="4_6lsmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqlgs"]
+size = Vector2(60, 53)
+
+[sub_resource type="Animation" id="Animation_2sf24"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p4ihf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_76bsk"]
+resource_name = "transform"
+length = 1.5
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_52lqt"]
+resource_name = "combat"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yo68"]
+_data = {
+"RESET": SubResource("Animation_p4ihf"),
+"combat": SubResource("Animation_52lqt"),
+"default": SubResource("Animation_2sf24"),
+"transform": SubResource("Animation_76bsk")
+}
+
+[node name="CountBook" type="Area2D"]
+script = ExtResource("1_s6c0n")
+type = 1
+statsheet = ExtResource("2_50vw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_tqlgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_6lsmu")
+hframes = 7
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_5jxl0")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6yo68")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

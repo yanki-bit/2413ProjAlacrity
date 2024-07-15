@@ -13,7 +13,7 @@ extends Control
 @onready var settings_menu = $Settings_Menu as SettingsMenu
 
 #preloads the level start scene
-@onready var start_level = preload("res://Scenes/room.tscn") as PackedScene
+@onready var start_scene = preload("res://Game/scene_manager.tscn") as PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +21,7 @@ func _ready():
 
 #Loads in the level start scene
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(start_level)
+	get_tree().change_scene_to_packed(start_scene)
 
 #Exits the application
 func on_exit_pressed() -> void:

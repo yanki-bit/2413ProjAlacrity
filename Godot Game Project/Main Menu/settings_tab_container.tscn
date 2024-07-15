@@ -106,18 +106,18 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_chyfk")
 
 [node name="Hotkey_Rebind_Btn" parent="Tab_Container/KEYBINDS/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_btvoe")]
 layout_mode = 2
+action_name = "move_up"
 
 [node name="Hotkey_Rebind_Btn2" parent="Tab_Container/KEYBINDS/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_btvoe")]
 layout_mode = 2
-action_name = "move_right"
 
 [node name="Hotkey_Rebind_Btn3" parent="Tab_Container/KEYBINDS/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_btvoe")]
 layout_mode = 2
-action_name = "move_up"
+action_name = "move_down"
 
 [node name="Hotkey_Rebind_Btn4" parent="Tab_Container/KEYBINDS/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_btvoe")]
 layout_mode = 2
-action_name = "move_down"
+action_name = "move_right"
 
 [node name="Hotkey_Rebind_Btn5" parent="Tab_Container/KEYBINDS/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_btvoe")]
 layout_mode = 2

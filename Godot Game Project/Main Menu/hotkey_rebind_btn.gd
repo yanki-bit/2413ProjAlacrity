@@ -12,20 +12,24 @@ func _ready():
 	set_process_unhandled_key_input(false)
 	set_action_name()
 	set_text_for_key()
+	load_keybinds()
+	
+func load_keybinds() -> void:
+	rebind_action_key(SettingsDataContainer.get_keybind(action_name))
 	
 #sets the text for the labels	
 func set_action_name() -> void:
 	label.text = "Unassigned"
 	#match statement for labels used in godot inspector
 	match action_name:
-		"move_left":
-			label.text = "Move Left"
-		"move_right":
-			label.text = "Move Right"
 		"move_up":
 			label.text = "Move Up"
 		"move_down":
 			label.text = "Move Down"
+		"move_left":
+			label.text = "Move Left"
+		"move_right":
+			label.text = "Move Right"
 		"interact":
 			label.text = "Interact"
 
@@ -66,6 +70,7 @@ func _unhandled_key_input(event):
 func rebind_action_key(event) -> void:
 	InputMap.action_erase_events(action_name)
 	InputMap.action_add_event(action_name, event)
+	SettingsDataContainer.set_keybind(action_name, event)
 	set_process_unhandled_key_input(false)
 	set_text_for_key()
 	set_action_name()

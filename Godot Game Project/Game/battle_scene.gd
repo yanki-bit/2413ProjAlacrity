@@ -32,18 +32,20 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 			enemy2 = load(minion[0]).instantiate()
 			enemy2.initialize_stats_in_combat()
 			$EnemiesVContainer/EnemiesHContainer/LeftEnemy/LeftEnemyController.add_child(enemy2)
+			enemy2.show_in_fight()
 			
 			# Add a minion to the right
 			enemy3 = load(minion[1]).instantiate()
 			enemy3.initialize_stats_in_combat()
 			$EnemiesVContainer/EnemiesHContainer/RightEnemy/RightEnemyControl.add_child(enemy3)
-			
+			enemy3.show_in_fight()
 			
 		1:
 			# Add a minion to the left
 			enemy2 = load(minion[0]).instantiate()
 			enemy2.initialize_stats_in_combat()
 			$EnemiesVContainer/EnemiesHContainer/LeftEnemy/LeftEnemyController.add_child(enemy2)
+			enemy2.show_in_fight()
 			
 
 

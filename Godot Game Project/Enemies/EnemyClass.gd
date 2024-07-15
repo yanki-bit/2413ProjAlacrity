@@ -36,6 +36,9 @@ func show_on_map():
 	$AnimationPlayer.play("default")
 
 func show_in_fight():
+	# Change scale from map size to combat size
+	scale.x = 4
+	scale.y = 4
 	show()
 	$AnimationPlayer.play("combat")
 
@@ -48,8 +51,6 @@ func initalize_combat():
 		numberOfMinions = 2
 	else:
 		numberOfMinions = generate_number_of_minions()
-	
-	print(numberOfMinions)
 	
 	# pause game
 	get_tree().paused = true
@@ -68,6 +69,7 @@ func initalize_combat():
 	#free queue to prevent continuous battles spawning
 	queue_free()
 
+# Initialize stats in combat
 func initialize_stats_in_combat():
 	MAX_HP = statsheet.MAX_HP
 	CURR_HP = statsheet.CURR_HP

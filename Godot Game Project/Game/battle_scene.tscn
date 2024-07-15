@@ -119,4 +119,7 @@ anchors_preset = -1
 anchor_top = 0.55
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color(0.41598, 0.41598, 0.41598, 1)
+
+[connection signal="pressed" from="PlayerOptionsContainer/HBoxContainer/Attack" to="." method="_on_attack_pressed"]

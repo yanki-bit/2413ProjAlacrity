@@ -23,4 +23,4 @@ func transition_to_next_scene(new_scene: String):
 	$CurrentScene.add_child(load(next_scene).instantiate())
 
 func transition_to_combat():
-	$Player
+	pass

@@ -1,13 +1,11 @@
 extends EnemyClass
-
-# reference to battle scene
-var battle_scene = preload("res://Game/battle_scene.tscn")
 # reference to its own scene for battle initialization
 
-var this_scene = "res://Enemies/VampBook/vamp_book.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#hid unit on load
+	# reference to its own scene for battle initialization
+	this_scene = "res://Enemies/VampBook/vamp_book.tscn"
 	hide()
 	show_on_map()
 	pass # Replace with function body.

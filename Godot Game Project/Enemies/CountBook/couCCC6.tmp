@@ -1,0 +1,112 @@
+[gd_scene load_steps=17 format=3 uid="uid://dapvpk2ptfo8k"]
+
+[ext_resource type="Texture2D" uid="uid://7rmjb4jyw048" path="res://Assets/Sprite/countBookSheet.png" id="1_5jxl0"]
+[ext_resource type="Script" path="res://Enemies/CountBook/count_book.gd" id="1_s6c0n"]
+[ext_resource type="Resource" uid="uid://bbiufgk36mkxv" path="res://Enemies/CountBook/count_book_stats.tres" id="2_50vw4"]
+[ext_resource type="Texture2D" uid="uid://dftkeucp8cir0" path="res://Assets/Sprite/bookTransformationSheet.png" id="4_6lsmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqlgs"]
+size = Vector2(60, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f111t"]
+atlas = ExtResource("1_5jxl0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8usi"]
+atlas = ExtResource("1_5jxl0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkgwk"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_726ou"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oudmx"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eevga"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnt73"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h3aq"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0qsj"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fammb"]
+atlas = ExtResource("4_6lsmu")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj4ji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f111t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8usi")
+}],
+"loop": true,
+"name": &"combat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkgwk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_726ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oudmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eevga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnt73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h3aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0qsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fammb")
+}],
+"loop": false,
+"name": &"transform",
+"speed": 5.0
+}]
+
+[node name="CountBook" type="Area2D"]
+script = ExtResource("1_s6c0n")
+type = 1
+statsheet = ExtResource("2_50vw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_tqlgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gj4ji")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -21,14 +21,11 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	# create instance of main enemy as enemy1 and initalize stats
 	enemy1 = load(mainEnemy).instantiate()
 	enemy1.initialize_stats_in_combat()
-	
+	print("2")
 	# place main enemy into container
 	$EnemiesVContainer/EnemiesHContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemy1)
-	enemy1.hide()
-	# play spawn animation if exists
-	#enemy1.hide()
-	#await get_tree().create_timer(1.5).timeout
-	enemy1.show()
+	enemy1.show_in_fight()
+	print("3")
 
 	# Add requested number of minions
 	match numberOfMinions:

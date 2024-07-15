@@ -18,7 +18,11 @@ var paused = false
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir)
-	
+
+func _process(_delta):
+	# Switch to Idle animation if player physics is paused
+	if is_physics_processing() == false:
+		state.travel("Idle")
 	
 func _physics_process(delta):
 	#get input direction
@@ -58,3 +62,7 @@ func new_state():
 
 #function to show and hide the pause menu will be moved later to limit where the player can pause
 
+
+# stop player movement when encountering countbook boss
+func _on_count_book_boss_trigger():
+	set_physics_process(false)

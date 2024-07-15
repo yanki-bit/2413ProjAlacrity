@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=9 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_k56ww"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
+[ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="2_v7rnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -206,3 +207,8 @@ layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 26
 [node name="CountBook" parent="." instance=ExtResource("1_glpmx")]
 z_index = 1
 position = Vector2(92, 232)
+
+[node name="vamp_book" parent="." instance=ExtResource("2_v7rnu")]
+position = Vector2(-47, 77)
+
+[connection signal="boss_trigger" from="CountBook" to="Player" method="_on_count_book_boss_trigger"]

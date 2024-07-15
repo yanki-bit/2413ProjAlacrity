@@ -305,7 +305,3 @@ parameters/Walk/blend_position = Vector2(0.434817, 0.73545)
 [node name="Player_Menu" parent="Camera2D2" instance=ExtResource("3_81lt5")]
 visible = false
 visibility_layer = 513
-offset_left = -401.0
-offset_top = -122.0
-offset_right = -401.0
-offset_bottom = -122.0

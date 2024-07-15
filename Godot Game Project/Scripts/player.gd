@@ -38,7 +38,7 @@ func _process(_delta):
 	#update velocity
 	velocity = input_dir * move_speed
 	
-	new_state()	
+	new_state()
 	#move and slide function uses velocity of character to move character on map
 	move_and_slide()
 

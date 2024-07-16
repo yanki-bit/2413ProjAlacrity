@@ -279,6 +279,7 @@ script = ExtResource("1_mwybc")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_4vbna")
+flip_h = true
 hframes = 3
 vframes = 3
 

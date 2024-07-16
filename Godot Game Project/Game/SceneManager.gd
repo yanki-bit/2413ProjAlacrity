@@ -6,7 +6,6 @@ var next_scene = null
 func _ready():
 	transition_to_first_scene()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

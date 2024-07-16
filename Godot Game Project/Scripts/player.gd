@@ -3,8 +3,6 @@ extends CharacterBody2D
 @onready var player_menu = $Player_Menu
 
 
-
-
  #export allows us to adjust variables on game engine
 @export var move_speed : float = 200
 @export var start_dir : Vector2 = Vector2(0,1)
@@ -14,8 +12,6 @@ extends CharacterBody2D
 #Changes State/Blendspace
 @onready var state = anim_tree.get("parameters/playback")
 
-
-
 #Setup as the script runs
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
@@ -23,16 +19,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	#get input direction
-	var input_dir = var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-
-
-func _process(_delta):
-	# Switch to Idle animation if player physics is paused
-	if is_physics_processing() == false:
-		state.travel("Idle")
-	
-	
-	#updates the direction based on input
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	update_animation_parameter(input_dir)
 	
 	#update velocity
@@ -42,6 +29,12 @@ func _process(_delta):
 	#move and slide function uses velocity of character to move character on map
 	move_and_slide()
 
+func _process(_delta):
+	# Switch to Idle animation if player physics is paused
+	if is_physics_processing() == false:
+		state.travel("Idle")
+	#updates the direction based on input
+	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):
 	#No change when there is no input
@@ -57,15 +50,6 @@ func new_state():
 		state.travel("Idle")
 		
 		
-#keypress handler
-#func handle_connect() -> void:
-#	pass
-#function to open menu when user presses esc key
-#func on_esc_pressed() -> void:
-#	pass
-
-#function to show and hide the pause menu will be moved later to limit where the player can pause
-
 
 # stop player movement when encountering countbook boss
 func _on_count_book_boss_trigger():

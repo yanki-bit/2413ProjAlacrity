@@ -84,10 +84,44 @@ func generate_number_of_minions() -> int:
 	var numberOfMinions = randi_range(0,2)
 	return numberOfMinions
 
-# Getters and Setters for changing stats
+# Setters for setting stats 
 func set_MAX_HP(value:int):
 	MAX_HP = value
-	pass
+
+func set_CURR_HP(value:int):
+	CURR_HP = value
+
+func set_ATK(value:int):
+	ATK = value
+
+func set_DEF(value:int):
+	DEF = value
+
+func set_SPD(value:int):
+	SPD = value
+
+func set_LCK(value:int):
+	LCK = value
+
+# Getters for stats
+func get_MAX_HP():
+	return MAX_HP
+
+func get_CURR_HP():
+	return CURR_HP
+
+func get_ATK():
+	return ATK
+
+func get_DEF():
+	return DEF
+
+func get_SPD():
+	return SPD
+
+func get_LCK():
+	return LCK
+
 
 func take_damage(value:int):
 	CURR_HP -= value

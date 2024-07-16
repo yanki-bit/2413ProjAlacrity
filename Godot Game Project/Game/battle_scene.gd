@@ -17,13 +17,15 @@ var combat_turn_order = Array()    # A queue of combatants
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = load("res://Characters/player.tscn").instantiate()
+	# Focus on attack button
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
 	_handle_states(BATTLE_STATES.PLAYER)
+	print(player.statsheet.SPD)
 	pass
 	
 func _handle_states(new_state):
+	# Change state
 	current_state = new_state
-	print(current_state)
 	match current_state:
 		BATTLE_STATES.PLAYER:
 			show()
@@ -75,18 +77,20 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	
 	# populate turn order array
 	combat_turn_order.append(player)
-	generate_turn_order()
-	for i in combat_turn_order:
-		print(combat_turn_order[i].name)
+	combat_turn_order.append(enemies[0])
 
+	generate_turn_order()
+	
+	
+func sort_decending(a,b):
+	if a.SPD > b.SPD:
+		return true
+	return false
 
 func generate_turn_order():
 	combat_turn_order.sort_custom(sort_decending)
 
-func sort_decending(a,b):
-	if a[0] > b[0]:
-		return true
-	return false
+
 #test
 func _on_attack_pressed():
 	print(player.statsheet.ATK)

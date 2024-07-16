@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Player Menu/Menu_Theme.tres" id="4_toufy"]
 
 [node name="BattleScene_New" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_oktsy")
 
 [node name="BattleSceneContainer" type="VBoxContainer" parent="."]
@@ -130,3 +131,5 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_toufy")
 text = "ESCAPE"
+
+[connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack" to="." method="_on_attack_pressed"]

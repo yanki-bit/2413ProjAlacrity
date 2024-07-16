@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0u3aasjbv5ul"]
+[gd_scene load_steps=30 format=3 uid="uid://d0u3aasjbv5ul"]
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
+[ext_resource type="Resource" uid="uid://dseco147o00b4" path="res://Characters/player_stats.tres" id="2_tlxfv"]
 [ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Player Menu/Player_Menu.tscn" id="3_81lt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeicx"]
@@ -277,6 +278,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mwybc")
+statsheet = ExtResource("2_tlxfv")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_4vbna")

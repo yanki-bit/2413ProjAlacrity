@@ -12,10 +12,13 @@ extends CharacterBody2D
 #Changes State/Blendspace
 @onready var state = anim_tree.get("parameters/playback")
 
+@export var statsheet: Resource
+
 #Setup as the script runs
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir)
+	
 	
 func _physics_process(_delta):
 	#get input direction

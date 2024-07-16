@@ -54,6 +54,50 @@ func new_state():
 		
 		
 
+# Setters for setting stats 
+func set_MAX_HP(value:int):
+	statsheet.MAX_HP = value
+
+func set_CURR_HP(value:int):
+	statsheet.CURR_HP = value
+
+func set_ATK(value:int):
+	statsheet.ATK = value
+
+func set_DEF(value:int):
+	statsheet.DEF = value
+
+func set_SPD(value:int):
+	statsheet.SPD = value
+
+func set_LCK(value:int):
+	statsheet.LCK = value
+
+func set_ENERGY(value:int):
+	statsheet.ENERGY = value
+
+# Getters for stats
+func get_MAX_HP():
+	return statsheet.MAX_HP
+
+func get_CURR_HP():
+	return statsheet.CURR_HP
+
+func get_ATK():
+	return statsheet.ATK
+
+func get_DEF():
+	return statsheet.DEF
+
+func get_SPD():
+	return statsheet.SPD
+
+func get_LCK():
+	return statsheet.LCK
+
+func get_ENERGY(value:int):
+	return statsheet.ENERGY
+
 # stop player movement when encountering countbook boss
 func _on_count_book_boss_trigger():
 	set_physics_process(false)

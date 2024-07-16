@@ -1,3 +1,6 @@
+# programmer: Yani
+# script usage: attach to enemy or player node and reference healthbar inside those scripts
+
 extends ProgressBar
 
 # this is for the timer
@@ -28,12 +31,12 @@ func _init_health(_health):
 	value = health
 	damage_bar.max_value = health
 	damage_bar.value = health
+	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#this allows the damage bar to catch up with the health bar
+func _on_timer_timeout():
+	damage_bar.value = health
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://gdhdgvsmkx4u"]
+
+[ext_resource type="PackedScene" uid="uid://bjx4y30d60dlc" path="res://Game/healthbar/health_barv2.tscn" id="1_ofo12"]
+[ext_resource type="Script" path="res://Game/healthbar/health_barv2.gd" id="2_iaa3g"]
+[ext_resource type="PackedScene" uid="uid://dgbqpem1byrx7" path="res://Game/healthbar/test_player.tscn" id="3_ax3l3"]
+[ext_resource type="PackedScene" uid="uid://cdtqvm8y4jw5h" path="res://Game/healthbar/enemy.tscn" id="4_rvc7k"]
+[ext_resource type="Script" path="res://Game/healthbar/enemy.gd" id="5_y2hq1"]
+
+[node name="World" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="healthBar" parent="CanvasLayer" instance=ExtResource("1_ofo12")]
+script = ExtResource("2_iaa3g")
+
+[node name="testPlayer" parent="." instance=ExtResource("3_ax3l3")]
+position = Vector2(32, 64)
+
+[node name="Enemy" parent="." instance=ExtResource("4_rvc7k")]
+position = Vector2(144, 64)
+script = ExtResource("5_y2hq1")

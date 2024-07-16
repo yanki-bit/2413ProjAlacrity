@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdtqvm8y4jw5h"]
+
+[ext_resource type="Texture2D" uid="uid://sxd1e6kujfp1" path="res://Game/healthbar/enemy.png" id="1_esadw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44qbe"]
+atlas = ExtResource("1_esadw")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf47e"]
+atlas = ExtResource("1_esadw")
+region = Rect2(96, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixw0l"]
+atlas = ExtResource("1_esadw")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mby1o"]
+atlas = ExtResource("1_esadw")
+region = Rect2(288, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy52g"]
+atlas = ExtResource("1_esadw")
+region = Rect2(384, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fhfm"]
+atlas = ExtResource("1_esadw")
+region = Rect2(480, 0, 96, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fl86"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_44qbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf47e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixw0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mby1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy52g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fhfm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8fl86")
+animation = &"idle"
+frame_progress = 0.0804145

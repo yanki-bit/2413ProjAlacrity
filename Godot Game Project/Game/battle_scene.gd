@@ -10,6 +10,12 @@ enum BATTLE_STATES {
  LOSE    # When the player loses
 }
 
+# All possible unit types
+enum UNIT_TYPE {
+	PLAYER,
+	ENEMY
+}
+
 var current_state    # The current state of the battle
 
 var combat_turn_order = Array()    # A queue of combatants
@@ -19,8 +25,8 @@ func _ready():
 	player = load("res://Characters/player.tscn").instantiate()
 	# Focus on attack button
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
-	_handle_states(BATTLE_STATES.PLAYER)
-	print(player.statsheet.SPD)
+	
+	combat_turn_order.append([player,UNIT_TYPE.PLAYER])
 	pass
 	
 func _handle_states(new_state):
@@ -28,11 +34,16 @@ func _handle_states(new_state):
 	current_state = new_state
 	match current_state:
 		BATTLE_STATES.PLAYER:
-			show()
+			# show player menus
+			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
+			print("here")
+			# wait for player action 
 			pass
 		BATTLE_STATES.ENEMY:
-			print("worldstar")
-			
+			print("there")
+			await get_tree().create_timer(1.5).timeout
+			print("their")
+			_handle_states(BATTLE_STATES.PLAYER)
 			pass
 		BATTLE_STATES.WIN:
 			# Insert code on player win
@@ -53,7 +64,11 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	# place main enemy into container
 	$BattleSceneContainer/EnemiesContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemies[0])
 	enemies[0].show_in_fight()
-		# Add requested number of minions
+	
+	# Add main enemy to combat turn order array
+	combat_turn_order.append([enemies[0],UNIT_TYPE.ENEMY])
+		
+	# Add requested number of minions
 	match numberOfMinions:
 		2:
 			# Add a minion to the left
@@ -62,39 +77,53 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 			$BattleSceneContainer/EnemiesContainer/LeftEnemy/LeftEnemyController.add_child(enemies[1])
 			enemies[1].show_in_fight()
 			
+			
 			# Add a minion to the right
 			enemies.insert(2,load(minion[1]).instantiate())
 			enemies[2].initialize_stats_in_combat()
 			$BattleSceneContainer/EnemiesContainer/RightEnemy/RightEnemyControl.add_child(enemies[2])
 			enemies[2].show_in_fight()
-			
+			# Add minions to combat turn order array
+			combat_turn_order.append([enemies[1],UNIT_TYPE.ENEMY])
+			combat_turn_order.append([enemies[2],UNIT_TYPE.ENEMY])
 		1:
 			# Add a minion to the left
 			enemies.insert(1,load(minion[0]).instantiate())
 			enemies[1].initialize_stats_in_combat()
 			$BattleSceneContainer/EnemiesContainer/LeftEnemy/LeftEnemyController.add_child(enemies[1])
 			enemies[1].show_in_fight()
+			combat_turn_order.append([enemies[1],UNIT_TYPE.ENEMY])
 	
-	# populate turn order array
-	combat_turn_order.append(player)
-	combat_turn_order.append(enemies[0])
-
+	# generate the turn order
 	generate_turn_order()
 	
+	# set energy levels for all combatants to 1 at start of turn
+	for i in combat_turn_order.size():
+		combat_turn_order[i][0].set_ENERGY(1)
 	
+	for i in combat_turn_order.size():
+		print(combat_turn_order[i][0].get_SPD())
+	
+	#test test test test test
+	_handle_states(check_next_state())
+	
+
 func sort_decending(a,b):
-	if a.SPD > b.SPD:
+	if a[0].get_SPD() > b[0].get_SPD():
 		return true
 	return false
 
 func generate_turn_order():
 	combat_turn_order.sort_custom(sort_decending)
 
-
+# checks which state to put battle into next based on combat order 
+func check_next_state() -> UNIT_TYPE:
+	return combat_turn_order[0][1]
 #test
 func _on_attack_pressed():
 	print(player.statsheet.ATK)
 	if current_state == BATTLE_STATES.PLAYER:
 		print("hello")
+		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
 		_handle_states(BATTLE_STATES.ENEMY)
 	pass

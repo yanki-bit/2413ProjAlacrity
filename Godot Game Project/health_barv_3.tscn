@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce6sy4xrqkhl2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx4cf"]
+bg_color = Color(0.0765709, 0.122595, 0.109285, 1)
+border_color = Color(0.099986, 0.099986, 0.0999859, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5vh5"]
+bg_color = Color(0.273379, 0.714612, 0.636996, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[node name="healthBarv3" type="ProgressBar"]
+offset_right = 256.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wx4cf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t5vh5")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP : 20/20"
+horizontal_alignment = 1

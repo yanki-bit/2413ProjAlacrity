@@ -55,10 +55,10 @@ offset_right = 112.0
 offset_bottom = 323.0
 
 [node name="BattleDialogue" type="Panel" parent="CanvasLayer"]
-offset_left = 80.0
-offset_top = 64.0
-offset_right = 248.0
-offset_bottom = 120.0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 72.0
 
 [node name="Label" type="Label" parent="CanvasLayer/BattleDialogue"]
 layout_mode = 1
@@ -150,10 +150,10 @@ size_flags_vertical = 4
 text = "Run"
 
 [node name="Enemy2" type="TextureRect" parent="."]
-offset_left = 320.0
-offset_top = 64.0
-offset_right = 375.0
-offset_bottom = 114.0
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 311.0
+offset_bottom = 98.0
 texture = ExtResource("6_cxim4")
 
 [node name="enemyHealth" type="ProgressBar" parent="Enemy2"]

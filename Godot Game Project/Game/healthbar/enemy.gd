@@ -10,7 +10,7 @@ var endPosition
 @onready var animations = $EnemySprite
 
 #enemy health
-@onready var healthbar = %healthBar
+@onready var healthbar = $"../CanvasLayer/healthBar2"
 @onready var health = 6
 
 func _ready():

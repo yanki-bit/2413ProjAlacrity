@@ -1,21 +1,130 @@
-[gd_scene load_steps=6 format=3 uid="uid://gdhdgvsmkx4u"]
+[gd_scene load_steps=10 format=3 uid="uid://gdhdgvsmkx4u"]
 
 [ext_resource type="PackedScene" uid="uid://bjx4y30d60dlc" path="res://Game/healthbar/health_barv2.tscn" id="1_ofo12"]
-[ext_resource type="Script" path="res://Game/healthbar/health_barv2.gd" id="2_iaa3g"]
+[ext_resource type="Script" path="res://Game/healthbar/testworld.gd" id="1_xuy6c"]
 [ext_resource type="PackedScene" uid="uid://dgbqpem1byrx7" path="res://Game/healthbar/test_player.tscn" id="3_ax3l3"]
 [ext_resource type="PackedScene" uid="uid://cdtqvm8y4jw5h" path="res://Game/healthbar/enemy.tscn" id="4_rvc7k"]
 [ext_resource type="Script" path="res://Game/healthbar/enemy.gd" id="5_y2hq1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qdoy"]
+bg_color = Color(0.218476, 0.645525, 0.856283, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1uat"]
+bg_color = Color(0.0765709, 0.122595, 0.109285, 1)
+border_color = Color(0.099986, 0.099986, 0.0999859, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dk60"]
+bg_color = Color(0.273379, 0.714612, 0.636996, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2j4t"]
+bg_color = Color(0.525131, 0.620586, 0.640129, 1)
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_xuy6c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="healthBar" parent="CanvasLayer" instance=ExtResource("1_ofo12")]
-script = ExtResource("2_iaa3g")
+[node name="healthBar2" parent="CanvasLayer" instance=ExtResource("1_ofo12")]
+offset_left = 192.0
+offset_right = 264.0
+
+[node name="BattleDialogue" type="Panel" parent="CanvasLayer"]
+offset_left = 216.0
+offset_top = 48.0
+offset_right = 384.0
+offset_bottom = 104.0
+
+[node name="Label" type="Label" parent="CanvasLayer/BattleDialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4qdoy")
+text = "Text goes here!"
 
 [node name="testPlayer" parent="." instance=ExtResource("3_ax3l3")]
+unique_name_in_owner = true
 position = Vector2(32, 64)
 
 [node name="Enemy" parent="." instance=ExtResource("4_rvc7k")]
 position = Vector2(144, 64)
 script = ExtResource("5_y2hq1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 192.0
+offset_right = 384.0
+offset_bottom = 248.0
+
+[node name="PlayerData" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="Panel/PlayerData"]
+layout_mode = 2
+text = "PLAYER"
+
+[node name="healthBarv3" type="ProgressBar" parent="Panel/PlayerData"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_f1uat")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4dk60")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel/PlayerData/healthBarv3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 16.0
+offset_right = 143.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP : 20/20"
+horizontal_alignment = 1
+
+[node name="ActionsPanel" type="Panel" parent="."]
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2j4t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack" type="Button" parent="ActionsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Attack"
+
+[node name="Button2" type="Button" parent="ActionsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Another Attack"
+
+[node name="Run" type="Button" parent="ActionsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Run"
+
+[connection signal="pressed" from="ActionsPanel/HBoxContainer/Run" to="." method="_on_run_pressed"]

@@ -2,10 +2,7 @@ extends CharacterBody2D
 
 @onready var player_menu = $Player_Menu
 
-
-
-
- #export allows us to adjust variables on game engine
+#export allows us to adjust variables on game engine
 @export var move_speed : float = 100
 @export var start_dir : Vector2 = Vector2(0,1)
 

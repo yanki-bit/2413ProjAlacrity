@@ -10,3 +10,4 @@ ATK = 10
 DEF = 4
 SPD = 5
 LCK = 2
+ENERGY = 0

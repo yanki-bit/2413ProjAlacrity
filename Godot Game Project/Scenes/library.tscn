@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0so05xsbk5jq"]
+[gd_scene load_steps=12 format=3 uid="uid://divcm5lah685s"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_nee5u"]
-[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Character/player.tscn" id="1_sg46h"]
+[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="1_sg46h"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_fqn48"]
 [ext_resource type="Texture2D" uid="uid://bh8fa4niy3p3" path="res://Assets/TileMap/shelf.png" id="3_txj7w"]
 
@@ -29286,9 +29286,7 @@ sources/2 = SubResource("TileSetAtlasSource_d2qyu")
 sources/4 = SubResource("TileSetAtlasSource_l3v1p")
 pattern_0 = SubResource("TileMapPattern_3ndkc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh0mw"]
-
-[node name="Node2D" type="Node2D"]
+[node name="Library" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1, -157)
@@ -29301,14 +29299,7 @@ layer_1/tile_data = PackedInt32Array(-65539, 65538, 8, -65538, 196610, 9, -65537
 layer_2/name = "decorations"
 layer_2/tile_data = PackedInt32Array(-262143, 983040, 3, -196607, 983040, 4, -917507, 458752, 24, -851971, 458752, 25, -851970, 524288, 25, -917506, 524288, 24, -983023, 458754, 24, -917487, 458754, 25, -983022, 524290, 24, -917486, 524290, 25)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_sg46h")]
 position = Vector2(0, 2)
 collision_layer = 2
 collision_mask = 5
-
-[node name="Player" parent="CharacterBody2D" instance=ExtResource("1_sg46h")]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_sh0mw")

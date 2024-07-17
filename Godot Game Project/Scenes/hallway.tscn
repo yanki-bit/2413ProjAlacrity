@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_qf1qk"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_6m665"]
-[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Character/player.tscn" id="3_2e0ud"]
+[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_2e0ud"]
+[ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="4_4yrts"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t533t"]
 texture = ExtResource("1_qf1qk")
@@ -6869,9 +6870,7 @@ physics_layer_1/collision_mask = 0
 sources/2 = SubResource("TileSetAtlasSource_t533t")
 sources/3 = SubResource("TileSetAtlasSource_cgwno")
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lpwrf"]
-
-[node name="Node2D" type="Node2D"]
+[node name="Hallway" type="Node2D"]
 position = Vector2(498, 414)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6884,13 +6883,9 @@ layer_0/tile_data = PackedInt32Array(-262157, 786434, 40, -196621, 786434, 41, -
 layer_1/name = "door"
 layer_1/tile_data = PackedInt32Array(-327684, 720898, 24, -262148, 720898, 25, -327683, 786434, 24, -262147, 786434, 25)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(47, -76)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("SegmentShape2D_lpwrf")
-
-[node name="Player" parent="CharacterBody2D" instance=ExtResource("3_2e0ud")]
-position = Vector2(520, -222)
+[node name="Player" parent="." instance=ExtResource("3_2e0ud")]
+position = Vector2(567, -298)
 collision_layer = 2
 collision_mask = 5
+
+[node name="vamp_book" parent="." instance=ExtResource("4_4yrts")]

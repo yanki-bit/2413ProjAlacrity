@@ -3,6 +3,8 @@ extends CanvasLayer
 var enemies = [] # variables to store enemies in combat. Enum to identify enemytype 
 var player # store player unit
 var turn_count = 0 # store number of turns occured so far in fight 
+var current_state    # The current state of the battle
+var combat_turn_order = Array()    # A queue of combatants
 
 # All possible battle states
 enum BATTLE_STATES {
@@ -13,16 +15,10 @@ enum BATTLE_STATES {
 	LOSE    # When the player loses
 }
 
-
-var current_state    # The current state of the battle
-
-var combat_turn_order = Array()    # A queue of combatants
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load an instance of player into situation 
 	player = load("res://Characters/player.tscn").instantiate()
-	
 	# Focus on attack button
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
 	# Place player in the combat turn order queue to be sorted

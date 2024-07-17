@@ -98,6 +98,3 @@ func get_LCK():
 func get_ENERGY(value:int):
 	return statsheet.ENERGY
 
-# stop player movement when encountering countbook boss
-func _on_count_book_boss_trigger():
-	set_physics_process(false)

@@ -1,6 +1,7 @@
 # Class that all enemy units are a part of
 class_name EnemyClass extends Area2D
 
+signal contact
 signal death
 
 # Enemy Information

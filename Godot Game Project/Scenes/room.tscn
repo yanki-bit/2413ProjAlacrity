@@ -211,4 +211,5 @@ position = Vector2(92, 232)
 [node name="vamp_book" parent="." instance=ExtResource("2_v7rnu")]
 position = Vector2(-47, 77)
 
-[connection signal="boss_trigger" from="CountBook" to="Player" method="_on_count_book_boss_trigger"]
+[connection signal="contact" from="CountBook" to="." method="_on_contact"]
+[connection signal="contact" from="vamp_book" to="." method="_on_contact"]

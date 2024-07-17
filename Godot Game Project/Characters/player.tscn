@@ -276,6 +276,8 @@ states/Walk/position = Vector2(481, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u12vh"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_3chr5"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_86sof")]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_mwybc")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]

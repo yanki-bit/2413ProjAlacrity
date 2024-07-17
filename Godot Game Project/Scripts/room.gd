@@ -13,4 +13,4 @@ func _process(delta):
 # Pause Player movement on contact to set animation to idle
 func _on_contact():
 	$Player.set_physics_process(false)
-	pass # Replace with function body.
+

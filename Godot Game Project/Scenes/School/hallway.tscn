@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxnjg2bkk1hyw"]
+[gd_scene load_steps=9 format=3 uid="uid://cxnjg2bkk1hyw"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_a3nm0"]
+[ext_resource type="Script" path="res://Scenes/School/hallway.gd" id="1_uuxoy"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_52tfc"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_tvpua"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="4_q7ti2"]
@@ -6872,6 +6873,7 @@ sources/3 = SubResource("TileSetAtlasSource_cgwno")
 
 [node name="Hallway" type="Node2D"]
 position = Vector2(498, 414)
+script = ExtResource("1_uuxoy")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(500, -288)
@@ -6885,8 +6887,6 @@ layer_1/tile_data = PackedInt32Array(-327684, 720898, 24, -262148, 720898, 25, -
 
 [node name="Player" parent="." instance=ExtResource("3_tvpua")]
 position = Vector2(567, -298)
-collision_layer = 2
-collision_mask = 5
 
 [node name="vamp_book" parent="." instance=ExtResource("4_q7ti2")]
 position = Vector2(444, -335)

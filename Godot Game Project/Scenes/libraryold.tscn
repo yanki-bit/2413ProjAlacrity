@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://l7mj3r62rpqo"]
 
-[ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_6ntjt"]
-[ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="2_4ywr1"]
-[ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="3_y67nm"]
+[ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_xhq7k"]
+[ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="2_p57fq"]
+[ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="3_p5s46"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5adat"]
-texture = ExtResource("1_6ntjt")
+texture = ExtResource("1_xhq7k")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -341,7 +341,7 @@ texture = ExtResource("1_6ntjt")
 8:12/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qitch"]
-texture = ExtResource("2_4ywr1")
+texture = ExtResource("2_p57fq")
 margins = Vector2i(0, 2)
 texture_region_size = Vector2i(32, 32)
 2:1/0 = 0
@@ -8575,7 +8575,6 @@ texture_region_size = Vector2i(32, 32)
 15:137/0 = 0
 15:137/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:137/0/physics_layer_0/angular_velocity = 0.0
-20:137/size_in_atlas = Vector2i(4, 4)
 20:137/0 = 0
 20:137/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:137/0/physics_layer_0/angular_velocity = 0.0
@@ -10748,7 +10747,7 @@ texture_region_size = Vector2i(32, 32)
 6:15/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b73ke"]
-texture = ExtResource("3_y67nm")
+texture = ExtResource("3_p5s46")
 texture_region_size = Vector2i(32, 32)
 24:0/0 = 0
 24:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -13387,7 +13386,6 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y7iyw"]
 resource_name = "library"
-scenes/1/scene = null
 
 [sub_resource type="TileSet" id="TileSet_u6fhx"]
 tile_size = Vector2i(32, 32)

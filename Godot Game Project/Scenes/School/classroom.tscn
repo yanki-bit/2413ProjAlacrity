@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://pwmsp7jntfnp"]
+[gd_scene load_steps=9 format=3 uid="uid://pwmsp7jntfnp"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_8371n"]
+[ext_resource type="Script" path="res://Scenes/School/classroom.gd" id="1_ojl8n"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_14u8u"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_lwwip"]
+[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="4_obmgj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_meb5p"]
 texture = ExtResource("1_8371n")
@@ -420,7 +422,8 @@ physics_layer_0/collision_mask = 0
 sources/5 = SubResource("TileSetAtlasSource_meb5p")
 sources/6 = SubResource("TileSetAtlasSource_yaxt3")
 
-[node name="Node2D" type="Node2D"]
+[node name="Classroom" type="Node2D"]
+script = ExtResource("1_ojl8n")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(115, -124)
@@ -437,6 +440,12 @@ layer_3/name = "chair"
 layer_3/tile_data = PackedInt32Array(196597, 5, 38, 262133, 65541, 39, 196598, 5, 38, 196601, 5, 38, 196602, 5, 38, 196605, 5, 38, 196606, 5, 38, 262134, 65541, 39, 262137, 65541, 39, 262138, 65541, 39, 262141, 65541, 39, 262142, 65541, 39, 458741, 5, 38, 524277, 65541, 39, 524278, 65541, 39, 524281, 65541, 39, 524282, 65541, 39, 524285, 65541, 39, 524286, 65541, 39, 458742, 5, 38, 458745, 5, 38, 458746, 5, 38, 458749, 5, 38, 458750, 5, 38)
 
 [node name="Player" parent="." instance=ExtResource("3_lwwip")]
-position = Vector2(115, -144)
-collision_layer = 2
-collision_mask = 5
+position = Vector2(128, -137)
+
+[node name="Door" parent="." instance=ExtResource("4_obmgj")]
+position = Vector2(175, -124)
+collision_layer = 5
+collision_mask = 2
+next_scene = "res://Scenes/School/hallway.tscn"
+
+[connection signal="contact" from="Door" to="." method="_on_contact"]

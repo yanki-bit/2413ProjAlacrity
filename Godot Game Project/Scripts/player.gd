@@ -100,6 +100,6 @@ func get_SPD():
 func get_LCK():
 	return statsheet.LCK
 
-func get_ENERGY(value:int):
+func get_ENERGY():
 	return statsheet.ENERGY
 

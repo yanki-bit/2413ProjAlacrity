@@ -16,8 +16,8 @@ func _process(_delta):
 
 # Initialize combat on encounter with unit
 func _on_body_entered(body):
-	emit_signal("contact")
 	if "Player" in body.name && self.visible == true:
+		emit_signal("contact")
 		# Play reveal animation. Also runs the initialize combat function and frees queue at the end of the animation
 		$AnimationPlayer.play("transform")
 

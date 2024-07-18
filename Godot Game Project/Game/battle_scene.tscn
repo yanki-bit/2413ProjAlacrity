@@ -133,3 +133,4 @@ theme = ExtResource("4_toufy")
 text = "ESCAPE"
 
 [connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Escape" to="." method="_on_escape_pressed"]

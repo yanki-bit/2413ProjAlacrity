@@ -162,9 +162,19 @@ func check_next_state() -> BATTLE_STATES:
 # TEST TEST TEST TEST TEST TEST #
 # # # # # # # # # # # # # # # # #
 func _on_attack_pressed():
+	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
 		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
 		# Start turn actions
 		_handle_wait_state()
 		_handle_states(check_next_state())
 	pass
+
+func _on_escape_pressed():
+	# Ensure that player input is expected
+	if current_state == BATTLE_STATES.WAIT:
+		# Unpause Game
+		get_tree().paused = false
+		get_parent().unpause_player_movement()
+		# Delete Battle Scene
+		queue_free()

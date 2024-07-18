@@ -1,6 +1,6 @@
 extends Area2D
 signal contact
-@export var next_scene: String
+@export var next_scene: String = ""
 @export var spawn_location = Vector2(0,0)
 @export var spawn_direction = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 # transition to next scene when player collides with door

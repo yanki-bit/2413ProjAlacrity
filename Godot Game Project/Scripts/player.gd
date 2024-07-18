@@ -54,6 +54,11 @@ func new_state():
 		
 		
 
+# set spawn location
+func set_spawn(location: Vector2, direction: Vector2):
+	anim_tree.set("parameters/Idle/blend_position",direction)
+	position = location
+
 # Setters for setting stats 
 func set_MAX_HP(value:int):
 	statsheet.MAX_HP = value
@@ -95,9 +100,6 @@ func get_SPD():
 func get_LCK():
 	return statsheet.LCK
 
-func get_ENERGY(value:int):
+func get_ENERGY():
 	return statsheet.ENERGY
 
-# stop player movement when encountering countbook boss
-func _on_count_book_boss_trigger():
-	set_physics_process(false)

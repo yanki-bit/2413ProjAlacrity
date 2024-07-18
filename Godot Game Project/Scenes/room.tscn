@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=10 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_k56ww"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="2_v7rnu"]
+[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="6_5jnmo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -211,4 +212,14 @@ position = Vector2(92, 232)
 [node name="vamp_book" parent="." instance=ExtResource("2_v7rnu")]
 position = Vector2(-47, 77)
 
-[connection signal="boss_trigger" from="CountBook" to="Player" method="_on_count_book_boss_trigger"]
+[node name="Door" parent="." instance=ExtResource("6_5jnmo")]
+position = Vector2(-174, 237)
+collision_layer = 5
+collision_mask = 2
+next_scene = "res://Scenes/School/classroom.tscn"
+spawn_location = Vector2(128, -137)
+spawn_direction = Vector2(-1, 0)
+
+[connection signal="contact" from="CountBook" to="." method="_on_contact"]
+[connection signal="contact" from="vamp_book" to="." method="_on_contact"]
+[connection signal="contact" from="Door" to="." method="_on_contact"]

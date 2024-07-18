@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatSheet" load_steps=2 format=3 uid="uid://dseco147o00b4"]
 
-[ext_resource type="Script" path="res://Game/stat_sheet.gd" id="1_8dn3k"]
+[ext_resource type="Script" path="res://Scenes/Resources/stat_sheet.gd" id="1_8dn3k"]
 
 [resource]
 script = ExtResource("1_8dn3k")

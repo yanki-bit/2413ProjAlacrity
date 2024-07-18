@@ -37,7 +37,7 @@ func _handle_states(new_state):
 			turn_count += 1
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
-			print("Waiting... turn number" + str(turn_count))
+			print("Waiting... turn number " + str(turn_count))
 			# wait for player action 
 			
 		BATTLE_STATES.PLAYER:
@@ -61,6 +61,7 @@ func _handle_states(new_state):
 
 func _handle_enemy_state():
 	# get enemy to take action
+	
 	# move to next units action
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
@@ -68,6 +69,7 @@ func _handle_enemy_state():
 
 func _handle_player_state():
 	# do players action
+	
 	# move to next units action
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
@@ -158,9 +160,19 @@ func check_next_state() -> BATTLE_STATES:
 # TEST TEST TEST TEST TEST TEST #
 # # # # # # # # # # # # # # # # #
 func _on_attack_pressed():
+	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
 		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
 		# Start turn actions
 		_handle_wait_state()
 		_handle_states(check_next_state())
 	pass
+
+func _on_escape_pressed():
+	# Ensure that player input is expected
+	if current_state == BATTLE_STATES.WAIT:
+		# Unpause Game
+		get_tree().paused = false
+		get_parent().unpause_player_movement()
+		# Delete Battle Scene
+		queue_free()

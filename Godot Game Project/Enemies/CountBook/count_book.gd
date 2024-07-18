@@ -1,6 +1,4 @@
 extends EnemyClass
-
-signal boss_trigger
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# set minion(s) on load
@@ -18,8 +16,8 @@ func _process(_delta):
 
 # Initialize combat on encounter with unit
 func _on_body_entered(body):
-	emit_signal("boss_trigger")
 	if "Player" in body.name && self.visible == true:
+		emit_signal("contact")
 		# Play reveal animation. Also runs the initialize combat function and frees queue at the end of the animation
 		$AnimationPlayer.play("transform")
 

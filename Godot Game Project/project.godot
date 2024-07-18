@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SettingsDataContainer="*res://Main Menu/Autoload/Settings_Data_Container.gd"
 SettingsSignalBus="*res://Main Menu/Autoload/Settings_SignalBus.gd"
 SaveManager="*res://Main Menu/Autoload/SaveManager.gd"
+MapData="*res://Scenes/Resources/Autoloads/MapData.gd"
 
 [display]
 

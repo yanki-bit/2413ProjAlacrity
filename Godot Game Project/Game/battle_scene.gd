@@ -41,7 +41,7 @@ func _handle_states(new_state):
 			turn_count += 1
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
-			print("Waiting... turn number" + str(turn_count))
+			print("Waiting... turn number " + str(turn_count))
 			# wait for player action 
 			
 		BATTLE_STATES.PLAYER:
@@ -65,6 +65,7 @@ func _handle_states(new_state):
 
 func _handle_enemy_state():
 	# get enemy to take action
+	
 	# move to next units action
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
@@ -72,6 +73,7 @@ func _handle_enemy_state():
 
 func _handle_player_state():
 	# do players action
+	
 	# move to next units action
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()

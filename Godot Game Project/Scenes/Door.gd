@@ -1,4 +1,4 @@
-extends Area2D
+extends Node
 signal contact
 @export var next_scene: String = ""
 @export var spawn_location = Vector2(0,0)

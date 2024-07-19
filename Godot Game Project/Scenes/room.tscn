@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="2_v7rnu"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="6_5jnmo"]
-[ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="7_oo8vm"]
+[ext_resource type="PackedScene" path="res://Characters/test_npc.tscn" id="7_oo8vm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -217,7 +217,7 @@ position = Vector2(-47, 77)
 position = Vector2(-174, 237)
 collision_layer = 5
 collision_mask = 2
-next_scene = "res://Scenes/School/hallway.gd"
+next_scene = "res://Scenes/School/hallway.tscn"
 spawn_location = Vector2(4, 0)
 spawn_direction = Vector2(0, -1)
 

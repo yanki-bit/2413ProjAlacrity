@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var player_menu = $Player_Menu
+@onready var actionable_finder = $Direction/ActionableFinder
 
  #export allows us to adjust variables on game engine
 @export var move_speed : float = 200
@@ -56,5 +57,7 @@ func _on_count_book_boss_trigger():
 #Dialogue test
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
-		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
-		return
+		var actionables =  actionable_finder.get_overlapping_areas()
+		if actionables.size()>0:
+			actionables[0].action()
+			return

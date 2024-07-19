@@ -207,8 +207,11 @@ layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 262145, 1, 3, 262145, 1, 65538, 327681, 1, 65539, 393217, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_37xrm")]
+y_sort_enabled = true
+collision_layer = 3
 
 [node name="TestNPC" parent="." instance=ExtResource("3_xp1y6")]
+y_sort_enabled = true
 position = Vector2(108, 102)
 
 [node name="Actionable" parent="TestNPC" instance=ExtResource("4_xhbxj")]

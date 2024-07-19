@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4hkro4xymogt"]
+
+[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Player Menu/Menu_Theme.tres" id="1_jq4g3"]
+
+[node name="Exit_ConfirmationDialog" type="ConfirmationDialog"]
+title = "Exit to Desktop"
+initial_position = 1
+size = Vector2i(380, 106)
+visible = true
+theme = ExtResource("1_jq4g3")
+ok_button_text = "Exit"
+dialog_text = "Are you sure you want to exit the game?
+	  (Any unsaved Progress will be lost)
+"

@@ -496,6 +496,6 @@ layer_2/name = "furniture2"
 layer_2/tile_data = PackedInt32Array(-262144, 327682, 1, -196608, 327682, 2, -327683, 262145, 24, -262147, 262145, 25, -327682, 327681, 24, -262146, 327681, 25, -327681, 393217, 24, -262145, 393217, 25, 65531, 131073, 51, 131067, 131073, 52, 65532, 196609, 51, 131068, 196609, 52)
 
 [node name="Player" parent="." instance=ExtResource("4_j31x6")]
-position = Vector2(7, 26)
+position = Vector2(0, 67)
 
 [connection signal="contact" from="Door" to="Door" method="_on_contact"]

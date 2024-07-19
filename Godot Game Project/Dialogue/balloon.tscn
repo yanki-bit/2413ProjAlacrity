@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=12 format=3 uid="uid://73jm5qjy52vq"]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
+[ext_resource type="Script" path="res://Dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
-[ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_p4xll"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -64,13 +63,7 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cmlv"]
-texture = ExtResource("2_p4xll")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(12, 3, 72, 22)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6k1o"]
 
 [sub_resource type="SystemFont" id="SystemFont_24slk"]
 font_names = PackedStringArray("Monospace")
@@ -97,24 +90,26 @@ theme = SubResource("Theme_qq3yp")
 [node name="Panel" type="Panel" parent="Balloon"]
 clip_children = 2
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = -183.0
-offset_right = -19.0
-offset_bottom = -19.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -93.0
+offset_right = 469.0
+offset_bottom = 94.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxTexture_0cmlv")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e6k1o")
 
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -137,7 +132,7 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_8tlgf")
 text = "Dialogue..."
 

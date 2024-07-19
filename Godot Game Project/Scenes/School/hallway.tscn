@@ -6887,7 +6887,7 @@ layer_1/name = "door"
 layer_1/tile_data = PackedInt32Array(-327684, 720898, 24, -262148, 720898, 25, -327683, 786434, 24, -262147, 786434, 25)
 
 [node name="Player" parent="." instance=ExtResource("3_tvpua")]
-position = Vector2(567, -298)
+position = Vector2(568, -253)
 
 [node name="vamp_book" parent="." instance=ExtResource("4_q7ti2")]
 position = Vector2(444, -335)
@@ -6895,7 +6895,5 @@ position = Vector2(444, -335)
 [node name="Door" parent="." instance=ExtResource("6_ydvry")]
 position = Vector2(18, -315)
 next_scene = "res://Scenes/School/classroom.tscn"
-spawn_location = null
-spawn_direction = null
 
 [connection signal="contact" from="Door" to="." method="_on_contact"]

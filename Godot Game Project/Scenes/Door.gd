@@ -17,5 +17,5 @@ func _on_body_entered(body):
 	# Make sure body is player
 	if "Player" in body.name:
 		emit_signal("contact")
-		get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene, spawn_location, spawn_direction)
+d		get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene, spawn_location, spawn_direction)
 		

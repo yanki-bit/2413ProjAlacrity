@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcpo8so45t32g"]
+
+[ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_2j8rv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylawc"]
+size = Vector2(36, 35)
+
+[node name="TestNPC" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 8.5)
+shape = SubResource("RectangleShape2D_ylawc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2j8rv")
+hframes = 3
+vframes = 3

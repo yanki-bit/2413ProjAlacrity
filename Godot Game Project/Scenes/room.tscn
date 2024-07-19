@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=12 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="2_v7rnu"]
+[ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="3_xp1y6"]
+[ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="4_xhbxj"]
+[ext_resource type="Resource" uid="uid://dym8fvohlqpwm" path="res://Dialogue/main.dialogue" id="5_v43sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -186,6 +189,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1sx7f")
 sources/1 = SubResource("TileSetAtlasSource_anfe1")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g667n"]
+size = Vector2(36, 35)
+
 [node name="Room" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -202,9 +208,25 @@ layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 26
 
 [node name="Player" parent="." instance=ExtResource("2_37xrm")]
 
+[node name="TestNPC" parent="." instance=ExtResource("3_xp1y6")]
+position = Vector2(108, 102)
+
+[node name="Actionable" parent="TestNPC" instance=ExtResource("4_xhbxj")]
+dialogue_resource = ExtResource("5_v43sp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestNPC/Actionable"]
+position = Vector2(1, 7.5)
+shape = SubResource("RectangleShape2D_g667n")
+
 [node name="CountBook" parent="." instance=ExtResource("1_glpmx")]
 z_index = 1
 position = Vector2(92, 232)
 
+[node name="CollisionShape2D" parent="CountBook" index="0"]
+scale = Vector2(1, 1)
+
 [node name="vamp_book" parent="." instance=ExtResource("2_v7rnu")]
 position = Vector2(-47, 77)
+
+[editable path="CountBook"]
+[editable path="vamp_book"]

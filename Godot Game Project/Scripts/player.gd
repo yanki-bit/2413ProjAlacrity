@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var player_menu = $Player_Menu
 
-
  #export allows us to adjust variables on game engine
 @export var move_speed : float = 200
 @export var start_dir : Vector2 = Vector2(0,1)
@@ -50,8 +49,12 @@ func new_state():
 		state.travel("Idle")
 		
 		
-
 # stop player movement when encountering countbook boss
 func _on_count_book_boss_trigger():
 	set_physics_process(false)
 	
+#Dialogue test
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact"):
+		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
+		return

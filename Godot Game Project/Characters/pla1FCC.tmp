@@ -310,9 +310,6 @@ parameters/Walk/blend_position = Vector2(0.434817, 0.73545)
 visible = false
 visibility_layer = 513
 
-[node name="Weapon_Item_List" parent="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment/VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/Weapon_List_Container/VBoxContainer" index="0"]
-player_inventory_path = NodePath("../../../../../../../../../../../../../../../../../InventoryManager")
-
 [editable path="Camera2D3/Player_Menu"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]

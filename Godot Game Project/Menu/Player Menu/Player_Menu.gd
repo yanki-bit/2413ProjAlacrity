@@ -2,10 +2,13 @@ class_name Player_Menu
 extends Camera2D
 #Camera fixed on the player visible when the user pauses and allows the user to select the menu options they desire
 
-@onready var player_menu = $"."
+#All Weapons avaliable in the game
+@onready  var WeaponList : MasterInventoryResource = preload("res://Scenes/Resources/Items/MasterInventoryResource.tres")
 
+
+@onready var player_menu = $"."
 #this node needs to be direct child of player scene
-@onready var player = $".."
+@onready var player = $"../.."
 
 #Player_menu buttons main
 @onready var id_btn = $Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/ID_btn as Button

@@ -121,7 +121,6 @@ func handle_signals() -> void:
 	#loads settings data from save manager script
 	#then connects to the on settings data load function to set the settings 
 	SettingsSignalBus.load_settings_data.connect(on_settings_data_load)
-	
 
 func on_keybinds_loaded(data : Dictionary) -> void:
 	var load_move_left = InputEventKey.new()
@@ -129,8 +128,7 @@ func on_keybinds_loaded(data : Dictionary) -> void:
 	var load_move_up = InputEventKey.new()
 	var load_move_down = InputEventKey.new()
 	var load_interact = InputEventKey.new()
-	print(data)
-	
+
 	#note that its looking for the action name
 	load_move_left.set_physical_keycode(int(data.move_left))
 	load_move_right.set_physical_keycode(int(data.move_right))

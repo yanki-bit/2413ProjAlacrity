@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Godot Game Project"
-run/main_scene="res://Main Menu/main_menu.tscn"
+run/main_scene="res://Menu/Main Menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SettingsDataContainer="*res://Main Menu/Autoload/Settings_Data_Container.gd"
-SettingsSignalBus="*res://Main Menu/Autoload/Settings_SignalBus.gd"
-SaveManager="*res://Main Menu/Autoload/SaveManager.gd"
+SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd"
+SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
+SaveManager="*res://Menu/Main Menu/Autoload/SaveManager.gd"
 
 [display]
 

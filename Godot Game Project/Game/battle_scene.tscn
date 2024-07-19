@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/battle_scene.gd" id="1_oktsy"]
 [ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_1khe4"]
 [ext_resource type="Texture2D" uid="uid://ceqaecl5j5wd1" path="res://Assets/Portraits/friend.png" id="3_h8atp"]
-[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Player Menu/Menu_Theme.tres" id="4_toufy"]
+[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Player Menu/Menu_Theme.tres" id="4_006qh"]
 
 [node name="BattleScene_New" type="CanvasLayer"]
 script = ExtResource("1_oktsy")
@@ -44,7 +44,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_1khe4")
 patch_margin_left = 17
 patch_margin_top = 8
 patch_margin_right = 17
@@ -63,22 +62,34 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer"]
 layout_mode = 2
+texture = ExtResource("2_1khe4")
+region_rect = Rect2(16, 7, 68, 18)
+patch_margin_left = 3
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect"]
+layout_mode = 2
+offset_right = 208.0
+offset_bottom = 230.0
+
+[node name="CenterContainer" type="CenterContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/VBoxContainer/CenterContainer"]
+[node name="Control" type="Control" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/VBoxContainer/CenterContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer/CenterContainer/Control"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_h8atp")
 
-[node name="Label" type="Label" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "This Guy"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -104,7 +115,7 @@ theme_override_constants/separation = 10
 [node name="Attack" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("4_toufy")
+theme = ExtResource("4_006qh")
 text = "ATTACK"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster"]
@@ -116,17 +127,17 @@ theme_override_constants/separation = 10
 [node name="Ability" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_toufy")
+theme = ExtResource("4_006qh")
 text = "ABILITY"
 
 [node name="Item" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_toufy")
+theme = ExtResource("4_006qh")
 text = "ITEMS"
 
 [node name="Escape" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("4_toufy")
+theme = ExtResource("4_006qh")
 text = "ESCAPE"

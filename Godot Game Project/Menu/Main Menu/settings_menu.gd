@@ -16,4 +16,6 @@ func on_exit_settings_pressed() -> void:
 	exit_settings_menu.emit()
 	SettingsSignalBus.emit_set_settings_dictionary(SettingsDataContainer.create_dictionary_store())
 	set_process(false)
+	
+
 

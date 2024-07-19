@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbwufrwgjp7oo"]
 
-[ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="1_ecq70"]
-[ext_resource type="PackedScene" uid="uid://ceqyh5kgdtkew" path="res://Player Menu/inventory_equipment.tscn" id="1_rfxg2"]
+[ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="1_n7jg4"]
+[ext_resource type="PackedScene" uid="uid://ceqyh5kgdtkew" path="res://Menu/Player Menu/inventory_equipment.tscn" id="2_pvqq2"]
 
 [node name="Inventory_Container" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ecq70")
+texture = ExtResource("1_n7jg4")
 region_rect = Rect2(10, 0, 81, 31)
 patch_margin_left = 9
 patch_margin_top = 9
@@ -39,5 +39,5 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Inventory_Equipment" parent="Panel/MarginContainer" instance=ExtResource("1_rfxg2")]
+[node name="Inventory_Equipment" parent="Panel/MarginContainer" instance=ExtResource("2_pvqq2")]
 layout_mode = 2

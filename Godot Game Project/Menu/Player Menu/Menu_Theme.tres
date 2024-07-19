@@ -85,7 +85,11 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [sub_resource type="Image" id="Image_2midx"]
+=======
+[sub_resource type="Image" id="Image_8gasx"]
+>>>>>>> parent of a094524 (Stashed changes commit)
 =======
 [sub_resource type="Image" id="Image_8gasx"]
 >>>>>>> parent of a094524 (Stashed changes commit)
@@ -99,9 +103,15 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_7qdcm"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 image = SubResource("Image_2midx")
 
 [sub_resource type="Image" id="Image_vfau6"]
+=======
+image = SubResource("Image_8gasx")
+
+[sub_resource type="Image" id="Image_icgfi"]
+>>>>>>> parent of a094524 (Stashed changes commit)
 =======
 image = SubResource("Image_8gasx")
 
@@ -117,7 +127,11 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_16xf6"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 image = SubResource("Image_vfau6")
+=======
+image = SubResource("Image_icgfi")
+>>>>>>> parent of a094524 (Stashed changes commit)
 =======
 image = SubResource("Image_icgfi")
 >>>>>>> parent of a094524 (Stashed changes commit)

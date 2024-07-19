@@ -1,4 +1,8 @@
 ~ name
 Right, I'm {{PlayerInfo.player_name}}
+
+{{PlayerInfo.player_name}}: What time is it?
+{{PlayerInfo.player_name}}: ...
+{{PlayerInfo.player_name}}: I can't help but feel like there's something I should be doing...
 do next_scene()
 => END

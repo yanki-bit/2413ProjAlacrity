@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3j26rnam6h0l"
-path="res://.godot/imported/MaleClassmateFace.png-22ca83dc924d562bca45421736b087f2.ctex"
+uid="uid://1p1us3cgcmsc"
+path="res://.godot/imported/snakeSheet.png-d7931d36340cbf8b28e4a921c2a22fb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/MaleClassmateFace.png"
-dest_files=["res://.godot/imported/MaleClassmateFace.png-22ca83dc924d562bca45421736b087f2.ctex"]
+source_file="res://Assets/Sprite/snakeSheet.png"
+dest_files=["res://.godot/imported/snakeSheet.png-d7931d36340cbf8b28e4a921c2a22fb1.ctex"]
 
 [params]
 

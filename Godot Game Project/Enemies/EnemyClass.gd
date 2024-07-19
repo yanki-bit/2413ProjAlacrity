@@ -1,6 +1,7 @@
 # Class that all enemy units are a part of
 class_name EnemyClass extends Area2D
 
+signal contact
 signal death
 
 # Enemy Information
@@ -24,6 +25,7 @@ var ATK: int
 var DEF: int
 var SPD: int
 var LCK: int
+var ENERGY: int
 
 
 # placeholder var, will be changed dictionary taken from database
@@ -77,6 +79,7 @@ func initialize_stats_in_combat():
 	DEF = statsheet.DEF
 	SPD = statsheet.SPD
 	LCK = statsheet.LCK
+	ENERGY = statsheet.ENERGY
 	
 
 # Generate the number of minions to spawn with this enemy
@@ -84,10 +87,50 @@ func generate_number_of_minions() -> int:
 	var numberOfMinions = randi_range(0,2)
 	return numberOfMinions
 
-# Getters and Setters for changing stats
+# Setters for setting stats 
 func set_MAX_HP(value:int):
 	MAX_HP = value
-	pass
+
+func set_CURR_HP(value:int):
+	CURR_HP = value
+
+func set_ATK(value:int):
+	ATK = value
+
+func set_DEF(value:int):
+	DEF = value
+
+func set_SPD(value:int):
+	SPD = value
+
+func set_LCK(value:int):
+	LCK = value
+
+func set_ENERGY(value:int):
+	ENERGY = value
+
+# Getters for stats
+func get_MAX_HP():
+	return MAX_HP
+
+func get_CURR_HP():
+	return CURR_HP
+
+func get_ATK():
+	return ATK
+
+func get_DEF():
+	return DEF
+
+func get_SPD():
+	return SPD
+
+func get_LCK():
+	return LCK
+
+func get_ENERGY():
+	return ENERGY
+
 
 func take_damage(value:int):
 	CURR_HP -= value
@@ -97,4 +140,4 @@ func take_damage(value:int):
 
 func heal(value:int):
 	CURR_HP += value
-	CURR_HP = maxi(CURR_HP, MAX_HP)
+	CURR_HP = mini(CURR_HP, MAX_HP)

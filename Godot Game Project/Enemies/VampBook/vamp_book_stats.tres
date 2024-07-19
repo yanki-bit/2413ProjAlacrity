@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatSheet" load_steps=2 format=3 uid="uid://d1leijaqbjfy6"]
 
-[ext_resource type="Script" path="res://Game/stat_sheet.gd" id="1_e5alb"]
+[ext_resource type="Script" path="res://Scenes/Resources/stat_sheet.gd" id="1_e5alb"]
 
 [resource]
 script = ExtResource("1_e5alb")
@@ -8,5 +8,6 @@ MAX_HP = 25
 CURR_HP = 25
 ATK = 0
 DEF = 0
-SPD = 0
+SPD = 1
 LCK = 0
+ENERGY = 1

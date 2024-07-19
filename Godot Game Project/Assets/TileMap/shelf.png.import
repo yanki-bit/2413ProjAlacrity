@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3j26rnam6h0l"
-path="res://.godot/imported/MaleClassmateFace.png-22ca83dc924d562bca45421736b087f2.ctex"
+uid="uid://bh8fa4niy3p3"
+path="res://.godot/imported/shelf.png-5ab939dff47f8c29a44b0c5d00e63018.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/MaleClassmateFace.png"
-dest_files=["res://.godot/imported/MaleClassmateFace.png-22ca83dc924d562bca45421736b087f2.ctex"]
+source_file="res://Assets/TileMap/shelf.png"
+dest_files=["res://.godot/imported/shelf.png-5ab939dff47f8c29a44b0c5d00e63018.ctex"]
 
 [params]
 

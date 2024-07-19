@@ -1,35 +1,41 @@
 class_name Rooms extends Node2D
-const BALLOON = preload("res://Dialogue/balloon.tscn")
+
+@onready var phone_ring = $PhoneRing as AudioStreamPlayer2D
 
 @export var dialogue_resource: DialogueResource
-
 var player_node : Node = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_player(player_node)
-
+	DialogueFunctions.connect("dialogue_finished", Callable(self, "on_dialogue_finished"))
+	Dialogue_Handler()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 	
-	
+#function to get the player node to stop its process using dialogue
 func get_player(node : Node):
 	node = $Player
 	DialogueFunctions.player_node = node
-	playDialogue()
-	
 
-func playDialogue():
-	var balloon: Node = BALLOON.instantiate()
-	get_tree().current_scene.add_child(balloon)
-	balloon.start(dialogue_resource, "DayOne")
-	DialogueFunctions.stop_player_physics()
-	playNextDialogue()
-	
-func playNextDialogue():
-	DialogueManager.show_example_dialogue_balloon(dialogue_resource, "Monologue1")
+#controls music player
+func play_music(music: AudioStreamPlayer2D):
+	music.play()
+	pass
+func stop_music (music: AudioStreamPlayer2D):
+	music.stop()
+	pass
+
+func on_dialogue_finished():
 	DialogueFunctions.start_player_physics()
+#function to handle dialogue sequence
+func Dialogue_Handler() -> void:
+	DialogueFunctions.dialogue_resource = dialogue_resource
+	DialogueFunctions.stop_player_physics()
+	DialogueFunctions.playDialogue("DayOne")
+	DialogueFunctions.playDefaultDialogue("Monologue1")
+
 # Pause Player movement on contact to set animation to idle
 func _on_contact():
 	$Player.set_physics_process(false)

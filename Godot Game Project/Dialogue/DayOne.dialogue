@@ -10,5 +10,4 @@ Day {{DialogueFunctions.day}} - Morning  [next=2]
 
 {{PlayerInfo.player_name}}: Ugh, the ringing hurts my ears.
 {{PlayerInfo.player_name}}: Where did I put that phone??.
-
 => END

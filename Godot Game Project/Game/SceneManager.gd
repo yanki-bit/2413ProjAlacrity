@@ -14,7 +14,6 @@ func _process(_delta):
 # Load first scene after pressing start in main menu
 func transition_to_first_scene():
 	$CurrentScene.add_child(load("res://Scenes/room.tscn").instantiate())
-	
 	# Fade from black to screen
 	await get_tree().create_timer(0.5).timeout
 	$"ScreenTransition/AnimationPlayer".play("Fade_To_Screen")

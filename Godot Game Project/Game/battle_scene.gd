@@ -5,6 +5,7 @@ var player # store player unit
 var turn_count = 0 # store number of turns occured so far in fight 
 var current_state    # The current state of the battle
 var combat_turn_order = Array()    # A queue of combatants
+@onready var ability = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/HBoxContainer/Ability
 
 # All possible battle states
 enum BATTLE_STATES {
@@ -17,6 +18,7 @@ enum BATTLE_STATES {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	handle_signal()
 	# Load an instance of player into situation 
 	player = load("res://Characters/player.tscn").instantiate()
 	# Focus on attack button
@@ -153,7 +155,16 @@ func generate_turn_order():
 func check_next_state() -> BATTLE_STATES:
 	return combat_turn_order[0][1]
 
+@onready var player_abilities_container = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer
+@onready var escape = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Escape
 
+func handle_signal():
+	ability.pressed.connect(on_ability_press)
+	escape.pressed.connect(_on_escape_pressed)
+#func to show abilities when button pressed
+func on_ability_press() -> void:
+	player_abilities_container.show()
+	
 
 
 # # # # # # # # # # # # # # # # #

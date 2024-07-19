@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=11 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="2_v7rnu"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="6_5jnmo"]
+[ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="7_oo8vm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -219,6 +220,9 @@ collision_mask = 2
 next_scene = "res://Scenes/School/classroom.tscn"
 spawn_location = Vector2(128, -137)
 spawn_direction = Vector2(-1, 0)
+
+[node name="TestNPC" parent="." instance=ExtResource("7_oo8vm")]
+position = Vector2(97, 95)
 
 [connection signal="contact" from="CountBook" to="." method="_on_contact"]
 [connection signal="contact" from="vamp_book" to="." method="_on_contact"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://de7gtmmqf0o7d"]
+
+[ext_resource type="Script" path="res://Scenes/Intro/Intro.gd" id="1_5oqbu"]
+[ext_resource type="Resource" uid="uid://cgoyrumt5egc" path="res://Dialogue/Intro.dialogue" id="2_kpqhn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mmj1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_fag70"]
+font_names = PackedStringArray("Monospace")
+font_weight = 600
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5oqbu")
+dialogue_resource = ExtResource("2_kpqhn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mmj1")
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 360.0
+offset_right = 590.063
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_fag70")
+placeholder_text = "Justin"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

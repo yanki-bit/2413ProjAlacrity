@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1diackjfa7dn"]
+[gd_scene load_steps=6 format=3 uid="uid://d1diackjfa7dn"]
 
 [ext_resource type="Script" path="res://Game/battle_scene.gd" id="1_oktsy"]
 [ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_1khe4"]
 [ext_resource type="Texture2D" uid="uid://ceqaecl5j5wd1" path="res://Assets/Portraits/friend.png" id="3_h8atp"]
 [ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Player Menu/Menu_Theme.tres" id="4_006qh"]
+[ext_resource type="Texture2D" uid="uid://2ugf8jeaj3fj" path="res://Assets/UI/UI_Flat_Banner_02_Upward.png" id="5_s4b6i"]
 
 [node name="BattleScene_New" type="CanvasLayer"]
 process_mode = 3
@@ -142,6 +143,68 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_006qh")
 text = "ESCAPE"
+
+[node name="PlayerAbilitiesContainer" type="VBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer"]
+visible = false
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_s4b6i")
+region_rect = Rect2(16, 5, 68, 18)
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_006qh")
+
+[node name="Button2" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_006qh")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_006qh")
+
+[node name="Button2" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_006qh")
 
 [connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Escape" to="." method="_on_escape_pressed"]

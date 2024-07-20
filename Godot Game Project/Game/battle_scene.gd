@@ -25,6 +25,15 @@ func _ready():
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
 	# Place player in the combat turn order queue to be sorted
 	combat_turn_order.append([player,BATTLE_STATES.PLAYER])
+	
+func _process(delta):
+	# Ensure that battle state is waiting for player input
+	if current_state == BATTLE_STATES.WAIT:
+		if Input.is_action_pressed("pause"):
+			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer.hide()
+			
+		
+	
 
 #####################################################
 ##                 STATE HANDLING                  ##

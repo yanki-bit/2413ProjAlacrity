@@ -25,6 +25,15 @@ func _ready():
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
 	# Place player in the combat turn order queue to be sorted
 	combat_turn_order.append([player,BATTLE_STATES.PLAYER])
+	
+func _process(delta):
+	# Ensure that battle state is waiting for player input
+	if current_state == BATTLE_STATES.WAIT:
+		if Input.is_action_pressed("pause"):
+			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer.hide()
+			
+		
+	
 
 #####################################################
 ##                 STATE HANDLING                  ##
@@ -37,6 +46,8 @@ func _handle_states(new_state):
 		BATTLE_STATES.WAIT:
 			# Increment Turn
 			turn_count += 1
+			# Recalculate turn order
+			generate_turn_order()
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
 			print("Waiting... turn number " + str(turn_count))
@@ -144,7 +155,9 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	
 
 func sort_decending(a,b):
-	if a[0].get_SPD() > b[0].get_SPD():
+	if a[0] == null || b[0] == null:
+		return false
+	elif a[0].get_SPD() > b[0].get_SPD():
 		return true
 	return false
 

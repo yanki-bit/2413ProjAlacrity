@@ -226,9 +226,12 @@ position = Vector2(-47, 77)
 position = Vector2(-174, 237)
 collision_layer = 5
 collision_mask = 2
-next_scene = "res://Scenes/School/classroom.tscn"
-spawn_location = Vector2(128, -137)
-spawn_direction = Vector2(-1, 0)
+next_scene = "res://Scenes/School/hallway.tscn"
+spawn_location = Vector2(4, 0)
+spawn_direction = Vector2(0, -1)
+
+[node name="TestNPC" parent="." instance=ExtResource("7_oo8vm")]
+position = Vector2(97, 95)
 
 [node name="TestNPC" parent="." instance=ExtResource("7_oo8vm")]
 position = Vector2(97, 95)

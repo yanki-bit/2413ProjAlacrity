@@ -30,6 +30,10 @@ Bgm="*res://Assets/Music/BGM.tscn"
 
 general/states=["Intro"]
 
+[dialogue_manager]
+
+general/states=["Intro"]
+
 [display]
 
 window/size/viewport_width=1080

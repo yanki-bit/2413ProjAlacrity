@@ -1,16 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=13 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
-[ext_resource type="Script" path="res://Scripts/room.gd" id="1_k56ww"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="2_37xrm"]
-[ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="2_mnubg"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="2_v7rnu"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="6_5jnmo"]
 [ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="7_oo8vm"]
 [ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="9_ubk7e"]
 [ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="10_up6kg"]
-[ext_resource type="AudioStream" uid="uid://cjpiysv7xjsbr" path="res://Assets/Music/Meadow-Waltz-Classical-Piano-Orchestra-chosic.com_.mp3" id="11_nnb0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -197,8 +194,6 @@ sources/1 = SubResource("TileSetAtlasSource_anfe1")
 size = Vector2(18, 36)
 
 [node name="Room" type="Node2D"]
-script = ExtResource("1_k56ww")
-dialogue_resource = ExtResource("2_mnubg")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_t52f2")
@@ -233,7 +228,7 @@ spawn_direction = Vector2(0, -1)
 [node name="TestNPC" parent="." instance=ExtResource("7_oo8vm")]
 position = Vector2(97, 95)
 
-[node name="TestNPC" parent="." instance=ExtResource("7_oo8vm")]
+[node name="TestNPC2" parent="." instance=ExtResource("7_oo8vm")]
 position = Vector2(97, 95)
 
 [node name="PhoneRing" type="AudioStreamPlayer2D" parent="."]
@@ -252,10 +247,6 @@ shape = SubResource("RectangleShape2D_eyrdd")
 
 [node name="PhoneObject" parent="Collidables/CollisionShape2D" instance=ExtResource("10_up6kg")]
 script = null
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_nnb0r")
-bus = &"BGM"
 
 [connection signal="contact" from="CountBook" to="." method="_on_contact"]
 [connection signal="contact" from="vamp_book" to="." method="_on_contact"]

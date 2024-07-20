@@ -248,6 +248,7 @@ position = Vector2(-54, 20)
 shape = SubResource("RectangleShape2D_eyrdd")
 
 [node name="PhoneObject" parent="Collidables/CollisionShape2D" instance=ExtResource("10_up6kg")]
+script = null
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_nnb0r")

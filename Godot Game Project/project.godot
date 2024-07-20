@@ -24,6 +24,7 @@ MapData="*res://Scenes/Resources/Autoloads/MapData.gd"
 SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd"
 SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
 DialogueFunctions="*res://Dialogue/helpers/DialogueFunctions.gd"
+Bgm="*res://Assets/Music/BGM.tscn"
 
 [dialogue_manager]
 

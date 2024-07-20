@@ -4,6 +4,7 @@ class_name Rooms extends Node2D
 
 @export var dialogue_resource: DialogueResource
 var player_node : Node = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_player(player_node)
@@ -27,8 +28,10 @@ func stop_music (music: AudioStreamPlayer2D):
 	music.stop()
 	pass
 
+#function to start player movement
 func on_dialogue_finished():
 	DialogueFunctions.start_player_physics()
+	
 #function to handle dialogue sequence
 func Dialogue_Handler() -> void:
 	DialogueFunctions.dialogue_resource = dialogue_resource

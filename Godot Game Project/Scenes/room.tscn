@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=15 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="6_5jnmo"]
 [ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="7_oo8vm"]
 [ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="9_ubk7e"]
+[ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="10_up6kg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -191,6 +192,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1sx7f")
 sources/1 = SubResource("TileSetAtlasSource_anfe1")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyrdd"]
+size = Vector2(18, 36)
+
 [node name="Room" type="Node2D"]
 script = ExtResource("1_k56ww")
 dialogue_resource = ExtResource("2_mnubg")
@@ -208,6 +212,7 @@ layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(-65534, 393217, 0, -65533, 393217, 0, 2, 262145, 1, 3, 262145, 1, 65538, 327681, 1, 65539, 393217, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_37xrm")]
+collision_mask = 7
 
 [node name="CountBook" parent="." instance=ExtResource("1_glpmx")]
 z_index = 1
@@ -231,6 +236,17 @@ position = Vector2(97, 95)
 stream = ExtResource("9_ubk7e")
 volume_db = -10.0
 autoplay = true
+bus = &"SoundFX"
+
+[node name="Collidables" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collidables"]
+position = Vector2(-54, 20)
+shape = SubResource("RectangleShape2D_eyrdd")
+
+[node name="PhoneObject" parent="Collidables/CollisionShape2D" instance=ExtResource("10_up6kg")]
 
 [connection signal="contact" from="CountBook" to="." method="_on_contact"]
 [connection signal="contact" from="vamp_book" to="." method="_on_contact"]

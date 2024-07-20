@@ -11,3 +11,32 @@ Day {{DialogueFunctions.day}} - Morning  [next=2]
 {{PlayerInfo.player_name}}: Ugh, the ringing hurts my ears.
 {{PlayerInfo.player_name}}: Where did I put that phone??.
 => END
+
+~ Phone1
+You pick up the phone what do you want to do?
+- Answer the call
+	=> Answer
+- Drop the call
+	=> Drop
+=> END
+
+~ Answer
+{{PlayerInfo.player_name}}: Hello…
+Luke: Hi Justin! How are you doing?
+{{PlayerInfo.player_name}}: I…um…just woke up.
+Luke: I see. Well, um, have you drafted the cover letter for class?
+{{PlayerInfo.player_name}}: No…it slipped my mind. When is it due again?
+Luke: Don’t worry, it happens. It’s due tomorrow. 
+{{PlayerInfo.player_name}}: Great! I’ve still got time.
+Luke: Yeah, just make sure not to procrastinate :) See you in class later?
+{{PlayerInfo.player_name}}: For sure. See you Luke. 
+Luke: See you!
+=> END
+
+~ Drop
+A stream of text message pour in.
+Luke: Hey! hope ur not still sleeping
+Luke: Make sure 2 draft the CL for class
+Luke: It's Due tmrw
+Luke: I'll C U in class <3
+=> END

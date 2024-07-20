@@ -1,6 +1,8 @@
 class_name Rooms extends Node2D
 
 @onready var phone_ring = $PhoneRing as AudioStreamPlayer2D
+@onready var phone_object = $Collidables/CollisionShape2D/PhoneObject
+@onready var bgm = $BGM as AudioStreamPlayer2D
 
 @export var dialogue_resource: DialogueResource
 var player_node : Node = null
@@ -46,3 +48,8 @@ func _on_contact():
 func unpause_player_movement():
 	$Player.set_physics_process(true)
 	pass
+
+
+func _on_actionable_interacted():
+	stop_music(phone_ring)	
+	play_music(bgm)

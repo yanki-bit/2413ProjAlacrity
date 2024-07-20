@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bg1g16xkjt0yo"]
+[gd_scene load_steps=16 format=3 uid="uid://bg1g16xkjt0yo"]
 
 [ext_resource type="Texture2D" uid="uid://tmpxsd5rg3fa" path="res://Assets/TileMap/Tile.png" id="1_1y8hw"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="1_glpmx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="7_oo8vm"]
 [ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="9_ubk7e"]
 [ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="10_up6kg"]
+[ext_resource type="AudioStream" uid="uid://cjpiysv7xjsbr" path="res://Assets/Music/Meadow-Waltz-Classical-Piano-Orchestra-chosic.com_.mp3" id="11_nnb0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx7f"]
 texture = ExtResource("1_1y8hw")
@@ -248,6 +249,13 @@ shape = SubResource("RectangleShape2D_eyrdd")
 
 [node name="PhoneObject" parent="Collidables/CollisionShape2D" instance=ExtResource("10_up6kg")]
 
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_nnb0r")
+bus = &"BGM"
+
 [connection signal="contact" from="CountBook" to="." method="_on_contact"]
 [connection signal="contact" from="vamp_book" to="." method="_on_contact"]
 [connection signal="contact" from="Door" to="." method="_on_contact"]
+[connection signal="interacted" from="Collidables/CollisionShape2D/PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
+
+[editable path="Collidables/CollisionShape2D/PhoneObject"]

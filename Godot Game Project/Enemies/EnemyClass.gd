@@ -21,7 +21,8 @@ var battle_scene = preload("res://Game/battle_scene.tscn")
 # Stat variables
 var MAX_HP: int
 var CURR_HP: int 
-var ATK: int
+var MIN_ATK: int
+var MAX_ATK: int
 var DEF: int
 var SPD: int
 var LCK: int
@@ -75,7 +76,8 @@ func initalize_combat():
 func initialize_stats_in_combat():
 	MAX_HP = statsheet.MAX_HP
 	CURR_HP = statsheet.CURR_HP
-	ATK = statsheet.ATK
+	MIN_ATK = statsheet.MIN_ATK
+	MAX_ATK = statsheet.MAX_ATK
 	DEF = statsheet.DEF
 	SPD = statsheet.SPD
 	LCK = statsheet.LCK
@@ -94,8 +96,11 @@ func set_MAX_HP(value:int):
 func set_CURR_HP(value:int):
 	CURR_HP = value
 
-func set_ATK(value:int):
-	ATK = value
+func set_MIN_ATK(value:int):
+	MIN_ATK = value
+
+func set_MAX_ATK(value:int):
+	MAX_ATK = value
 
 func set_DEF(value:int):
 	DEF = value
@@ -116,8 +121,11 @@ func get_MAX_HP():
 func get_CURR_HP():
 	return CURR_HP
 
-func get_ATK():
-	return ATK
+func get_MIN_ATK():
+	return MIN_ATK
+
+func get_MAX_ATK():
+	return MAX_ATK
 
 func get_DEF():
 	return DEF
@@ -131,7 +139,20 @@ func get_LCK():
 func get_ENERGY():
 	return ENERGY
 
+#####################################################
+##               COMBAT FUNCTIONS                  ##
+#####################################################
+func get_attack_damage():
+	if roll_crit():
+		return get_MAX_ATK() * 2 
+	return randi_range(get_MIN_ATK(),get_MAX_ATK())
 
+func roll_crit():
+	var roll = randi_range(1,100)
+	if get_LCK() * 5 >= roll:
+		return true
+	return false
+	
 func take_damage(value:int):
 	CURR_HP -= value
 	if CURR_HP <= 0:

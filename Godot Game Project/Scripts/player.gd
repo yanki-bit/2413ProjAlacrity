@@ -77,9 +77,12 @@ func set_MAX_HP(value:int):
 func set_CURR_HP(value:int):
 	statsheet.CURR_HP = value
 
-func set_ATK(value:int):
-	statsheet.ATK = value
+func set_MIN_ATK(value:int):
+	statsheet.MIN_ATK = value
 
+func set_MAX_ATK(value:int):
+	statsheet.MAX_ATK = value
+	
 func set_DEF(value:int):
 	statsheet.DEF = value
 
@@ -99,8 +102,11 @@ func get_MAX_HP():
 func get_CURR_HP():
 	return statsheet.CURR_HP
 
-func get_ATK():
-	return statsheet.ATK
+func get_MAX_ATK():
+	return statsheet.MAX_ATK
+
+func get_MIN_ATK():
+	return statsheet.MIN_ATK
 
 func get_DEF():
 	return statsheet.DEF
@@ -114,3 +120,26 @@ func get_LCK():
 func get_ENERGY():
 	return statsheet.ENERGY
 
+#####################################################
+##               COMBAT FUNCTIONS                  ##
+#####################################################
+func get_attack_damage():
+	if roll_crit():
+		return get_MAX_ATK() * 2 
+	return randi_range(get_MIN_ATK(),get_MAX_ATK())
+
+func roll_crit():
+	var roll = randi_range(1,100)
+	if get_LCK() * 5 >= roll:
+		return true
+	return false
+	
+func take_damage(value:int):
+	statsheet.CURR_HP -= value
+	if statsheet.CURR_HP <= 0:
+		emit_signal("death")
+	pass
+
+func heal(value:int):
+	statsheet.CURR_HP += value
+	statsheet.CURR_HP = mini(statsheet.CURR_HP, statsheet.MAX_HP)

@@ -25,7 +25,11 @@ func _ready():
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
 	# Place player in the combat turn order queue to be sorted
 	combat_turn_order.append([player,BATTLE_STATES.PLAYER])
-	
+
+#####################################################
+##                 INPUT HANDLING                  ##
+#####################################################
+
 func _process(delta):
 	# Ensure that battle state is waiting for player input
 	if current_state == BATTLE_STATES.WAIT:
@@ -178,7 +182,16 @@ func handle_signal():
 func on_ability_press() -> void:
 	player_abilities_container.show()
 	
-
+#####################################################
+##                COMBAT HANDLING                  ##
+#####################################################
+func calculate_damage(attacker,defender):
+	# get base damage of attacker
+	var attack_damage = attacker.get_attack_damage()
+	var defensive_multiplier = 1 - (defender.get_DEF() * .05)
+	# TODO ABILITY POWER MULTIPLIER
+	var total_damage = attack_damage * defensive_multiplier
+	
 
 # # # # # # # # # # # # # # # # #
 # TEST TEST TEST TEST TEST TEST #
@@ -200,3 +213,4 @@ func _on_escape_pressed():
 		get_parent().unpause_player_movement()
 		# Delete Battle Scene
 		queue_free()
+

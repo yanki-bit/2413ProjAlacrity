@@ -1,4 +1,5 @@
 extends Node2D
+class_name SceneManager
 
 var next_scene = null
 var player_location

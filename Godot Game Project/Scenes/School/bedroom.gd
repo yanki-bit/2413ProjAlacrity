@@ -2,8 +2,6 @@ class_name Rooms
 extends Node2D
 
 @onready var phone_ring = $PhoneRing as AudioStreamPlayer2D
-@onready var phone_object = $Collidables/CollisionShape2D/PhoneObject
-
 
 @export var dialogue_resource: DialogueResource
 var player_node : Node = null
@@ -11,7 +9,6 @@ var player_node : Node = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_player(player_node)
-	DialogueFunctions.connect("dialogue_finished", Callable(self, "on_dialogue_finished"))
 	Dialogue_Handler()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,8 +29,6 @@ func stop_music (music: AudioStreamPlayer2D):
 	pass
 
 #function to start player movement
-func on_dialogue_finished():
-	DialogueFunctions.start_player_physics()
 	
 #function to handle dialogue sequence
 func Dialogue_Handler() -> void:
@@ -46,11 +41,8 @@ func Dialogue_Handler() -> void:
 func _on_contact():
 	$Player.set_physics_process(false)
 
-func unpause_player_movement():
-	$Player.set_physics_process(true)
-	pass
-
 
 func _on_actionable_interacted():
 	stop_music(phone_ring)	
-	play_music(Bgm)
+	if Bgm.playing == false:
+		play_music(Bgm)

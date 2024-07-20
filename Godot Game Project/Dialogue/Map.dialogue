@@ -1,0 +1,9 @@
+~ Map
+Where do you wanna go?
+- Class
+	do DialogueFunctions.scene_class()
+- Work
+	do DialogueFunctions.scene_work()
+- Nevermind
+do DialogueFunctions.start_player_physics()
+=> END

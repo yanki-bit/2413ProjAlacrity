@@ -10,6 +10,7 @@ Day {{DialogueFunctions.day}} - Morning  [next=2]
 
 {{PlayerInfo.player_name}}: Ugh, the ringing hurts my ears.
 {{PlayerInfo.player_name}}: Where did I put that phone??.
+do DialogueFunctions.start_player_physics()
 => END
 
 ~ Phone1
@@ -31,6 +32,7 @@ Luke: Don’t worry, it happens. It’s due tomorrow.
 Luke: Yeah, just make sure not to procrastinate :) See you in class later?
 {{PlayerInfo.player_name}}: For sure. See you Luke. 
 Luke: See you!
+do DialogueFunctions.start_player_physics()
 => END
 
 ~ Drop
@@ -39,4 +41,5 @@ Luke: Hey! hope ur not still sleeping
 Luke: Make sure 2 draft the CL for class
 Luke: It's Due tmrw
 Luke: I'll C U in class <3
+do DialogueFunctions.start_player_physics()
 => END

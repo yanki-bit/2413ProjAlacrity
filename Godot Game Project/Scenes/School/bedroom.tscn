@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/School/bedroom.gd" id="1_strgj"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="1_ucugq"]
-[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="1_vxr03"]
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="2_bcev7"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="2_mtobn"]
 [ext_resource type="Texture2D" uid="uid://rwtqp7v2y1re" path="res://Assets/TileMap/bedroom tilemap.png" id="3_5c4j2"]
+[ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Scenes/BedroomDoor.tscn" id="3_e4ch2"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="4_j31x6"]
 [ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="7_0w7mp"]
 [ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="8_7j87v"]
@@ -490,14 +490,6 @@ size = Vector2(73, 61.5)
 script = ExtResource("1_strgj")
 dialogue_resource = ExtResource("2_mtobn")
 
-[node name="Door" parent="." instance=ExtResource("1_vxr03")]
-position = Vector2(-1, 124)
-collision_layer = 5
-collision_mask = 2
-next_scene = "res://Scenes/School/hallway.tscn"
-spawn_location = Vector2(5, 0)
-spawn_direction = Vector2(0, -1)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yls4u")
 rendering_quadrant_size = 32
@@ -508,6 +500,14 @@ layer_1/name = "furniture"
 layer_1/tile_data = PackedInt32Array(-262149, 2, 0, -262148, 65538, 0, -196612, 65538, 1, -131076, 65538, 2, -196613, 2, 1, -131077, 2, 2, -65540, 65538, 3, -65541, 2, 3, -327680, 196610, 0, -262144, 196610, 1, -196608, 196610, 2, -327679, 262146, 0, -262143, 262146, 1, -196607, 262146, 2, -131071, 262146, 3)
 layer_2/name = "furniture2"
 layer_2/tile_data = PackedInt32Array(-262144, 327682, 1, -196608, 327682, 2, -327683, 262145, 24, -262147, 262145, 25, -327682, 327681, 24, -262146, 327681, 25, -327681, 393217, 24, -262145, 393217, 25, 65531, 131073, 51, 131067, 131073, 52, 65532, 196609, 51, 131068, 196609, 52)
+
+[node name="Area2D" parent="." instance=ExtResource("3_e4ch2")]
+position = Vector2(-1, 84)
+collision_layer = 5
+collision_mask = 2
+next_scene = "res://Scenes/School/classroom.tscn"
+next_scene2 = "res://Scenes/School/library.tscn"
+dialogue_start = "Map"
 
 [node name="Player" parent="." instance=ExtResource("4_j31x6")]
 position = Vector2(-79, -106)
@@ -529,7 +529,6 @@ position = Vector2(-55, 16.5)
 shape = SubResource("RectangleShape2D_7dcbn")
 
 [node name="PhoneObject" parent="Collidables/Phone" instance=ExtResource("8_7j87v")]
-script = null
 
 [node name="Sprite2D" parent="Collidables/Phone/PhoneObject" index="0"]
 scale = Vector2(0.05, 0.04)
@@ -543,7 +542,8 @@ dialogue_start = "Bed"
 position = Vector2(7.62939e-06, 0)
 shape = SubResource("RectangleShape2D_q2xqn")
 
-[connection signal="contact" from="Door" to="Door" method="_on_contact"]
+[connection signal="contact" from="Area2D" to="." method="_on_bedroom_door_contact"]
+[connection signal="contact" from="Area2D" to="." method="_on_contact"]
 [connection signal="interacted" from="Collidables/Phone/PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
 
 [editable path="Collidables/Phone/PhoneObject"]

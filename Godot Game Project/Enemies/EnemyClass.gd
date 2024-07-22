@@ -18,6 +18,9 @@ var this_scene: String
 # reference to battle scene
 var battle_scene = preload("res://Game/battle_scene.tscn")
 
+# Stores next player action
+var next_enemy_action
+
 # Stat variables
 var MAX_HP: int
 var CURR_HP: int 
@@ -27,7 +30,6 @@ var DEF: int
 var SPD: int
 var LCK: int
 var ENERGY: int
-
 
 # placeholder var, will be changed dictionary taken from database
 var Abilities

@@ -1,4 +1,3 @@
-class_name Rooms 
 extends Node2D
 @onready var bedroom = $"."
 @onready var player_menu = $Player/Camera2D3/Player_Menu

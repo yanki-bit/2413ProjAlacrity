@@ -1,5 +1,7 @@
 class_name Rooms 
 extends Node2D
+@onready var bedroom = $"."
+@onready var player_menu = $Player/Camera2D3/Player_Menu
 
 @onready var phone_ring = $PhoneRing as AudioStreamPlayer2D
 
@@ -8,6 +10,7 @@ var player_node : Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_menu.scale = Vector2(0.65,0.65)
 	get_player(player_node)
 	Dialogue_Handler()
 

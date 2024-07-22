@@ -1,4 +1,4 @@
-extends Node
+extends Room
 signal contact
 @export var next_scene: String = ""
 @export var spawn_location = Vector2(0,0)
@@ -19,7 +19,3 @@ func _on_body_entered(body):
 		emit_signal("contact")
 		get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene, spawn_location, spawn_direction)
 		
-
-
-func _on_contact():
-	pass

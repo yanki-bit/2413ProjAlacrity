@@ -47,6 +47,6 @@ do DialogueFunctions.start_player_physics()
 ~ School
 Luke: [wave amp=25 freq=5]Hey {{player_name}}![/wave]
 {{player_name}}: What's up Luke. Good to see you.
-Luke:
-	
+Luke: Are you ready for the [wave amp=25 freq=5]pop quiz[/wave] today?
+{{player_name}}: 
 => END

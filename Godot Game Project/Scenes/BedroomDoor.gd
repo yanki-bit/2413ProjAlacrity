@@ -1,6 +1,6 @@
 extends Area2D
 signal contact
-var next_scene: String = "Classroom"
+var scene_path: String = MapData.MAPS.Classroom.scene_path
 var spawn_location = MapData.MAPS.get("Classroom").get("spawn_location")
 var spawn_direction = MapData.MAPS.get("Classroom").get("spawn_direction")
 
@@ -30,8 +30,8 @@ func _on_body_entered(body):
 		DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 
 func on_class_chosen():
-	get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene, spawn_location, spawn_direction)
+	get_node(NodePath("/root/SceneManager")).transition_to_next_scene(scene_path, spawn_location, spawn_direction)
 func on_work_chosen():
-	get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene2, spawn_location2, spawn_direction2)
+	get_node(NodePath("/root/SceneManager")).transition_to_next_scene(scene_path, spawn_location2, spawn_direction2)
 
 	

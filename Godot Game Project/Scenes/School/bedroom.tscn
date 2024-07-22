@@ -693,8 +693,8 @@ volume_db = -10.0
 autoplay = true
 bus = &"SoundFX"
 
-[connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_bedroom_door_contact"]
+[connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
 [connection signal="interacted" from="Collidables/Phone/PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
 
 [editable path="BedroomDoor"]

@@ -10,7 +10,7 @@ var databaseItems = {
 		"Type" : "Weapon",
 		"Description": "A No. 2 Pencil. You've used since Grade School",
 		"Price" : "$1",
-	},
+		},
 	"I_102" : {
 		"Item" : "Pen",
 		"Type" : "Weapon",

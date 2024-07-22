@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdgg3hdpbugwq"]
+
+[ext_resource type="Texture2D" uid="uid://03unqv7ddq3q" path="res://Assets/Sprite/Bob_16x16.png" id="1_jl1kk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fec65"]
+atlas = ExtResource("1_jl1kk")
+region = Rect2(0, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujyof"]
+atlas = ExtResource("1_jl1kk")
+region = Rect2(16, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwlur"]
+atlas = ExtResource("1_jl1kk")
+region = Rect2(32, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b66qs"]
+atlas = ExtResource("1_jl1kk")
+region = Rect2(48, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2borg"]
+atlas = ExtResource("1_jl1kk")
+region = Rect2(64, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvvo0"]
+atlas = ExtResource("1_jl1kk")
+region = Rect2(80, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flvn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fec65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujyof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwlur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b66qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2borg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvvo0")
+}],
+"loop": true,
+"name": &"sitRight",
+"speed": 5.0
+}]
+
+[node name="classmate" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_flvn7")
+animation = &"sitRight"
+frame_progress = 0.823558

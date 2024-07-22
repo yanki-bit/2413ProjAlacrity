@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqaecl5j5wd1"
-path="res://.godot/imported/friend.png-c0c04bb0aa2c8431bec2c9babb19ae31.ctex"
+uid="uid://bb06jn2878fs1"
+path="res://.godot/imported/classmateF1_150.png-906f49972b4fc364960f1a600184caeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/friend.png"
-dest_files=["res://.godot/imported/friend.png-c0c04bb0aa2c8431bec2c9babb19ae31.ctex"]
+source_file="res://Assets/classmateF1_150.png"
+dest_files=["res://.godot/imported/classmateF1_150.png-906f49972b4fc364960f1a600184caeb.ctex"]
 
 [params]
 

@@ -1,12 +1,13 @@
 extends Area2D
 signal contact
-@export var next_scene: String = ""
-@export var spawn_location = Vector2(0,0)
-@export var spawn_direction = Vector2(0,0)
+var next_scene: String = "Classroom"
+var spawn_location = MapData.MAPS.get("Classroom").get("spawn_location")
+var spawn_direction = MapData.MAPS.get("Classroom").get("spawn_direction")
 
-@export var next_scene2: String = ""
-@export var spawn_location2 = Vector2(0,0)
-@export var spawn_direction2 = Vector2(0,0)
+
+var next_scene2: String = ""
+var spawn_location2 = Vector2(0,0)
+var spawn_direction2 = Vector2(0,0)
 
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "MapSelect"
@@ -26,7 +27,6 @@ func _on_body_entered(body):
 	# Make sure body is player
 	if "Player" in body.name:
 		emit_signal("contact")
-		print("entered")
 		DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 
 func on_class_chosen():

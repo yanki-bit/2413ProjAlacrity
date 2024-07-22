@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerInfo="*res://Scenes/Resources/Autoloads/Player_Info.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-MasterInventory="*res://Scenes/Resources/Items/MasterInventoryResource.gd"
+MasterInventory="res://Scenes/Resources/Items/MasterInventoryResource.gd"
 MapData="*res://Scenes/Resources/Autoloads/MapData.gd"
 SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd"
 SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
@@ -28,7 +28,7 @@ Bgm="*res://Assets/Music/BGM.tscn"
 
 [dialogue_manager]
 
-general/states=["Intro"]
+general/states=["Intro", "PlayerInfo"]
 
 [display]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://pwmsp7jntfnp"]
+[gd_scene load_steps=10 format=3 uid="uid://pwmsp7jntfnp"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_8371n"]
 [ext_resource type="Script" path="res://Scenes/School/classroom.gd" id="1_ojl8n"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_14u8u"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_lwwip"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="4_obmgj"]
+[ext_resource type="PackedScene" uid="uid://dcpo8so45t32g" path="res://Characters/test_npc.tscn" id="6_q2xtf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_meb5p"]
 texture = ExtResource("1_8371n")
@@ -448,4 +449,13 @@ collision_layer = 5
 collision_mask = 2
 next_scene = "res://Scenes/School/hallway.tscn"
 
+[node name="Luke" parent="." instance=ExtResource("6_q2xtf")]
+position = Vector2(96, -180)
+
 [connection signal="contact" from="Door" to="." method="_on_contact"]
+
+[editable path="Player"]
+[editable path="Player/Camera2D3/Player_Menu"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]

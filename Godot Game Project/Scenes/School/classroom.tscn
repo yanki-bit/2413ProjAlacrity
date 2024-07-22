@@ -24,7 +24,6 @@ texture_region_size = Vector2i(32, 32)
 2:37/0 = 0
 2:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:37/0/physics_layer_0/angular_velocity = 0.0
-2:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.76777, -16, -1.75)
 10:39/0 = 0
 10:39/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:39/0/physics_layer_0/angular_velocity = 0.0
@@ -133,11 +132,11 @@ texture_region_size = Vector2i(32, 32)
 0:39/0 = 0
 0:39/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:39/0/physics_layer_0/angular_velocity = 0.0
-0:39/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 1.06066, -16, 1.06066)
 0:38/0 = 0
+0:38/0/z_index = 1
+0:38/0/y_sort_origin = 1
 0:38/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:38/0/physics_layer_0/angular_velocity = 0.0
-0:38/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:36/0 = 0
 1:36/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:36/0/physics_layer_0/angular_velocity = 0.0
@@ -145,7 +144,6 @@ texture_region_size = Vector2i(32, 32)
 1:37/0 = 0
 1:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:37/0/physics_layer_0/angular_velocity = 0.0
-1:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.76777, -16, -1.75)
 4:36/0 = 0
 4:36/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:36/0/physics_layer_0/angular_velocity = 0.0
@@ -157,11 +155,9 @@ texture_region_size = Vector2i(32, 32)
 4:37/0 = 0
 4:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:37/0/physics_layer_0/angular_velocity = 0.0
-4:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.76777, -16, -1.75)
 3:37/0 = 0
 3:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:37/0/physics_layer_0/angular_velocity = 0.0
-3:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.76777, -16, -1.75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yaxt3"]
 texture = ExtResource("2_14u8u")
@@ -440,6 +436,7 @@ layer_3/name = "chair"
 layer_3/tile_data = PackedInt32Array(196597, 5, 38, 262133, 65541, 39, 196598, 5, 38, 196601, 5, 38, 196602, 5, 38, 196605, 5, 38, 196606, 5, 38, 262134, 65541, 39, 262137, 65541, 39, 262138, 65541, 39, 262141, 65541, 39, 262142, 65541, 39, 458741, 5, 38, 524277, 65541, 39, 524278, 65541, 39, 524281, 65541, 39, 524282, 65541, 39, 524285, 65541, 39, 524286, 65541, 39, 458742, 5, 38, 458745, 5, 38, 458746, 5, 38, 458749, 5, 38, 458750, 5, 38)
 
 [node name="Player" parent="." instance=ExtResource("3_lwwip")]
+y_sort_enabled = true
 position = Vector2(128, -137)
 
 [node name="Door" parent="." instance=ExtResource("4_obmgj")]

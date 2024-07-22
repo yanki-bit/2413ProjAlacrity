@@ -189,9 +189,8 @@ func calculate_damage(attacker,defender):
 	# get base damage of attacker
 	var attack_damage = attacker.get_attack_damage()
 	var defensive_multiplier = 1 - (defender.get_DEF() * .05)
-	# TODO ABILITY POWER MULTIPLIER
-	var total_damage = attack_damage * defensive_multiplier
 	
+	var total_damage = attack_damage * defensive_multiplier
 
 # # # # # # # # # # # # # # # # #
 # TEST TEST TEST TEST TEST TEST #

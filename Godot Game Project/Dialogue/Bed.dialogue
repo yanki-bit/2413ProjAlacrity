@@ -1,0 +1,7 @@
+~ Bed
+Your most prized possession. What do you want to do?
+- Sleep
+- Save
+- Quit
+do DialogueFunctions.start_player_physics()
+=> END

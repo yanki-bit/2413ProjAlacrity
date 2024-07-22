@@ -65,6 +65,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var actionables =  actionable_finder.get_overlapping_areas()
 		if actionables.size()>0:
+			DialogueFunctions.stop_player_physics()
 			actionables[0].action()
 			return
 

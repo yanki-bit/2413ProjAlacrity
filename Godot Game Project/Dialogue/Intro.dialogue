@@ -1,5 +1,5 @@
 ~ Intro
-Day 0 - ???
+Day {{DialogueFunctions.day}} - ???
 ...
 ... Who am I again?
 do dialogue_done()

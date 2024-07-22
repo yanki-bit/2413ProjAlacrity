@@ -1,0 +1,52 @@
+~ DayOne
+do DialogueFunctions.add_game_day()
+Day {{DialogueFunctions.day}} - Morning  [next=2]
+=> END
+
+~ Monologue1
+[speed=.7]*brrrng* *brrrng* [next=.5]
+[speed=.7]*brrrng* *brrrng* [next=.5]
+[speed=.7]*brrrng* *brrrng* [next=.5]
+
+{{player_name}}: Ugh, the ringing hurts my ears.
+{{player_name}}: Where did I put that phone??.
+do DialogueFunctions.start_player_physics()
+=> END
+
+~ Phone1
+You pick up the phone what do you want to do?
+- Answer the call
+	=> Answer
+- Drop the call
+	=> Drop
+=> END
+
+~ Answer
+{{player_name}}: Hello…
+Luke: Hi {{player_name}} ! How are you doing?
+{{player_name}}: I…um…just woke up.
+Luke: I see. Well, um, have you drafted the cover letter for class?
+{{player_name}}: No…it slipped my mind. When is it due again?
+Luke: Don’t worry, it happens. It’s due tomorrow. 
+{{player_name}}: Great! I’ve still got time.
+Luke: Yeah, just make sure not to procrastinate :) See you in class later?
+{{player_name}}: For sure. See you Luke. 
+Luke: See you!
+do DialogueFunctions.start_player_physics()
+=> END
+
+~ Drop
+A stream of text message pour in.
+Luke: Hey! hope ur not still sleeping
+Luke: Make sure 2 draft the CL for class
+Luke: It's Due tmrw
+Luke: I'll C U in class <3
+do DialogueFunctions.start_player_physics()
+=> END
+
+~ School
+Luke: [wave amp=25 freq=5]Hey {{player_name}}![/wave]
+{{player_name}}: What's up Luke. Good to see you.
+Luke:
+	
+=> END

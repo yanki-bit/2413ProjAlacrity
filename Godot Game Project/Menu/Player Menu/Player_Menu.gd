@@ -31,6 +31,7 @@ var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	id_btn.text =" "+PlayerInfo.player_name
 	handle_connect_signal()
 	player_menu.hide()
 

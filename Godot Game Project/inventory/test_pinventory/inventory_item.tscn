@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuimdltuhu0qg"]
+
+[ext_resource type="Texture2D" uid="uid://bk53p51tbolay" path="res://inventory/test_pinventory/Noodle.png" id="1_18mj6"]
+[ext_resource type="Script" path="res://inventory/test_pinventory/inventory_item.gd" id="1_qdjpq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xhnk"]
+
+[node name="inventory_Item" type="Node2D" groups=["Items"]]
+script = ExtResource("1_qdjpq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2xhnk")
+
+[node name="item_icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_18mj6")

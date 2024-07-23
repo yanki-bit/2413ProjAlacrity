@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://fsx33bwvn6g5"]
+
+[ext_resource type="Script" path="res://inventory/test_pinventory/Inventory_UI.gd" id="1_i5vin"]
+
+[node name="Inventory_UI" type="Node2D"]
+script = ExtResource("1_i5vin")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 600.0
+offset_bottom = 400.0

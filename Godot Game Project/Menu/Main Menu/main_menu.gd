@@ -1,6 +1,6 @@
+
 class_name MainMenu
 extends Control
-
 #Prepares UI buttons as variables
 @onready var start = $Menu_Options/Options_Margin/HBoxContainer/VBoxContainer/START as Button
 @onready var  load_game = $Menu_Options/Options_Margin/HBoxContainer/VBoxContainer/LOAD as Button

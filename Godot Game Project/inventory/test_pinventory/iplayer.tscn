@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://inventory/test_pinventory/iplayer.gd" id="1_b6o2m"]
 [ext_resource type="Texture2D" uid="uid://bmqu6awpous8y" path="res://Assets/Sprite/walkDefaultSheet.png" id="1_qejye"]
-[ext_resource type="PackedScene" uid="uid://fsx33bwvn6g5" path="res://inventory/test_pinventory/Inventory_UI.tscn" id="3_iqq1l"]
+[ext_resource type="PackedScene" uid="uid://dnlgrabfl40qy" path="res://inventory/test_pinventory/Inventory_UI.tscn" id="3_iqq1l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd6dg"]
 atlas = ExtResource("1_qejye")
@@ -43,6 +43,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjkxm"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+process_mode = 3
 script = ExtResource("1_b6o2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -52,7 +53,6 @@ sprite_frames = SubResource("SpriteFrames_7cl48")
 shape = SubResource("CircleShape2D_gjkxm")
 
 [node name="InteractUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="InteractUI"]
 anchors_preset = 3
@@ -60,13 +60,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 260.0
-offset_bottom = 10.0
+offset_left = -303.0
+offset_top = -59.0
+offset_right = -3.0
+offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
 color = Color(0.192157, 0.376471, 0.321569, 0.839216)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="InteractUI/ColorRect"]
 layout_mode = 1
@@ -80,6 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "You can pick up this item!"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false

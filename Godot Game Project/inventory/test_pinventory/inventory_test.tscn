@@ -12,31 +12,32 @@
 format = 2
 
 [node name="iplayer" parent="." instance=ExtResource("1_gdlhl")]
+position = Vector2(257, 71)
 
 [node name="inventory_Item" parent="." instance=ExtResource("2_1r0oa")]
 position = Vector2(68, 40)
 item_type = "Consumable"
 item_name = "Honey"
-item_ATK = "0"
+item_blurb = "Another pot of honey for Pooh!"
 item_texture = ExtResource("3_s15v1")
 
 [node name="inventory_Item4" parent="." instance=ExtResource("2_1r0oa")]
 position = Vector2(126, 124)
 item_type = "Consumable"
 item_name = "Honey"
-item_ATK = "0"
+item_blurb = "Honey for Pooh bear"
 item_texture = ExtResource("3_s15v1")
 
 [node name="inventory_Item2" parent="." instance=ExtResource("2_1r0oa")]
 position = Vector2(41, 112)
 item_type = "Consumable"
 item_name = "Fish"
-item_ATK = "2"
+item_blurb = "Only the best mackerel"
 item_texture = ExtResource("4_h2qxe")
 
 [node name="inventory_Item3" parent="." instance=ExtResource("2_1r0oa")]
 position = Vector2(144, 76)
 item_type = "Noodles"
 item_name = "Consumable"
-item_ATK = "0"
+item_blurb = "These are noodles!"
 item_texture = ExtResource("5_ssjkd")

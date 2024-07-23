@@ -5,7 +5,8 @@ extends Node2D
 #define the item properties, using @export exposes these variables to godot editor
 @export var item_type = "" #is it consumable etc.
 @export var item_name = ""
-@export var item_ATK = ""
+@export var item_blurb = ""
+#@export var item_ATK = ""
 @export var item_texture: Texture
 
 # static var that shouldn't change 
@@ -41,10 +42,11 @@ func pickup_item():
 	#create an item dictionary
 	var item = {
 		"quantity": 1,
-		"item_type": item_type,
 		"item_name": item_name,
+		"item_type": item_type,
+		"item_blurb": item_blurb,
 		"item_texture": item_texture,
-		"scne_path": scene_path,
+		"scene_path": scene_path,
 	}
 	# check the global script
 	if GlobalPinventory.player_node:
@@ -57,9 +59,9 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		player_in_range = true
 		#reference the ui_interact child node in the player body
-		body.ui_interact.visible = true
+		body.interact_ui.visible = true
 		
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_range = false
-		body.ui_interact.visible = false
+		body.interact_ui.visible = false

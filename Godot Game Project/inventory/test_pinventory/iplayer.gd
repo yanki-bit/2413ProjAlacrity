@@ -12,6 +12,7 @@ extends CharacterBody2D
 func _ready():
 	# Set this node as the Player node, cross check with Global autoload script
 	GlobalPinventory.set_player_reference(self)
+	interact_ui.visible = false
 
 # Input for movement
 func get_input():
@@ -45,3 +46,4 @@ func _input(event):
 	if event.is_action_pressed("ui_inventory"):
 		inventory_ui.visible = !inventory_ui.visible
 		get_tree().paused = !get_tree().paused
+

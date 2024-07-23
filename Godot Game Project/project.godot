@@ -19,16 +19,16 @@ config/icon="res://icon.svg"
 
 PlayerInfo="*res://Scenes/Resources/Autoloads/Player_Info.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-MasterInventory="res://Scenes/Resources/Items/MasterInventoryResource.gd"
-MapData="*res://Scenes/Resources/Autoloads/MapData.gd"
-SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd"
-SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
 DialogueFunctions="*res://Dialogue/helpers/DialogueFunctions.gd"
+MapData="*res://Scenes/Resources/Autoloads/MapData.gd"
+SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
+SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd"
+SaveManager="*res://Menu/Main Menu/Autoload/SaveManager.gd"
 Bgm="*res://Assets/Music/BGM.tscn"
 
 [dialogue_manager]
 
-general/states=["Intro", "PlayerInfo"]
+general/states=["Intro", "PlayerInfo", "DialogueFunctions"]
 
 [display]
 

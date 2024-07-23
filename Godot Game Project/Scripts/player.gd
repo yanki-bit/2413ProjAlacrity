@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player_menu = $Player_Menu
+@onready var player_menu = $Camera2D3/Player_Menu
 @onready var actionable_finder = $Direction/ActionableFinder
 
  #export allows us to adjust variables on game engine
@@ -19,7 +19,6 @@ func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir)
 
-
 func _physics_process(_delta):
 	#get input direction
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -33,6 +32,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _process(_delta):
+	interactable()
 	# Switch to Idle animation if player physics is paused
 	if is_physics_processing() == false:
 		state.travel("Idle")
@@ -115,3 +115,9 @@ func get_LCK():
 func get_ENERGY():
 	return statsheet.ENERGY
 
+func interactable():
+	var actionables =  actionable_finder.get_overlapping_areas()
+	if actionables.size()>0:
+		$Label.show()
+	else:
+		$Label.hide()

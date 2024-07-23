@@ -71,3 +71,5 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 text = "EXIT"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Exit_Settings" to="." method="_on_exit_settings_button_down"]

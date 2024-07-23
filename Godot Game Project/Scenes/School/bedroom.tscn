@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cp04axbadhy82"]
+[gd_scene load_steps=17 format=3 uid="uid://cp04axbadhy82"]
 
 [ext_resource type="Script" path="res://Scenes/School/bedroom.gd" id="1_strgj"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="1_ucugq"]
@@ -624,11 +624,8 @@ sources/0 = SubResource("TileSetAtlasSource_1w41g")
 sources/1 = SubResource("TileSetAtlasSource_yjqg7")
 sources/2 = SubResource("TileSetAtlasSource_dbrgl")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dcbn"]
-size = Vector2(16, 29)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2xqn"]
-size = Vector2(73, 61.5)
+size = Vector2(63.5833, 72.0417)
 
 [node name="Bedroom" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -658,44 +655,51 @@ dialogue_start = "Map"
 [node name="CollisionShape2D" parent="BedroomDoor" index="0"]
 position = Vector2(-6.66667, -5.33333)
 
-[node name="Collidables" type="StaticBody2D" parent="."]
-position = Vector2(64, -19)
+[node name="PhoneObject" parent="." instance=ExtResource("8_7j87v")]
+position = Vector2(40.667, -70)
 rotation = 1.5708
-collision_layer = 2
-collision_mask = 2
 
-[node name="Phone" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(-55, 16.5)
-shape = SubResource("RectangleShape2D_7dcbn")
-
-[node name="PhoneObject" parent="Collidables/Phone" instance=ExtResource("8_7j87v")]
-
-[node name="Sprite2D" parent="Collidables/Phone/PhoneObject" index="0"]
+[node name="Sprite2D" parent="PhoneObject" index="0"]
 light_mask = 1
 visibility_layer = 1
 scale = Vector2(0.05, 0.04)
 
-[node name="Actionable" parent="Collidables" instance=ExtResource("11_del7i")]
-position = Vector2(-71.5, 190.75)
+[node name="Actionable" parent="PhoneObject/Sprite2D" index="0"]
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="PhoneObject/Sprite2D/Actionable" index="0"]
+position = Vector2(135, -116.659)
+scale = Vector2(1, 1)
+
+[node name="Actionable" parent="." instance=ExtResource("11_del7i")]
+position = Vector2(-123.333, -94.0001)
 dialogue_resource = ExtResource("10_5cids")
 dialogue_start = "Bed"
 
-[node name="Bed" type="CollisionShape2D" parent="Collidables/Actionable"]
-position = Vector2(7.62939e-06, 0)
+[node name="Bed" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(-4.45834, 4.64584)
 shape = SubResource("RectangleShape2D_q2xqn")
 
 [node name="Player" parent="." instance=ExtResource("4_j31x6")]
 position = Vector2(-79, -106)
 
+[node name="ActionableFinder" parent="Player/Direction" index="0"]
+collision_mask = 18
+
 [node name="PhoneRing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_0w7mp")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 bus = &"SoundFX"
 
-[connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_bedroom_door_contact"]
-[connection signal="interacted" from="Collidables/Phone/PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
+[connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
+[connection signal="interacted" from="PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
 
 [editable path="BedroomDoor"]
-[editable path="Collidables/Phone/PhoneObject"]
+[editable path="PhoneObject"]
+[editable path="Player"]
+[editable path="Player/Camera2D3/Player_Menu"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]

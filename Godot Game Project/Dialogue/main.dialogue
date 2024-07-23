@@ -1,5 +1,5 @@
 ~ start
 
-TestNPC: [[Hi|Hello|Howdy]], You're a whore.
-
+. . .
+do DialogueFunctions.start_player_physics()
 => END

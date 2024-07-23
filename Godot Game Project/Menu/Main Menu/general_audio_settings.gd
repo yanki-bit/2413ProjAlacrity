@@ -14,7 +14,6 @@ func _ready():
 	set_audio_text()
 	set_slider_value()
 
-	
 func load_data() -> void:
 	match bus_name:
 		"Master":

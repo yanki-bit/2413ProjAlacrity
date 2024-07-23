@@ -191,7 +191,7 @@ sources/0 = SubResource("TileSetAtlasSource_1sx7f")
 sources/1 = SubResource("TileSetAtlasSource_anfe1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyrdd"]
-size = Vector2(18, 36)
+size = Vector2(40, 36)
 
 [node name="Room" type="Node2D"]
 
@@ -239,7 +239,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collidables"]
-position = Vector2(-54, 20)
+position = Vector2(-43, 20)
 shape = SubResource("RectangleShape2D_eyrdd")
 
 [node name="PhoneObject" parent="Collidables/CollisionShape2D" instance=ExtResource("8_okdoy")]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bre0suvjr5dys"]
+[gd_scene load_steps=6 format=3 uid="uid://bre0suvjr5dys"]
 
+[ext_resource type="Script" path="res://Objects/Phone_Object.gd" id="1_bj7pu"]
 [ext_resource type="Texture2D" uid="uid://bmdn7fkmnhvub" path="res://Assets/Weapons/Pixelized_Phone/Tomolaro/2B.png" id="1_cdn1f"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="2_sm2q8"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="3_esu1k"]
@@ -8,6 +9,7 @@
 size = Vector2(180, 360)
 
 [node name="PhoneObject" type="Node2D"]
+script = ExtResource("1_bj7pu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 3
@@ -21,5 +23,6 @@ dialogue_resource = ExtResource("3_esu1k")
 dialogue_start = "Phone1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Actionable"]
-position = Vector2(-9.53674e-06, -9.53674e-06)
+position = Vector2(-9.99998, -1.54972e-05)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_761yy")

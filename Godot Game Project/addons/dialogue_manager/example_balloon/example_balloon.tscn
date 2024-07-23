@@ -142,21 +142,23 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_8tlgf")
 text = "Dialogue..."
 
-[node name="Responses" type="MarginContainer" parent="Balloon"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 211.0
-offset_top = -579.0
-offset_right = 535.0
-offset_bottom = -175.0
+offset_right = 2.0
+offset_bottom = -180.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+alignment = 2
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
+[node name="Responses" type="MarginContainer" parent="Balloon/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/VBoxContainer/Responses" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
@@ -165,10 +167,10 @@ theme_override_constants/separation = 2
 script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
-[node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
+[node name="ResponseExample" type="Button" parent="Balloon/VBoxContainer/Responses/ResponsesMenu"]
 layout_mode = 2
 theme = ExtResource("5_4uk4a")
 text = "Response example"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
-[connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="response_selected" from="Balloon/VBoxContainer/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

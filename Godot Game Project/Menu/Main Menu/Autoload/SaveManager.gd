@@ -3,8 +3,7 @@ extends Node
 #path and name of the save file
 const SETTINGS_SAVE_PATH : String = "user://SettingsData.save"
 
-var settings_data_dict : Dictionary = {
-}
+var settings_data_dict : Dictionary = {}
 
 func _ready():
 	SettingsSignalBus.set_settings_dictionary.connect(on_settings_save)
@@ -18,7 +17,6 @@ func on_settings_save(data : Dictionary) -> void:
 	
 #loads settings data. Checks if it exists first
 func load_settings_data() -> void:
-	
 	if not FileAccess.file_exists(SETTINGS_SAVE_PATH):
 		return
 	

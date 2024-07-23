@@ -1,12 +1,13 @@
-[gd_scene load_steps=31 format=3 uid="uid://d0u3aasjbv5ul"]
+[gd_scene load_steps=33 format=3 uid="uid://d0u3aasjbv5ul"]
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
 [ext_resource type="Script" path="res://Characters/InventoryManager.gd" id="2_7u0kg"]
+[ext_resource type="Texture2D" uid="uid://cu34m6msx15l5" path="res://Assets/Sprite/Player Head Sheet.png" id="4_05vyd"]
 [ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Menu/Player Menu/Player_Menu.tscn" id="4_r21j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeicx"]
-size = Vector2(29, 19)
+size = Vector2(29, 21)
 
 [sub_resource type="Animation" id="Animation_wsja7"]
 resource_name = "IdleDown"
@@ -33,6 +34,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_hdano"]
@@ -73,6 +86,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite2:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_18b4d"]
 resource_name = "IdleRight"
@@ -112,6 +149,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [-1.5708]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite2:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fm5lw"]
 resource_name = "IdleUp"
@@ -138,6 +199,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
 }
 
 [sub_resource type="Animation" id="Animation_cbfcg"]
@@ -166,6 +239,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_h8yrx"]
 resource_name = "WalkDown"
@@ -183,6 +268,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [1, 0, 2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Direction:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_iwamv"]
@@ -214,6 +323,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 3, 3, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite2:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Direction:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
 
 [sub_resource type="Animation" id="Animation_jii3x"]
 resource_name = "WalkRight"
@@ -244,6 +389,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 3, 3, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite2:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Direction:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
 
 [sub_resource type="Animation" id="Animation_sc5yj"]
 resource_name = "WalkUp"
@@ -261,6 +442,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [7, 6, 8, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 6, 6, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Direction:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rs3al"]
@@ -330,14 +535,22 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_86sof"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k8ge2"]
+states/End/position = Vector2(626, 100)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_8rpvg")
 states/Idle/position = Vector2(342, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_ugfv1")
 states/Walk/position = Vector2(481, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u12vh"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_3chr5"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_86sof")]
+graph_offset = Vector2(-184.173, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4y7ne"]
-radius = 14.0357
+radius = 12.0416
+
+[sub_resource type="SystemFont" id="SystemFont_4cjqq"]
+font_names = PackedStringArray("Monospace")
+font_weight = 600
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -349,12 +562,17 @@ script = ExtResource("2_7u0kg")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_4vbna")
-flip_h = true
+hframes = 3
+vframes = 3
+
+[node name="PlayerSprite2" type="Sprite2D" parent="."]
+visibility_layer = 3
+texture = ExtResource("4_05vyd")
 hframes = 3
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 13.5)
+position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_aeicx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -379,18 +597,28 @@ visibility_layer = 513
 player_inventory_path = NodePath("../../../../../../../../../../../../../../../../../InventoryManager")
 
 [node name="Direction" type="Marker2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, 11)
 
 [node name="ActionableFinder" type="Area2D" parent="Direction"]
-position = Vector2(0, 7)
+position = Vector2(0, 6)
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
 light_mask = 0
 visibility_layer = 16
-position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_4y7ne")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -67.0
+offset_top = -47.0
+offset_right = 78.0
+offset_bottom = -24.0
+theme_override_fonts/font = SubResource("SystemFont_4cjqq")
+text = "(E)INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="Camera2D3/Player_Menu"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]

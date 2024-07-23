@@ -20,7 +20,6 @@ func create_dictionary_store() -> Dictionary:
 		"sfx_vol": sfx_vol,
 		"keybinds": create_keybind_dict()
 	}
-	
 	return settings_container_dict
 	
 #customized keys

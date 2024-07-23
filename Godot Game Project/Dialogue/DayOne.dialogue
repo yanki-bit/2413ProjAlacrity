@@ -1,6 +1,6 @@
 ~ DayOne
-do DialogueFunctions.add_game_day()
-Day {{DialogueFunctions.day}} - Morning  [next=2]
+do [[day += 1]] 
+Day {{day}} - Morning  [next=2]
 => END
 
 ~ Monologue1
@@ -20,6 +20,12 @@ You pick up the phone what do you want to do?
 - Drop the call
 	=> Drop
 => END
+
+~ Phone2
+[[No new messages|You have no messages, do something else|Stop checking your phone and make a game or something]]
+do DialogueFunctions.start_player_physics()
+=> END
+
 
 ~ Answer
 {{player_name}}: Hello…
@@ -48,5 +54,66 @@ do DialogueFunctions.start_player_physics()
 Luke: [wave amp=25 freq=5]Hey {{player_name}}![/wave]
 {{player_name}}: What's up Luke. Good to see you.
 Luke: Are you ready for the [wave amp=25 freq=5]pop quiz[/wave] today?
-{{player_name}}: 
+{{player_name}}: Hmm...Perchance... Mayhaps..
+Luke: Well it sounds like you have things under control [wave amp=25 freq=5]GOOD LUCK![/wave]
+Professor: Quiet down class.
+Professor: We will be starting the quiz now.
+Professor: Take your seats please.
+do dialoguefinished()
+do wait(1)
+do DialogueFunctions.start_player_physics()
 => END
+
+~ Quiz
+Professor: Question Number 1:
+Professor: [shake rate=20 level=10]What does OOP stand for?[/shake]
+- Object Oriented Programming
+	do [[score += 1]]
+- Object Oriented Procedures
+- Open Object Patterns
+
+Professor: Question Number 2:
+Professor: [shake rate=20 level=10]What are the SDLC phases (PADIM)?[/shake]
+- Preparation, Assessment, Design,\n Integration, Maintenance
+- Planning, Analysis, Design,\n Implementation, Maintenance
+	do [[score += 1]]
+- Pretty, Awesome, Document, In, Markup
+
+Professor: Question Number 3:
+Professor: [shake rate=20 level=10]What is DNS[/shake] 
+- Domain Name Services
+- Domain Name Server
+- Domain Name System
+	do [[score += 1]]
+
+Professor: Alright students hand in your papers. The quiz is now finished.
+
+You got {{score}} out of 3. Congratulations
+if score == 3
+	do [[acad += 1]]
+	+ 1 to Academics
+else
+	You get nothing
+do DialogueFunctions.start_player_physics()
+=> END
+
+~ Luke
+Luke: That quiz was really tough.
+Luke: I think I failed o_o.
+Luke: How did you do?
+if score == 3
+	Luke: [wave amp=25 freq=5]WOW![/wave] you really were prepared!
+else if score == 2
+	Luke: Thats great! I knew you could do it
+else if score == 1
+	Luke: Thats what I got! It's okay lets try our best next time!
+else
+	Luke: . . . 
+do DialogueFunctions.start_player_physics()
+=> END
+
+~ Luke2
+*You notice him close his eyes, look up, and shed a single tear*
+do DialogueFunctions.start_player_physics()
+=> END
+

@@ -9,7 +9,9 @@ func playDefaultDialogue(title : String):
 	DialogueManager.show_example_dialogue_balloon(dialogue_resource, title)
 	emit_signal("dialogue_finished")
 	
-
+func dialoguefinished():
+	emit_signal("dialogue_finished")
+	
 #function to custom dialogue box
 func playDialogue(title: String):
 	var balloon: Node = BALLOON.instantiate()
@@ -18,7 +20,6 @@ func playDialogue(title: String):
 	emit_signal("dialogue_finished")
 
 var player_node: Node = null
-var day = 0
 
 func set_player_node(node: Node):
 	player_node = node
@@ -31,9 +32,6 @@ func start_player_physics():
 	if player_node:
 		player_node.set_physics_process(true)
 		
-func add_game_day(AddDay = 1) -> void:
-	day += AddDay
-
 func scene_class():
 	emit_signal("sceneClass")
 	

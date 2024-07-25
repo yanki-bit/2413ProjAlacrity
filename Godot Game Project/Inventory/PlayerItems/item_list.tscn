@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2od76bl8chdw"]
 
-[ext_resource type="Script" path="res://Weapons_Item_List.gd" id="1_a3x8b"]
+[ext_resource type="Script" path="res://Resources/Weapons_Item_List.gd" id="1_a3x8b"]
 
 [sub_resource type="SystemFont" id="SystemFont_xda6b"]
 font_names = PackedStringArray("Monospace")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
-[ext_resource type="Script" path="res://Characters/InventoryManager.gd" id="2_7u0kg"]
+[ext_resource type="Script" path="res://Inventory/PlayerItems/InventoryManager.gd" id="2_7u0kg"]
 [ext_resource type="Texture2D" uid="uid://cu34m6msx15l5" path="res://Assets/Sprite/Player Head Sheet.png" id="4_05vyd"]
 [ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Menu/Player Menu/Player_Menu.tscn" id="4_r21j4"]
 

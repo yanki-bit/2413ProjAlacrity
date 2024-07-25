@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxnjg2bkk1hyw"]
 
-[ext_resource type="Script" path="res://Scenes/Door.gd" id="1_a2sky"]
+[ext_resource type="Script" path="res://Objects/ObjectScript/Door.gd" id="1_a2sky"]
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_a3nm0"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_52tfc"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_tvpua"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="4_q7ti2"]
-[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="6_ydvry"]
+[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="6_ydvry"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t533t"]
 texture = ExtResource("1_a3nm0")

@@ -3,7 +3,7 @@ extends Camera2D
 #Camera fixed on the player visible when the user pauses and allows the user to select the menu options they desire
 
 #All Weapons avaliable in the game
-@onready  var WeaponList : MasterInventoryResource = preload("res://Scenes/Resources/Items/MasterInventoryResource.tres")
+@onready  var WeaponList : MasterInventoryResource = preload("res://Resources/Items/MasterInventoryResource.tres")
 
 
 @onready var player_menu = $"."

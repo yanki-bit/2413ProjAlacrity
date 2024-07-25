@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dq1f22rga64vb"]
 
-[ext_resource type="Script" path="res://Menu/Main Menu/settings_menu.gd" id="1_7h6cn"]
+[ext_resource type="Script" path="res://Menu/Main Menu/MainMenuScripts/settings_menu.gd" id="1_7h6cn"]
 [ext_resource type="PackedScene" uid="uid://b2lpyrt22y6n" path="res://Menu/Main Menu/settings_tab_container.tscn" id="2_mjxux"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8bhbp"]

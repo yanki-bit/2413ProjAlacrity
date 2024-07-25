@@ -7,7 +7,7 @@ var balloon: Node = BALLOON.instantiate()
 
 func _ready():
 	get_tree().current_scene.add_child(balloon)
-	balloon.start(dialogue_resource, "name")
+	balloon.start(dialogue_resource, "Name")
 
 func next_scene() -> void:
 	get_tree().change_scene_to_packed(start_scene)

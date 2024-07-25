@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bre0suvjr5dys"]
 
-[ext_resource type="Script" path="res://Objects/Phone_Object.gd" id="1_bj7pu"]
+[ext_resource type="Script" path="res://Objects/ObjectScript/Phone_Object.gd" id="1_bj7pu"]
 [ext_resource type="Texture2D" uid="uid://bmdn7fkmnhvub" path="res://Assets/Weapons/Pixelized_Phone/Tomolaro/2B.png" id="1_cdn1f"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="2_sm2q8"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="3_esu1k"]

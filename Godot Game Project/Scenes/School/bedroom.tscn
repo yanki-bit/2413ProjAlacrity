@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://cp04axbadhy82"]
 
-[ext_resource type="Script" path="res://Scenes/School/bedroom.gd" id="1_strgj"]
+[ext_resource type="Script" path="res://Scenes/School/SchoolScript/bedroom.gd" id="1_strgj"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="1_ucugq"]
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="2_bcev7"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="2_mtobn"]
 [ext_resource type="Texture2D" uid="uid://rwtqp7v2y1re" path="res://Assets/TileMap/bedroom tilemap.png" id="3_5c4j2"]
-[ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Scenes/BedroomDoor.tscn" id="3_e4ch2"]
+[ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/BedroomDoor.tscn" id="3_e4ch2"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="4_j31x6"]
 [ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="7_0w7mp"]
 [ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="8_7j87v"]

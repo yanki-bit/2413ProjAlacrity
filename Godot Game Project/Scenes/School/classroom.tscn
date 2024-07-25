@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://pwmsp7jntfnp"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_8371n"]
-[ext_resource type="Script" path="res://Scenes/School/classroom.gd" id="1_ojl8n"]
+[ext_resource type="Script" path="res://Scenes/School/SchoolScript/classroom.gd" id="1_ojl8n"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_14u8u"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_lwwip"]
-[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Scenes/door.tscn" id="4_obmgj"]
+[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="4_obmgj"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="5_re61c"]
 [ext_resource type="PackedScene" uid="uid://bb810n3kicon0" path="res://Characters/Luke.tscn" id="6_qnu7o"]
 [ext_resource type="Texture2D" uid="uid://bmqu6awpous8y" path="res://Assets/Sprite/walkDefaultSheet.png" id="7_klpmm"]

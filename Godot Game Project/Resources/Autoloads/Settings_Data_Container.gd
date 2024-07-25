@@ -1,8 +1,8 @@
 extends Node
 #This Script is the settings manager
 
-@onready var DEFAULT_SETTINGS : DefaultSettings = preload("res://Scenes/Resources/Settings/DefaultSettings.tres")
-@onready var keybind_resource : PlayerKeybindResource = preload("res://Scenes/Resources/Settings/PlayerKeybindDefaults.tres")
+@onready var DEFAULT_SETTINGS : DefaultSettings = preload("res://Resources/Settings/DefaultSettings.tres")
+@onready var keybind_resource : PlayerKeybindResource = preload("res://Resources/Settings/PlayerKeybindDefaults.tres")
 var window_mode_index: int = 0
 var resolution_index: int = 0
 var master_vol: float = 0.0

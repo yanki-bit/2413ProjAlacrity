@@ -6,7 +6,7 @@ var inventory = {}
 var master_inventory
 
 func _ready():
-	master_inventory = preload("res://Scenes/Resources/Items/MasterInventoryResource.tres")
+	master_inventory = preload("res://Resources/Items/MasterInventoryResource.tres")
 	
 #Function to add an item to the inventory
 func add_item(category,item_name, quantity = 1):

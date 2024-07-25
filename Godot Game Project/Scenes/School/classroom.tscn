@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://pwmsp7jntfnp"]
+[gd_scene load_steps=17 format=3 uid="uid://pwmsp7jntfnp"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_8371n"]
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/classroom.gd" id="1_ojl8n"]
@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="4_obmgj"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="5_re61c"]
 [ext_resource type="PackedScene" uid="uid://bb810n3kicon0" path="res://Characters/Luke.tscn" id="6_qnu7o"]
-[ext_resource type="Texture2D" uid="uid://bmqu6awpous8y" path="res://Assets/Sprite/walkDefaultSheet.png" id="7_klpmm"]
-[ext_resource type="Texture2D" uid="uid://dhpr4jg4b8na3" path="res://Assets/Sprite/walkClassmateF.png" id="7_ltqu0"]
 [ext_resource type="Texture2D" uid="uid://cuvw0tyfrg1bd" path="res://Assets/Sprite/walkBoss.png" id="8_7ktn6"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="9_1k63u"]
+[ext_resource type="PackedScene" uid="uid://cdgg3hdpbugwq" path="res://Characters/classmate.tscn" id="10_vyf8b"]
+[ext_resource type="PackedScene" uid="uid://yytj2q7v3uyu" path="res://Characters/classmate_2.tscn" id="11_65iv8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6kq6u"]
 vertices = PackedVector2Array(104, -17, 65, -17, 65, -35, 92, -35, 103, -178, 58, -127, 94, -178)
@@ -430,8 +430,6 @@ physics_layer_0/collision_mask = 0
 sources/5 = SubResource("TileSetAtlasSource_meb5p")
 sources/6 = SubResource("TileSetAtlasSource_yaxt3")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hfkiu"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lybdc"]
 size = Vector2(6.5, 20)
 
@@ -461,60 +459,10 @@ layer_4/tile_data = PackedInt32Array(196597, 5, 38, 262133, 65541, 39, 196598, 5
 
 [node name="People" type="Node" parent="."]
 
-[node name="Classmate" parent="People" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_qnu7o")]
-position = Vector2(-221, -38)
-scale = Vector2(1.5, 1.5)
-nav_agent = NodePath("../Professor/NavigationAgent2D")
-
-[node name="AnimatedSprite2D" parent="People/Classmate" index="2"]
-texture = ExtResource("7_ltqu0")
-
-[node name="Classmate2" parent="People" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_qnu7o")]
-position = Vector2(67, 89)
-scale = Vector2(1.5, 1.5)
-nav_agent = NodePath("../Professor/NavigationAgent2D")
-
-[node name="AnimatedSprite2D" parent="People/Classmate2" index="2"]
-self_modulate = Color(1, 0.67451, 1, 1)
-texture = ExtResource("7_ltqu0")
-
-[node name="Classmate3" parent="People" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_qnu7o")]
-position = Vector2(-189, 88)
-scale = Vector2(1.5, 1.5)
-nav_agent = NodePath("../Professor/NavigationAgent2D")
-
-[node name="AnimatedSprite2D" parent="People/Classmate3" index="2"]
-self_modulate = Color(0.619608, 1, 1, 1)
-texture = ExtResource("7_ltqu0")
-
-[node name="Classmate4" parent="People" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_qnu7o")]
-position = Vector2(-60, -39)
-scale = Vector2(1.5, 1.5)
-nav_agent = NodePath("../Professor/NavigationAgent2D")
-
-[node name="AnimatedSprite2D" parent="People/Classmate4" index="2"]
-texture = ExtResource("7_klpmm")
-
-[node name="Classmate5" parent="People" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_qnu7o")]
-position = Vector2(-221, 90)
-scale = Vector2(1.5, 1.5)
-nav_agent = NodePath("../Professor/NavigationAgent2D")
-
-[node name="AnimatedSprite2D" parent="People/Classmate5" index="2"]
-texture = ExtResource("7_klpmm")
-
-[node name="Classmate6" parent="People" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_qnu7o")]
-position = Vector2(-92, 90)
-scale = Vector2(1.5, 1.5)
-nav_agent = NodePath("../Professor/NavigationAgent2D")
-
-[node name="AnimatedSprite2D" parent="People/Classmate6" index="2"]
-material = SubResource("CanvasItemMaterial_hfkiu")
-scale = Vector2(1, 0.8)
-
 [node name="Professor" parent="People" instance=ExtResource("6_qnu7o")]
 position = Vector2(-45, -164)
 scale = Vector2(2, 2)
+script = null
 
 [node name="AnimatedSprite2D" parent="People/Professor" index="2"]
 texture = ExtResource("8_7ktn6")
@@ -563,14 +511,38 @@ shape = SubResource("RectangleShape2D_lybdc")
 [node name="NavTarget" type="Marker2D" parent="."]
 position = Vector2(68, -49)
 
+[node name="classmate" parent="." instance=ExtResource("10_vyf8b")]
+position = Vector2(-221, -57)
+
+[node name="classmate2" parent="." instance=ExtResource("11_65iv8")]
+position = Vector2(-93, -57)
+
+[node name="classmate3" parent="." instance=ExtResource("11_65iv8")]
+position = Vector2(-221, 71)
+
+[node name="classmate4" parent="." instance=ExtResource("10_vyf8b")]
+position = Vector2(-188, 71)
+
+[node name="classmate5" parent="." instance=ExtResource("10_vyf8b")]
+position = Vector2(-91, 73)
+
+[node name="classmate6" parent="." instance=ExtResource("10_vyf8b")]
+position = Vector2(-60, 73)
+
+[node name="classmate7" parent="." instance=ExtResource("11_65iv8")]
+position = Vector2(-187, -59)
+
+[node name="classmate8" parent="." instance=ExtResource("11_65iv8")]
+position = Vector2(69, 71)
+
+[node name="classmate9" parent="." instance=ExtResource("10_vyf8b")]
+position = Vector2(-61, -55)
+
+[node name="classmate10" parent="." instance=ExtResource("11_65iv8")]
+position = Vector2(36, 72)
+
 [connection signal="contact" from="Door" to="." method="_on_contact"]
 
-[editable path="People/Classmate"]
-[editable path="People/Classmate2"]
-[editable path="People/Classmate3"]
-[editable path="People/Classmate4"]
-[editable path="People/Classmate5"]
-[editable path="People/Classmate6"]
 [editable path="People/Professor"]
 [editable path="Luke"]
 [editable path="Player"]

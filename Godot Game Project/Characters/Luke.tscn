@@ -1,9 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://bb810n3kicon0"]
+[gd_scene load_steps=30 format=3 uid="uid://bb810n3kicon0"]
 
 [ext_resource type="Texture2D" uid="uid://dl23p12741bae" path="res://Assets/Sprite/walkClassmateM.png" id="1_js0lq"]
 [ext_resource type="Script" path="res://Characters/NPC.gd" id="1_wyddj"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="2_aswlm"]
-[ext_resource type="Resource" uid="uid://dym8fvohlqpwm" path="res://Dialogue/main.dialogue" id="3_tpyqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8vfj"]
 size = Vector2(16, 17)
@@ -243,7 +242,6 @@ shape = SubResource("RectangleShape2D_f8vfj")
 
 [node name="Actionable" parent="." instance=ExtResource("2_aswlm")]
 position = Vector2(0.5, -8)
-dialogue_resource = ExtResource("3_tpyqf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
 position = Vector2(-0.5, 8)

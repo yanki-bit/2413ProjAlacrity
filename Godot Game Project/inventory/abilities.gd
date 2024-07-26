@@ -82,7 +82,7 @@ var ABILITIES = {
 		"Name" : "Bite",
 		"Energy Cost" : 2,
 		"Learnable": "No",
-		"Type": ABILITY_TYPE.ATTACK
+		"Type": ABILITY_TYPE.ATTACK,
 		"Description": "Chomp chomp. Deals 225% Damage",
 	
 	},

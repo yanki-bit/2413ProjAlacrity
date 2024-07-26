@@ -1,11 +1,12 @@
 extends Node
+# enum containing the different types an abiity can have 
 enum ABILITY_TYPE {
 	ATTACK,
 	ON_ATTACK,
-	ON_ATTACKED,
+	ON_DEFEND,
 	BUFF,
 	ENEMY_BUFF,
-	OTHER
+	OTHER # Contains heals and energy buff on self
 }
 
 var ABILITIES = {
@@ -29,14 +30,19 @@ var ABILITIES = {
 		"Energy Cost" : 1,
 		"Type": ABILITY_TYPE.ATTACK,
 		"Learnable": "Yes",
+		"Ability_Power": 1,
 		"Description": "Default Attack",
-		
+		"use": func (attacker, defender) -> void:
+			var base_damage = attacker.roll_atk()
+			var damage = base_damage * ABILITIES.A_003.Ability_Power 
+			defender.take_damage(damage),
 	},
 	"A_004" : {
 		"Name" : "Multitask",
 		"Energy Cost" : 1,
 		"Learnable": "Yes",
 		"Type": ABILITY_TYPE.ATTACK,
+		"Ability_Power": 0.75,
 		"Description":"Deal 75% Damage to all targets",
 	},
 	"A_005" : {
@@ -83,6 +89,7 @@ var ABILITIES = {
 		"Energy Cost" : 2,
 		"Learnable": "No",
 		"Type": ABILITY_TYPE.ATTACK,
+		"Ability_Power": 2.25,
 		"Description": "Chomp chomp. Deals 225% Damage",
 	
 	},
@@ -91,6 +98,7 @@ var ABILITIES = {
 		"Energy Cost" : 2,
 		"Learnable": "Yes",
 		"Type": ABILITY_TYPE.ATTACK,
+		"Ability_Power": 1.75,
 		"Description": "Absorb the strength of your enemies. Deals 175% Damage and heals for 50% of Damage Dealt",
 	},
 	"A_013" : {
@@ -102,3 +110,4 @@ var ABILITIES = {
 		
 	},
 }
+

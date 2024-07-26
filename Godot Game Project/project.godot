@@ -25,6 +25,7 @@ SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd
 SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
 DialogueFunctions="*res://Dialogue/helpers/DialogueFunctions.gd"
 Bgm="*res://Assets/Music/BGM.tscn"
+Abilities="*res://inventory/abilities.gd"
 
 [dialogue_manager]
 

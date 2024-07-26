@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var enemies = [] # variables to store enemies in combat. Enum to identify enemytype 
+var enemies = [] # variables to store enemies in combat.
 var player # store player unit
 var round_count = 0 # store how many rounds of combat have happened
 var turn_count = 0 # store number of turns occured so far in fight 
@@ -52,15 +52,19 @@ func _handle_states(new_state):
 	current_state = new_state
 	match current_state:
 		BATTLE_STATES.WAIT:
-			#increment round count
+			# increment round count
 			round_count += 1
-			
+			# reset turn count
+			turn_count = 0
+			# increaese energy levels for all combatants by 1 at start of turn
+			for i in range(1,combat_turn_order.size()):
+				combat_turn_order[i][0].set_ENERGY(combat_turn_order[i][0].get_ENERGY() + 1)
 			# Recalculate turn order
 			generate_turn_order()
 			
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
-			print("Waiting... round number " + round_count)
+			print("Waiting... round number " + str(round_count))
 			
 			# wait for player action 
 			
@@ -94,24 +98,23 @@ func _handle_states(new_state):
 			pass
 
 func _handle_enemy_state():
-	# Check for buff/debuff expiration
-	update_combat_numbers()
+	# use the ability
 	
-	
-	# get enemy to take action
+	# Check for stat buff/debuff expiration
 	
 	# move to next units action
+	update_combat_numbers()
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
 	pass
 
 func _handle_player_state():
-	# Check for 
-	update_combat_numbers()
+	# use the ablility
+	use_ability(combat_turn_order[turn_count][0],enemies[0])
 	
-	# do players action
-	
+	# Check for stat buff/debuff expiration
 	# move to next units action
+	update_combat_numbers()
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
 
@@ -167,10 +170,6 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	# generate the turn order
 	generate_turn_order()
 	
-	# set energy levels for all combatants to 1 at start of turn
-	for i in combat_turn_order.size():
-		combat_turn_order[i][0].set_ENERGY(1)
-	
 	# Add wait state to the start of the turn order queue
 	# MUST HAPPEN AFTER COMBAT TURN ORDER HAS BEEN SORTED
 	# MUST HAPPEN AFTER COMBAT TURN ORDER HAS BEEN SORTED
@@ -190,7 +189,6 @@ func sort_decending(a,b):
 
 func generate_turn_order():
 	combat_turn_order.sort_custom(sort_decending)
-	#testestestestesetesttestestestestestestest
 
 # checks which state to put battle into next based on combat order 
 func check_next_state() -> BATTLE_STATES:
@@ -209,12 +207,13 @@ func on_ability_press() -> void:
 #####################################################
 ##                COMBAT HANDLING                  ##
 #####################################################
-func calculate_damage(attacker,defender):
-	# get base damage of attacker
-	var attack_damage = attacker.get_attack_damage()
-	var defensive_multiplier = 1 - (defender.get_DEF() * .05)
-		
-	var total_damage = attack_damage * defensive_multiplier
+func use_ability(attacker, defender):
+	match attacker.next_action:
+		# if attacker is using an attack
+		Abilities.ABILITY_TYPE.ATTACK:
+			attacker.next_action.use.call(attacker, defender)
+		Abilities.ABILITY_TYPE.OTHER:
+			pass
 
 # # # # # # # # # # # # # # # # #
 # TEST TEST TEST TEST TEST TEST #

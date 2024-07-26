@@ -127,10 +127,18 @@ func get_ENERGY():
 #####################################################
 ##               COMBAT FUNCTIONS                  ##
 #####################################################
-func get_attack_damage():
+func roll_atk():
+	var damage = 0
+	# check if attack will crit
 	if roll_crit():
-		return get_MAX_ATK() * 2 
-	return randi_range(get_MIN_ATK(),get_MAX_ATK())
+		damage = get_MAX_ATK() * 2 
+	else:
+		damage = randi_range(get_MIN_ATK(),get_MAX_ATK())
+	
+	# Add damage modifiers
+	
+	# return damage after modifiers
+	return damage
 
 func roll_crit():
 	var roll = randi_range(1,100)
@@ -138,8 +146,10 @@ func roll_crit():
 		return true
 	return false
 	
-func take_damage(value:int):
-	statsheet.CURR_HP -= value
+func take_damage(damage:int):
+	# apply defense stat damage reduction to damage
+	damage = damage * (1 - (get_DEF() * 0.05))
+	statsheet.CURR_HP -= int(damage)
 	if statsheet.CURR_HP <= 0:
 		emit_signal("death")
 	pass

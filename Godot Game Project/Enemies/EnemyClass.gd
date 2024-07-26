@@ -144,7 +144,7 @@ func get_ENERGY():
 #####################################################
 ##               COMBAT FUNCTIONS                  ##
 #####################################################
-func get_attack_damage():
+func roll_damage():
 	if roll_crit():
 		return get_MAX_ATK() * 2 
 	return randi_range(get_MIN_ATK(),get_MAX_ATK())

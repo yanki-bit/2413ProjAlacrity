@@ -14,8 +14,8 @@ extends CharacterBody2D
 # Preload player statsheet to have access to variables at initialization
 @export var statsheet = preload("res://Characters/player_stats.tres")
 
-# Stores next player action
-var next_player_action
+# Stores next action
+var next_action
 
 #Setup as the script runs
 func _ready():

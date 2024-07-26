@@ -18,8 +18,8 @@ var this_scene: String
 # reference to battle scene
 var battle_scene = preload("res://Game/battle_scene.tscn")
 
-# Stores next player action
-var next_enemy_action
+# Stores next action
+var next_action
 
 # Stat variables
 var MAX_HP: int

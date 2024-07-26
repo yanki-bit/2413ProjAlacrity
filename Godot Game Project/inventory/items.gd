@@ -1,9 +1,5 @@
 extends Node
 
-func _ready():
-	print(SelectedItems)
-	addItems("Pen")
-	print(SelectedItems)
 var databaseItems = {
 	"I_101" : {
 		"Item" : "Pencil",
@@ -102,13 +98,3 @@ var databaseItems = {
 		"Price" : "$1",
 	},
 }
-
-var SelectedItems = {
-	
-}
-
-func addItems(Item):
-	for i in databaseItems:
-		if databaseItems[i]["Item"]==Item:
-			var tempDisc = databaseItems[i].duplicate(true)
-			SelectedItems [SelectedItems.size()] = tempDisc

@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Player Menu/Menu_Theme.tres" id="4_006qh"]
 [ext_resource type="Texture2D" uid="uid://2ugf8jeaj3fj" path="res://Assets/UI/UI_Flat_Banner_02_Upward.png" id="5_s4b6i"]
 
-[node name="BattleScene_New" type="CanvasLayer"]
+[node name="BattleScene" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_oktsy")
 

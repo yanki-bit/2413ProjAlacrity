@@ -2,9 +2,11 @@ extends CanvasLayer
 
 var enemies = [] # variables to store enemies in combat. Enum to identify enemytype 
 var player # store player unit
+var round_count = 0 # store how many rounds of combat have happened
 var turn_count = 0 # store number of turns occured so far in fight 
 var current_state    # The current state of the battle
 var combat_turn_order = Array()    # A queue of combatants
+var units_in_combat = 0 # store number of units still in combat
 @onready var ability = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/HBoxContainer/Ability
 
 # All possible battle states
@@ -12,10 +14,12 @@ enum BATTLE_STATES {
 	WAIT,   # Wait for player input
 	PLAYER, # When it's time for the player's turn
 	ENEMY,  # When it's time for the enemy's turn
-	WIN,    # When the player wins
+	WIN,    # When the player winsx
 	LOSE    # When the player loses
 }
 
+func update_combat_numbers():
+	units_in_combat = combat_turn_order.size()-1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	handle_signal()
@@ -48,22 +52,34 @@ func _handle_states(new_state):
 	current_state = new_state
 	match current_state:
 		BATTLE_STATES.WAIT:
-			# Increment Turn
-			turn_count += 1
+			#increment round count
+			round_count += 1
+			
 			# Recalculate turn order
 			generate_turn_order()
+			
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
-			print("Waiting... turn number " + str(turn_count))
+			print("Waiting... round number " + round_count)
+			
 			# wait for player action 
 			
 		BATTLE_STATES.PLAYER:
+			# increment turn count
+			turn_count += 1
+			
 			print("Player Turn")
 			await get_tree().create_timer(1).timeout
+			
+			# perform player action
 			_handle_player_state()
+			
+			# move to next units turn
 			_handle_states(check_next_state())
+			
 			pass
 		BATTLE_STATES.ENEMY:
+			turn_count += 1
 			print("Enemy Turn")
 			await get_tree().create_timer(1.5).timeout
 			_handle_enemy_state()
@@ -71,12 +87,17 @@ func _handle_states(new_state):
 			pass
 		BATTLE_STATES.WIN:
 			# Insert code on player win
+			# REVERT BUFFS/DEBUFFS ON PLAYER 
 			pass
 		BATTLE_STATES.LOSE:
-			# Insert code on player lose
+			# REVERT BUFFS/DEBUFFS ON PLAYER
 			pass
 
 func _handle_enemy_state():
+	# Check for buff/debuff expiration
+	update_combat_numbers()
+	
+	
 	# get enemy to take action
 	
 	# move to next units action
@@ -85,6 +106,9 @@ func _handle_enemy_state():
 	pass
 
 func _handle_player_state():
+	# Check for 
+	update_combat_numbers()
+	
 	# do players action
 	
 	# move to next units action
@@ -92,6 +116,8 @@ func _handle_player_state():
 	combat_turn_order.pop_front()
 
 func _handle_wait_state():
+	# Check if player has selected a priority move:
+	
 	# Moves queue to start turn when player action is selected
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
@@ -144,9 +170,6 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	# set energy levels for all combatants to 1 at start of turn
 	for i in combat_turn_order.size():
 		combat_turn_order[i][0].set_ENERGY(1)
-	#testestestestesetesttestestestestestestest
-	for i in combat_turn_order.size():
-		print(combat_turn_order[i][0].get_SPD())
 	
 	# Add wait state to the start of the turn order queue
 	# MUST HAPPEN AFTER COMBAT TURN ORDER HAS BEEN SORTED
@@ -167,6 +190,7 @@ func sort_decending(a,b):
 
 func generate_turn_order():
 	combat_turn_order.sort_custom(sort_decending)
+	#testestestestesetesttestestestestestestest
 
 # checks which state to put battle into next based on combat order 
 func check_next_state() -> BATTLE_STATES:

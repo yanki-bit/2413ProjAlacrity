@@ -1,9 +1,4 @@
 extends Node
-
-func _ready():
-	print(SelectedEnemies)
-	addItems("Vampire Book")
-	print(SelectedEnemies)
 var databaseEnemies = {
 	"E_001" : {
 		"Name" : "Vampire Book",
@@ -79,14 +74,3 @@ var databaseEnemies = {
 	},
 	
 }
-
-var SelectedEnemies = {
-	
-}
-
-func addItems(Name):
-	for i in databaseEnemies:
-		if databaseEnemies[i]["Name"]==Name:
-			var tempDisc = databaseEnemies[i].duplicate(true)
-			SelectedEnemies [SelectedEnemies.size()] = tempDisc
-			

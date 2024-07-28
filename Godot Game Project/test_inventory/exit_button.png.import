@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd1tbjj4atw4m"
-path="res://.godot/imported/message-16-error.png-5ef6eff671fb4cea5e13787720198f20.ctex"
+path="res://.godot/imported/exit_button.png-4f85bd0b2b5ea9d8110da8f85d5ae1c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test_inventory/message-16-error.png"
-dest_files=["res://.godot/imported/message-16-error.png-5ef6eff671fb4cea5e13787720198f20.ctex"]
+source_file="res://test_inventory/exit_button.png"
+dest_files=["res://.godot/imported/exit_button.png-4f85bd0b2b5ea9d8110da8f85d5ae1c2.ctex"]
 
 [params]
 

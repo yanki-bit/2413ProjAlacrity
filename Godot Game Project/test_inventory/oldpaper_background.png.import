@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qyjgieouhte6"
-path="res://.godot/imported/msg box 10-2-2.png-60e1ff173a6ba95268b754f641935cac.ctex"
+uid="uid://bejbdg8wjtj8r"
+path="res://.godot/imported/oldpaper_background.png-234be46f7a02b03f50d94d53732345d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test_inventory/msg box 10-2-2.png"
-dest_files=["res://.godot/imported/msg box 10-2-2.png-60e1ff173a6ba95268b754f641935cac.ctex"]
+source_file="res://test_inventory/oldpaper_background.png"
+dest_files=["res://.godot/imported/oldpaper_background.png-234be46f7a02b03f50d94d53732345d4.ctex"]
 
 [params]
 

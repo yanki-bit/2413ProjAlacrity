@@ -140,7 +140,17 @@ func roll_atk():
 		damage = randi_range(get_MIN_ATK(),get_MAX_ATK())
 	
 	# Add damage modifiers if they exist
+	if atkmods.size() > 0:
+		var dmg_increased
+		for i in atkmods.size():
+			dmg_increased += atkmods[i].apply.call(damage)
+		damage += dmg_increased
 	
+	# reduce number of charges left in each attack modification used by 1
+	decrement_atkmods_charges()
+	
+	# remove attack modifications that have 0 charges left from atkmods array
+	remove_expired_atkmods()
 	
 	# return damage after modifiers
 	return damage
@@ -152,9 +162,28 @@ func roll_crit():
 	return false
 	
 func take_damage(damage:int):
+	# check if defense stat damage reduction should be applied 
+
 	# apply defense stat damage reduction to damage
 	damage = damage * (1 - (get_DEF() * 0.05))
+
+	# apply any on defend effects if they exist
+	if defmods.size() > 0:
+		var dmg_reduced = 0
+		for i in defmods.size():
+			dmg_reduced += defmods[i].apply.call(damage)
+		damage -= dmg_reduced
+		
+	# reduce number of charges left in each defensive modification used by 1 
+	decrement_defmods_charges()
+	
+	# remove defensive modifications that have 0 charges left from defmods array 
+	remove_expired_defmods()
+	
+	# subtract current hp by resultant damage
 	statsheet.CURR_HP -= int(damage)
+	
+	#check if damage taken is lethal
 	if statsheet.CURR_HP <= 0:
 		emit_signal("death")
 	pass
@@ -162,6 +191,10 @@ func take_damage(damage:int):
 func heal(value:int):
 	statsheet.CURR_HP += value
 	statsheet.CURR_HP = mini(statsheet.CURR_HP, statsheet.MAX_HP)
+	
+#####################################################
+##            STATMODS ARRAY FUNCTIONS             ##
+#####################################################
 
 # used to subtract the duration of active statmods by 1
 func decrement_statmods_duration():
@@ -175,7 +208,7 @@ func remove_expired_statmods():
 	# check if there are any stat modifications active
 	if statmods.size() > 0:
 		# filter the statmods array for elements with a duration higher than 0, removing those that are at 0
-		statmods.filter(remove_statmods_helper)
+		statmods = statmods.filter(remove_statmods_helper)
 
 # helper function to use with filter array function. Returns false (not kept in array) if the statmod has expired, true otherwise
 func remove_statmods_helper(ability):
@@ -183,3 +216,66 @@ func remove_statmods_helper(ability):
 		ability.remove.call()
 		return false
 	return true
+
+#####################################################
+##             DEFMODS ARRAY FUNCTIONS             ##
+#####################################################
+
+# used to subtract the duration of active defensive modifications by 1
+func decrement_defmods_duration():
+	# check if there are any defensive modifications active
+	if defmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in defmods.size():
+			defmods[i].duration -= 1
+
+func decrement_defmods_charges():
+	# check if there are any defensive modifications active
+	if defmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in defmods.size():
+			defmods[i].charges -= 1
+
+func remove_expired_defmods():
+	# check if there are any defensive modifications active
+	if defmods.size() > 0:
+		# filter the defmods array for elements with a duration higher than 0, removing those that are at 0
+		defmods = defmods.filter(remove_defmods_helper)
+
+# REMOVES FROM DEFMODS ARRAY ONLY. DOES NOT REMOVE ANY STATBUFFS IN STATMODS ARRAY THE ABILITY MIGHT PROVIDE
+func remove_defmods_helper(ability):
+	if ability.duration <= 0 || ability.charges <= 0:
+		return false
+	return true
+
+#####################################################
+##             ATKMODS ARRAY FUNCTIONS             ##
+#####################################################
+
+# used to subtract the duration of active attack modifications by 1
+func decrement_atkmods_duration():
+	# check if there are any attack modifications active
+	if atkmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in atkmods.size():
+			atkmods[i].duration -= 1
+
+func decrement_atkmods_charges():
+	# check if there are any attack modifications active
+	if atkmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in atkmods.size():
+			atkmods[i].charges -= 1
+
+func remove_expired_atkmods():
+	# check if there are any attack modifications active
+	if atkmods.size() > 0:
+		# filter the atkmods array for elements with a duration higher than 0, removing those that are at 0
+		atkmods = atkmods.filter(remove_atkmods_helper)
+
+# REMOVES FROM ATKMODS ARRAY ONLY. DOES NOT REMOVE ANY STATBUFFS IN STATMODS ARRAY THE ABILITY MIGHT PROVIDE
+func remove_atkmods_helper(ability):
+	if ability.duration <= 0 || ability.charges <= 0:
+		return false
+	return true
+

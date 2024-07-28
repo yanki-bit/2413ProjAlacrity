@@ -19,14 +19,18 @@ var ABILITIES = {
 		"learnable": "Yes",
 		"description": "Defend. +10 DEF until the start of your next turn",
 		"use": func(attacker):
-			attacker.statmod.append(ABILITIES.A_001.duplicate())
+			# add buff to statmods array
+			attacker.statmods.append(ABILITIES.A_001.duplicate())
+			
+			# set defense increase
 			attacker.set_DEF(attacker.get_DEF() + 10),
 		"remove": func(attacker):
+			# remove defense increase
 			attacker.set_DEF(attacker.get_DEF() - 10),
 	},
 	"A_002"  : {
-		"Name" : "Take a Break",
-		"Energy Cost" : 0,
+		"name" : "Take a Break",
+		"energy_cost" : 0,
 		"Type": ABILITY_TYPE.ENERGY,
 		"Learnable": "Yes",
 		"Description": "Gain 1 extra Energy",
@@ -61,10 +65,27 @@ var ABILITIES = {
 	},
 	"A_006" : {
 		"Name" : "Research",
-		"Energy Cost" : 2,
-		"Learnable": "Yes",
-		"Type": [ABILITY_TYPE.BUFF, ABILITY_TYPE.ON_ATTACK],
-		"Description":" +5 DEF until your next turn. Your next attack is guarenteed to crit and ignores the targets defense",
+		"energy_cost" : 2,
+		"learnable": "Yes",
+		"duration" : 1,
+		"charges" : 1,
+		"type": [ABILITY_TYPE.BUFF, ABILITY_TYPE.ON_ATTACK],
+		"description":" +5 DEF until your next turn. Your next attack is guarenteed to crit and does an extra 50% damage",
+		"use" : func (attacker):
+			# add to both statmods and atkmods arrays
+			attacker.statmods.append(ABILITIES.A_006.duplicate())
+			attacker.atkmods.append(ABILITIES.A_006.duplicate())
+			
+			# add defense and crit 
+			attacker.set_DEF(attacker.get_DEF() + 5)
+			attacker.set_LCK(attacker.get_LCK() + 20),
+		"remove" : func (attacker):
+			# remove defense and crit 
+			attacker.set_DEF(attacker.get_DEF() + 5)
+			attacker.set_LCK(attacker.get_LCK() + 20),
+		
+		"apply" : func (damage):
+			return damage * .5,
 	},
 	
 	"A_007" : {

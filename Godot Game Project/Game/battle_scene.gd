@@ -125,7 +125,7 @@ func _handle_player_state():
 	attacker.decrement_statmods_duration()
 	
 	# use the ablility 
-	use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
+	use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF DEMO TEST ONLY
 	
 	# remove expired statmods 
 	attacker.remove_expired_statmods()
@@ -232,7 +232,7 @@ func use_ability(attacker, defender):
 			attacker.next_action.use.call(attacker, defender)
 
 		# If attacker is healing, gaining energy or buffing itself
-		Abilities.ABILITY_TYPE.HEAL || Abilities.ABILITY_TYPE.ENERGY || Abilities.ABILITY_TYPE.BUFF:
+		Abilities.ABILITY_TYPE.HEAL || Abilities.ABILITY_TYPE.ENERGY || Abilities.ABILITY_TYPE.BUFF || Abilities.ABILITY_TYPE.ON_ATTACK:
 			# execute ability on self
 			attacker.next_action.use.call(attacker)
 

@@ -98,21 +98,38 @@ func _handle_states(new_state):
 			pass
 
 func _handle_enemy_state():
-	# use the ability
+	# Create temporary attacker variable
+	var attacker = combat_turn_order.front().front()
 	
-	# Check for stat buff/debuff expiration
+	# Decrement attackers statmods array by 1 round
+	attacker.decrement_statmods_duration()
+	
+	# TODO CALL ENEMY AI DECISION FUNCTION HERE
+	
+	# use the ablility 
+	use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
+	
+	# remove expired statmods 
+	attacker.remove_expired_statmods()
 	
 	# move to next units action
 	update_combat_numbers()
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
-	pass
 
 func _handle_player_state():
-	# use the ablility
-	use_ability(combat_turn_order[turn_count][0],enemies[0])
+	# Create temporary attacker variable
+	var attacker = combat_turn_order.front().front()
 	
-	# Check for stat buff/debuff expiration
+	# Decrement attackers statmods array by 1 round
+	attacker.decrement_statmods_duration()
+	
+	# use the ablility 
+	use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
+	
+	# remove expired statmods 
+	attacker.remove_expired_statmods()
+	
 	# move to next units action
 	update_combat_numbers()
 	combat_turn_order.append(combat_turn_order.front())
@@ -211,10 +228,19 @@ func use_ability(attacker, defender):
 	match attacker.next_action:
 		# if attacker is using an attack
 		Abilities.ABILITY_TYPE.ATTACK:
+			# execute attack on the target
 			attacker.next_action.use.call(attacker, defender)
-		Abilities.ABILITY_TYPE.OTHER:
-			pass
 
+		# If attacker is healing, gaining energy or buffing itself
+		Abilities.ABILITY_TYPE.HEAL || Abilities.ABILITY_TYPE.ENERGY || Abilities.ABILITY_TYPE.BUFF:
+			# execute ability on self
+			attacker.next_action.use.call(attacker)
+
+		# If attacker is debuffing the enemy
+		Abilities.ABILITY_TYPE.DEBUFF:
+			# execute ability on enemy
+			attacker.next_action.use.call(defender)
+		
 # # # # # # # # # # # # # # # # #
 # TEST TEST TEST TEST TEST TEST #
 # # # # # # # # # # # # # # # # #

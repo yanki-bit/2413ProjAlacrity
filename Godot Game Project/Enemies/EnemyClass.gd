@@ -18,8 +18,11 @@ var this_scene: String
 # reference to battle scene
 var battle_scene = preload("res://Game/battle_scene.tscn")
 
-# Stores next action
-var next_action
+# Combat variables
+var next_action # store the next action in combat
+var statmods = Array() # create an array to store combat stat buffs and debuffs
+var defmods = Array() # create an array to store combat on defend buffs and debuffs
+var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
 # Stat variables
 var MAX_HP: int
@@ -144,10 +147,18 @@ func get_ENERGY():
 #####################################################
 ##               COMBAT FUNCTIONS                  ##
 #####################################################
-func roll_damage():
+func roll_atk():
+	var damage = 0
+	# check if attack will crit
 	if roll_crit():
-		return get_MAX_ATK() * 2 
-	return randi_range(get_MIN_ATK(),get_MAX_ATK())
+		damage = get_MAX_ATK() * 2 
+	else:
+		damage = randi_range(get_MIN_ATK(),get_MAX_ATK())
+	
+	# Add damage modifiers
+	
+	# return damage after modifiers
+	return damage
 
 func roll_crit():
 	var roll = randi_range(1,100)
@@ -164,3 +175,10 @@ func take_damage(value:int):
 func heal(value:int):
 	CURR_HP += value
 	CURR_HP = mini(CURR_HP, MAX_HP)
+
+func decrement_statmods_duration():
+	# check if there are any stat modifications active
+	if statmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in statmods.size():
+			statmods[i].duration -= 1

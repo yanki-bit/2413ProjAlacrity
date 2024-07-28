@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player_menu = $Player_Menu
 @onready var actionable_finder = $Direction/ActionableFinder
 
- #export allows us to adjust variables on game engine
+#export allows us to adjust variables on game engine
 @export var move_speed : float = 200
 @export var start_dir : Vector2 = Vector2(0,1)
 
@@ -14,8 +14,12 @@ extends CharacterBody2D
 # Preload player statsheet to have access to variables at initialization
 @export var statsheet = preload("res://Characters/player_stats.tres")
 
-# Stores next action
-var next_action
+# Combat variables
+var next_action # store the next action in combat
+var statmods = Array() # create an array to store combat stat buffs and debuffs
+var defmods = Array() # create an array to store combat on defend buffs and debuffs
+var atkmods = Array() # create an array to store combat attack buffs and debuffs
+
 
 #Setup as the script runs
 func _ready():
@@ -135,7 +139,8 @@ func roll_atk():
 	else:
 		damage = randi_range(get_MIN_ATK(),get_MAX_ATK())
 	
-	# Add damage modifiers
+	# Add damage modifiers if they exist
+	
 	
 	# return damage after modifiers
 	return damage
@@ -157,3 +162,24 @@ func take_damage(damage:int):
 func heal(value:int):
 	statsheet.CURR_HP += value
 	statsheet.CURR_HP = mini(statsheet.CURR_HP, statsheet.MAX_HP)
+
+# used to subtract the duration of active statmods by 1
+func decrement_statmods_duration():
+	# check if there are any stat modifications active
+	if statmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in statmods.size():
+			statmods[i].duration -= 1
+
+func remove_expired_statmods():
+	# check if there are any stat modifications active
+	if statmods.size() > 0:
+		# filter the statmods array for elements with a duration higher than 0, removing those that are at 0
+		statmods.filter(remove_statmods_helper)
+
+# helper function to use with filter array function. Returns false (not kept in array) if the statmod has expired, true otherwise
+func remove_statmods_helper(ability):
+	if ability.duration <= 0:
+		ability.remove.call()
+		return false
+	return true

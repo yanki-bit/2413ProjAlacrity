@@ -5,25 +5,33 @@ enum ABILITY_TYPE {
 	ON_ATTACK,
 	ON_DEFEND,
 	BUFF,
-	ENEMY_BUFF,
-	OTHER # Contains heals and energy buff on self
+	DEBUFF,
+	HEAL,
+	ENERGY
 }
 
 var ABILITIES = {
 	"A_001" : {
-		"Name" : "Think",
-		"Energy Cost" : 0,
-		"Duration" : 1,
-		"Type": ABILITY_TYPE.BUFF,
-		"Learnable": "Yes",
-		"Description": "Defend. Reduce incoming damage by 50% until the start of your next turn",
+		"name" : "Think",
+		"energy_cost" : 0,
+		"duration" : 1,
+		"type": ABILITY_TYPE.BUFF,
+		"learnable": "Yes",
+		"description": "Defend. +10 DEF until the start of your next turn",
+		"use": func(attacker):
+			attacker.statmod.append(ABILITIES.A_001.duplicate())
+			attacker.set_DEF(attacker.get_DEF() + 10),
+		"remove": func(attacker):
+			attacker.set_DEF(attacker.get_DEF() - 10),
 	},
 	"A_002"  : {
 		"Name" : "Take a Break",
 		"Energy Cost" : 0,
-		"Type": ABILITY_TYPE.OTHER,
+		"Type": ABILITY_TYPE.ENERGY,
 		"Learnable": "Yes",
 		"Description": "Gain 1 extra Energy",
+		"use": func(attacker):
+			attack.set_ENERGY(attacker.get_ENERGY() + 1),
 	},
 	"A_003" : {
 		"Name" : "Write",

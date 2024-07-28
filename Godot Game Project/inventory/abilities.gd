@@ -31,7 +31,7 @@ var ABILITIES = {
 		"Learnable": "Yes",
 		"Description": "Gain 1 extra Energy",
 		"use": func(attacker):
-			attack.set_ENERGY(attacker.get_ENERGY() + 1),
+			attacker.set_ENERGY(attacker.get_ENERGY() + 1),
 	},
 	"A_003" : {
 		"Name" : "Write",

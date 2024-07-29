@@ -21,11 +21,9 @@ var defmods = Array() # create an array to store combat on defend buffs and debu
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
 
-#Setup as the script runs
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
-	update_animation_parameter(start_dir)
-
+	update_animation_parameter(start_dir) 
 
 func _physics_process(_delta):
 	#get input direction

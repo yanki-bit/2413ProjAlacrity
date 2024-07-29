@@ -97,6 +97,12 @@ func _handle_states(new_state):
 			# REVERT BUFFS/DEBUFFS ON PLAYER
 			pass
 
+func _handle_wait_state():
+	# Moves queue to start turn when player action is selected
+	combat_turn_order.append(combat_turn_order.front())
+	combat_turn_order.pop_front()
+
+
 func _handle_enemy_state():
 	# Create temporary attacker variable
 	var attacker = combat_turn_order.front().front()
@@ -134,16 +140,6 @@ func _handle_player_state():
 	update_combat_numbers()
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
-
-func _handle_wait_state():
-	# Check if player has selected a priority move:
-	
-	# Moves queue to start turn when player action is selected
-	combat_turn_order.append(combat_turn_order.front())
-	combat_turn_order.pop_front()
-
-
-
 
 # Populate battle with Enemy and appropriate number of minions
 func add_enemies( mainEnemy, minion, numberOfMinions ):
@@ -232,7 +228,7 @@ func use_ability(attacker, defender):
 			attacker.next_action.use.call(attacker, defender)
 
 		# If attacker is healing, gaining energy or buffing itself
-		Abilities.ABILITY_TYPE.HEAL || Abilities.ABILITY_TYPE.ENERGY || Abilities.ABILITY_TYPE.BUFF || Abilities.ABILITY_TYPE.ON_ATTACK:
+		Abilities.ABILITY_TYPE.HEAL || Abilities.ABILITY_TYPE.ENERGY || Abilities.ABILITY_TYPE.BUFF:
 			# execute ability on self
 			attacker.next_action.use.call(attacker)
 
@@ -248,6 +244,7 @@ func _on_attack_pressed():
 	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
 		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
+		
 		# Start turn actions
 		_handle_wait_state()
 		_handle_states(check_next_state())

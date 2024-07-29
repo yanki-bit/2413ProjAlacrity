@@ -2,8 +2,6 @@ extends Node
 # enum containing the different types an abiity can have 
 enum ABILITY_TYPE {
 	ATTACK,
-	ON_ATTACK,
-	ON_DEFEND,
 	BUFF,
 	DEBUFF,
 	HEAL,
@@ -45,6 +43,10 @@ var ABILITIES = {
 		"Ability_Power": 1,
 		"Description": "Default Attack",
 		"use": func (attacker, defender) -> void:
+			# reduce attacker energy by energy cost
+			attacker.set_ENERGY(attacker.get_ENERGY() - 1)
+			
+			# roll attackers damage, apply ability power modifier and apply damage to defender
 			var base_damage = attacker.roll_atk()
 			var damage = base_damage * ABILITIES.A_003.Ability_Power 
 			defender.take_damage(damage),
@@ -69,9 +71,11 @@ var ABILITIES = {
 		"learnable": "Yes",
 		"duration" : 1,
 		"charges" : 1,
-		"type": [ABILITY_TYPE.BUFF, ABILITY_TYPE.ON_ATTACK],
+		"type": ABILITY_TYPE.BUFF,
 		"description":" +5 DEF until your next turn. Your next attack is guarenteed to crit and does an extra 50% damage",
 		"use" : func (attacker):
+			# reduce attacker energy by energy cost 
+			attacker.set_ENERGY(attacker.get_ENERGY() - ABILITIES.A_006.energy_cost)
 			# add to both statmods and atkmods arrays
 			attacker.statmods.append(ABILITIES.A_006.duplicate())
 			attacker.atkmods.append(ABILITIES.A_006.duplicate())

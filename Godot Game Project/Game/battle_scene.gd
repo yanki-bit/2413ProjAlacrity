@@ -19,20 +19,33 @@ enum BATTLE_STATES {
 }
 
 func update_combat_numbers():
-	units_in_combat = combat_turn_order.size()-1
+	units_in_combat = combat_turn_order.size() - 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	handle_signal()
 	# Load an instance of player into situation 
 	player = load("res://Characters/player.tscn").instantiate()
-	$BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer/CenterContainer.add_child(player)
 
 	# Focus on attack button
-	$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack.grab_focus()
+	# Populate player ability buttons with players learned abilites
+	%Attack.text = player.statsheet.learned_abilities[0]
+	populate_ability_buttons()
+		
+	%Attack.grab_focus()
 	
 	# Place player in the combat turn order queue to be sorted
 	combat_turn_order.append([player,BATTLE_STATES.PLAYER])
 
+# Populate player ability buttons with players learned abilites
+func populate_ability_buttons():
+	var i = 1
+	for button in $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer.get_children():
+		button.text = player.statsheet.learned_abilities[i]
+		i += 1
+	for button in $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2.get_children():
+		button.text = player.statsheet.learned_abilities[i]
+		i += 1
+	
 #####################################################
 ##                 INPUT HANDLING                  ##
 #####################################################
@@ -41,10 +54,10 @@ func _process(delta):
 	# Ensure that battle state is waiting for player input
 	if current_state == BATTLE_STATES.WAIT:
 		if Input.is_action_pressed("pause"):
+			# hide all submenus to go back to original fight menu
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer.hide()
-			
-		
-	
+
+
 
 #####################################################
 ##                 STATE HANDLING                  ##
@@ -223,6 +236,7 @@ func on_ability_press() -> void:
 #####################################################
 ##                COMBAT HANDLING                  ##
 #####################################################
+
 func use_ability(attacker, defender):
 	# convert next_action from string to dictionary
 	attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
@@ -249,11 +263,10 @@ func _on_attack_pressed():
 	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
 		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
-		player.next_action = "A_001"
+		player.next_action = %Attack.text
 		# Start turn actions
 		_handle_wait_state()
 		_handle_states(check_next_state())
-	pass
 
 func _on_escape_pressed():
 	# Ensure that player input is expected

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg2eqolp1ypmw"
-path="res://.godot/imported/Honey.png-dc077aaab4d67c2a413b91f89091caba.ctex"
+uid="uid://if3de8inoadi"
+path="res://.godot/imported/ui_arrow.png-c8cacd05786d212f28ba8f0e0354b5e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/test_pinventory/Honey.png"
-dest_files=["res://.godot/imported/Honey.png-dc077aaab4d67c2a413b91f89091caba.ctex"]
+source_file="res://inventory/test_save/ui_arrow.png"
+dest_files=["res://.godot/imported/ui_arrow.png-c8cacd05786d212f28ba8f0e0354b5e3.ctex"]
 
 [params]
 

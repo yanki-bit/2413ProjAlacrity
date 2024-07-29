@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player_menu = $Player_Menu
 @onready var actionable_finder = $Direction/ActionableFinder
+@onready var item_sensor = $ItemCollector
 
  #export allows us to adjust variables on game engine
 @export var move_speed : float = 200
@@ -13,6 +14,10 @@ extends CharacterBody2D
 @onready var state = anim_tree.get("parameters/playback")
 # Preload player statsheet to have access to variables at initialization
 @export var statsheet = preload("res://Characters/player_stats.tres")
+
+#get the inventory stuff
+#add the inventory resource to player by drag and drop in inspector
+@export var inventory: Inventory
 
 #Setup as the script runs
 func _ready():
@@ -114,3 +119,12 @@ func get_LCK():
 func get_ENERGY():
 	return statsheet.ENERGY
 
+func _on_actionable_finder_area_entered(area):
+	#pass # Replace with function body.
+	if area.has_method("collect"):
+		area.collect()
+
+
+func _on_item_collector_area_entered(area):
+	if area.has_method("collected"):
+		area.collected()

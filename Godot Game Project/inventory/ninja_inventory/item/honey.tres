@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bvhksd5qof6dm"]
+
+[ext_resource type="Script" path="res://inventory/ninja_inventory/inventoryItem.gd" id="1_lik4k"]
+[ext_resource type="Texture2D" uid="uid://cnmrd3vy558v6" path="res://inventory/ninja_inventory/Honey.png" id="2_l3q0i"]
+
+[resource]
+script = ExtResource("1_lik4k")
+name = "Honey"
+quantity = 1
+texture = ExtResource("2_l3q0i")

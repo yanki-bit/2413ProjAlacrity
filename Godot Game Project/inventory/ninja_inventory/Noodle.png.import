@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk53p51tbolay"
-path="res://.godot/imported/Noodle.png-68550a58de0a8c8215fd89824fc8803f.ctex"
+uid="uid://d0qwg2y1cmtwb"
+path="res://.godot/imported/Noodle.png-35b21adf50e3577303eaaa3dd4731d24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/test_pinventory/Noodle.png"
-dest_files=["res://.godot/imported/Noodle.png-68550a58de0a8c8215fd89824fc8803f.ctex"]
+source_file="res://inventory/ninja_inventory/Noodle.png"
+dest_files=["res://.godot/imported/Noodle.png-35b21adf50e3577303eaaa3dd4731d24.ctex"]
 
 [params]
 

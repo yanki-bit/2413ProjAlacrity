@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dv1gktawxw454"]
+
+[ext_resource type="Script" path="res://inventory/ninja_inventory/inventoryItem.gd" id="1_vqvyh"]
+[ext_resource type="Texture2D" uid="uid://ndxrxc3u8mnw" path="res://inventory/ninja_inventory/Letter.png" id="2_ogs0p"]
+
+[resource]
+script = ExtResource("1_vqvyh")
+name = "Letter"
+quantity = 1
+texture = ExtResource("2_ogs0p")

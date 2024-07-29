@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rdpidue1nkfa"
-path="res://.godot/imported/Fish.png-13066903eaa7d97d44bcc7a3aa45b3f4.ctex"
+uid="uid://bk7luiutyow8m"
+path="res://.godot/imported/tile016.png-a021f57a81bd283c3ed52ca182c9cfc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/test_pinventory/Fish.png"
-dest_files=["res://.godot/imported/Fish.png-13066903eaa7d97d44bcc7a3aa45b3f4.ctex"]
+source_file="res://inventory/pkmn_inventory/tile016.png"
+dest_files=["res://.godot/imported/tile016.png-a021f57a81bd283c3ed52ca182c9cfc3.ctex"]
 
 [params]
 

@@ -221,6 +221,9 @@ func on_ability_press() -> void:
 ##                COMBAT HANDLING                  ##
 #####################################################
 func use_ability(attacker, defender):
+	# convert next_action from string to dictionary
+	attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
+	print(attacker.next_action)
 	match attacker.next_action:
 		# if attacker is using an attack
 		Abilities.ABILITY_TYPE.ATTACK:
@@ -244,7 +247,7 @@ func _on_attack_pressed():
 	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
 		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
-		
+		player.next_action = "A_001"
 		# Start turn actions
 		_handle_wait_state()
 		_handle_states(check_next_state())

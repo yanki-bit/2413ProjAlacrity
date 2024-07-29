@@ -176,9 +176,89 @@ func heal(value:int):
 	CURR_HP += value
 	CURR_HP = mini(CURR_HP, MAX_HP)
 
+#####################################################
+##            STATMODS ARRAY FUNCTIONS             ##
+#####################################################
+
+# used to subtract the duration of active statmods by 1
 func decrement_statmods_duration():
 	# check if there are any stat modifications active
 	if statmods.size() > 0:
 		# reduce duration count by 1 in each modifier
 		for i in statmods.size():
 			statmods[i].duration -= 1
+
+func remove_expired_statmods():
+	# check if there are any stat modifications active
+	if statmods.size() > 0:
+		# filter the statmods array for elements with a duration higher than 0, removing those that are at 0
+		statmods = statmods.filter(remove_statmods_helper)
+
+# helper function to use with filter array function. Returns false (not kept in array) if the statmod has expired, true otherwise
+func remove_statmods_helper(ability):
+	if ability.duration <= 0:
+		ability.remove.call()
+		return false
+	return true
+
+#####################################################
+##             DEFMODS ARRAY FUNCTIONS             ##
+#####################################################
+
+# used to subtract the duration of active defensive modifications by 1
+func decrement_defmods_duration():
+	# check if there are any defensive modifications active
+	if defmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in defmods.size():
+			defmods[i].duration -= 1
+
+func decrement_defmods_charges():
+	# check if there are any defensive modifications active
+	if defmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in defmods.size():
+			defmods[i].charges -= 1
+
+func remove_expired_defmods():
+	# check if there are any defensive modifications active
+	if defmods.size() > 0:
+		# filter the defmods array for elements with a duration higher than 0, removing those that are at 0
+		defmods = defmods.filter(remove_defmods_helper)
+
+# REMOVES FROM DEFMODS ARRAY ONLY. DOES NOT REMOVE ANY STATBUFFS IN STATMODS ARRAY THE ABILITY MIGHT PROVIDE
+func remove_defmods_helper(ability):
+	if ability.duration <= 0 || ability.charges <= 0:
+		return false
+	return true
+
+#####################################################
+##             ATKMODS ARRAY FUNCTIONS             ##
+#####################################################
+
+# used to subtract the duration of active attack modifications by 1
+func decrement_atkmods_duration():
+	# check if there are any attack modifications active
+	if atkmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in atkmods.size():
+			atkmods[i].duration -= 1
+
+func decrement_atkmods_charges():
+	# check if there are any attack modifications active
+	if atkmods.size() > 0:
+		# reduce duration count by 1 in each modifier
+		for i in atkmods.size():
+			atkmods[i].charges -= 1
+
+func remove_expired_atkmods():
+	# check if there are any attack modifications active
+	if atkmods.size() > 0:
+		# filter the atkmods array for elements with a duration higher than 0, removing those that are at 0
+		atkmods = atkmods.filter(remove_atkmods_helper)
+
+# REMOVES FROM ATKMODS ARRAY ONLY. DOES NOT REMOVE ANY STATBUFFS IN STATMODS ARRAY THE ABILITY MIGHT PROVIDE
+func remove_atkmods_helper(ability):
+	if ability.duration <= 0 || ability.charges <= 0:
+		return false
+	return true

@@ -75,7 +75,7 @@ func initalize_combat():
 func initialize_stats_in_combat():
 	MAX_HP = statsheet.MAX_HP
 	CURR_HP = statsheet.CURR_HP
-	ATK = statsheet.ATK
+	ATK = statsheet.MIN_ATK
 	DEF = statsheet.DEF
 	SPD = statsheet.SPD
 	LCK = statsheet.LCK

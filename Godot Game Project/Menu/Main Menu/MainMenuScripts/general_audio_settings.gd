@@ -18,7 +18,7 @@ func load_data() -> void:
 	match bus_name:
 		"Master":
 			on_value_changed(SettingsDataContainer.get_master_vol())
-		"Music":
+		"BGM":
 			on_value_changed(SettingsDataContainer.get_music_vol())
 		"SoundFX":
 			on_value_changed(SettingsDataContainer.get_sfx_vol())

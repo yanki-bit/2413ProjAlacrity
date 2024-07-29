@@ -1,8 +1,9 @@
-extends Rooms
+extends Room
+@export var dialogue_resource: DialogueResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_player(player_node)
+	get_player($Player)
 	Dialogue_Handler()
 	DialogueFunctions.connect("dialogue_finished", Callable($Luke, "start_movement"))
 	$Luke/Actionable.set_collision_layer_value(5, false)

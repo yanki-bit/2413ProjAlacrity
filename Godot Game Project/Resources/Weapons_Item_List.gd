@@ -1,7 +1,7 @@
 extends Control
 #UI for inventory type weapon
 @export var player_inventory_path: NodePath
-@onready var weapon_item_list = $"./$MarginContainer"
+@onready var weapon_item_list = $MarginContainer
 
 
 var player_inventory

@@ -1,9 +1,18 @@
 ~ Map
 Where do you wanna go?
 - Class
-	do DialogueFunctions.scene_class()
+	do DialogueFunctions.scene_one()
 - Work
-	do DialogueFunctions.scene_work()
+	do DialogueFunctions.scene_two()
 - Nevermind
 do DialogueFunctions.start_player_physics()
 => END
+
+~ Map2
+Where do you wanna go?
+- Home
+	do DialogueFunctions.scene_one()
+- Work
+	do DialogueFunctions.scene_two()
+- Nevermind
+do DialogueFunctions.start_player_physics()

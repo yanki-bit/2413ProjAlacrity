@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceqyh5kgdtkew"]
+[gd_scene load_steps=7 format=3 uid="uid://ceqyh5kgdtkew"]
 
 [ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="1_pis0b"]
 [ext_resource type="Texture2D" uid="uid://ci75magepw08p" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_02.png" id="2_c35rv"]
-[ext_resource type="PackedScene" uid="uid://c2od76bl8chdw" path="res://Inventory/PlayerItems/item_list.tscn" id="3_5vf6v"]
 
 [sub_resource type="SystemFont" id="SystemFont_yo4cx"]
 font_names = PackedStringArray("Monospace")
@@ -159,10 +158,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 14
-
-[node name="Weapon_Item_List" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/Weapon_List_Container/VBoxContainer" instance=ExtResource("3_5vf6v")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
 
 [node name="Armor_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
 visible = false

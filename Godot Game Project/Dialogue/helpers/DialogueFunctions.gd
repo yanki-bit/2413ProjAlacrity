@@ -1,8 +1,8 @@
 extends Node
 const BALLOON = preload("res://Dialogue/balloon.tscn")
 var dialogue_resource
-signal sceneClass
-signal sceneWork
+signal sceneOne
+signal sceneTwo
 signal dialogue_finished
 #function to play default dialogue box
 func playDefaultDialogue(title : String):
@@ -30,10 +30,13 @@ func stop_player_physics():
 		
 func start_player_physics():
 	if player_node:
-		player_node.set_physics_process(true)
+		if player_node.is_physics_processing():
+			pass
+		else:
+			player_node.set_physics_process(true)
 		
-func scene_class():
-	emit_signal("sceneClass")
+func scene_one():
+	emit_signal("sceneOne")
 	
-func scene_work():
-	emit_signal("sceneWork")
+func scene_two():
+	emit_signal("sceneTwo")

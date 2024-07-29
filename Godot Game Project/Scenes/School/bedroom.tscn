@@ -1,13 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp04axbadhy82"]
+[gd_scene load_steps=16 format=3 uid="uid://cp04axbadhy82"]
 
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/bedroom.gd" id="1_strgj"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="1_ucugq"]
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="2_bcev7"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="2_mtobn"]
 [ext_resource type="Texture2D" uid="uid://rwtqp7v2y1re" path="res://Assets/TileMap/bedroom tilemap.png" id="3_5c4j2"]
-[ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/BedroomDoor.tscn" id="3_e4ch2"]
+[ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/DialogueDoor.tscn" id="3_e4ch2"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="4_j31x6"]
-[ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="7_0w7mp"]
 [ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="8_7j87v"]
 [ext_resource type="Resource" uid="uid://drdks407xmmvn" path="res://Dialogue/Bed.dialogue" id="10_5cids"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="11_del7i"]
@@ -650,6 +649,9 @@ layer_3/tile_data = PackedInt32Array(-917524, 1048576, 12, -851988, 1048576, 12,
 position = Vector2(-8.66667, 96)
 collision_layer = 5
 collision_mask = 2
+next_scene = "Hallway"
+location = "spawn_location_south"
+direction = "spawn_direction_south"
 dialogue_start = "Map"
 
 [node name="CollisionShape2D" parent="BedroomDoor" index="0"]
@@ -669,7 +671,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" parent="PhoneObject/Sprite2D/Actionable" index="0"]
 position = Vector2(135, -116.659)
-scale = Vector2(1, 1)
 
 [node name="Actionable" parent="." instance=ExtResource("11_del7i")]
 position = Vector2(-123.333, -94.0001)
@@ -686,14 +687,8 @@ position = Vector2(-79, -106)
 [node name="ActionableFinder" parent="Player/Direction" index="0"]
 collision_mask = 18
 
-[node name="PhoneRing" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_0w7mp")
-volume_db = -15.0
-autoplay = true
-bus = &"SoundFX"
-
-[connection signal="contact" from="BedroomDoor" to="." method="_on_bedroom_door_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
+[connection signal="contact" from="BedroomDoor" to="." method="_on_bedroom_door_contact"]
 [connection signal="interacted" from="PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
 
 [editable path="BedroomDoor"]

@@ -39,3 +39,8 @@ func _on_submit_pressed():
 		player_name = input
 		PlayerInfo.player_name = input
 		get_tree().change_scene_to_packed(preload("res://Scenes/Intro/Intro2.tscn"))
+		#DialogueFunctions.rename_file("res://Assets/Portraits/YouFace.png", "res://Assets/Portraits/"+player_name+".png")
+
+	
+	
+		

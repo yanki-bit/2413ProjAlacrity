@@ -1,0 +1,4 @@
+~ classDoor
+{{player_name}}: I should take my seat. A quiz is starting.
+do DialogueFunctions.start_player_physics()
+=> END

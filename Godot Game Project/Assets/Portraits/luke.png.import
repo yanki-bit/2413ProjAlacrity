@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3rjlqk3h1771"
-path="res://.godot/imported/LukeFace.png-d54ef24af697f0d70ad2b8f8d6ab773d.ctex"
+path="res://.godot/imported/luke.png-64b9560488bfcb5df33680ecc5553462.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/LukeFace.png"
-dest_files=["res://.godot/imported/LukeFace.png-d54ef24af697f0d70ad2b8f8d6ab773d.ctex"]
+source_file="res://Assets/Portraits/luke.png"
+dest_files=["res://.godot/imported/luke.png-64b9560488bfcb5df33680ecc5553462.ctex"]
 
 [params]
 

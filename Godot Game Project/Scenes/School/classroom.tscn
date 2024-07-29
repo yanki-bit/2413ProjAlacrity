@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://pwmsp7jntfnp"]
+[gd_scene load_steps=18 format=3 uid="uid://pwmsp7jntfnp"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_8371n"]
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/classroom.gd" id="1_ojl8n"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="9_1k63u"]
 [ext_resource type="PackedScene" uid="uid://cdgg3hdpbugwq" path="res://Characters/classmate.tscn" id="10_vyf8b"]
 [ext_resource type="PackedScene" uid="uid://yytj2q7v3uyu" path="res://Characters/classmate_2.tscn" id="11_65iv8"]
+[ext_resource type="Resource" uid="uid://xjww3l8q4kfq" path="res://Dialogue/Door.dialogue" id="12_sm0vn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6kq6u"]
 vertices = PackedVector2Array(104, -17, 65, -17, 65, -35, 92, -35, 103, -178, 58, -127, 94, -178)
@@ -589,11 +590,12 @@ sources/5 = SubResource("TileSetAtlasSource_meb5p")
 sources/6 = SubResource("TileSetAtlasSource_yaxt3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lybdc"]
-size = Vector2(6.5, 20)
+size = Vector2(28.5, 66)
 
 [node name="Classroom" type="Node2D"]
 script = ExtResource("1_ojl8n")
 dialogue_resource = ExtResource("5_re61c")
+dialogue_start = "School"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_6kq6u")
@@ -704,10 +706,23 @@ dialogue_start = "Quiz"
 position = Vector2(11.25, 0)
 shape = SubResource("RectangleShape2D_lybdc")
 
+[node name="classDoor" parent="." instance=ExtResource("9_1k63u")]
+position = Vector2(151, -117)
+collision_layer = 5
+collision_mask = 2
+dialogue_resource = ExtResource("12_sm0vn")
+dialogue_start = "classDoor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="classDoor"]
+position = Vector2(9, -9)
+shape = SubResource("RectangleShape2D_lybdc")
+
 [node name="NavTarget" type="Marker2D" parent="."]
 position = Vector2(68, -49)
 
 [connection signal="contact" from="Door" to="." method="_on_contact"]
+[connection signal="body_entered" from="classDoor" to="classDoor" method="_on_body_entered"]
+[connection signal="contact" from="classDoor" to="." method="_on_class_door_contact"]
 
 [editable path="People/Professor"]
 [editable path="Luke"]

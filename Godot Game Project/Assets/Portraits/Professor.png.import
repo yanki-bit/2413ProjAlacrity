@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rw2u5pqdrcbb"
-path="res://.godot/imported/ProfessorFace.png-f7e1f14e5601a2e50cc8fef5d95dc2c4.ctex"
+path="res://.godot/imported/Professor.png-ce19c30f8415e7cef5a2219165e778f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/ProfessorFace.png"
-dest_files=["res://.godot/imported/ProfessorFace.png-f7e1f14e5601a2e50cc8fef5d95dc2c4.ctex"]
+source_file="res://Assets/Portraits/Professor.png"
+dest_files=["res://.godot/imported/Professor.png-ce19c30f8415e7cef5a2219165e778f1.ctex"]
 
 [params]
 

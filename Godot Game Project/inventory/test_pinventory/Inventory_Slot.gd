@@ -11,7 +11,6 @@ extends Control
 @onready var usage_panel2 = $UsagePanel2
 @onready var slot_empty = $EmptyPanel
 
-
 # slot item
 var item = null
 

@@ -226,7 +226,6 @@ func on_ability_press() -> void:
 func use_ability(attacker, defender):
 	# convert next_action from string to dictionary
 	attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
-	print(attacker.next_action)
 	match attacker.next_action.type:
 		# if attacker is using an attack
 		Abilities.ABILITY_TYPE.ATTACK:
@@ -234,11 +233,9 @@ func use_ability(attacker, defender):
 			attacker.next_action.use.call(attacker, defender)
 
 		# If attacker is healing, gaining energy or buffing itself
-		Abilities.ABILITY_TYPE.BUFF:
+		Abilities.ABILITY_TYPE.HEAL,Abilities.ABILITY_TYPE.ENERGY,Abilities.ABILITY_TYPE.BUFF:
 			# execute ability on self
-			print("action")
 			attacker.next_action.use.call(attacker)
-			print(player.get_DEF())
 
 		# If attacker is debuffing the enemy
 		Abilities.ABILITY_TYPE.DEBUFF:

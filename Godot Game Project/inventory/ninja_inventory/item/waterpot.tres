@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://byir3fxed3gnw"]
+
+[ext_resource type="Script" path="res://inventory/ninja_inventory/inventoryItem.gd" id="1_ibs08"]
+[ext_resource type="Texture2D" uid="uid://dm1ec1amf1kb6" path="res://inventory/ninja_inventory/WaterPot.png" id="2_m64gd"]
+
+[resource]
+script = ExtResource("1_ibs08")
+name = "Water Potion"
+quantity = 1
+texture = ExtResource("2_m64gd")

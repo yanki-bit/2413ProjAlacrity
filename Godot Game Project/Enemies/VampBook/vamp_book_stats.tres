@@ -6,8 +6,10 @@
 script = ExtResource("1_e5alb")
 MAX_HP = 25
 CURR_HP = 25
-ATK = 0
+MIN_ATK = 0
+MAX_ATK = 0
 DEF = 0
 SPD = 1
 LCK = 0
 ENERGY = 1
+learned_abilities = []

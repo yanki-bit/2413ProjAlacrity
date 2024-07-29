@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpveyridaqqpq"]
+
+[ext_resource type="Script" path="res://inventory/ninja_inventory/slot.gd" id="1_rxm7s"]
+
+[node name="Slot" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 192.0
+offset_bottom = 64.0
+script = ExtResource("1_rxm7s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.114897, 0.114897, 0.114897, 1)
+
+[node name="itemName" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 56.0
+text = "Item Name"
+
+[node name="itemCount2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 39.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 56.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]

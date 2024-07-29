@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d0u3aasjbv5ul"]
+[gd_scene load_steps=32 format=3 uid="uid://d0u3aasjbv5ul"]
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
@@ -339,6 +339,9 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_4y7ne"]
 radius = 14.0357
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp30j"]
+size = Vector2(32, 34)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -391,6 +394,16 @@ light_mask = 0
 visibility_layer = 16
 position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_4y7ne")
+
+[node name="ItemCollector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollector"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_lp30j")
+debug_color = Color(0.889423, 0.224106, 0.59869, 0.42)
+
+[connection signal="area_entered" from="Direction/ActionableFinder" to="." method="_on_actionable_finder_area_entered"]
+[connection signal="area_entered" from="ItemCollector" to="." method="_on_item_collector_area_entered"]
 
 [editable path="Camera2D3/Player_Menu"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]

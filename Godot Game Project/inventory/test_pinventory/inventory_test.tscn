@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://kw1n4fkgkreu"]
+
+[ext_resource type="PackedScene" uid="uid://fhpjer1avf8y" path="res://inventory/test_pinventory/iplayer.tscn" id="1_gdlhl"]
+[ext_resource type="PackedScene" uid="uid://cuimdltuhu0qg" path="res://inventory/test_pinventory/inventory_item.tscn" id="2_1r0oa"]
+[ext_resource type="Texture2D" uid="uid://cg2eqolp1ypmw" path="res://inventory/test_pinventory/Honey.png" id="3_s15v1"]
+[ext_resource type="Texture2D" uid="uid://rdpidue1nkfa" path="res://inventory/test_pinventory/Fish.png" id="4_h2qxe"]
+[ext_resource type="Texture2D" uid="uid://bk53p51tbolay" path="res://inventory/test_pinventory/Noodle.png" id="5_ssjkd"]
+
+[node name="inventory_test" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="iplayer" parent="." instance=ExtResource("1_gdlhl")]
+position = Vector2(257, 71)
+
+[node name="inventory_Item" parent="." instance=ExtResource("2_1r0oa")]
+position = Vector2(68, 40)
+item_type = "Consumable"
+item_name = "Honey"
+item_blurb = "Another pot of honey for Pooh!"
+item_texture = ExtResource("3_s15v1")
+
+[node name="inventory_Item4" parent="." instance=ExtResource("2_1r0oa")]
+position = Vector2(126, 124)
+item_type = "Consumable"
+item_name = "Honey"
+item_blurb = "Honey for Pooh bear"
+item_texture = ExtResource("3_s15v1")
+
+[node name="inventory_Item2" parent="." instance=ExtResource("2_1r0oa")]
+position = Vector2(41, 112)
+item_type = "Consumable"
+item_name = "Fish"
+item_blurb = "Only the best mackerel"
+item_texture = ExtResource("4_h2qxe")
+
+[node name="inventory_Item3" parent="." instance=ExtResource("2_1r0oa")]
+position = Vector2(144, 76)
+item_type = "Noodles"
+item_name = "Consumable"
+item_blurb = "These are noodles!"
+item_texture = ExtResource("5_ssjkd")

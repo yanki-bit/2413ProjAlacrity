@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0fndkr48q2dq"]
+
+[ext_resource type="PackedScene" uid="uid://bq8mr676dlry8" path="res://inventory/ninja_inventory/item/Collectable.tscn" id="1_0cnjg"]
+[ext_resource type="Texture2D" uid="uid://ndxrxc3u8mnw" path="res://inventory/ninja_inventory/Letter.png" id="2_ueirj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kllwn"]
+resource_local_to_scene = true
+
+[node name="CollectableLetter" instance=ExtResource("1_0cnjg")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_kllwn")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ueirj")

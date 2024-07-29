@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnlgrabfl40qy"]
+
+[ext_resource type="Script" path="res://inventory/test_pinventory/Inventory_UI.gd" id="1_i5vin"]
+
+[node name="Inventory_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i5vin")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 600.0
+offset_bottom = 400.0
+
+[connection signal="mouse_entered" from="NinePatchRect" to="." method="_on_nine_patch_rect_mouse_entered"]

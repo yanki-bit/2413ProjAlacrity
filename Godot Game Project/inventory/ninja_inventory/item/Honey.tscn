@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b681gld07d6ju"]
+
+[ext_resource type="Script" path="res://inventory/ninja_inventory/item/Collectable.gd" id="1_xgaqa"]
+[ext_resource type="Texture2D" uid="uid://cnmrd3vy558v6" path="res://inventory/ninja_inventory/Honey.png" id="2_2062k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5ds"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[node name="CollectableHoney" type="Area2D"]
+script = ExtResource("1_xgaqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5k5ds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2062k")

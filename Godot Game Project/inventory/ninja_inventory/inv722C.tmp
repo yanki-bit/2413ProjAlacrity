@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfi24c3ahqt0f"]
+
+[ext_resource type="Texture2D" uid="uid://coalfcy5xnlm7" path="res://inventory/test_save/menu_box.png" id="1_4wcrh"]
+[ext_resource type="Script" path="res://inventory/ninja_inventory/inventory_gui.gd" id="1_h7mjd"]
+[ext_resource type="PackedScene" uid="uid://bpveyridaqqpq" path="res://inventory/ninja_inventory/slot.tscn" id="3_t3ock"]
+
+[node name="InventoryGui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 602.0
+offset_bottom = 317.0
+script = ExtResource("1_h7mjd")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4wcrh")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="slot 1" parent="NinePatchRect/VBoxContainer" instance=ExtResource("3_t3ock")]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+
+[node name="Slot3" parent="NinePatchRect/VBoxContainer" instance=ExtResource("3_t3ock")]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+
+[node name="Slot4" parent="NinePatchRect/VBoxContainer" instance=ExtResource("3_t3ock")]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+color = Color(0.0804965, 0.0722312, 0.0533865, 1)

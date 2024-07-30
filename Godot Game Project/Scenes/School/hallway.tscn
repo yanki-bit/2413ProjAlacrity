@@ -6935,6 +6935,7 @@ shape = SubResource("RectangleShape2D_n6y4r")
 [connection signal="contact" from="DoorWest" to="." method="_on_contact"]
 [connection signal="contact" from="DoorNorth" to="." method="_on_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
+[connection signal="body_entered" from="DoorCheck" to="DoorCheck" method="_on_body_entered"]
 [connection signal="contact" from="DoorCheck" to="." method="_on_door_check_contact"]
 
 [editable path="Player"]

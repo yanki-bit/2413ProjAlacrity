@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxnjg2bkk1hyw"]
+[gd_scene load_steps=14 format=3 uid="uid://cxnjg2bkk1hyw"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_a3nm0"]
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/hallway.gd" id="1_uddoa"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="6_ydvry"]
 [ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/DialogueDoor.tscn" id="7_cdoo3"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="8_h5cox"]
+[ext_resource type="Resource" uid="uid://xjww3l8q4kfq" path="res://Dialogue/Door.dialogue" id="9_m03ip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t533t"]
 texture = ExtResource("1_a3nm0")
@@ -6898,14 +6899,14 @@ position = Vector2(566, -253)
 [node name="vamp_book" parent="." instance=ExtResource("4_q7ti2")]
 position = Vector2(444, -335)
 
-[node name="Door" parent="." instance=ExtResource("6_ydvry")]
+[node name="DoorWest" parent="." instance=ExtResource("6_ydvry")]
 position = Vector2(18, -321)
 collision_mask = 2
 next_scene = "Classroom"
 location = "spawn_location"
 direction = "spawn_direction"
 
-[node name="Door2" parent="." instance=ExtResource("6_ydvry")]
+[node name="DoorNorth" parent="." instance=ExtResource("6_ydvry")]
 position = Vector2(405, -434)
 collision_mask = 2
 next_scene = "Library"
@@ -6920,18 +6921,21 @@ location = "spawn_location"
 direction = "spawn_direction"
 dialogue_start = "Map2"
 
-[node name="Actionable" parent="." instance=ExtResource("8_h5cox")]
+[node name="DoorCheck" parent="." instance=ExtResource("8_h5cox")]
 position = Vector2(403.333, -416)
 collision_layer = 5
 collision_mask = 2
+dialogue_resource = ExtResource("9_m03ip")
+dialogue_start = "libraryDoor"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorCheck"]
 position = Vector2(1, 2.66666)
 shape = SubResource("RectangleShape2D_n6y4r")
 
-[connection signal="contact" from="Door" to="." method="_on_contact"]
-[connection signal="contact" from="Door2" to="." method="_on_contact"]
+[connection signal="contact" from="DoorWest" to="." method="_on_contact"]
+[connection signal="contact" from="DoorNorth" to="." method="_on_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
+[connection signal="contact" from="DoorCheck" to="." method="_on_door_check_contact"]
 
 [editable path="Player"]
 [editable path="Player/Camera2D3/Player_Menu"]

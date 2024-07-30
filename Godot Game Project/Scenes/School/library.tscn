@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://divcm5lah685s"]
+[gd_scene load_steps=17 format=3 uid="uid://divcm5lah685s"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_aekri"]
 [ext_resource type="Script" path="res://Scenes/School/library.gd" id="1_mm3q5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="4_snv7g"]
 [ext_resource type="PackedScene" uid="uid://bb810n3kicon0" path="res://Characters/Luke.tscn" id="5_phoc2"]
 [ext_resource type="Texture2D" uid="uid://bnoq7x357ww2b" path="res://Assets/Sprite/walkLibrarian.png" id="8_44sqp"]
+[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="9_qwy1j"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3ndkc"]
 tile_data = PackedInt32Array(0, 655360, 68, 65536, 655360, 69, 1, 720896, 68, 65537, 720896, 69)
@@ -29326,5 +29327,11 @@ position = Vector2(4.76837e-07, 29.5)
 [node name="AnimatedSprite2D" parent="Librarian" index="2"]
 position = Vector2(0.666665, -9.99999)
 texture = ExtResource("8_44sqp")
+
+[node name="Door" parent="." instance=ExtResource("9_qwy1j")]
+position = Vector2(2, -61)
+next_scene = "Hallway"
+location = "spawn_location_north"
+direction = "spawn_direction_north"
 
 [editable path="Librarian"]

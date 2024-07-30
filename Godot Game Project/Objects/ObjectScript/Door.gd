@@ -22,6 +22,3 @@ func _on_body_entered(body):
 	if "Player" in body.name:
 		emit_signal("contact")
 		get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene_path, spawn_location, spawn_direction)
-
-func _on_contact():
-	pass

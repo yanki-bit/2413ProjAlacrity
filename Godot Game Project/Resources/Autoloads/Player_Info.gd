@@ -10,6 +10,8 @@ var state: Dictionary = {
 	"Classroom":
 		false,
 	"Library":
+		false,
+	"Hallway":
 		false
 	}
 

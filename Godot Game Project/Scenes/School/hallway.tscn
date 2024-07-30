@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxnjg2bkk1hyw"]
+[gd_scene load_steps=13 format=3 uid="uid://cxnjg2bkk1hyw"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_a3nm0"]
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/hallway.gd" id="1_uddoa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="4_q7ti2"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="6_ydvry"]
 [ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/DialogueDoor.tscn" id="7_cdoo3"]
+[ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="8_h5cox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t533t"]
 texture = ExtResource("1_a3nm0")
@@ -6873,6 +6874,9 @@ physics_layer_1/collision_mask = 0
 sources/2 = SubResource("TileSetAtlasSource_t533t")
 sources/3 = SubResource("TileSetAtlasSource_cgwno")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6y4r"]
+size = Vector2(64.6667, 25.3333)
+
 [node name="Hallway" type="Node2D"]
 position = Vector2(498, 414)
 scale = Vector2(1.5, 1.5)
@@ -6915,6 +6919,15 @@ next_scene = "Bedroom"
 location = "spawn_location"
 direction = "spawn_direction"
 dialogue_start = "Map2"
+
+[node name="Actionable" parent="." instance=ExtResource("8_h5cox")]
+position = Vector2(403.333, -416)
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(1, 2.66666)
+shape = SubResource("RectangleShape2D_n6y4r")
 
 [connection signal="contact" from="Door" to="." method="_on_contact"]
 [connection signal="contact" from="Door2" to="." method="_on_contact"]

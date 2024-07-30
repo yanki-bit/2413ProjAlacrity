@@ -91,7 +91,7 @@ Professor: Alright students hand in your papers. The quiz is now finished.
 You got {{score}} out of 3. Congratulations
 if score == 3
 	do [[acad += 1]]
-	+ 1 to Academics
+	[color=#50C878]+ 1 to Academics[/color]
 else
 	You get nothing
 do DialogueFunctions.start_player_physics()
@@ -117,3 +117,26 @@ do DialogueFunctions.start_player_physics()
 do DialogueFunctions.start_player_physics()
 => END
 
+~ Librarian
+{{player_name}}: Good Morning, Ms. Librarian
+Librarian: Good Morning, {{player_name}}
+Librarian: What can I do to help you today?
+{{player_name}}: I'd like to borrow a book for my upcoming exam.
+{{player_name}}: I think its called [color=#0023ff]"Intro to Java Programming and Data Structures"[/color]
+Librarian: Let me check ...
+Librarian: ...
+Librarian: Oh sorry it's not avaliable. We have another book called [color=#0023ff] "Programming for Unintelligent" [/color]
+Librarian: It should be a good replacement.
+{{player_name}}: I'll take it, could you direct me to where its located.
+do DialogueFunctions.start_player_physics()
+~ Librarian2
+Librarian: Just at the end of the room.
+{{player_name}}: Thank you.
+do DialogueFunctions.start_player_physics()
+=> END
+
+~ Library
+{{player_name}}: Thanks for the help. Have a great day! See you Tomorrow
+Librarian: No worries have a great day.
+do DialogueFunctions.start_player_physics()
+=> END

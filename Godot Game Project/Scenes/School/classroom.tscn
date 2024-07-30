@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="4_obmgj"]
 [ext_resource type="Resource" uid="uid://bhvom4d0lg27h" path="res://Dialogue/DayOne.dialogue" id="5_re61c"]
 [ext_resource type="PackedScene" uid="uid://bb810n3kicon0" path="res://Characters/Luke.tscn" id="6_qnu7o"]
-[ext_resource type="Texture2D" uid="uid://cuvw0tyfrg1bd" path="res://Assets/Sprite/walkBoss.png" id="8_7ktn6"]
+[ext_resource type="Texture2D" uid="uid://v34done2vv0r" path="res://Assets/Sprite/walkProfessor.png" id="6_y2556"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="9_1k63u"]
 [ext_resource type="PackedScene" uid="uid://cdgg3hdpbugwq" path="res://Characters/classmate.tscn" id="10_vyf8b"]
 [ext_resource type="PackedScene" uid="uid://yytj2q7v3uyu" path="res://Characters/classmate_2.tscn" id="11_65iv8"]
@@ -627,7 +627,7 @@ scale = Vector2(2, 2)
 script = null
 
 [node name="AnimatedSprite2D" parent="People/Professor" index="2"]
-texture = ExtResource("8_7ktn6")
+texture = ExtResource("6_y2556")
 
 [node name="classmate" parent="People" instance=ExtResource("10_vyf8b")]
 position = Vector2(-221, -57)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://bb810n3kicon0"]
 
-[ext_resource type="Texture2D" uid="uid://dl23p12741bae" path="res://Assets/Sprite/walkClassmateM.png" id="1_js0lq"]
+[ext_resource type="Texture2D" uid="uid://dvo5yss3ss4ir" path="res://Assets/Sprite/walkClassmateM.png" id="1_js0lq"]
 [ext_resource type="Script" path="res://Characters/NPC.gd" id="1_wyddj"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="2_aswlm"]
 

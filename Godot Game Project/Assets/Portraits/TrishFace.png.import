@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3wb7tnpo1jh"
-path="res://.godot/imported/walkDefaultSheet.png-337feb1784f08aa29d6fb1d9e16564ea.ctex"
+uid="uid://0y1enidm0sw6"
+path="res://.godot/imported/TrishFace.png-795d10af792cd66e5ca2ce32a857316e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite/walkDefaultSheet.png"
-dest_files=["res://.godot/imported/walkDefaultSheet.png-337feb1784f08aa29d6fb1d9e16564ea.ctex"]
+source_file="res://Assets/Portraits/TrishFace.png"
+dest_files=["res://.godot/imported/TrishFace.png-795d10af792cd66e5ca2ce32a857316e.ctex"]
 
 [params]
 

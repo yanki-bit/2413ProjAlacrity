@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bue3t4ywtxiko"
-path="res://.godot/imported/LibrarianFace.png-3c969cee1d342a06241d6778a9183fa0.ctex"
+uid="uid://v34done2vv0r"
+path="res://.godot/imported/walkProfessor.png-8821de497b1985dd79051db42384d949.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/LibrarianFace.png"
-dest_files=["res://.godot/imported/LibrarianFace.png-3c969cee1d342a06241d6778a9183fa0.ctex"]
+source_file="res://Assets/Sprite/walkProfessor.png"
+dest_files=["res://.godot/imported/walkProfessor.png-8821de497b1985dd79051db42384d949.ctex"]
 
 [params]
 

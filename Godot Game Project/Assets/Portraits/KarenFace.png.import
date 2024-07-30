@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3wb7tnpo1jh"
-path="res://.godot/imported/walkDefaultSheet.png-337feb1784f08aa29d6fb1d9e16564ea.ctex"
+uid="uid://yjal15nym8oh"
+path="res://.godot/imported/KarenFace.png-98fa71554e17b8b17857ec2d0f5067d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite/walkDefaultSheet.png"
-dest_files=["res://.godot/imported/walkDefaultSheet.png-337feb1784f08aa29d6fb1d9e16564ea.ctex"]
+source_file="res://Assets/Portraits/KarenFace.png"
+dest_files=["res://.godot/imported/KarenFace.png-98fa71554e17b8b17857ec2d0f5067d6.ctex"]
 
 [params]
 

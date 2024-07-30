@@ -30,7 +30,7 @@ PhoneRing="*res://Assets/Music/PhoneRing.tscn"
 [dialogue_manager]
 
 general/states=["Intro", "PlayerInfo", "DialogueFunctions"]
-general/balloon_path="res://Dialogue/balloon.tscn"
+general/balloon_path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn"
 
 [display]
 

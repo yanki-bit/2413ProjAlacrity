@@ -12,13 +12,15 @@ func _ready():
 	get_player($Player)
 	if state:
 		if state.get("Classroom") == true && state.get("Bedroom") == true:
-			state["Hallway"] == true
+			state["Hallway"] = true
+			
 		if state.get("Hallway") == true:
 			$DoorCheck.monitoring = false
 			$DoorNorth.monitoring = true
-	else:
-		$DoorCheck.monitoring = true
-		$DoorNorth.monitoring = false
+		else:
+			$DoorCheck.monitoring = true
+			$DoorNorth.monitoring = false
+			
 func get_player(node : Node):
 	DialogueFunctions.player_node = node
 

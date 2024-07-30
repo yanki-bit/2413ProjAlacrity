@@ -29330,6 +29330,8 @@ texture = ExtResource("8_44sqp")
 
 [node name="Door" parent="." instance=ExtResource("9_qwy1j")]
 position = Vector2(2, -61)
+collision_layer = 5
+collision_mask = 2
 next_scene = "Hallway"
 location = "spawn_location_north"
 direction = "spawn_direction_north"

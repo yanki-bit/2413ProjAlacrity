@@ -1,9 +1,9 @@
 ~ classDoor
-{{player_name}}: I should take my seat. A quiz is starting.
+I should take my seat. A quiz is starting.
 do DialogueFunctions.start_player_physics()
 => END
 
 ~ libraryDoor
-{{player_name}}: I'm going to be late. I should go to class.
+I'm going to be late. I should go to class.
 do DialogueFunctions.start_player_physics()
 => END

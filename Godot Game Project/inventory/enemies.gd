@@ -4,6 +4,9 @@ func _ready():
 	print(SelectedEnemies)
 	addItems("Vampire Book")
 	print(SelectedEnemies)
+	
+var path = "user://data.json"
+	
 var databaseEnemies = {
 	"E_001" : {
 		"Name" : "Vampire Book",

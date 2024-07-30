@@ -4,6 +4,9 @@ func _ready():
 	print(SelectedItems)
 	addItems("Pen")
 	print(SelectedItems)
+	
+	var path = "user://data.json"
+	
 var databaseItems = {
 	"I_101" : {
 		"Item" : "Pencil",

@@ -4,6 +4,9 @@ func _ready():
 	print(SelectedAbilities)
 	addAbilities("Think")
 	print(SelectedAbilities)
+	
+	var path = "user://data.json"
+	
 var databaseAbilities = {
 	"A_001" : {
 		"Ability" : "Think",

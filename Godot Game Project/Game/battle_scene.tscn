@@ -180,11 +180,13 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 
 [node name="Ability_1" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_006qh")
 
 [node name="Ability_2" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_006qh")
@@ -195,11 +197,13 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
 [node name="Ability_3" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_006qh")
 
 [node name="Ability_4" type="Button" parent="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_006qh")

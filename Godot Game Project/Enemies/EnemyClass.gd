@@ -166,11 +166,32 @@ func roll_crit():
 		return true
 	return false
 	
-func take_damage(value:int):
-	CURR_HP -= value
+func take_damage(damage:int):
+
+	# apply defense stat damage reduction to damage
+	damage = damage * (1 - (get_DEF() * 0.05))
+
+	# apply any on defend effects if they exist
+	if defmods.size() > 0:
+		var dmg_reduced = 0
+		for i in defmods.size():
+			dmg_reduced += defmods[i].apply.call(damage)
+		damage -= dmg_reduced
+		
+	# reduce number of charges left in each defensive modification used by 1 
+	decrement_defmods_charges()
+	
+	# remove defensive modifications that have 0 charges left from defmods array 
+	remove_expired_defmods()
+	
+	# subtract current hp by resultant damage
+	CURR_HP -= int(damage)
+	
+	#check if damage taken is lethal
 	if CURR_HP <= 0:
 		emit_signal("death")
-	pass
+	
+	return damage
 
 func heal(value:int):
 	CURR_HP += value

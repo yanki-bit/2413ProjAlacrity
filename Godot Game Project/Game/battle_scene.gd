@@ -7,7 +7,16 @@ var turn_count = 0 # store number of turns occured so far in fight
 var current_state    # The current state of the battle
 var combat_turn_order = Array()    # A queue of combatants
 var units_in_combat = 0 # store number of units still in combat
+
+signal action_selected
+
 @onready var ability = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/HBoxContainer/Ability
+@onready var player_abilities_container = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer
+@onready var escape = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Escape
+@onready var ability_1 = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer/Ability_1
+@onready var ability_2 = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer/Ability_2
+@onready var ability_3 = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2/Ability_3
+@onready var ability_4 = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2/Ability_4
 
 # All possible battle states
 enum BATTLE_STATES {
@@ -36,7 +45,7 @@ func _ready():
 	# Place player in the combat turn order queue to be sorted
 	combat_turn_order.append([player,BATTLE_STATES.PLAYER])
 
-# Populate player ability buttons with players learned abilites
+# Populate player ability buttons with players learned abilites NOT A GREAT SOLUTION!
 func populate_ability_buttons():
 	var i = 1
 	for button in $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer.get_children():
@@ -56,6 +65,53 @@ func _process(delta):
 		if Input.is_action_pressed("pause"):
 			# hide all submenus to go back to original fight menu
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer.hide()
+
+func handle_signal():
+	ability.pressed.connect(on_ability_press)
+	escape.pressed.connect(on_escape_pressed)
+	ability_1.pressed.connect(on_ability_1_pressed)
+	ability_2.pressed.connect(on_ability_2_pressed)
+	ability_3.pressed.connect(on_ability_3_pressed)
+	ability_4.pressed.connect(on_ability_4_pressed)
+
+func process_next_action(action: String):
+	var next_action = 
+
+
+#func to show abilities when button pressed
+func on_ability_press() -> void:
+	player_abilities_container.show()
+
+func on_ability_1_pressed():
+	emit_signal("action_selected", %Ability_1.text)
+	
+func on_ability_2_pressed():
+	emit_signal("action_selected", %Ability_2.text)
+
+func on_ability_3_pressed():
+	emit_signal("action_selected", %Ability_3.text)
+
+func on_ability_4_pressed():
+	emit_signal("action_selected", %Ability_4.text)
+	
+func _on_attack_pressed():
+	# Ensure that player input is expected
+	if current_state == BATTLE_STATES.WAIT:
+		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
+		player.next_action = %Attack.text
+		# Start turn actions
+		_handle_wait_state()
+		_handle_states(check_next_state())
+
+func on_escape_pressed():
+	# Ensure that player input is expected
+	if current_state == BATTLE_STATES.WAIT:
+		# Unpause Game
+		get_tree().paused = false
+		get_parent().unpause_player_movement()
+		# Delete Battle Scene
+		queue_free()
+
 
 
 
@@ -223,23 +279,18 @@ func generate_turn_order():
 func check_next_state() -> BATTLE_STATES:
 	return combat_turn_order[0][1]
 
-@onready var player_abilities_container = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer
-@onready var escape = $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Escape
 
-func handle_signal():
-	ability.pressed.connect(on_ability_press)
-	escape.pressed.connect(_on_escape_pressed)
-#func to show abilities when button pressed
-func on_ability_press() -> void:
-	player_abilities_container.show()
-	
+
 #####################################################
 ##                COMBAT HANDLING                  ##
 #####################################################
 
 func use_ability(attacker, defender):
-	# convert next_action from string to dictionary
+
+	# check if next action is ability or item
+	# convert next action from string to dict TEMPORARY
 	attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
+
 	match attacker.next_action.type:
 		# if attacker is using an attack
 		Abilities.ABILITY_TYPE.ATTACK:
@@ -255,25 +306,3 @@ func use_ability(attacker, defender):
 		Abilities.ABILITY_TYPE.DEBUFF:
 			# execute ability on enemy
 			attacker.next_action.use.call(defender)
-		
-# # # # # # # # # # # # # # # # #
-# TEST TEST TEST TEST TEST TEST #
-# # # # # # # # # # # # # # # # #
-func _on_attack_pressed():
-	# Ensure that player input is expected
-	if current_state == BATTLE_STATES.WAIT:
-		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
-		player.next_action = %Attack.text
-		# Start turn actions
-		_handle_wait_state()
-		_handle_states(check_next_state())
-
-func _on_escape_pressed():
-	# Ensure that player input is expected
-	if current_state == BATTLE_STATES.WAIT:
-		# Unpause Game
-		get_tree().paused = false
-		get_parent().unpause_player_movement()
-		# Delete Battle Scene
-		queue_free()
-

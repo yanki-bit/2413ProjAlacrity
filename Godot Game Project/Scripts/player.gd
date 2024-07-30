@@ -160,7 +160,6 @@ func roll_crit():
 	return false
 	
 func take_damage(damage:int):
-	# check if defense stat damage reduction should be applied 
 
 	# apply defense stat damage reduction to damage
 	damage = damage * (1 - (get_DEF() * 0.05))
@@ -184,7 +183,8 @@ func take_damage(damage:int):
 	#check if damage taken is lethal
 	if statsheet.CURR_HP <= 0:
 		emit_signal("death")
-	pass
+	
+	return damage
 
 func heal(value:int):
 	statsheet.CURR_HP += value

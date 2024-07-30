@@ -7,15 +7,29 @@ enum ABILITY_TYPE {
 	HEAL,
 	ENERGY
 }
+# function to perform an attack on an enemy. attacker and defender are objects, cost and ability power come from dictionary
+func attack(attacker, defender, cost, ability_power):
+	# reduce attacker energy by energy cost
+	attacker.set_ENERGY(attacker.get_ENERGY() - cost)
+	
+	# roll attackers damage, apply ability power modifier and apply damage to defender
+	var base_damage = attacker.roll_atk()
+	var damage = base_damage * ability_power
+	return defender.take_damage(damage)
+	
+	
 
 var ABILITIES = {
 	"THINK" : {
+		# attributes
 		"ID" : "A_001",
 		"energy_cost" : 0,
-		"duration" : 1,
-		"type": ABILITY_TYPE.BUFF,
-		"learnable": "Yes",
 		"description": "Defend. +10 DEF until the start of your next turn",
+		"learnable": "Yes",
+		"type": ABILITY_TYPE.BUFF,
+		"duration" : 1,
+		
+		# functions
 		"use": func(attacker):
 			# add buff to statmods array
 			attacker.statmods.append(ABILITIES.THINK.duplicate())
@@ -27,29 +41,29 @@ var ABILITIES = {
 			attacker.set_DEF(attacker.get_DEF() - 10),
 	},
 	"TAKE A BREAK"  : {
+		# attributes
 		"ID" : "A_002",
 		"energy_cost" : 0,
-		"type": ABILITY_TYPE.ENERGY,
-		"learnable": "Yes",
 		"description": "Gain 1 extra Energy",
+		"learnable": "Yes",
+		"type": ABILITY_TYPE.ENERGY,
+		
+		#functions
 		"use": func(attacker):
 			attacker.set_ENERGY(attacker.get_ENERGY() + 1),
 	},
 	"WRITE" : {
+		# attributes
 		"ID" : "A_003",
 		"energy_cost" : 1,
-		"type": ABILITY_TYPE.ATTACK,
-		"learnable": "Yes",
-		"ability_power": 1,
 		"description": "Default Attack",
+		"learnable": "Yes",
+		"type": ABILITY_TYPE.ATTACK,
+		"ability_power": 1,
+
 		"use": func (attacker, defender) -> void:
-			# reduce attacker energy by energy cost
-			attacker.set_ENERGY(attacker.get_ENERGY() - 1)
-			
-			# roll attackers damage, apply ability power modifier and apply damage to defender
-			var base_damage = attacker.roll_atk()
-			var damage = base_damage * ABILITIES.WRITE.ability_power 
-			defender.take_damage(damage),
+			attack(attacker, defender, ABILITIES.WRITE.energy_cost, ABILITIES.WRITE.ability_power),
+
 	},
 	"A_004" : {
 		#"ID" : "Multitask",
@@ -66,16 +80,20 @@ var ABILITIES = {
 		#"Description":"Deal 175% to the primary target and 75% to secondary targets",
 	},
 	"RESEARCH" : {
+		# attributes
 		"ID" : "A_006",
 		"energy_cost" : 2,
+		"description":" +5 DEF until your next turn. Your next attack is guarenteed to crit and does an extra 50% damage",
 		"learnable": "Yes",
+		"type": ABILITY_TYPE.BUFF,
 		"duration" : 1,
 		"charges" : 1,
-		"type": ABILITY_TYPE.BUFF,
-		"description":" +5 DEF until your next turn. Your next attack is guarenteed to crit and does an extra 50% damage",
+		
+		# functions
 		"use" : func (attacker):
 			# reduce attacker energy by energy cost 
-			attacker.set_ENERGY(attacker.get_ENERGY() - ABILITIES.A_006.energy_cost)
+			attacker.set_ENERGY(attacker.get_ENERGY() - ABILITIES.RESEARCH.energy_cost)
+			
 			# add to both statmods and atkmods arrays
 			attacker.statmods.append(ABILITIES.A_006.duplicate())
 			attacker.atkmods.append(ABILITIES.A_006.duplicate())
@@ -85,18 +103,30 @@ var ABILITIES = {
 			attacker.set_LCK(attacker.get_LCK() + 20),
 		"remove" : func (attacker):
 			# remove defense and crit 
-			attacker.set_DEF(attacker.get_DEF() + 5)
-			attacker.set_LCK(attacker.get_LCK() + 20),
+			attacker.set_DEF(attacker.get_DEF() - 5)
+			attacker.set_LCK(attacker.get_LCK() - 20),
 		
 		"apply" : func (damage):
 			return damage * .5,
 	},
 	
 	"PROOFREAD" : {
+		# attributes
 		"ID" : "A_007",
 		"energy_cost" : 2,
-		"learnable": "Yes",
 		"description":"Heal for 50% of missing HP. ",
+		"learnable": "Yes",
+		"type": ABILITY_TYPE.HEAL,
+		
+		# functions
+		"use" : func (attacker):
+			# reduce attacker energy by energy cost 
+			attacker.set_ENERGY(attacker.get_ENERGY() - ABILITIES.PROOFREAD.energy_cost)
+			
+			# calculate missing health and heal 50% of it 
+			var heal_amount = attacker.get_MAX_HP() - attacker.get_CURR_HP()
+			heal_amount = heal_amount / 2
+			attacker.heal(heal_amount),
 	},
 	"A_008" : {
 		#"ID" : "Peer Review",
@@ -118,21 +148,33 @@ var ABILITIES = {
 		#"Description":"Gain +10 Damage and +5 to all stats for the rest of the fight",
 	},
 	"BITE" : {
+		# attributes
 		"ID" : "A_011",
 		"energy_cost" : 2,
+		"description": "Chomp chomp. Deals 225% Damage",
 		"learnable": "No",
 		"type": ABILITY_TYPE.ATTACK,
 		"ability_power": 2.25,
-		"description": "Chomp chomp. Deals 225% Damage",
-	
+		
+		# functions
+		"use": func(attacker, defender):
+			attack(attacker, defender, ABILITIES.BITE.energy_cost, ABILITIES.BITE.ability_power),
+
 	},
 	"DRAIN" : {
+		# attributes
 		"ID" : "A_012",
 		"energy_cost" : 2,
+		"description": "Absorb the strength of your enemies. Deals 175% Damage and heals for 50% of Damage Dealt",
 		"learnable": "Yes",
 		"type": ABILITY_TYPE.ATTACK,
 		"ability_power": 1.75,
-		"description": "Absorb the strength of your enemies. Deals 175% Damage and heals for 50% of Damage Dealt",
+		
+		# functions
+		"use" : func(attacker, defender):
+			var damage_dealt = attack(attacker, defender, ABILITIES.DRAIN.energy_cost, ABILITIES.DRAIN.ability_power)
+			damage_dealt /= 2
+			defender.heal(damage_dealt),
 	},
 	"FLURRY OF BOOKS" : {
 		"ID" : "A_013",

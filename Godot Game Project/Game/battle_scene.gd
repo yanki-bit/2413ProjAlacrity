@@ -29,6 +29,7 @@ enum BATTLE_STATES {
 
 func update_combat_numbers():
 	units_in_combat = combat_turn_order.size() - 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	handle_signal()
@@ -54,6 +55,17 @@ func populate_ability_buttons():
 	for button in $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2.get_children():
 		button.text = player.statsheet.learned_abilities[i]
 		i += 1
+
+func show_message(message: String):
+	# set message
+	%Message.text = message
+	# show message panel
+	%CombatNotification.show()
+	# 2 second pause for player to read screen
+	await get_tree().create_timer(2).timeout
+	# hide message panel
+	%CombatNotification.hide()
+	
 	
 #####################################################
 ##                 INPUT HANDLING                  ##
@@ -75,7 +87,17 @@ func handle_signal():
 	ability_4.pressed.connect(on_ability_4_pressed)
 
 func process_next_action(action: String):
-	var next_action = 
+	# takes in next action and finds associated ability
+	var next_action = Abilities.ABILITIES.get(action)
+	
+	# check to ensure that player has enough energy to use the ability
+	if player.get_ENERGY() >= next_action.energy_cost:
+		# start turn if player has enough energy
+		player.next_action = next_action
+		_handle_wait_state()
+		_handle_states(check_next_state())
+	else:
+		show_message("Not enough Energy!")
 
 
 #func to show abilities when button pressed
@@ -289,7 +311,7 @@ func use_ability(attacker, defender):
 
 	# check if next action is ability or item
 	# convert next action from string to dict TEMPORARY
-	attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
+	# attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
 
 	match attacker.next_action.type:
 		# if attacker is using an attack

@@ -56,17 +56,19 @@ func populate_ability_buttons():
 		button.text = player.statsheet.learned_abilities[i]
 		i += 1
 
+#####################################################
+##          COMBAT NOTIFICAION FUNCTIONS           ##
+#####################################################
+
 func show_message(message: String):
 	# set message
 	%Message.text = message
 	# show message panel
 	%CombatNotification.show()
-	# 2 second pause for player to read screen
-	await get_tree().create_timer(2).timeout
-	# hide message panel
+
+func hide_message():
 	%CombatNotification.hide()
-	
-	
+
 #####################################################
 ##                 INPUT HANDLING                  ##
 #####################################################
@@ -92,12 +94,17 @@ func process_next_action(action: String):
 	
 	# check to ensure that player has enough energy to use the ability
 	if player.get_ENERGY() >= next_action.energy_cost:
+		# hide player buttons UI
+		$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster.hide()
+		$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer.hide()
 		# start turn if player has enough energy
 		player.next_action = next_action
 		_handle_wait_state()
 		_handle_states(check_next_state())
 	else:
 		show_message("Not enough Energy!")
+		await get_tree().create_timer(2).timeout
+		hide_message()
 
 
 #func to show abilities when button pressed
@@ -117,13 +124,7 @@ func on_ability_4_pressed():
 	emit_signal("action_selected", %Ability_4.text)
 	
 func _on_attack_pressed():
-	# Ensure that player input is expected
-	if current_state == BATTLE_STATES.WAIT:
-		$BattleSceneContainer/PlayerBG/PlayerContainer.hide()
-		player.next_action = %Attack.text
-		# Start turn actions
-		_handle_wait_state()
-		_handle_states(check_next_state())
+	emit_signal("action_selected", %Attack.text)
 
 func on_escape_pressed():
 	# Ensure that player input is expected
@@ -155,11 +156,11 @@ func _handle_states(new_state):
 				combat_turn_order[i][0].set_ENERGY(combat_turn_order[i][0].get_ENERGY() + 1)
 			# Recalculate turn order
 			generate_turn_order()
-			
+			print("player energy = " + str(player.get_ENERGY()))
+			print("player defense = " + str(player.get_DEF()))
 			# show player menus
-			$BattleSceneContainer/PlayerBG/PlayerContainer.show()
+			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster.show()
 			print("Waiting... round number " + str(round_count))
-			print(player.get_DEF())
 			# wait for player action 
 			
 		BATTLE_STATES.PLAYER:
@@ -207,7 +208,7 @@ func _handle_enemy_state():
 	# TODO CALL ENEMY AI DECISION FUNCTION HERE
 	
 	# use the ablility 
-	use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
+	#use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
 	
 	# remove expired statmods 
 	attacker.remove_expired_statmods()
@@ -311,7 +312,6 @@ func use_ability(attacker, defender):
 
 	# check if next action is ability or item
 	# convert next action from string to dict TEMPORARY
-	# attacker.next_action = Abilities.ABILITIES.get(attacker.next_action)
 
 	match attacker.next_action.type:
 		# if attacker is using an attack

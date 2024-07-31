@@ -155,7 +155,18 @@ func roll_atk():
 	else:
 		damage = randi_range(get_MIN_ATK(),get_MAX_ATK())
 	
-	# Add damage modifiers
+	# Add damage modifiers if they exist
+	if atkmods.size() > 0:
+		var dmg_increased = 0
+		for i in atkmods.size():
+			dmg_increased += atkmods[i].apply.call(damage)
+		damage += dmg_increased
+	
+	# reduce number of charges left in each attack modification used by 1
+	decrement_atkmods_charges()
+	
+	# remove attack modifications that have 0 charges left from atkmods array
+	remove_expired_atkmods()
 	
 	# return damage after modifiers
 	return damage

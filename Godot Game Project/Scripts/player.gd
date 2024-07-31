@@ -139,7 +139,7 @@ func roll_atk():
 	
 	# Add damage modifiers if they exist
 	if atkmods.size() > 0:
-		var dmg_increased
+		var dmg_increased = 0
 		for i in atkmods.size():
 			dmg_increased += atkmods[i].apply.call(damage)
 		damage += dmg_increased
@@ -211,7 +211,7 @@ func remove_expired_statmods():
 # helper function to use with filter array function. Returns false (not kept in array) if the statmod has expired, true otherwise
 func remove_statmods_helper(ability):
 	if ability.duration <= 0:
-		ability.remove.call()
+		ability.remove.call(self)
 		return false
 	return true
 

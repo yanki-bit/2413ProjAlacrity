@@ -95,8 +95,8 @@ var ABILITIES = {
 			attacker.set_ENERGY(attacker.get_ENERGY() - ABILITIES.RESEARCH.energy_cost)
 			
 			# add to both statmods and atkmods arrays
-			attacker.statmods.append(ABILITIES.A_006.duplicate())
-			attacker.atkmods.append(ABILITIES.A_006.duplicate())
+			attacker.statmods.append(ABILITIES.RESEARCH.duplicate())
+			attacker.atkmods.append(ABILITIES.RESEARCH.duplicate())
 			
 			# add defense and crit 
 			attacker.set_DEF(attacker.get_DEF() + 5)

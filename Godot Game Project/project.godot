@@ -24,6 +24,7 @@ SaveManager="*res://Menu/Main Menu/Autoload/SaveManager.gd"
 SettingsDataContainer="*res://Menu/Main Menu/Autoload/Settings_Data_Container.gd"
 SettingsSignalBus="*res://Menu/Main Menu/Autoload/Settings_SignalBus.gd"
 GlobalPinventory="*res://inventory/test_pinventory/global_pinventory.gd"
+ItemsInventoryGlobal="*res://items_Inventory_Global.gd"
 
 [display]
 

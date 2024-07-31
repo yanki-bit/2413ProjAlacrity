@@ -56,6 +56,9 @@ func populate_ability_buttons():
 		button.text = player.get_learned_abilities(i)
 		i += 1
 
+
+
+
 #####################################################
 ##          COMBAT NOTIFICAION FUNCTIONS           ##
 #####################################################
@@ -158,6 +161,11 @@ func _handle_states(new_state):
 			generate_turn_order()
 			print("player energy = " + str(player.get_ENERGY()))
 			print("player defense = " + str(player.get_DEF()))
+			print("player HP = " + str(player.get_CURR_HP()))
+			
+			print("enemy energy = " + str(enemies[0].get_ENERGY()))
+			print("enemy defense = " + str(enemies[0].get_DEF()))
+			print("enemy HP = " + str(enemies[0].get_CURR_HP()))
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster.show()
 			print("Waiting... round number " + str(round_count))
@@ -176,14 +184,14 @@ func _handle_states(new_state):
 			# move to next units turn
 			_handle_states(check_next_state())
 			
-			pass
+
 		BATTLE_STATES.ENEMY:
 			turn_count += 1
 			print("Enemy Turn")
 			await get_tree().create_timer(1.5).timeout
 			_handle_enemy_state()
 			_handle_states(check_next_state())
-			pass
+
 		BATTLE_STATES.WIN:
 			# Insert code on player win
 			# REVERT BUFFS/DEBUFFS ON PLAYER 
@@ -194,28 +202,6 @@ func _handle_states(new_state):
 
 func _handle_wait_state():
 	# Moves queue to start turn when player action is selected
-	combat_turn_order.append(combat_turn_order.front())
-	combat_turn_order.pop_front()
-
-
-func _handle_enemy_state():
-	# Create temporary attacker variable
-	var attacker = combat_turn_order.front().front()
-	
-	# Decrement attackers statmods array by 1 round
-	attacker.decrement_statmods_duration()
-	
-	# TODO CALL ENEMY AI DECISION FUNCTION HERE
-	attacker.choose_action()
-	
-	# use the ablility 
-	use_ability(attacker, player) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
-	
-	# remove expired statmods 
-	attacker.remove_expired_statmods()
-	
-	# move to next units action
-	update_combat_numbers()
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
 
@@ -232,10 +218,71 @@ func _handle_player_state():
 	# remove expired statmods 
 	attacker.remove_expired_statmods()
 	
-	# move to next units action
+	# remove dead combatants
+	
+	
+	# check if fight is over
 	update_combat_numbers()
+	
+	# move to next units action
 	combat_turn_order.append(combat_turn_order.front())
 	combat_turn_order.pop_front()
+
+func _handle_enemy_state():
+	# Create temporary attacker variable
+	var attacker = combat_turn_order.front().front()
+	
+	# Decrement attackers statmods array by 1 round
+	attacker.decrement_statmods_duration()
+	
+	# CALL ENEMY AI DECISION FUNCTION 
+	attacker.choose_action()
+	
+	# use the ablility 
+	use_ability(attacker, player) 
+	
+	# remove expired statmods 
+	attacker.remove_expired_statmods()
+	
+	# remove dead combatants
+	
+	# check if fight is over
+	update_combat_numbers()
+	
+	# move to next units action
+	combat_turn_order.append(combat_turn_order.front())
+	combat_turn_order.pop_front()
+
+func _handle_win_state():
+	pass
+
+func _handle_lose_state():
+	pass
+
+# Remove Dead units
+
+func remove_dead_units():
+	# go through each unit to check if it still has hp left. play death animation, remove from turn order
+	# and free queue here
+	combat_turn_order.filter(remove_dead_units_helper)
+
+# returns true if alive, false if dead
+func remove_dead_units_helper(unit):
+	# return true if it is the wait state in combat
+	if unit[1] == BATTLE_STATES.WAIT:
+		return true
+	# if current hp is less than 0
+	elif unit[0].get_CURR_HP() <= 0:
+		#play units death animation
+		unit[0].play_death_animation()
+		return false
+	return true
+	
+
+
+
+
+
 
 # Populate battle with Enemy and appropriate number of minions
 func add_enemies( mainEnemy, minion, numberOfMinions ):

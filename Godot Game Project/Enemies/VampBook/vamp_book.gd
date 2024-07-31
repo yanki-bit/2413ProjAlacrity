@@ -27,7 +27,8 @@ func choose_action():
 		# if 2 or more energy, use bite
 		_: 
 			next_action = learned_abilities[2]
-			
+	
+	next_action = Abilities.ABILITIES.get(next_action)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

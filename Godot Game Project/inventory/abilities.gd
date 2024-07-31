@@ -148,7 +148,7 @@ var ABILITIES = {
 		#"Description":"Gain +10 Damage and +5 to all stats for the rest of the fight",
 	},
 	"BITE" : {
-		# attributes
+		# attributes	
 		"ID" : "A_011",
 		"energy_cost" : 2,
 		"description": "Chomp chomp. Deals 225% Damage",

@@ -76,6 +76,9 @@ func set_spawn(location: Vector2, direction: Vector2):
 	anim_tree.set("parameters/Idle/blend_position",direction)
 	position = location
 
+func play_death_animation():
+	pass
+
 # Setters for setting stats 
 func set_MAX_HP(value:int):
 	statsheet.MAX_HP = value

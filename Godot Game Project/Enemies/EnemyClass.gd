@@ -95,6 +95,10 @@ func generate_number_of_minions() -> int:
 	var numberOfMinions = randi_range(0,2)
 	return numberOfMinions
 
+func play_death_animation():
+	pass
+
+
 # Setters for setting stats 
 func set_MAX_HP(value:int):
 	MAX_HP = value
@@ -231,7 +235,7 @@ func remove_expired_statmods():
 # helper function to use with filter array function. Returns false (not kept in array) if the statmod has expired, true otherwise
 func remove_statmods_helper(ability):
 	if ability.duration <= 0:
-		ability.remove.call()
+		ability.remove.call(self)
 		return false
 	return true
 

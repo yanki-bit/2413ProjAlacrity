@@ -1,7 +1,9 @@
 extends Control
 
 # Preload the InventorySlot scene
-var slot_scene = preload("res://test_inventory/InventorySlot2.tscn")
+var slot_scene = preload("res://test_inventory/AbilitiesInventorySlot3.tscn")
+
+@onready var gridcontainer = get_node("Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer")
 
 func _ready():
 	# Load JSON file
@@ -22,7 +24,7 @@ func _ready():
 		print("Failed to open file")
 
 func populate_inventory(items_data):
-	var grid_container = $GridContainer  # Assuming GridContainer is named GridContainer
+	var grid_container = $GridContainer 
 
 	# Ensure GridContainer is valid
 	if grid_container:

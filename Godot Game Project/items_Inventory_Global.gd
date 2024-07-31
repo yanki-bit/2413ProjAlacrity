@@ -4,10 +4,10 @@ extends Node
 var items
 
 func _ready():
-	_read()
-	
+	_read() 
+
 func _read():
-	items = read_from_JSON("res://test_save/itemsInventory.json")
+	items = read_from_JSON("res://inventory/test_save/itemsInventory.json")
 	if items:
 		for key in items.keys():
 			items[key]["key"] = key

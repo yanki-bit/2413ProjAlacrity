@@ -1,6 +1,7 @@
 
 class_name MasterInventoryResource
 extends Resource
+
 #Will contain a list of weapons we have in the game
 var weapons_dict = {
 	"Pencil": {

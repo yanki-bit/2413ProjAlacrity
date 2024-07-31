@@ -1,12 +1,48 @@
 extends Control
 
-var template_inv_slot = preload("res://test_inventory/test_items.tscn")
+# Preload the InventorySlot scene
+var slot_scene = preload("res://test_inventory/ItemsInventorySlot3.tscn")
 
-@onready var gridcontainer = get_node("Background/MarginContainer/VBoxContainer/ScrollCotainer/GridContainer")
+
+@onready var gridcontainer = get_node("Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer")
 
 func _ready():
-	var inv_slot_new = template_inv_slot.instance()
-	if PlayerData.inv_data[i]["item"] !=null:
-		var item_name = GameData.item_data[str(PlayerData.inv_data[i]["Item"])]["Name"]
-		inv_slot_new.get_node("node").set_texture(icon_texture)
-		gridcontainer.add_child(inv_slot_new, true)
+	# Load JSON file
+	var file = FileAccess.open("res://test_inventory/ItemsJson.json", FileAccess.READ)
+	if file:
+		var json_text = file.get_as_text()
+		file.close()
+		
+		var json = JSON.new()
+		var parse_result = json.parse(json_text)
+		
+		if parse_result == OK:
+			var items_data = json.get_data()
+			populate_inventory(items_data)
+		else:
+			print("Failed to parse JSON: ", json.get_error_message())
+	else:
+		print("Failed to open file")
+
+func populate_inventory(items_data):
+	var grid_container = $Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer # Ensure this matches the actual node name
+
+#iterate over each item in the dictionary
+	for key in items_data.keys():
+		var item = items_data[key]
+		
+		var slot_instance = slot_scene.instantiate()
+		
+		var label = slot_instance.get_node("Label")
+	
+	 
+		if item.has("Item"):
+			label.text = item["Item"]
+		else:
+			label.text = "Unknown Item"
+
+
+		# Add the slot instance to the GridContainer
+		grid_container.add_child(slot_instance, true)
+
+

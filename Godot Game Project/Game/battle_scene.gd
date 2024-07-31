@@ -38,7 +38,7 @@ func _ready():
 
 	# Focus on attack button
 	# Populate player ability buttons with players learned abilites
-	%Attack.text = player.statsheet.learned_abilities[0]
+	%Attack.text = player.get_learned_abilities(0)
 	populate_ability_buttons()
 		
 	%Attack.grab_focus()
@@ -50,10 +50,10 @@ func _ready():
 func populate_ability_buttons():
 	var i = 1
 	for button in $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer.get_children():
-		button.text = player.statsheet.learned_abilities[i]
+		button.text = player.get_learned_abilities(i)
 		i += 1
 	for button in $BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer2.get_children():
-		button.text = player.statsheet.learned_abilities[i]
+		button.text = player.get_learned_abilities(i)
 		i += 1
 
 #####################################################
@@ -206,9 +206,10 @@ func _handle_enemy_state():
 	attacker.decrement_statmods_duration()
 	
 	# TODO CALL ENEMY AI DECISION FUNCTION HERE
+	attacker.choose_action()
 	
 	# use the ablility 
-	#use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
+	use_ability(attacker, player) # SET TO ENEMIES 0 FOR PURPOSE OF TEST ONLY
 	
 	# remove expired statmods 
 	attacker.remove_expired_statmods()

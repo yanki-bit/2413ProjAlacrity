@@ -34,8 +34,8 @@ var SPD: int
 var LCK: int
 var ENERGY: int
 
-# placeholder var, will be changed dictionary taken from database
-var Abilities
+# Array of learned abilities
+var learned_abilities
 
 
 # give the unit stats, functionality temporary for testing, should grab information from database not pass by value
@@ -87,6 +87,7 @@ func initialize_stats_in_combat():
 	SPD = statsheet.SPD
 	LCK = statsheet.LCK
 	ENERGY = statsheet.ENERGY
+	learned_abilities = statsheet.learned_abilities
 	
 
 # Generate the number of minions to spawn with this enemy
@@ -147,6 +148,7 @@ func get_ENERGY():
 #####################################################
 ##               COMBAT FUNCTIONS                  ##
 #####################################################
+
 func roll_atk():
 	var damage = 0
 	# check if attack will crit

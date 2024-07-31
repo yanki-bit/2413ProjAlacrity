@@ -9,6 +9,26 @@ func _ready():
 	show_on_map()
 	pass # Replace with function body.
 
+#####################################################
+##                 SELECT ACTION                   ##
+#####################################################
+
+func choose_action():
+	# check current energy 
+	match get_ENERGY():
+		# if 0 energy (should not be possible), use defend
+		0:
+			next_action = learned_abilities[1]
+		# if 1 energy, choose between attack and defend 50/50
+		1: 
+			var option_selected = randi_range(0,1)
+			# if 0 use attack,1 use defend
+			next_action = learned_abilities[option_selected]
+		# if 2 or more energy, use bite
+		_: 
+			next_action = learned_abilities[2]
+			
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

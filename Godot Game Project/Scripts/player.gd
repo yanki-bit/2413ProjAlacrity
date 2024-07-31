@@ -126,6 +126,9 @@ func get_LCK():
 func get_ENERGY():
 	return statsheet.ENERGY
 
+func get_learned_abilities(index : int):
+	return statsheet.learned_abilities[index]
+
 #####################################################
 ##               COMBAT FUNCTIONS                  ##
 #####################################################

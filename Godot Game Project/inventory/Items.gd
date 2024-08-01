@@ -4,6 +4,7 @@ func _ready():
 	print(SelectedItems)
 	addItems("Pen")
 	print(SelectedItems)
+	Items.database[101]["Item"]
 var databaseItems = {
 	101 : {
 		"Item" : "Pencil",

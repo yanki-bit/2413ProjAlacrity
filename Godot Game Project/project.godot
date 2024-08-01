@@ -26,7 +26,6 @@ SettingsDataContainer="*res://Resources/Autoloads/Settings_Data_Container.gd"
 SaveManager="*res://Resources/Autoloads/SaveManager.gd"
 Bgm="*res://Assets/Music/BGM.tscn"
 PhoneRing="*res://Assets/Music/PhoneRing.tscn"
-Abilities="*res://Inventory/Abilities.gd"
 Abilities="*res://inventory/abilities.gd"
 
 [dialogue_manager]

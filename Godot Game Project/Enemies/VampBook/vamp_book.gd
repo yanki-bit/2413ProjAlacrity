@@ -29,6 +29,7 @@ func choose_action():
 	
 	next_action = Abilities.ABILITIES.get(next_action)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

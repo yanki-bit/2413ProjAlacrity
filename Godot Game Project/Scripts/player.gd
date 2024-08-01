@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player_menu = $Camera2D3/Player_Menu
 @onready var actionable_finder = $Direction/ActionableFinder
 
- #export allows us to adjust variables on game engine
+#export allows us to adjust variables on game engine
 @export var move_speed : float = 200
 @export var start_dir : Vector2 = Vector2(0,1)
 
@@ -20,10 +20,10 @@ var statmods = Array() # create an array to store combat stat buffs and debuffs
 var defmods = Array() # create an array to store combat on defend buffs and debuffs
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
-#Setup as the script runs
+
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
-	update_animation_parameter(start_dir)
+	update_animation_parameter(start_dir) 
 
 func _physics_process(_delta):
 	#get input direction
@@ -140,7 +140,6 @@ func get_ENERGY():
 
 func get_learned_abilities(index : int):
 	return statsheet.learned_abilities[index]
-
 
 #####################################################
 ##               COMBAT FUNCTIONS                  ##

@@ -243,5 +243,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[connection signal="action_selected" from="." to="." method="process_next_action"]
 [connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster/Escape" to="." method="_on_escape_pressed"]

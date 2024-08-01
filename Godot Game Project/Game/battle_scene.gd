@@ -219,7 +219,7 @@ func _handle_player_state():
 	attacker.remove_expired_statmods()
 	
 	# remove dead combatants
-	
+	remove_dead_units()
 	
 	# check if fight is over
 	update_combat_numbers()
@@ -245,6 +245,7 @@ func _handle_enemy_state():
 	attacker.remove_expired_statmods()
 	
 	# remove dead combatants
+	remove_dead_units()
 	
 	# check if fight is over
 	update_combat_numbers()
@@ -264,7 +265,7 @@ func _handle_lose_state():
 func remove_dead_units():
 	# go through each unit to check if it still has hp left. play death animation, remove from turn order
 	# and free queue here
-	combat_turn_order.filter(remove_dead_units_helper)
+	combat_turn_order = combat_turn_order.filter(remove_dead_units_helper)
 
 # returns true if alive, false if dead
 func remove_dead_units_helper(unit):

@@ -77,6 +77,7 @@ func set_spawn(location: Vector2, direction: Vector2):
 	position = location
 
 func play_death_animation():
+	queue_free()
 	pass
 
 # Setters for setting stats 

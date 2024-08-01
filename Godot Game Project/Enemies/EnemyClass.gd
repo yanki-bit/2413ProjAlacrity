@@ -96,6 +96,7 @@ func generate_number_of_minions() -> int:
 	return numberOfMinions
 
 func play_death_animation():
+	queue_free()
 	pass
 
 

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Resources/Save2/PlayerData.gd" id="1_qke8n"]
+[ext_resource type="Script" path="res://Resources/Save2/PlayerData.gd" id="1_cqxgy"]
 
 [resource]
-script = ExtResource("1_qke8n")
+script = ExtResource("1_cqxgy")
 health = 20
 name = "Justin"
 day = 3
-SavePos = Vector2(-76.5547, -114.496)
+SavePos = Vector2(0, 0)

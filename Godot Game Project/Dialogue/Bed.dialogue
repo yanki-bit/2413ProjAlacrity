@@ -1,7 +1,7 @@
 ~ Bed
 Your most prized possession. What do you want to do?
 - Sleep
-	do PlayerCharacter.Save()
+	do SaveManager.singleSave()
 - Save
 	do SaveManager.singleSave()
 - Quit

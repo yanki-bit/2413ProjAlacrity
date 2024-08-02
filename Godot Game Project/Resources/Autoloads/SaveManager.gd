@@ -54,8 +54,9 @@ func save_game_main(id: String):
 	save = SaveGame.new()
 	
 	#reference the stuff we need to save
-	save.player_position = PlayerInfo.globalposition
+	#save.player_position = PlayerInfo.globalposition
 	save.player_name = PlayerInfo.player_name
+	
 	
 	#saves
 	save.write_savegame(id)
@@ -66,14 +67,12 @@ func save_game_main(id: String):
 func load_game_main(id: String):
 	
 	#check if the save does not exist
-	if SaveGame.save_exists(id) == false: return
+	if SaveGlobal.save_exists(id) == false: return
 	
 	#load save
-	save = SaveGame.load_savegame(id) as SaveGame
+	save = SaveGlobal.load_savegame(id) as SaveGame
 	
 	#these are the stuff to load
 	PlayerInfo.globalposition = save.player_position
 	
-	
-
 ## SAVES END ##

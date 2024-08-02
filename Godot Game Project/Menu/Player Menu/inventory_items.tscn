@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://mludnrhfsb7i"]
+[gd_scene load_steps=2 format=3 uid="uid://mludnrhfsb7i"]
 
 [ext_resource type="Texture2D" uid="uid://ci75magepw08p" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_02.png" id="1_tc0qb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2agxp"]
-
-[sub_resource type="SystemFont" id="SystemFont_oljog"]
-font_names = PackedStringArray("Monospace")
-font_weight = 600
-multichannel_signed_distance_field = true
-
-[node name="Inventory_Items" type="Control"]
+[node name="SaveMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,49 +17,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_styles/separator = SubResource("StyleBoxFlat_2agxp")
-
-[node name="ItemQty_Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 25)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_oljog")
-theme_override_font_sizes/normal_font_size = 14
-text = "Item Quantity
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_styles/separator = SubResource("StyleBoxFlat_2agxp")
-
-[node name="ItemName_Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_oljog")
-theme_override_font_sizes/normal_font_size = 14
-text = "Item Name
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
 
 [node name="Inventory_Items_Container" type="NinePatchRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -92,6 +42,19 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
 layout_mode = 2
 
-[node name="Item_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/h_separation = 14
+text = "auto save"
+
+[node name="Button2" type="Button" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "save slot 0"
+
+[node name="Button3" type="Button" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "save slot 1"
+
+[node name="Button4" type="Button" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "save slot 2"

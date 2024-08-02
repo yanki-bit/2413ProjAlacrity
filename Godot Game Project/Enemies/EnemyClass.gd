@@ -240,6 +240,11 @@ func remove_statmods_helper(ability):
 		return false
 	return true
 
+func empty_statmods_array():
+	for i in statmods.size():
+		statmods[i].remove.call()
+	statmods.clear()
+	
 #####################################################
 ##             DEFMODS ARRAY FUNCTIONS             ##
 #####################################################

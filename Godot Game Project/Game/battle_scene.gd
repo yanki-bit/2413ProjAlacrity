@@ -140,8 +140,6 @@ func on_escape_pressed():
 		queue_free()
 
 
-
-
 #####################################################
 ##                 STATE HANDLING                  ##
 #####################################################
@@ -208,23 +206,10 @@ func _handle_states(new_state):
 			_handle_states(check_next_state())
 
 		BATTLE_STATES.WIN:
-			# Show win message and end combat
-			show_message("You Win!")
-			await get_tree().create_timer(2).timeout
-			
-			# unpause game 
-			get_tree().paused = false
-			get_parent().unpause_player_movement()
-			queue_free()
+			_handle_win_state()
 			
 		BATTLE_STATES.LOSE:
-			# Show loss message
-			show_message("You Lose...")
-			await get_tree().create_timer(2).timeout
-			
-			# Send player back to main menu 
-			var main_menu = load("res://Menu/Main Menu/main_menu.tscn") as PackedScene
-			get_tree().change_scene_to_packed(main_menu)
+			_handle_lose_state()
 
 func _handle_wait_state():
 	# Moves queue to start turn when player action is selected
@@ -284,10 +269,28 @@ func check_enemy_win():
 		_handle_states(BATTLE_STATES.LOSE)
 
 func _handle_win_state():
-	pass
+	# Show win message and end combat
+	show_message("You Win!")
+	await get_tree().create_timer(2).timeout
+	
+	# Remove all combat arrays
+	player.empty_statmods_array()
+	player.empty_defmods_array()
+	player.empty_atkmods_array()
+	
+	# unpause game 
+	get_tree().paused = false
+	get_parent().unpause_player_movement()
+	queue_free()
 
 func _handle_lose_state():
-	pass
+	# Show loss message
+	show_message("You Lose...")
+	await get_tree().create_timer(2).timeout
+	
+	# Send player back to main menu 
+	var main_menu = load("res://Menu/Main Menu/main_menu.tscn") as PackedScene
+	get_tree().change_scene_to_packed(main_menu)
 
 # Move to next unit
 func move_to_next_unit():

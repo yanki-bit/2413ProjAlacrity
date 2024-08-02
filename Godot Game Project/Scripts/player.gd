@@ -230,6 +230,11 @@ func remove_statmods_helper(ability):
 		return false
 	return true
 
+func empty_statmods_array():
+	for i in statmods.size():
+		statmods[i].remove.call()
+	statmods.clear()
+
 #####################################################
 ##             DEFMODS ARRAY FUNCTIONS             ##
 #####################################################
@@ -261,6 +266,9 @@ func remove_defmods_helper(ability):
 		return false
 	return true
 
+func empty_defmods_array():
+	defmods.clear()
+	
 #####################################################
 ##             ATKMODS ARRAY FUNCTIONS             ##
 #####################################################
@@ -291,4 +299,7 @@ func remove_atkmods_helper(ability):
 	if ability.duration <= 0 || ability.charges <= 0:
 		return false
 	return true
+
+func empty_atkmods_array():
+	atkmods.clear()
 

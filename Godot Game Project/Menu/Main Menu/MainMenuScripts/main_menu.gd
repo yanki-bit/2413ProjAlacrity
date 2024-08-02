@@ -36,10 +36,9 @@ func on_setting_pressed() -> void:
 func on_exit_settings()->void:
 	menu_options.visible = true
 	settings_menu.visible = false
-	
+
 #Handles behaviour when specified button is pressed
 func handle_connect_signal()->void:
-	print("Hello There")
 	start.button_down.connect(on_start_pressed)
 	exit.button_down.connect(on_exit_pressed)
 	setting.button_down.connect(on_setting_pressed)

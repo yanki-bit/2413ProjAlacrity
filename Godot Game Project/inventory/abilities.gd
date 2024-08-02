@@ -61,6 +61,7 @@ var ABILITIES = {
 		"type": ABILITY_TYPE.ATTACK,
 		"ability_power": 1,
 
+		#functions
 		"use": func (attacker, defender) -> void:
 			attack(attacker, defender, ABILITIES.WRITE.energy_cost, ABILITIES.WRITE.ability_power),
 

@@ -1,4 +1,3 @@
-
 class_name MainMenu
 extends Control
 #Prepares UI buttons as variables
@@ -40,6 +39,7 @@ func on_exit_settings()->void:
 	
 #Handles behaviour when specified button is pressed
 func handle_connect_signal()->void:
+	print("Hello There")
 	start.button_down.connect(on_start_pressed)
 	exit.button_down.connect(on_exit_pressed)
 	setting.button_down.connect(on_setting_pressed)

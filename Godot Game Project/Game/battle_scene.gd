@@ -35,7 +35,8 @@ func _ready():
 	handle_signal()
 	# Load an instance of player into situation 
 	player = load("res://Characters/player.tscn").instantiate()
-
+	# Set player energy at for the beginning of each fight 
+	player.set_ENERGY(0)
 	# Focus on attack button
 	# Populate player ability buttons with players learned abilites
 	%Attack.text = player.get_learned_abilities(0)
@@ -169,6 +170,7 @@ func _handle_states(new_state):
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster.show()
 			print("Waiting... round number " + str(round_count))
+			print("units in combat turn order: " + str(combat_turn_order.size()))
 			# wait for player action 
 			
 		BATTLE_STATES.PLAYER:
@@ -181,24 +183,48 @@ func _handle_states(new_state):
 			# perform player action
 			_handle_player_state()
 			
+			# check if player has won
+			check_player_win()
+			
 			# move to next units turn
+			move_to_next_unit()
 			_handle_states(check_next_state())
 			
 
 		BATTLE_STATES.ENEMY:
+			# increment turn count
 			turn_count += 1
 			print("Enemy Turn")
 			await get_tree().create_timer(1.5).timeout
+			
+			# perform enemy action
 			_handle_enemy_state()
+			
+			# check if enemy has won
+			check_enemy_win()
+			
+			# move to next units turn
+			move_to_next_unit()
 			_handle_states(check_next_state())
 
 		BATTLE_STATES.WIN:
-			# Insert code on player win
-			# REVERT BUFFS/DEBUFFS ON PLAYER 
-			pass
+			# Show win message and end combat
+			show_message("You Win!")
+			await get_tree().create_timer(2).timeout
+			
+			# unpause game 
+			get_tree().paused = false
+			get_parent().unpause_player_movement()
+			queue_free()
+			
 		BATTLE_STATES.LOSE:
-			# REVERT BUFFS/DEBUFFS ON PLAYER
-			pass
+			# Show loss message
+			show_message("You Lose...")
+			await get_tree().create_timer(2).timeout
+			
+			# Send player back to main menu 
+			var main_menu = load("res://Menu/Main Menu/main_menu.tscn") as PackedScene
+			get_tree().change_scene_to_packed(main_menu)
 
 func _handle_wait_state():
 	# Moves queue to start turn when player action is selected
@@ -220,13 +246,13 @@ func _handle_player_state():
 	
 	# remove dead combatants
 	remove_dead_units()
-	
-	# check if fight is over
-	update_combat_numbers()
-	
-	# move to next units action
-	combat_turn_order.append(combat_turn_order.front())
-	combat_turn_order.pop_front()
+
+# check if player has won by eliminating all units in the fight
+func check_player_win():	
+	if combat_turn_order.size() == 2:
+		if combat_turn_order.front().back() == BATTLE_STATES.PLAYER:
+			print("here")
+			_handle_states(BATTLE_STATES.WIN)
 
 func _handle_enemy_state():
 	# Create temporary attacker variable
@@ -246,13 +272,16 @@ func _handle_enemy_state():
 	
 	# remove dead combatants
 	remove_dead_units()
-	
-	# check if fight is over
-	update_combat_numbers()
-	
-	# move to next units action
-	combat_turn_order.append(combat_turn_order.front())
-	combat_turn_order.pop_front()
+
+# check if enemy has won by eliminating the player
+func check_enemy_win():
+	var enemy_win = true
+	for i in combat_turn_order.size():
+		if combat_turn_order[i].back() == BATTLE_STATES.PLAYER:
+			enemy_win = false
+	# if player is no longer in the combat turn order array, enemy wins
+	if enemy_win:
+		_handle_states(BATTLE_STATES.LOSE)
 
 func _handle_win_state():
 	pass
@@ -260,8 +289,14 @@ func _handle_win_state():
 func _handle_lose_state():
 	pass
 
-# Remove Dead units
+# Move to next unit
+func move_to_next_unit():
+	# move to next units action
+	combat_turn_order.append(combat_turn_order.front())
+	combat_turn_order.pop_front()
 
+
+# Remove Dead units
 func remove_dead_units():
 	# go through each unit to check if it still has hp left. play death animation, remove from turn order
 	# and free queue here
@@ -279,11 +314,6 @@ func remove_dead_units_helper(unit):
 		return false
 	return true
 	
-
-
-
-
-
 
 # Populate battle with Enemy and appropriate number of minions
 func add_enemies( mainEnemy, minion, numberOfMinions ):

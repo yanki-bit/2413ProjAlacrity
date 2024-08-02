@@ -8,6 +8,11 @@ var settings_data_dict : Dictionary = {}
 func _ready():
 	SettingsSignalBus.set_settings_dictionary.connect(on_settings_save)
 	load_settings_data()
+	
+	# connect signals from saveGlobal script
+	SaveGlobal.load_game_main.connect(load_game_main)
+	SaveGlobal.save_game_main.connect(save_game_main)
+	create_or_load_save()
 
 #saves the settings data
 func on_settings_save(data : Dictionary) -> void:
@@ -30,3 +35,45 @@ func load_settings_data() -> void:
 		load_data = json.get_data()
 	SettingsSignalBus.emit_load_settings_data(load_data)
 	load_data = {}
+
+# for saving Player stuff
+# referencing save resource in save folder
+var save: SaveGame
+
+## MULTI SAVES ##
+
+func create_or_load_save():
+	if SaveGame.save_exists('auto'):
+		load_game_main('auto')
+	else:
+		save_game_main('auto')
+
+func save_game_main(id: String):
+	
+	#create a new SaveGame resource
+	save = SaveGame.new()
+	
+	#reference the stuff we need to save
+	save.player_position = PlayerInfo.globalposition
+	save.player_name = PlayerInfo.player_name
+	
+	#saves
+	save.write_savegame(id)
+	print("Saved game")
+	
+	#globs.emit_signal('updated_save')
+
+func load_game_main(id: String):
+	
+	#check if the save does not exist
+	if SaveGame.save_exists(id) == false: return
+	
+	#load save
+	save = SaveGame.load_savegame(id) as SaveGame
+	
+	#these are the stuff to load
+	PlayerInfo.globalposition = save.player_position
+	
+	
+
+## SAVES END ##

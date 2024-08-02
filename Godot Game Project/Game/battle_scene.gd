@@ -288,6 +288,11 @@ func _handle_lose_state():
 	show_message("You Lose...")
 	await get_tree().create_timer(2).timeout
 	
+	# Remove all combat arrays
+	player.empty_statmods_array()
+	player.empty_defmods_array()
+	player.empty_atkmods_array()
+	
 	# Send player back to main menu 
 	var main_menu = load("res://Menu/Main Menu/main_menu.tscn") as PackedScene
 	get_tree().change_scene_to_packed(main_menu)
@@ -391,18 +396,33 @@ func check_next_state() -> BATTLE_STATES:
 #####################################################
 
 func use_ability(attacker, defender):
-
-	# check if next action is ability or item
-	# convert next action from string to dict TEMPORARY
-
+	#obtain name of attacker if enemy unit
+	var attacker_name : String
+	if combat_turn_order.front().back() == BATTLE_STATES.ENEMY:
+		attacker_name = attacker.get_Name()
+	else:
+		attacker_name = "You"
+	
+	var combat_log = attacker_name + " used " + attacker.next_action.name + "! \n"
 	match attacker.next_action.type:
 		# if attacker is using an attack
 		Abilities.ABILITY_TYPE.ATTACK:
 			# execute attack on the target
-			attacker.next_action.use.call(attacker, defender)
+			var damage_dealt = attacker.next_action.use.call(attacker, defender)
+			combat_log += "It did " + str(damage_dealt) + " Damage"
 
 		# If attacker is healing, gaining energy or buffing itself
-		Abilities.ABILITY_TYPE.HEAL,Abilities.ABILITY_TYPE.ENERGY,Abilities.ABILITY_TYPE.BUFF:
+		Abilities.ABILITY_TYPE.HEAL:
+			# execute ability on self
+			var heal = attacker.next_action.use.call(attacker)
+			combat_log += "It healed for " + str(heal) + " Health"
+
+		Abilities.ABILITY_TYPE.ENERGY:
+			# execute ability on self
+			var energy_gained = attacker.next_action.use.call(attacker)
+			combat_log += "It gained " + str(energy_gained) + " Energy"
+		
+		Abilities.ABILITY_TYPE.BUFF:
 			# execute ability on self
 			attacker.next_action.use.call(attacker)
 

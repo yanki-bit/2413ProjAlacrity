@@ -7,6 +7,7 @@ func _ready():
 	# reference to its own scene for battle initialization
 	this_scene = "res://Enemies/CountBook/count_book.tscn"
 	
+	Name = "Count BookShelf"
 	# Show map animation by default
 	show_on_map()
 

@@ -5,8 +5,8 @@ extends EnemyClass
 func _ready():
 	# reference to its own scene for battle initialization
 	this_scene = "res://Enemies/VampBook/vamp_book.tscn"
-	hide()
 	show_on_map()
+	Name = "Vampire Book"
 
 #####################################################
 ##                 SELECT ACTION                   ##

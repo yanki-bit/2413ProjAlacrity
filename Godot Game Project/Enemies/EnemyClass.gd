@@ -126,6 +126,9 @@ func set_ENERGY(value:int):
 	ENERGY = value
 
 # Getters for stats
+func get_Name():
+	return Name
+
 func get_MAX_HP():
 	return MAX_HP
 

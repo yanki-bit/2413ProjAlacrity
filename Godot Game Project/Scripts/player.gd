@@ -13,7 +13,6 @@ extends CharacterBody2D
 @onready var state = anim_tree.get("parameters/playback")
 # Preload player statsheet to have access to variables at initialization
 @export var statsheet = preload("res://Characters/player_stats.tres")
-
 # Combat variables
 var next_action # store the next action in combat
 var statmods = Array() # create an array to store combat stat buffs and debuffs
@@ -114,6 +113,9 @@ func set_ENERGY(value:int):
 	statsheet.ENERGY = value
 
 # Getters for stats
+func get_Name():
+	return PlayerInfo.name
+
 func get_MAX_HP():
 	return statsheet.MAX_HP
 

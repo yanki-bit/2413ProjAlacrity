@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://mludnrhfsb7i"]
+[gd_scene load_steps=5 format=3 uid="uid://mludnrhfsb7i"]
 
-[ext_resource type="Texture2D" uid="uid://ci75magepw08p" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_02.png" id="1_tc0qb"]
+[ext_resource type="Script" path="res://Menu/Player Menu/PlayerMenuScripts/inventory_items.gd" id="1_jyav6"]
+[ext_resource type="Texture2D" uid="uid://drjc6csjikfqp" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_01.png" id="2_dwqkx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2agxp"]
 
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jyav6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -71,7 +73,7 @@ shortcut_keys_enabled = false
 [node name="Inventory_Items_Container" type="NinePatchRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_tc0qb")
+texture = ExtResource("2_dwqkx")
 patch_margin_left = 3
 patch_margin_top = 1
 patch_margin_right = 3
@@ -84,14 +86,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
-layout_mode = 2
-
-[node name="Item_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+[node name="Item_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/Item_List_Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 45

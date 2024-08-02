@@ -84,3 +84,21 @@ func load_game_main(id: String):
 	#game updated after load is done
 	SaveGlobal.emit_signal('updated_save')
 ## SAVES END ##
+
+## SINGLE SAVE 
+#var save_file_path = "user://save/"
+var save_file_path = "res://Scripts/save/"
+var save_file_name = "DemoPlayerSave.tres"
+var playerData = PlayerData.new() #you can now access variables from this script
+#above is linked to file in Resources 
+
+#load and save
+func load_data():
+	playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
+	print("Loaded the latest saved data!")
+func singleSave():
+	playerData.day += 1; #add a day when saving
+	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	print("Saved the game!")
+	print(playerData)
+	# note current code always overwrites the current save file :/

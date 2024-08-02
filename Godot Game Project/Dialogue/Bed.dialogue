@@ -1,7 +1,9 @@
 ~ Bed
 Your most prized possession. What do you want to do?
 - Sleep
+	do PlayerCharacter.Save()
 - Save
+	do SaveManager.singleSave()
 - Quit
 	do get_tree().quit()
 do DialogueFunctions.start_player_physics()

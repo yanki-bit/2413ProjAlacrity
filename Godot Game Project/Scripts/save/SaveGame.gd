@@ -6,7 +6,8 @@ const SAVE_GAME_PATH := "res://Scripts/save/save_" #id counters get added later 
 
 # variables we want to save
 @export var player_position := Vector2.ZERO
-@export var player_name = PlayerInfo.player_name #calls on the saved name player inputted
+@export var player_name = PlayerInfo.player_name #calls on the saved name player inputted var player_day = str(PlayerInfo.day) #calls on the day variable
+var player_day = PlayerInfo.day
 
 #counts save file number
 @export var version := 1 
@@ -15,8 +16,10 @@ const SAVE_GAME_PATH := "res://Scripts/save/save_" #id counters get added later 
 # save the game
 func write_savegame(id: String) -> void:
 	var save_path = str(SAVE_GAME_PATH + id + '.tres')
+	player_day += 1; #increases day by 1 after saving to simulate sleep
 	ResourceSaver.save(self, save_path)
 	print("Saved game! For " + save_path)
+	
 
 #check if a save exists
 static func save_exists(id: String) -> bool:

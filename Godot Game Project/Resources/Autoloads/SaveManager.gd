@@ -12,6 +12,7 @@ func _ready():
 	# connect signals from saveGlobal script
 	SaveGlobal.load_game_main.connect(load_game_main)
 	SaveGlobal.save_game_main.connect(save_game_main)
+	
 	create_or_load_save()
 
 #saves the settings data
@@ -37,6 +38,7 @@ func load_settings_data() -> void:
 	load_data = {}
 
 # for saving Player stuff
+
 # referencing save resource in save folder
 var save: SaveGame
 
@@ -56,23 +58,29 @@ func save_game_main(id: String):
 	#reference the stuff we need to save
 	#save.player_position = PlayerInfo.globalposition
 	save.player_name = PlayerInfo.player_name
+	save.player_day = PlayerInfo.day
 	
 	
 	#saves
 	save.write_savegame(id)
 	print("Saved game")
 	
-	#globs.emit_signal('updated_save')
+	#game is updated after the save is done
+	SaveGlobal.emit_signal('updated_save')
 
 func load_game_main(id: String):
 	
 	#check if the save does not exist
-	if SaveGlobal.save_exists(id) == false: return
+	if SaveGame.save_exists(id) == false: return
 	
 	#load save
-	save = SaveGlobal.load_savegame(id) as SaveGame
+	save = SaveGame.load_savegame(id) as SaveGame
 	
 	#these are the stuff to load
-	PlayerInfo.globalposition = save.player_position
+	#PlayerInfo.globalposition = save.player_position
+	PlayerInfo.player_name = save.player_name
+	PlayerInfo.day = save.player_day
 	
+	#game updated after load is done
+	SaveGlobal.emit_signal('updated_save')
 ## SAVES END ##

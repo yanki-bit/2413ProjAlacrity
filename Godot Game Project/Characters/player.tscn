@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://d0u3aasjbv5ul"]
+[gd_scene load_steps=33 format=3 uid="uid://d0u3aasjbv5ul"]
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
 [ext_resource type="Texture2D" uid="uid://cu34m6msx15l5" path="res://Assets/Sprite/Player Head Sheet.png" id="4_05vyd"]
 [ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Menu/Player Menu/Player_Menu.tscn" id="4_r21j4"]
+[ext_resource type="Script" path="res://Characters/PlayerText.gd" id="5_enscg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeicx"]
 size = Vector2(29, 21)
@@ -612,6 +613,37 @@ theme_override_fonts/font = SubResource("SystemFont_4cjqq")
 text = "(E)INTERACT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 313.0
+offset_bottom = 159.0
+script = ExtResource("5_enscg")
+
+[node name="currentName" type="RichTextLabel" parent="Text"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 222.0
+offset_bottom = 52.0
+
+[node name="currentDay" type="RichTextLabel" parent="Text"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 43.0
+offset_right = 242.0
+offset_bottom = 92.0
+
+[node name="currentPos" type="RichTextLabel" parent="Text"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 95.0
+offset_right = 252.0
+offset_bottom = 157.0
+
+[connection signal="update_ui" from="." to="Text" method="_on_player_update_ui"]
 
 [editable path="Camera2D3/Player_Menu"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]

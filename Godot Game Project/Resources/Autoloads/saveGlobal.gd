@@ -19,16 +19,19 @@ func update_save_dates():
 	var save: SaveGame
 	if SaveGame.save_exists('auto'): #autosave file
 		save = SaveGame.load_savegame('auto') as SaveGame
-		#there was a script about dates
+		#make sure to reference what to reflect from savegame resource
+		save_dates['auto'] = save.player_name 
 	
 	if SaveGame.save_exists('0'):
 		save = SaveGame.load_savegame('0') as SaveGame
 		#there was a script about dates
+		save_dates['0'] = save.player_name 
 	if SaveGame.save_exists('1'):
 		save = SaveGame.load_savegame('0') as SaveGame
 		#there was a script about dates
+		save_dates['1'] = save.player_name 
 	if SaveGame.save_exists('2'):
 		save = SaveGame.load_savegame('2') as SaveGame
 		#there was a script about dates
+		save_dates['2'] = save.player_name 
 
-#var save_file_path

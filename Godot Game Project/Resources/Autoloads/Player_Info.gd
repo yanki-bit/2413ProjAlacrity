@@ -3,7 +3,8 @@ var player_name = "Justin"
 var score = 0
 var acad = 0
 
-var day = 0
+@export var day = 0
+
 var state: Dictionary = {
 	"Bedroom":
 		false,

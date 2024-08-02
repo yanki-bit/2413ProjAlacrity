@@ -20,10 +20,37 @@ var statmods = Array() # create an array to store combat stat buffs and debuffs
 var defmods = Array() # create an array to store combat on defend buffs and debuffs
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
+#for save file
+signal update_ui 
+#var save_file_path = "user://save/"
+var save_file_path = "res://Scripts/save/"
+var save_file_name = "DemoPlayerSave.tres"
+var playerData = PlayerData.new() #you can now access variables from this script
+#above is linked to file in Resources > Save2 > PlayerData
 
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir) 
+	verify_save_directory(save_file_path)
+
+func verify_save_directory(path: String):
+	DirAccess.make_dir_absolute(path)
+
+#load and save
+func load_data():
+	playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
+	on_start_load()
+	print("Loaded the latest saved data!")
+func save():
+	playerData.day += 1; #add a day when saving
+	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	print("Saved the game!")
+	print(playerData)
+	# note current code always overwrites the current save file :/
+
+func on_start_load():
+	self.position = playerData.SavePos
+
 
 func _physics_process(_delta):
 	#get input direction
@@ -43,6 +70,14 @@ func _process(_delta):
 	if is_physics_processing() == false:
 		state.travel("Idle")
 	#updates the direction based on input
+	
+	#save and load further debugging
+	if Input.is_action_just_pressed("save"):
+		save()
+	if Input.is_action_just_pressed("load"):
+		load_data()
+	emit_signal("update_ui", playerData.name, playerData.day, self.position)
+	playerData.UpdatePos(self.position) #updates player position
 	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):

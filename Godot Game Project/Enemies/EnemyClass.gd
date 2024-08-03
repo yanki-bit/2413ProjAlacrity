@@ -48,6 +48,7 @@ func show_in_fight():
 	scale.x = 4
 	scale.y = 4
 	show()
+
 	$AnimationPlayer.play("combat")
 
 func initalize_combat():

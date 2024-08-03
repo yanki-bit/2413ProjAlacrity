@@ -41,7 +41,7 @@ func _ready():
 	# Set player energy at for the beginning of each fight 
 	player.set_ENERGY(0)
 	# Setup player HP bar
-	%PlayerHealthBar.set_unit(player)
+	$BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer/MarginContainer/HealthBar.set_unit(player)
 	# Populate player ability buttons with players learned abilites
 	%Attack.text = player.get_learned_abilities(0)
 	populate_ability_buttons()
@@ -356,7 +356,7 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	enemies[0].initialize_stats_in_combat()
 
 	# place main enemy into container
-	$BattleSceneContainer/EnemiesContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemies[0])
+	$BattleSceneContainer/EnemiesContainer/MiddleEnemyContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemies[0])
 	enemies[0].show_in_fight()
 	
 	# Add main enemy to combat turn order array

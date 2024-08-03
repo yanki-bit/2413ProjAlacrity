@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw2y2p2iwjfpg"]
+
+[ext_resource type="Script" path="res://Game/HealthBar.gd" id="1_f8mdo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tjvc"]
+bg_color = Color(0, 0.392157, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HealthBar" type="ProgressBar"]
+custom_minimum_size = Vector2(160, 25)
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 14
+theme_override_styles/fill = SubResource("StyleBoxFlat_2tjvc")
+script = ExtResource("1_f8mdo")

@@ -10,3 +10,5 @@ class_name StatSheet
 @export var SPD: int
 @export var LCK: int
 @export var ENERGY: int
+
+@export var learned_abilities: Array

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/DialogueDoor.tscn" id="7_cdoo3"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="8_h5cox"]
 [ext_resource type="Resource" uid="uid://xjww3l8q4kfq" path="res://Dialogue/Door.dialogue" id="9_m03ip"]
+[ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="7_qapgk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t533t"]
 texture = ExtResource("1_a3nm0")
@@ -6943,3 +6944,9 @@ shape = SubResource("RectangleShape2D_n6y4r")
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]
+[node name="CountBook" parent="." instance=ExtResource("7_qapgk")]
+position = Vector2(241, -326)
+
+[connection signal="contact" from="vamp_book" to="." method="_on_contact"]
+[connection signal="contact" from="Door" to="." method="_on_contact"]
+[connection signal="contact" from="CountBook" to="." method="_on_contact"]

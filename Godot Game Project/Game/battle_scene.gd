@@ -7,6 +7,7 @@ var turn_count = 0 # store number of turns occured so far in fight
 var current_state    # The current state of the battle
 var combat_turn_order = Array()    # A queue of combatants
 var units_in_combat = 0 # store number of units still in combat
+var combat_log = "" # stores combat message to be displayed
 
 signal action_selected
 
@@ -24,7 +25,8 @@ enum BATTLE_STATES {
 	PLAYER, # When it's time for the player's turn
 	ENEMY,  # When it's time for the enemy's turn
 	WIN,    # When the player winsx
-	LOSE    # When the player loses
+	LOSE,   # When the player loses
+	MESSAGE # When the game is showing a player a message
 }
 
 func update_combat_numbers():
@@ -65,6 +67,7 @@ func populate_ability_buttons():
 #####################################################
 
 func show_message(message: String):
+	print("run")
 	# set message
 	%Message.text = message
 	# show message panel
@@ -77,7 +80,7 @@ func hide_message():
 ##                 INPUT HANDLING                  ##
 #####################################################
 
-func _process(delta):
+func _process(_delta):
 	# Ensure that battle state is waiting for player input
 	if current_state == BATTLE_STATES.WAIT:
 		if Input.is_action_pressed("pause"):
@@ -107,7 +110,6 @@ func process_next_action(action: String):
 		_handle_states(check_next_state())
 	else:
 		show_message("Not enough Energy!")
-		await get_tree().create_timer(2).timeout
 		hide_message()
 
 
@@ -168,7 +170,7 @@ func _handle_states(new_state):
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster.show()
 			print("Waiting... round number " + str(round_count))
-			print("units in combat turn order: " + str(combat_turn_order.size()))
+			# print("units in combat turn order: " + str(combat_turn_order.size()))
 			# wait for player action 
 			
 		BATTLE_STATES.PLAYER:
@@ -176,10 +178,10 @@ func _handle_states(new_state):
 			turn_count += 1
 			
 			print("Player Turn")
-			await get_tree().create_timer(1).timeout
-			
 			# perform player action
 			_handle_player_state()
+			
+			hide_message()
 			
 			# check if player has won
 			check_player_win()
@@ -193,10 +195,12 @@ func _handle_states(new_state):
 			# increment turn count
 			turn_count += 1
 			print("Enemy Turn")
-			await get_tree().create_timer(1.5).timeout
+
 			
 			# perform enemy action
 			_handle_enemy_state()
+			
+			hide_message()
 			
 			# check if enemy has won
 			check_enemy_win()
@@ -210,6 +214,13 @@ func _handle_states(new_state):
 			
 		BATTLE_STATES.LOSE:
 			_handle_lose_state()
+			
+		BATTLE_STATES.MESSAGE:
+			show_message(combat_log)
+			await get_tree().create_timer(1).timeout
+			hide_message()
+			move_to_next_unit()
+			_handle_states(check_next_state())
 
 func _handle_wait_state():
 	# Moves queue to start turn when player action is selected
@@ -225,6 +236,8 @@ func _handle_player_state():
 	
 	# use the ablility 
 	use_ability(attacker,enemies[0]) # SET TO ENEMIES 0 FOR PURPOSE OF DEMO TEST ONLY
+	
+	# TODO ANIMATION HERE
 	
 	# remove expired statmods 
 	attacker.remove_expired_statmods()
@@ -252,6 +265,9 @@ func _handle_enemy_state():
 	# use the ablility 
 	use_ability(attacker, player) 
 	
+	# TODO ANIMATION HERE
+
+	
 	# remove expired statmods 
 	attacker.remove_expired_statmods()
 	
@@ -271,8 +287,6 @@ func check_enemy_win():
 func _handle_win_state():
 	# Show win message and end combat
 	show_message("You Win!")
-	await get_tree().create_timer(2).timeout
-	
 	# Remove all combat arrays
 	player.empty_statmods_array()
 	player.empty_defmods_array()
@@ -286,7 +300,6 @@ func _handle_win_state():
 func _handle_lose_state():
 	# Show loss message
 	show_message("You Lose...")
-	await get_tree().create_timer(2).timeout
 	
 	# Remove all combat arrays
 	player.empty_statmods_array()
@@ -309,6 +322,7 @@ func remove_dead_units():
 	# go through each unit to check if it still has hp left. play death animation, remove from turn order
 	# and free queue here
 	combat_turn_order = combat_turn_order.filter(remove_dead_units_helper)
+	print("rm dead! units in combat turn order: " + str(combat_turn_order.size()))
 
 # returns true if alive, false if dead
 func remove_dead_units_helper(unit):
@@ -398,35 +412,40 @@ func check_next_state() -> BATTLE_STATES:
 func use_ability(attacker, defender):
 	#obtain name of attacker if enemy unit
 	var attacker_name : String
+	# provide name of enemy if attacker is enemy
 	if combat_turn_order.front().back() == BATTLE_STATES.ENEMY:
 		attacker_name = attacker.get_Name()
+	# use "you" to describe the player 
 	else:
 		attacker_name = "You"
 	
-	var combat_log = attacker_name + " used " + attacker.next_action.name + "! \n"
+	combat_log = attacker_name + " used " + attacker.next_action.name + "! \n"
 	match attacker.next_action.type:
 		# if attacker is using an attack
 		Abilities.ABILITY_TYPE.ATTACK:
 			# execute attack on the target
 			var damage_dealt = attacker.next_action.use.call(attacker, defender)
-			combat_log += "It did " + str(damage_dealt) + " Damage"
+			combat_log += attacker_name + " did " + str(damage_dealt) + " Damage"
 
 		# If attacker is healing, gaining energy or buffing itself
 		Abilities.ABILITY_TYPE.HEAL:
 			# execute ability on self
 			var heal = attacker.next_action.use.call(attacker)
-			combat_log += "It healed for " + str(heal) + " Health"
+			combat_log += attacker_name + " healed for " + str(heal) + " Health"
 
 		Abilities.ABILITY_TYPE.ENERGY:
 			# execute ability on self
 			var energy_gained = attacker.next_action.use.call(attacker)
-			combat_log += "It gained " + str(energy_gained) + " Energy"
+			combat_log += attacker_name + " gained " + str(energy_gained) + " Energy"
 		
 		Abilities.ABILITY_TYPE.BUFF:
 			# execute ability on self
 			attacker.next_action.use.call(attacker)
+			combat_log += attacker.next_action.description
 
 		# If attacker is debuffing the enemy
 		Abilities.ABILITY_TYPE.DEBUFF:
 			# execute ability on enemy
 			attacker.next_action.use.call(defender)
+			combat_log += attacker.next_action.description
+	show_message(combat_log)

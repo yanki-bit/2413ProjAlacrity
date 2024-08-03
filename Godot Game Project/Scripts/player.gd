@@ -203,9 +203,12 @@ func take_damage(damage:int):
 	
 	return damage
 
-func heal(value:int):
-	statsheet.CURR_HP += value
-	statsheet.CURR_HP = mini(statsheet.CURR_HP, statsheet.MAX_HP)
+func heal(heal_amount:int):
+	# check to see if heal will over cap
+	if statsheet.CURR_HP + heal_amount > statsheet.MAX_HP:
+		heal_amount = statsheet.MAX_HP - statsheet.CURR_HP
+	statsheet.CURR_HP += heal_amount
+	return heal_amount
 	
 #####################################################
 ##            STATMODS ARRAY FUNCTIONS             ##

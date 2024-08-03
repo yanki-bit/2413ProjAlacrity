@@ -19,6 +19,8 @@ var statmods = Array() # create an array to store combat stat buffs and debuffs
 var defmods = Array() # create an array to store combat on defend buffs and debuffs
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
+# Signal for in combat HP bar 
+signal update_hp_bar
 
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
@@ -197,9 +199,7 @@ func take_damage(damage:int):
 	# subtract current hp by resultant damage
 	statsheet.CURR_HP -= int(damage)
 	
-	#check if damage taken is lethal
-	if statsheet.CURR_HP <= 0:
-		emit_signal("death")
+	emit_signal("update_hp_bar")
 	
 	return damage
 

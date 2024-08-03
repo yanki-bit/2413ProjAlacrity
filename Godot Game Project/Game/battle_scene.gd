@@ -34,16 +34,18 @@ func update_combat_numbers():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# setup button handling
 	handle_signal()
 	# Load an instance of player into situation 
 	player = load("res://Characters/player.tscn").instantiate()
 	# Set player energy at for the beginning of each fight 
 	player.set_ENERGY(0)
-	# Focus on attack button
+	# Setup player HP bar
+	%PlayerHealthBar.set_player(player)
 	# Populate player ability buttons with players learned abilites
 	%Attack.text = player.get_learned_abilities(0)
 	populate_ability_buttons()
-		
+	# Focus on attack button
 	%Attack.grab_focus()
 	
 	# Place player in the combat turn order queue to be sorted

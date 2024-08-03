@@ -41,7 +41,7 @@ func _ready():
 	# Set player energy at for the beginning of each fight 
 	player.set_ENERGY(0)
 	# Setup player HP bar
-	%PlayerHealthBar.set_player(player)
+	%PlayerHealthBar.set_unit(player)
 	# Populate player ability buttons with players learned abilites
 	%Attack.text = player.get_learned_abilities(0)
 	populate_ability_buttons()

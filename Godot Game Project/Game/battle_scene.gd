@@ -67,7 +67,6 @@ func populate_ability_buttons():
 #####################################################
 
 func show_message(message: String):
-	print("run")
 	# set message
 	%Message.text = message
 	# show message panel
@@ -186,7 +185,8 @@ func _handle_states(new_state):
 			# check if player has won
 			check_player_win()
 			
-			# move to next units turn
+			# move to message state to display combat log to player
+			combat_turn_order.insert(1,[null,BATTLE_STATES.MESSAGE])
 			move_to_next_unit()
 			_handle_states(check_next_state())
 			
@@ -200,12 +200,11 @@ func _handle_states(new_state):
 			# perform enemy action
 			_handle_enemy_state()
 			
-			hide_message()
-			
 			# check if enemy has won
 			check_enemy_win()
 			
-			# move to next units turn
+			# move to message state to display combat log to player
+			combat_turn_order.insert(1,[null,BATTLE_STATES.MESSAGE])
 			move_to_next_unit()
 			_handle_states(check_next_state())
 
@@ -216,10 +215,20 @@ func _handle_states(new_state):
 			_handle_lose_state()
 			
 		BATTLE_STATES.MESSAGE:
+			# show message that is stored in the combat log
 			show_message(combat_log)
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(1.5).timeout
 			hide_message()
-			move_to_next_unit()
+			
+			#check for player win/loss
+			if check_player_win():
+				combat_turn_order.insert(1,[null,BATTLE_STATES.WIN])
+				print("here")
+			if check_enemy_win():
+				combat_turn_order.insert(1,[null,BATTLE_STATES.LOSE])
+			
+			# move to next state
+			combat_turn_order.pop_front()
 			_handle_states(check_next_state())
 
 func _handle_wait_state():
@@ -246,11 +255,12 @@ func _handle_player_state():
 	remove_dead_units()
 
 # check if player has won by eliminating all units in the fight
-func check_player_win():	
-	if combat_turn_order.size() == 2:
-		if combat_turn_order.front().back() == BATTLE_STATES.PLAYER:
-			print("here")
-			_handle_states(BATTLE_STATES.WIN)
+func check_player_win() -> bool:
+	var player_win = true
+	for i in combat_turn_order.size():
+		if combat_turn_order[i][1] == BATTLE_STATES.ENEMY:
+			player_win = false
+	return player_win
 
 func _handle_enemy_state():
 	# Create temporary attacker variable
@@ -275,18 +285,18 @@ func _handle_enemy_state():
 	remove_dead_units()
 
 # check if enemy has won by eliminating the player
-func check_enemy_win():
+func check_enemy_win() -> bool:
 	var enemy_win = true
 	for i in combat_turn_order.size():
 		if combat_turn_order[i].back() == BATTLE_STATES.PLAYER:
 			enemy_win = false
 	# if player is no longer in the combat turn order array, enemy wins
-	if enemy_win:
-		_handle_states(BATTLE_STATES.LOSE)
+	return enemy_win
 
 func _handle_win_state():
 	# Show win message and end combat
 	show_message("You Win!")
+	await get_tree().create_timer(2).timeout
 	# Remove all combat arrays
 	player.empty_statmods_array()
 	player.empty_defmods_array()
@@ -300,7 +310,7 @@ func _handle_win_state():
 func _handle_lose_state():
 	# Show loss message
 	show_message("You Lose...")
-	
+	await get_tree().create_timer(2).timeout
 	# Remove all combat arrays
 	player.empty_statmods_array()
 	player.empty_defmods_array()
@@ -322,16 +332,16 @@ func remove_dead_units():
 	# go through each unit to check if it still has hp left. play death animation, remove from turn order
 	# and free queue here
 	combat_turn_order = combat_turn_order.filter(remove_dead_units_helper)
-	print("rm dead! units in combat turn order: " + str(combat_turn_order.size()))
 
 # returns true if alive, false if dead
 func remove_dead_units_helper(unit):
-	# return true if it is the wait state in combat
-	if unit[1] == BATTLE_STATES.WAIT:
+	
+	if unit[1] == BATTLE_STATES.WAIT || unit[1] == BATTLE_STATES.MESSAGE:
 		return true
 	# if current hp is less than 0
 	elif unit[0].get_CURR_HP() <= 0:
 		#play units death animation
+		
 		unit[0].play_death_animation()
 		return false
 	return true

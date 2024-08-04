@@ -22,7 +22,9 @@ var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
 #for save file
 signal update_ui 
-#var save_file_path = "user://save/"
+#signal to the current day, name and position debugger text
+#unhide the Text control node to see the debugging
+
 var save_file_path = "res://Scripts/save/"
 var save_file_name = "DemoPlayerSave.tres"
 var playerData = PlayerData.new() #you can now access variables from this script

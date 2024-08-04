@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp04axbadhy82"]
+[gd_scene load_steps=18 format=3 uid="uid://cp04axbadhy82"]
 
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/bedroom.gd" id="1_strgj"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="1_ucugq"]
@@ -627,6 +627,8 @@ sources/2 = SubResource("TileSetAtlasSource_dbrgl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2xqn"]
 size = Vector2(63.5833, 72.0417)
 
+[sub_resource type="GDScript" id="GDScript_e84qf"]
+
 [node name="Bedroom" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_strgj")
@@ -685,8 +687,14 @@ shape = SubResource("RectangleShape2D_q2xqn")
 [node name="Player" parent="." instance=ExtResource("4_j31x6")]
 position = Vector2(-79, -106)
 
+[node name="Inventory_Items" parent="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer" index="1"]
+script = SubResource("GDScript_e84qf")
+
 [node name="ActionableFinder" parent="Player/Direction" index="0"]
 collision_mask = 18
+
+[node name="Text" parent="Player" index="8"]
+visible = false
 
 [node name="SaveMenu" parent="Player" instance=ExtResource("11_u0jej")]
 offset_left = -145.0

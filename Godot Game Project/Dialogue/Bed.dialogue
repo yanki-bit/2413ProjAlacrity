@@ -1,7 +1,7 @@
 ~ Bed
 Your most prized possession. What do you want to do?
 - Sleep
-	do SaveManager.singleSave()
+	do SaveManager.singleSave() #connected to the Save Manager global autoloadfile
 - Save
 	do SaveManager.singleSave()
 - Quit

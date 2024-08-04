@@ -87,6 +87,13 @@ func _process(_delta):
 		if Input.is_action_pressed("pause"):
 			# hide all submenus to go back to original fight menu
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/PlayerAbilitiesContainer.hide()
+	if current_state == BATTLE_STATES.WIN:
+		if Input.is_action_pressed("ui_select"):
+			# unpause game 
+			get_tree().paused = false
+			get_parent().unpause_player_movement()
+			queue_free()
+			
 
 func handle_signal():
 	ability.pressed.connect(on_ability_press)
@@ -152,6 +159,8 @@ func _handle_states(new_state):
 	current_state = new_state
 	match current_state:
 		BATTLE_STATES.WAIT:
+			# get focus on attack button again
+			%Attack.grab_focus()
 			# increment round count
 			round_count += 1
 			# reset turn count
@@ -297,17 +306,12 @@ func check_enemy_win() -> bool:
 
 func _handle_win_state():
 	# Show win message and end combat
-	show_message("You Win!")
+	show_message("You Win! \n Press \"Space\" to continue")
 	await get_tree().create_timer(2).timeout
 	# Remove all combat arrays
 	player.empty_statmods_array()
 	player.empty_defmods_array()
 	player.empty_atkmods_array()
-	
-	# unpause game 
-	get_tree().paused = false
-	get_parent().unpause_player_movement()
-	queue_free()
 
 func _handle_lose_state():
 	# Show loss message

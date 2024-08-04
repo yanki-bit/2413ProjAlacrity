@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://Scripts/save/SaveGame.gd" id="1_gogmj"]
-
-[resource]
-script = ExtResource("1_gogmj")
-player_position = Vector2(0, 0)
-player_name = "Justin"
-version = 1

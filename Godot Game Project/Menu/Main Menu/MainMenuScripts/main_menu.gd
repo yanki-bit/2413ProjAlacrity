@@ -52,6 +52,6 @@ func handle_connect_signal()->void:
 func _on_load_pressed():
 	SaveManager.load_data()
 	#Scene.transition_to_first_scene()
-	on_start_pressed()
+	#Scene.on_start_pressed()
 	#Scene.finish_transition_to_next_scene()
 	

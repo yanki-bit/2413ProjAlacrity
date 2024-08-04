@@ -44,7 +44,7 @@ func load_settings_data() -> void:
 
 
 ## single save var
-@export var player = preload("res://Scripts/player.gd").new()
+#@export var player = preload("res://Scripts/player.gd").new()
 
 ## SINGLE SAVE FUNCTIONS
 func verify_save_directory(path: String):
@@ -53,12 +53,14 @@ func verify_save_directory(path: String):
 #load and save
 func load_data():
 	#playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	#print("Loaded the latest saved data!")
+	print("Calling the function from player script for saving...")
 	var player = preload("res://Scripts/player.gd").new()
-	player.save()
+	player.load_data()
+	print("Successfully called the load data function")
 func singleSave():
-	playerData.day += 1; #add a day when saving
-	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	#playerData.day += 1; #add a day when saving
+	#ResourceSaver.save(playerData, save_file_path + save_file_name)
+	var player = preload("res://Scripts/player.gd").new()
 	print("Saved the game!")
 	print(playerData)
 	# note current code always overwrites the current save file :/

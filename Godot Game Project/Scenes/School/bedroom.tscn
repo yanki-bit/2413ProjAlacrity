@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bre0suvjr5dys" path="res://Objects/Phone_Object.tscn" id="8_7j87v"]
 [ext_resource type="Resource" uid="uid://drdks407xmmvn" path="res://Dialogue/Bed.dialogue" id="10_5cids"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="11_del7i"]
-[ext_resource type="PackedScene" uid="uid://mludnrhfsb7i" path="res://Menu/Player Menu/save_menu2.tscn" id="11_u0jej"]
+[ext_resource type="PackedScene" uid="uid://b5sbwmtgwau1w" path="res://Menu/Player Menu/save_menu2.tscn" id="11_u0jej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1w41g"]
 texture = ExtResource("1_ucugq")

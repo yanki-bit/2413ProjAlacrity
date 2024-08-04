@@ -73,12 +73,16 @@ func _process(_delta):
 	
 	## COMMENTING THIS FOR HIDE ##
 	#save and load further debugging
-	#if Input.is_action_just_pressed("save"):
-	#	save()
-	#if Input.is_action_just_pressed("load"):
-	#	load_data()
-	#emit_signal("update_ui", playerData.name, playerData.day, self.position)
-	#playerData.UpdatePos(self.position) #updates player position
+	if Input.is_action_just_pressed("save"):
+		#save()
+		print("Calling Save Manager single save > player save")
+		SaveManager.singleSave()
+	if Input.is_action_just_pressed("load"):
+		#load_data()
+		print("Calling Save Manager single save > player save")
+		SaveManager.load_data()
+	emit_signal("update_ui", playerData.name, playerData.day, self.position)
+	playerData.UpdatePos(self.position) #updates player position
 	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):

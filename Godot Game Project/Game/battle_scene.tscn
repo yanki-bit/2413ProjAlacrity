@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1diackjfa7dn"]
+[gd_scene load_steps=9 format=3 uid="uid://d1diackjfa7dn"]
 
 [ext_resource type="Script" path="res://Game/battle_scene.gd" id="1_oktsy"]
 [ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_1khe4"]
+[ext_resource type="Texture2D" uid="uid://dx47rn23k4ugj" path="res://Assets/BG/LibraryBackground.png" id="2_p7vto"]
 [ext_resource type="Texture2D" uid="uid://dcajdpeumiinu" path="res://Assets/Portraits/YouFace.png" id="3_xunhk"]
 [ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="4_006qh"]
 [ext_resource type="PackedScene" uid="uid://bw2y2p2iwjfpg" path="res://Game/health_bar.tscn" id="4_bhaem"]
@@ -13,6 +14,15 @@ bg_color = Color(0.281187, 0.281187, 0.281187, 1)
 [node name="BattleScene" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_oktsy")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p7vto")
+expand_mode = 1
 
 [node name="BattleSceneContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15

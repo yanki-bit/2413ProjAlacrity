@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d0u3aasjbv5ul"]
+[gd_scene load_steps=34 format=3 uid="uid://d0u3aasjbv5ul"]
 
 [ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
@@ -543,6 +543,8 @@ states/Walk/position = Vector2(481, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u12vh"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_3chr5"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_86sof")]
 graph_offset = Vector2(-184.173, 0)
 
+[sub_resource type="GDScript" id="GDScript_e84qf"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4y7ne"]
 radius = 12.0416
 
@@ -589,6 +591,9 @@ parameters/Walk/blend_position = Vector2(0.434817, 0.73545)
 [node name="Player_Menu" parent="Camera2D3" instance=ExtResource("4_r21j4")]
 visible = false
 visibility_layer = 513
+
+[node name="Inventory_Items" parent="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer" index="1"]
+script = SubResource("GDScript_e84qf")
 
 [node name="Direction" type="Marker2D" parent="."]
 position = Vector2(0, 11)

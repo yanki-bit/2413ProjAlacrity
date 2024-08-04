@@ -61,6 +61,7 @@ func singleSave():
 	#playerData.day += 1; #add a day when saving
 	#ResourceSaver.save(playerData, save_file_path + save_file_name)
 	var player = preload("res://Scripts/player.gd").new()
+	player.save()
 	print("Saved the game!")
 	print(playerData)
 	# note current code always overwrites the current save file :/

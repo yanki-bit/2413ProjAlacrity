@@ -47,11 +47,14 @@ func handle_connect_signal()->void:
 
 @onready var Player = "res://Scripts/player.gd"
 @onready var Scene = SceneManager.new() #"res://Game/SceneManager.gd"
+@onready var Bed = preload("res://Scenes/School/bedroom.tscn")
+@onready var load_scene = preload("res://Game/scene_manager.tscn") as PackedScene
 
 ## connected to the load button via node signal
 func _on_load_pressed():
 	SaveManager.load_data()
 	#Scene.transition_to_first_scene()
 	#Scene.on_start_pressed()
-	#Scene.finish_transition_to_next_scene()
+	PlayerInfo.state["Bedroom"] = true #so it doesn't play intro dialogue
+	get_tree().change_scene_to_packed(load_scene)
 	

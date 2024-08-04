@@ -48,7 +48,7 @@ func handle_connect_signal()->void:
 @onready var Player = "res://Scripts/player.gd"
 @onready var Scene = SceneManager.new() #"res://Game/SceneManager.gd"
 
-## connected to the load function
+## connected to the load button via node signal
 func _on_load_pressed():
 	SaveManager.load_data()
 	#Scene.transition_to_first_scene()

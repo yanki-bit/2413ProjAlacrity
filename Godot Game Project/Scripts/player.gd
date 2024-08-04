@@ -81,7 +81,7 @@ func _process(_delta):
 		#load_data()
 		print("Calling Save Manager single save > player save")
 		SaveManager.load_data()
-	emit_signal("update_ui", playerData.name, playerData.day, self.position)
+		emit_signal("update_ui", playerData.name, playerData.day, self.position)
 	playerData.UpdatePos(self.position) #updates player position
 	
 #Function to update the direction the character faces when input is pressed

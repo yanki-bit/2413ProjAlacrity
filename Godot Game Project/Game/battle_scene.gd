@@ -42,6 +42,8 @@ func _ready():
 	player.set_ENERGY(0)
 	# Setup player HP bar
 	$BattleSceneContainer/PlayerBG/PlayerContainer/PortraitContainer/NinePatchRect/VBoxContainer/MarginContainer/HealthBar.set_unit(player)
+	# Setup BattleSceneEffects with player
+	$BattleSceneEffects.set_player(player)
 	# Populate player ability buttons with players learned abilites
 	%Attack.text = player.get_learned_abilities(0)
 	populate_ability_buttons()

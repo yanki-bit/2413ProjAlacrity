@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://djtmkupfdocdt"]
+
+[ext_resource type="Script" path="res://Game/battle_scene_effects.gd" id="1_2mnr0"]
+[ext_resource type="Texture2D" uid="uid://ktto1slh77kt" path="res://Assets/BG/BloodOverlay.png" id="1_m3acf"]
+
+[sub_resource type="Animation" id="Animation_d0l5t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BloodEffect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mnjko"]
+resource_name = "damage_taken"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BloodEffect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8n68k"]
+_data = {
+"RESET": SubResource("Animation_d0l5t"),
+"damage_taken": SubResource("Animation_mnjko")
+}
+
+[node name="BattleSceneEffects" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2mnr0")
+
+[node name="BloodEffect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m3acf")
+expand_mode = 1
+
+[node name="EffectAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8n68k")
+}

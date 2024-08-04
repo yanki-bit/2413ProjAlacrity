@@ -21,6 +21,7 @@ var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
 # Signal for in combat HP bar 
 signal update_hp_bar
+signal player_damaged
 
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
@@ -200,6 +201,7 @@ func take_damage(damage:int):
 	statsheet.CURR_HP -= int(damage)
 	# emit to update health bar
 	emit_signal("update_hp_bar")
+	emit_signal("player_damaged")
 	
 	return damage
 

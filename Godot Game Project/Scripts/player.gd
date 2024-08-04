@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	velocity = input_dir * move_speed
 	
 	new_state()
-	#move and slide function uses velocity of character to move character on map
+	#move and slide function uses velocity of character to move character on map_hpB
 	move_and_slide()
 
 func _process(_delta):
@@ -198,7 +198,7 @@ func take_damage(damage:int):
 	
 	# subtract current hp by resultant damage
 	statsheet.CURR_HP -= int(damage)
-	
+	# emit to update health bar
 	emit_signal("update_hp_bar")
 	
 	return damage
@@ -208,6 +208,10 @@ func heal(heal_amount:int):
 	if statsheet.CURR_HP + heal_amount > statsheet.MAX_HP:
 		heal_amount = statsheet.MAX_HP - statsheet.CURR_HP
 	statsheet.CURR_HP += heal_amount
+	
+	# emit to update health bar
+	emit_signal("update_hp_bar")
+	
 	return heal_amount
 	
 #####################################################

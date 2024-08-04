@@ -8,7 +8,10 @@ func set_unit(_unit):
 	unit = _unit
 	unit.update_hp_bar.connect(update)
 	value = unit.get_CURR_HP() * 100 / unit.get_MAX_HP()
-	stylebox = self.get("theme_override_styles/fill")
+	# get duplicate of base stylebox
+	stylebox = self.get("theme_override_styles/fill").duplicate()
+	# set duplicate of base to be the running stylebox
+	add_theme_stylebox_override("fill",stylebox)
 	update()
 
 # function to update the current value of the HP bar
@@ -28,6 +31,6 @@ func change_color():
 		stylebox.bg_color = Color.DARK_GREEN
 	elif (value >= 20 && value < 60):
 		stylebox.bg_color = Color.CORAL
-	else:
+	elif value < 20:
 		stylebox.bg_color = Color.RED
 

@@ -2,7 +2,9 @@
 class_name EnemyClass extends Area2D
 
 signal contact
-signal death
+
+# Signal for in combat HP bar 
+signal update_hp_bar
 
 # Enemy Information
 enum EnemyType { Minion, Mini_Boss, Boss }
@@ -209,9 +211,8 @@ func take_damage(damage:int):
 	# subtract current hp by resultant damage
 	CURR_HP -= int(damage)
 	
-	#check if damage taken is lethal
-	if CURR_HP <= 0:
-		emit_signal("death")
+	# emit to update health bar
+	emit_signal("update_hp_bar")
 	
 	return damage
 
@@ -220,6 +221,10 @@ func heal(heal_amount:int):
 	if CURR_HP + heal_amount > MAX_HP:
 		heal_amount = MAX_HP - CURR_HP
 	CURR_HP += heal_amount
+	
+	# emit to update health bar
+	emit_signal("update_hp_bar")
+	
 	return heal_amount
 
 #####################################################

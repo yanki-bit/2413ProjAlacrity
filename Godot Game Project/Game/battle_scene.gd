@@ -359,9 +359,13 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	$BattleSceneContainer/EnemiesContainer/MiddleEnemyContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemies[0])
 	enemies[0].show_in_fight()
 	
+	# connect main enemy with middle enemy container hp bar and show to player
+	$BattleSceneContainer/EnemiesContainer/MiddleEnemyContainer/MarginContainer/HealthBar.set_unit(enemies[0])
+	$BattleSceneContainer/EnemiesContainer/MiddleEnemyContainer/MarginContainer/HealthBar.show()
+	
 	# Add main enemy to combat turn order array
 	combat_turn_order.append([enemies[0],BATTLE_STATES.ENEMY])
-		
+	
 	# Add requested number of minions
 	match numberOfMinions:
 		2:
@@ -371,6 +375,9 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 			$BattleSceneContainer/EnemiesContainer/LeftEnemy/LeftEnemyController.add_child(enemies[1])
 			enemies[1].show_in_fight()
 			
+			# connect left enemy with left enemy container hp bar and show to player
+			$BattleSceneContainer/EnemiesContainer/LeftEnemyContainer/MarginContainer/HealthBar.set_unit(enemies[1])
+			$BattleSceneContainer/EnemiesContainer/LeftEnemyContainer/MarginContainer/HealthBar.show()
 			
 			# Add a minion to the right
 			enemies.insert(2,load(minion[1]).instantiate())
@@ -380,6 +387,10 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 			# Add minions to combat turn order array
 			combat_turn_order.append([enemies[1],BATTLE_STATES.ENEMY])
 			combat_turn_order.append([enemies[2],BATTLE_STATES.ENEMY])
+			
+			# connect right enemy with right enemy container hp bar and show to player
+			$BattleSceneContainer/EnemiesContainer/RightEnemyContainer/MarginContainer/HealthBar.set_unit(enemies[2])
+			$BattleSceneContainer/EnemiesContainer/RightEnemyContainer/MarginContainer/HealthBar.show()
 		1:
 			# Add a minion to the left
 			enemies.insert(1,load(minion[0]).instantiate())
@@ -387,6 +398,10 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 			$BattleSceneContainer/EnemiesContainer/LeftEnemy/LeftEnemyController.add_child(enemies[1])
 			enemies[1].show_in_fight()
 			combat_turn_order.append([enemies[1],BATTLE_STATES.ENEMY])
+			
+			# connect left enemy with left enemy container hp bar and show to player
+			$BattleSceneContainer/EnemiesContainer/LeftEnemyContainer/MarginContainer/HealthBar.set_unit(enemies[1])
+			$BattleSceneContainer/EnemiesContainer/LeftEnemyContainer/MarginContainer/HealthBar.show()
 	
 	# generate the turn order
 	generate_turn_order()

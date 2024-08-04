@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Resources/Save2/PlayerData.gd" id="1_cqxgy"]
+[ext_resource type="Script" path="res://Resources/Save2/PlayerData.gd" id="1_gab6e"]
 
 [resource]
-script = ExtResource("1_cqxgy")
+script = ExtResource("1_gab6e")
 health = 20
 name = "Justin"
 day = 2

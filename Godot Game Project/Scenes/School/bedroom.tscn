@@ -652,6 +652,9 @@ collision_mask = 2
 next_scene = "Hallway"
 location = "spawn_location_south"
 direction = "spawn_direction_south"
+next_scene2 = "Work"
+location2 = "spawn_location"
+direction2 = "spawn_direction"
 dialogue_start = "Map"
 
 [node name="CollisionShape2D" parent="BedroomDoor" index="0"]

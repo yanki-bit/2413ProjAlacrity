@@ -1,13 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxnjg2bkk1hyw"]
+[gd_scene load_steps=13 format=3 uid="uid://cxnjg2bkk1hyw"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_a3nm0"]
 [ext_resource type="Script" path="res://Scenes/School/SchoolScript/hallway.gd" id="1_uddoa"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_52tfc"]
 [ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="3_tvpua"]
-[ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="4_q7ti2"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="6_ydvry"]
 [ext_resource type="PackedScene" uid="uid://oxvoi6umb55y" path="res://Objects/DialogueDoor.tscn" id="7_cdoo3"]
-[ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="7_qapgk"]
 [ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="8_h5cox"]
 [ext_resource type="Resource" uid="uid://xjww3l8q4kfq" path="res://Dialogue/Door.dialogue" id="9_m03ip"]
 
@@ -6894,10 +6892,6 @@ layer_0/tile_data = PackedInt32Array(-262157, 786434, 40, -196621, 786434, 41, -
 layer_1/name = "door"
 layer_1/tile_data = PackedInt32Array(-327684, 720898, 24, -262148, 720898, 25, -327683, 786434, 24, -262147, 786434, 25)
 
-[node name="vamp_book" parent="." instance=ExtResource("4_q7ti2")]
-visible = false
-position = Vector2(444, -335)
-
 [node name="DoorWest" parent="." instance=ExtResource("6_ydvry")]
 position = Vector2(18, -321)
 collision_mask = 2
@@ -6931,20 +6925,14 @@ dialogue_start = "libraryDoor"
 position = Vector2(1, 2.66666)
 shape = SubResource("RectangleShape2D_n6y4r")
 
-[node name="CountBook" parent="." instance=ExtResource("7_qapgk")]
-visible = false
-position = Vector2(241, -326)
-
 [node name="Player" parent="." instance=ExtResource("3_tvpua")]
 position = Vector2(566, -253)
 
-[connection signal="contact" from="vamp_book" to="." method="_on_contact"]
 [connection signal="contact" from="DoorWest" to="." method="_on_contact"]
 [connection signal="contact" from="DoorNorth" to="." method="_on_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
 [connection signal="body_entered" from="DoorCheck" to="DoorCheck" method="_on_body_entered"]
 [connection signal="contact" from="DoorCheck" to="." method="_on_door_check_contact"]
-[connection signal="contact" from="CountBook" to="." method="_on_contact"]
 
 [editable path="Player"]
 [editable path="Player/Camera2D3/Player_Menu"]

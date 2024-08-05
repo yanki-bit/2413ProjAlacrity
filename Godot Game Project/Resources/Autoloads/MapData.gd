@@ -27,5 +27,11 @@ var MAPS = {
 		"scene_path" = "res://Scenes/School/bedroom.tscn",
 		"spawn_location" = Vector2(0,-4),
 		"spawn_direction" = Vector2(0,-1)
+	},
+	
+	"Work" : {
+		"scene_path" = "res://Scenes/Workplace.tscn",
+		"spawn_location" = Vector2(113,286),
+		"spawn_direction" = Vector2(0,-1)
 	}
 }

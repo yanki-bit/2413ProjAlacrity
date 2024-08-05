@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg3fawmob1y63"]
+[gd_scene load_steps=13 format=3 uid="uid://bg3fawmob1y63"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_wj81w"]
 [ext_resource type="Texture2D" uid="uid://dfim4ruv03pnm" path="res://Assets/TileMap/Room_Builder_free_32x32.png" id="2_ltmvs"]
 [ext_resource type="Texture2D" uid="uid://do4ibiei1yaiq" path="res://Assets/TileMap/pizzaposter.png" id="3_mdqqy"]
 [ext_resource type="Texture2D" uid="uid://0w4mtjxqu44y" path="res://Assets/TileMap/kitchentiles.png" id="4_5pcd8"]
+[ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="5_0k65e"]
+[ext_resource type="PackedScene" uid="uid://d0u3aasjbv5ul" path="res://Characters/player.tscn" id="5_xe6g6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_op6ck"]
 tile_data = PackedInt32Array(0, 851969, 33, 65536, 851969, 34, 1, 458753, 33, 65537, 458753, 34, 2, 917505, 31, 65538, 917505, 32)
@@ -1408,6 +1410,7 @@ sources/4 = SubResource("TileSetAtlasSource_0md1x")
 pattern_0 = SubResource("TileMapPattern_op6ck")
 
 [node name="Workplace" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 metadata/_edit_horizontal_guides_ = [-49.0]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1420,3 +1423,14 @@ layer_1/name = "furniture"
 layer_1/tile_data = PackedInt32Array(131068, 65537, 8, 131069, 65537, 8, 196605, 65537, 9, 131070, 65537, 8, 196606, 65537, 9, 131071, 131073, 8, 196607, 131073, 9, -65526, 458753, 33, 10, 393217, 33, 65546, 393217, 33, 131082, 393217, 33, 196618, 393217, 33, 262154, 393217, 33, 327690, 393217, 33, 393226, 393217, 33, 458762, 393217, 33, 524298, 393217, 33, -65527, 851969, 33, 9, 851969, 34, 65545, 851969, 33, 131081, 851969, 34, 196617, 851969, 33, 262153, 851969, 34, 327689, 851969, 33, 393225, 851969, 34, 458761, 851969, 33, 524297, 851969, 34, 393212, 393217, 33, 458748, 393217, 33, 524284, 393217, 33, 589820, 393217, 33, 393213, 917505, 31, 458749, 917505, 32, 524285, 917505, 31, 589821, 917505, 32, 5, 851969, 33, 65541, 851969, 34, 6, 458753, 33, 65542, 458753, 34, 7, 917505, 31, 65543, 917505, 32, 1, 851969, 33, 65537, 851969, 34, 2, 458753, 33, 65538, 458753, 34, 3, 917505, 31, 65539, 917505, 32, 196609, 851969, 33, 262145, 851969, 34, 196610, 458753, 33, 262146, 458753, 34, 196611, 917505, 31, 262147, 917505, 32, 196613, 851969, 33, 262149, 851969, 34, 196614, 458753, 33, 262150, 458753, 34, 196615, 917505, 31, 262151, 917505, 32, 393217, 851969, 33, 458753, 851969, 34, 393218, 458753, 33, 458754, 458753, 34, 393219, 917505, 31, 458755, 917505, 32, 393221, 851969, 33, 458757, 851969, 34, 393222, 458753, 33, 458758, 458753, 34, 393223, 917505, 31, 458759, 917505, 32, 327676, 393217, 33, 262141, 917505, 31, 327677, 917505, 32, 262140, 458753, 33, 65535, 131073, 7, -196600, 3, 0, -131064, 3, 1, -196599, 65539, 0, -131063, 65539, 1, -196606, 3, 0, -131070, 3, 1, -196605, 65539, 0, -131069, 65539, 1, -131075, 3, 0, -65539, 3, 1, -131074, 65539, 0, -65538, 65539, 1, 131067, 720898, 1, 196603, 720898, 2, 262139, 720898, 2, 327675, 720898, 2, 393211, 720898, 2, 458747, 720898, 2, 524283, 720898, 2, 589819, 720898, 2, -65545, 4, 0, -9, 4, 1, -65544, 4, 0, -8, 4, 1, -65543, 4, 2, -7, 4, 3, -65542, 4, 0, -6, 4, 1, -65546, 65540, 0, -10, 65540, 1, 65526, 65540, 1, 131062, 65540, 1, 196598, 65540, 1, 262134, 65540, 1, 327670, 65540, 1, 393206, 65540, 1, 458742, 65540, 1, 524278, 65540, 1, 589814, 65540, 2, 589815, 131076, 2, 589816, 131076, 2, 589817, 196612, 2)
 layer_2/name = "counteritems"
 layer_2/tile_data = PackedInt32Array(196598, 196612, 1, 327670, 196612, 1, 589816, 196612, 1, 393206, 131076, 0, 65526, 131076, 0)
+
+[node name="Player" parent="." instance=ExtResource("5_xe6g6")]
+position = Vector2(113.333, 286)
+scale = Vector2(1.7, 1.7)
+
+[node name="Door" parent="." instance=ExtResource("5_0k65e")]
+position = Vector2(116, 346)
+collision_mask = 3
+next_scene = "Bedroom"
+location = "spawn_location"
+direction = "spawn_direction"

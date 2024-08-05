@@ -34,6 +34,7 @@ func update_combat_numbers():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%NameTag.text = PlayerInfo.player_name
 	Boss.play()
 	# setup button handling
 	handle_signal()

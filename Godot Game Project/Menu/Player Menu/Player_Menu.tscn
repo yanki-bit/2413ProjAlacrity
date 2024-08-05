@@ -262,8 +262,8 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 
 [connection signal="button_down" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Menu_BG/MarginContainer/Player_Menu_Btn_Clstr/Equipment_btn" to="." method="_on_equipment_btn_button_down"]
-[connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="on_exit_confirmed"]
 [connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="_on_exit_confirmation_dialog_confirmed"]
+[connection signal="confirmed" from="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Exit_ConfirmationDialog" to="." method="on_exit_confirmed"]
 
 [editable path="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]

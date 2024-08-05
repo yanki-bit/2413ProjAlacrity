@@ -88,6 +88,11 @@ func set_spawn(location: Vector2, direction: Vector2):
 	position = location
 
 func play_death_animation():
+	# Remove all combat arrays
+	empty_statmods_array()
+	empty_defmods_array()
+	empty_atkmods_array()
+	
 	queue_free()
 
 # Setters for setting stats 

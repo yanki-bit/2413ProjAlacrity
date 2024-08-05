@@ -320,10 +320,6 @@ func _handle_lose_state():
 	# Show loss message
 	show_message("You Lose...")
 	await get_tree().create_timer(2).timeout
-	# Remove all combat arrays
-	player.empty_statmods_array()
-	player.empty_defmods_array()
-	player.empty_atkmods_array()
 	
 	# Send player back to main menu 
 	var main_menu = load("res://Menu/Main Menu/main_menu.tscn") as PackedScene

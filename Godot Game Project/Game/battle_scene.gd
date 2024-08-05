@@ -120,6 +120,7 @@ func process_next_action(action: String):
 		_handle_states(check_next_state())
 	else:
 		show_message("Not enough Energy!")
+		await get_tree().create_timer(2).timeout
 		hide_message()
 
 

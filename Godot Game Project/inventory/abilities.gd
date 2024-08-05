@@ -217,17 +217,18 @@ var ABILITIES = {
 		# attributes
 		"name": "Drain",
 		"ID" : "A_014",
-		"energy_cost" : 2,
-		"description": "Absorb the strength of your enemies. Deals 175% Damage and heals for 50% of Damage Dealt",
+		"energy_cost" : 3,
+		"description": "Absorb the strength of your enemies. Deals 275% Damage and heals for 50% of Damage Dealt",
 		"learnable": "Yes",
 		"type": ABILITY_TYPE.ATTACK,
-		"ability_power": 1.75,
+		"ability_power": 2.75,
 		
 		# functions
 		"use" : func(attacker, defender):
 			var damage_dealt = attack(attacker, defender, ABILITIES.DRAIN.energy_cost, ABILITIES.DRAIN.ability_power)
 			damage_dealt /= 2
-			defender.heal(damage_dealt),
+			defender.heal(damage_dealt)
+			return damage_dealt,
 	},
 	
 	"FLURRY OF BOOKS" : {

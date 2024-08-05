@@ -226,8 +226,8 @@ var ABILITIES = {
 		# functions
 		"use" : func(attacker, defender):
 			var damage_dealt = attack(attacker, defender, ABILITIES.DRAIN.energy_cost, ABILITIES.DRAIN.ability_power)
-			damage_dealt /= 2
-			defender.heal(damage_dealt)
+			var healing = damage_dealt / 2 
+			attacker.heal(healing)
 			return damage_dealt,
 	},
 	

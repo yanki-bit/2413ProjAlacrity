@@ -215,7 +215,6 @@ func take_damage(damage:int):
 	$AnimationPlayer.queue("combat")
 	# emit to update health bar
 	emit_signal("update_hp_bar")
-
 	
 	return damage
 

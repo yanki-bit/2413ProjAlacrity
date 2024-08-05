@@ -6895,6 +6895,7 @@ layer_1/name = "door"
 layer_1/tile_data = PackedInt32Array(-327684, 720898, 24, -262148, 720898, 25, -327683, 786434, 24, -262147, 786434, 25)
 
 [node name="vamp_book" parent="." instance=ExtResource("4_q7ti2")]
+visible = false
 position = Vector2(444, -335)
 
 [node name="DoorWest" parent="." instance=ExtResource("6_ydvry")]
@@ -6931,6 +6932,7 @@ position = Vector2(1, 2.66666)
 shape = SubResource("RectangleShape2D_n6y4r")
 
 [node name="CountBook" parent="." instance=ExtResource("7_qapgk")]
+visible = false
 position = Vector2(241, -326)
 
 [node name="Player" parent="." instance=ExtResource("3_tvpua")]
@@ -6949,3 +6951,4 @@ position = Vector2(566, -253)
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Description_display/MarginContainer/ItemDescription"]

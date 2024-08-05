@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbwufrwgjp7oo"]
+[gd_scene load_steps=2 format=3 uid="uid://bbwufrwgjp7oo"]
 
 [ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="1_n7jg4"]
-[ext_resource type="PackedScene" uid="uid://ceqyh5kgdtkew" path="res://Menu/Player Menu/inventory_equipment.tscn" id="2_pvqq2"]
 
 [node name="Inventory_Container" type="Control"]
 layout_mode = 3
@@ -38,6 +37,3 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
-
-[node name="Inventory_Equipment" parent="Panel/MarginContainer" instance=ExtResource("2_pvqq2")]
-layout_mode = 2

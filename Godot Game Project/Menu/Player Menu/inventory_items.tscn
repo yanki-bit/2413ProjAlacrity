@@ -55,6 +55,7 @@ shortcut_keys_enabled = false
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 1
 theme_override_styles/separator = SubResource("StyleBoxFlat_2agxp")
 
 [node name="ItemName_Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
@@ -73,6 +74,7 @@ shortcut_keys_enabled = false
 [node name="Inventory_Items_Container" type="NinePatchRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 texture = ExtResource("2_dwqkx")
 patch_margin_left = 3
 patch_margin_top = 1

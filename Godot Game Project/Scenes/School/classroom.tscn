@@ -16,7 +16,7 @@
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6kq6u"]
 vertices = PackedVector2Array(104, -17, 65, -17, 65, -35, 92, -35, 103, -178, 58, -127, 94, -178)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(96, -61, 94, -187, 101, -190, 100, -25, 57, -26, 55, -45, 95, -37)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(96, -61, 94, -187, 101, -190, 100, -25, 57, -26, 56.6667, -50.6667, 95.3333, -50.6667)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_meb5p"]
@@ -589,7 +589,7 @@ sources/5 = SubResource("TileSetAtlasSource_meb5p")
 sources/6 = SubResource("TileSetAtlasSource_yaxt3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lybdc"]
-size = Vector2(28.5, 66)
+size = Vector2(12, 66)
 
 [node name="Classroom" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -622,42 +622,52 @@ layer_5/tile_data = PackedInt32Array(196597, 5, 38, 262133, 65541, 39, 196598, 5
 [node name="People" type="Node" parent="."]
 
 [node name="Professor" parent="People" instance=ExtResource("6_qnu7o")]
-position = Vector2(-45, -164)
-scale = Vector2(2, 2)
+position = Vector2(-69, -249)
+scale = Vector2(3, 3)
 script = null
 
 [node name="AnimatedSprite2D" parent="People/Professor" index="2"]
 texture = ExtResource("6_y2556")
 
 [node name="classmate" parent="People" instance=ExtResource("10_vyf8b")]
-position = Vector2(-221, -57)
+position = Vector2(-333, -86)
+scale = Vector2(3, 3)
 
 [node name="classmate2" parent="People" instance=ExtResource("11_65iv8")]
-position = Vector2(-93, -57)
+position = Vector2(-139, -88)
+scale = Vector2(3, 3)
 
 [node name="classmate3" parent="People" instance=ExtResource("11_65iv8")]
-position = Vector2(-221, 71)
+position = Vector2(-331, 100)
+scale = Vector2(3, 3)
 
 [node name="classmate4" parent="People" instance=ExtResource("10_vyf8b")]
-position = Vector2(-188, 71)
+position = Vector2(-281, 100)
+scale = Vector2(3, 3)
 
 [node name="classmate5" parent="People" instance=ExtResource("10_vyf8b")]
-position = Vector2(-91, 73)
+position = Vector2(-140, 103)
+scale = Vector2(3, 3)
 
 [node name="classmate6" parent="People" instance=ExtResource("10_vyf8b")]
-position = Vector2(-60, 73)
+position = Vector2(-92, 102)
+scale = Vector2(3, 3)
 
 [node name="classmate7" parent="People" instance=ExtResource("11_65iv8")]
-position = Vector2(-187, -59)
+position = Vector2(-282, -85)
+scale = Vector2(3, 3)
 
 [node name="classmate8" parent="People" instance=ExtResource("11_65iv8")]
-position = Vector2(69, 71)
+position = Vector2(104, 103)
+scale = Vector2(3, 3)
 
 [node name="classmate9" parent="People" instance=ExtResource("10_vyf8b")]
-position = Vector2(-61, -55)
+position = Vector2(-92, -88)
+scale = Vector2(3, 3)
 
 [node name="classmate10" parent="People" instance=ExtResource("11_65iv8")]
-position = Vector2(36, 74)
+position = Vector2(55, 103)
+scale = Vector2(3, 3)
 
 [node name="Luke" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("6_qnu7o")]
 position = Vector2(97, -172)
@@ -687,9 +697,6 @@ z_index = 2
 [node name="AnimationTree" parent="Player" index="4"]
 parameters/Idle/blend_position = Vector2(0, -0.026455)
 
-[node name="Player_Menu" parent="Player/Camera2D3" index="0"]
-visible = true
-
 [node name="Door" parent="." instance=ExtResource("4_obmgj")]
 position = Vector2(178, -127)
 collision_layer = 5
@@ -704,7 +711,7 @@ dialogue_resource = ExtResource("5_re61c")
 dialogue_start = "Quiz"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
-position = Vector2(11.25, 0)
+position = Vector2(15.6667, -7.66667)
 shape = SubResource("RectangleShape2D_lybdc")
 
 [node name="classDoor" parent="." instance=ExtResource("9_1k63u")]
@@ -719,7 +726,7 @@ position = Vector2(9, -9)
 shape = SubResource("RectangleShape2D_lybdc")
 
 [node name="NavTarget" type="Marker2D" parent="."]
-position = Vector2(68, -49)
+position = Vector2(67.3333, -53.3333)
 
 [connection signal="contact" from="Door" to="." method="_on_contact"]
 [connection signal="body_entered" from="classDoor" to="classDoor" method="_on_body_entered"]

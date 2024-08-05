@@ -8,7 +8,6 @@ func _ready():
 
 func on_exit_settings_pressed() -> void:
 	SettingsSignalBus.emit_set_settings_dictionary(SettingsDataContainer.create_dictionary_store())
-	print("This works")
 	
 func _unhandled_key_input(_event : InputEvent):
 	if Input.is_action_just_pressed("pause"):

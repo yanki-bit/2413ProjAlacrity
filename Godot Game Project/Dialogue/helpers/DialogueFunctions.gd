@@ -41,3 +41,5 @@ func scene_one():
 func scene_two():
 	emit_signal("sceneTwo")
 
+func game_over():
+	get_tree().quit()

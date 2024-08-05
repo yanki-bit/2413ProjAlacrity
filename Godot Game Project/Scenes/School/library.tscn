@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://divcm5lah685s"]
+[gd_scene load_steps=19 format=3 uid="uid://divcm5lah685s"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_aekri"]
 [ext_resource type="Script" path="res://Scenes/School/library.gd" id="1_mm3q5"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bb810n3kicon0" path="res://Characters/Luke.tscn" id="5_phoc2"]
 [ext_resource type="Texture2D" uid="uid://bnoq7x357ww2b" path="res://Assets/Sprite/walkLibrarian.png" id="8_44sqp"]
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="9_qwy1j"]
+[ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="10_px56l"]
+[ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="11_cdv0q"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3ndkc"]
 tile_data = PackedInt32Array(0, 655360, 68, 65536, 655360, 69, 1, 720896, 68, 65537, 720896, 69)
@@ -29292,6 +29294,7 @@ sources/4 = SubResource("TileSetAtlasSource_l3v1p")
 pattern_0 = SubResource("TileMapPattern_3ndkc")
 
 [node name="Library" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_mm3q5")
 dialogue_resource = ExtResource("2_4obdr")
 dialogue_start = "Librarian"
@@ -29336,4 +29339,27 @@ next_scene = "Hallway"
 location = "spawn_location_north"
 direction = "spawn_direction_north"
 
+[node name="CountBook" parent="." instance=ExtResource("10_px56l")]
+position = Vector2(576, -596)
+scale = Vector2(1.4, 1.4)
+
+[node name="vamp_book" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(381.333, -364.667)
+
+[node name="vamp_book2" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(189.333, -358)
+
+[node name="vamp_book3" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(54.6667, -412.667)
+
+[node name="vamp_book4" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(232, -510.667)
+
+[node name="vamp_book5" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(106.667, -508.667)
+
+[node name="vamp_book6" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(370, -512.667)
+
 [editable path="Librarian"]
+[editable path="CountBook"]

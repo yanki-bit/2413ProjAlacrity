@@ -698,3 +698,4 @@ collision_mask = 18
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]
 [editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]
+[editable path="Player/Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Description_display/MarginContainer/ItemDescription"]

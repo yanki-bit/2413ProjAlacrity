@@ -9,10 +9,24 @@ var slot_scene = preload("res://Menu/Player Menu/inventory_slot.tscn")
 @onready var weapon_btn = $VBoxContainer/Equipment_Options/Weapon_btn 
 @onready var armor_btn = $VBoxContainer/Equipment_Options/Armor_btn 
 @onready var accessory_btn = $VBoxContainer/Equipment_Options/Accessory_btn 
-var items_data
 func _ready():
-	load_items()
+	populate_inventory(Items.databaseItems)
+	for child in weapon_container.get_node("VBoxContainer").get_children():
+				child.connect("hover", Callable(self, "hover_connect"))
+				child.connect("hover_exit", Callable(self, "hover_disconnect"))
 	
+func hover_disconnect():
+	%Description_display.hide()
+	
+func hover_connect(text):
+	%Description_display.show()
+	for key in Items.databaseItems.keys():
+		var item = Items.databaseItems[key]
+		if item.Item == text:
+			$"../../../../../../Description_display/MarginContainer/ItemDescription/Description".text = "Description: " + item.Description + "\n"
+			for ki in item.Stat.keys():
+				$"../../../../../../Description_display/MarginContainer/ItemDescription/Description".text += String(ki)+ ": " + str(item.Stat[ki]) + "\n"
+				
 #Handles behaviour when button in group is pressed
 func _handle_button_toggled(toggledOn: bool, button: String):
 	inventory_items_container.show()
@@ -24,7 +38,11 @@ func _handle_button_toggled(toggledOn: bool, button: String):
 			weapon_container.show()
 			armor_container.hide()
 			acc_container.hide()
-			populate_inventory(items_data)
+			populate_inventory(Items.databaseItems)
+			for child in weapon_container.get_node("VBoxContainer").get_children():
+				child.connect("hover", Callable(self, "hover_connect"))
+				child.connect("hover_exit", Callable(self, "hover_disconnect"))
+		
 		elif button == "armor":
 			weapon_btn.set_pressed(false)
 			armor_btn.set_pressed(true)
@@ -32,7 +50,11 @@ func _handle_button_toggled(toggledOn: bool, button: String):
 			weapon_container.hide()
 			armor_container.show()
 			acc_container.hide()
-			populate_inventory(items_data)
+			populate_inventory(Items.databaseItems)
+			for child in armor_container.get_node("VBoxContainer").get_children():
+				child.connect("hover", Callable(self, "hover_connect"))
+				child.connect("hover_exit", Callable(self, "hover_disconnect"))
+				
 		elif button == "accessory":
 			weapon_btn.set_pressed(false)
 			armor_btn.set_pressed(false)
@@ -40,28 +62,31 @@ func _handle_button_toggled(toggledOn: bool, button: String):
 			weapon_container.hide()
 			armor_container.hide()
 			acc_container.show()
-			populate_inventory(items_data)
+			populate_inventory(Items.databaseItems)
+			for child in acc_container.get_node("VBoxContainer").get_children():
+				child.connect("hover", Callable(self, "hover_connect"))
+				child.connect("hover_exit", Callable(self, "hover_disconnect"))
 	else:
 		remove_all_children(weapon_container.get_node("VBoxContainer"))
 		remove_all_children(armor_container.get_node("VBoxContainer"))
 		remove_all_children(acc_container.get_node("VBoxContainer"))
 #loads item.json
-func load_items():
-	var file = FileAccess.open("res://Inventory/Items.json", FileAccess.READ)
-	if file:
-		var json_text = file.get_as_text()
-		file.close()
-		
-		var json = JSON.new()
-		var parse_result = json.parse(json_text)
-		
-		if parse_result == OK:
-			items_data = json.get_data()
-			populate_inventory(items_data)
-		else:
-			print("Failed to parse JSON", json.get_error_message())
-	else:
-		print("Failed to open file")
+#func load_items():
+	#var file = FileAccess.open("res://Inventory/Items.json", FileAccess.READ)
+	#if file:
+		#var json_text = file.get_as_text()
+		#file.close()
+		#
+		#var json = JSON.new()
+		#var parse_result = json.parse(json_text)
+		#
+		#if parse_result == OK:
+			#items_data = json.get_data()
+			#populate_inventory(items_data)
+		#else:
+			#print("Failed to parse JSON", json.get_error_message())
+	#else:
+		#print("Failed to open file")
 		
 func populate_inventory(item_data):
 	var container

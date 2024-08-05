@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_e5alb")
-MAX_HP = 25
-CURR_HP = 25
+MAX_HP = 10
+CURR_HP = 10
 MIN_ATK = 3
 MAX_ATK = 5
 DEF = 2

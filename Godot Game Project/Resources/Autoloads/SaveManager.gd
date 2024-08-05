@@ -40,23 +40,23 @@ func load_settings_data() -> void:
 ## single save var
 #@export var player = preload("res://Scripts/player.gd").new()
 
-## SINGLE SAVE FUNCTIONS
-func verify_save_directory(path: String):
-	DirAccess.make_dir_absolute(path)
+### SINGLE SAVE FUNCTIONS
+#func verify_save_directory(path: String):
+	#DirAccess.make_dir_absolute(path)
 
 #load and save
-func load_data():
-	#playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	print("Calling the function from player script for saving...")
-	var player = preload("res://Scripts/player.gd").new()
-	player.load_data()
-	print(player)
-	print("Successfully called the load data function")
-func singleSave():
-	#playerData.day += 1; #add a day when saving
-	#ResourceSaver.save(playerData, save_file_path + save_file_name)
-	var player = preload("res://Scripts/player.gd").new()
-	player.save()
-	print("Saved the game!")
-	print(Player_Data)
-	# note current code always overwrites the current save file :/
+#func load_data():
+	##playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
+	#print("Calling the function from player script for saving...")
+	#var player = preload("res://Scripts/player.gd").new()
+	#player.load_data()
+	#print(player)
+	#print("Successfully called the load data function")
+#func singleSave():
+	##playerData.day += 1; #add a day when saving
+	##ResourceSaver.save(playerData, save_file_path + save_file_name)
+	#var player = preload("res://Scripts/player.gd").new()
+	#player.save()
+	#print("Saved the game!")
+	#print(Player_Data)
+	## note current code always overwrites the current save file :/

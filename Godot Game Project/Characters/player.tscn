@@ -633,10 +633,12 @@ shape = SubResource("CircleShape2D_4y7ne")
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_left = -67.0
-offset_top = -47.0
-offset_right = 78.0
-offset_bottom = -24.0
+z_index = 99
+offset_left = -37.6471
+offset_top = -26.4706
+offset_right = 107.353
+offset_bottom = -3.47059
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("SystemFont_4cjqq")
 text = "(E)INTERACT"
 horizontal_alignment = 1
@@ -646,3 +648,4 @@ vertical_alignment = 1
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Settings_tab_container"]
+[editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Description_display/MarginContainer/ItemDescription"]

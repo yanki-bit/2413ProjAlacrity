@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnfni08q3frdm"]
+
+[ext_resource type="Script" path="res://Scenes/Intro/IntroScript/Defeat.gd" id="1_kxrkc"]
+[ext_resource type="Resource" uid="uid://cgoyrumt5egc" path="res://Dialogue/Intro.dialogue" id="2_l7a6l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7u5d"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Defeat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxrkc")
+dialogue_resource = ExtResource("2_l7a6l")
+dialogue_start = "GameOver"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_l7u5d")

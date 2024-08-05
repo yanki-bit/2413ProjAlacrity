@@ -320,13 +320,13 @@ func _handle_win_state():
 
 func _handle_lose_state():
 	# Show loss message
-	show_message("You Lose...")
+	show_message("You Passed Out")
 	await get_tree().create_timer(2).timeout
+	get_tree().paused = false
 	
 	# Send player back to main menu 
-	var main_menu = load("res://Menu/Main Menu/main_menu.tscn") as PackedScene
-	get_tree().change_scene_to_packed(main_menu)
-
+	var lose_scene = preload("res://Scenes/Intro/Defeat.tscn") as PackedScene
+	get_tree().change_scene_to_packed(lose_scene)
 # Move to next unit
 func move_to_next_unit():
 	# move to next units action

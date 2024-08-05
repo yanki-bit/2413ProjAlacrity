@@ -8,6 +8,10 @@ do dialogue_done()
 ~ Load
 Day {{day}} - ???
 => END
+~ GameOver
+You Lose!
+do game_over()
+=> END
 
 ~ Name
 Right, I'm {{PlayerInfo.player_name}}

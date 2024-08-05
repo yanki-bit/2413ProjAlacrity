@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqk4opmljpohi"]
+[gd_scene load_steps=7 format=3 uid="uid://dqk4opmljpohi"]
 
+[ext_resource type="Script" path="res://Menu/Player Menu/inventory_slot.gd" id="1_0lxk4"]
 [ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="1_pibar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xfkv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opftf"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 1, 0, 0.678431)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8jex"]
+bg_color = Color(0.6, 1, 0, 0.678431)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1o3i"]
 
 [node name="InventorySlot" type="Control"]
 layout_mode = 3
@@ -10,6 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("1_0lxk4")
 
 [node name="RichTextLabel" type="Label" parent="."]
 layout_mode = 2
@@ -29,11 +43,19 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 34.0
 grow_horizontal = 2
+mouse_filter = 1
 theme = ExtResource("1_pibar")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5xfkv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opftf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r8jex")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k1o3i")
 text = "Test Item"
-flat = true
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 0
+offset_top = 34.0
 offset_right = 1080.0
-offset_bottom = 54.0
+offset_bottom = 43.0
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

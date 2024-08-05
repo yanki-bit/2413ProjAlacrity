@@ -27,6 +27,7 @@ SaveManager="*res://Resources/Autoloads/SaveManager.gd"
 Bgm="*res://Assets/Music/BGM.tscn"
 PhoneRing="*res://Assets/Music/PhoneRing.tscn"
 Abilities="*res://inventory/Abilities.gd"
+Items="*res://Inventory/items.gd"
 
 [dialogue_manager]
 

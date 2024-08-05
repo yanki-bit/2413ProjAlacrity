@@ -5,7 +5,7 @@ signal contact
 
 # Signal for in combat HP bar 
 signal update_hp_bar
-
+signal damage_taken
 # Enemy Information
 enum EnemyType { Minion, Mini_Boss, Boss }
 var Name: String
@@ -38,7 +38,6 @@ var ENERGY: int
 
 # Array of learned abilities
 var learned_abilities
-
 
 # give the unit stats, functionality temporary for testing, should grab information from database not pass by value
 func show_on_map():
@@ -211,8 +210,12 @@ func take_damage(damage:int):
 	# subtract current hp by resultant damage
 	CURR_HP -= int(damage)
 	
+	# play damage taken animation
+	$AnimationPlayer.play("damage_taken")
+	$AnimationPlayer.queue("combat")
 	# emit to update health bar
 	emit_signal("update_hp_bar")
+
 	
 	return damage
 

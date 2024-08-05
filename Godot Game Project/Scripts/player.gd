@@ -19,11 +19,18 @@ var next_action # store the next action in combat
 var statmods = Array() # create an array to store combat stat buffs and debuffs
 var defmods = Array() # create an array to store combat on defend buffs and debuffs
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
+#
+#var save_file_path = "res://Scripts/save/"
+#var save_file_name = "DemoPlayerSave.tres"
+#var playerData = Player_Data.new() #you can now access variables from this script
+##above is linked to file in Resources > Save > PlayerData
 
 
+	
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir) 
+	#verify_save_directory(save_file_path)
 
 func _physics_process(_delta):
 	#get input direction
@@ -43,6 +50,30 @@ func _process(_delta):
 	if is_physics_processing() == false:
 		state.travel("Idle")
 	#updates the direction based on input
+	#updates the position in realtime
+	#playerData.UpdatePos(self.position) #updates player position
+	
+func verify_save_directory(path: String):
+	DirAccess.make_dir_absolute(path)
+
+#load and save
+#func load_data():
+	#playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
+	#on_start_load()
+	#print("Loaded the latest saved data!")
+	
+#func save():
+	#playerData.day += PlayerInfo.day; #sets current day to the save file
+	#ResourceSaver.save(playerData, save_file_path + save_file_name)
+	#print("Saved the game!")
+	#print(playerData)
+	## note current code always overwrites the current save file :/
+
+#func on_start_load():
+	#self.position = playerData.SavePos
+	#PlayerInfo.day = playerData.day
+	#PlayerInfo.name = playerData.name
+	
 	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):

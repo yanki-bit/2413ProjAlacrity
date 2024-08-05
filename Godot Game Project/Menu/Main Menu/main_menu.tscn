@@ -170,3 +170,5 @@ stream = ExtResource("5_50fij")
 volume_db = -15.0
 autoplay = true
 bus = &"BGM"
+
+[connection signal="pressed" from="Control/Menu_Options/Options_Margin/HBoxContainer/VBoxContainer/LOAD" to="Control" method="_on_load_pressed"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=32 format=3 uid="uid://d0u3aasjbv5ul"]
 
-[ext_resource type="Texture2D" uid="uid://qb0g3j0c37bn" path="res://Assets/Sprite/Player Sheet.png" id="1_4vbna"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mwybc"]
-[ext_resource type="Texture2D" uid="uid://cu34m6msx15l5" path="res://Assets/Sprite/Player Head Sheet.png" id="4_05vyd"]
+[ext_resource type="Texture2D" uid="uid://chh86ckj5dc5k" path="res://Assets/Sprite/WalkMC.png" id="2_kfb1q"]
+[ext_resource type="Texture2D" uid="uid://cdi3wuowix3ii" path="res://Assets/Sprite/WalkMCHead.png" id="3_2vcgl"]
 [ext_resource type="PackedScene" uid="uid://dpm3eishnn7dd" path="res://Menu/Player Menu/Player_Menu.tscn" id="4_r21j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeicx"]
-size = Vector2(29, 21)
+size = Vector2(17.6471, 15.2941)
 
 [sub_resource type="Animation" id="Animation_wsja7"]
 resource_name = "IdleDown"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -44,7 +44,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_hdano"]
@@ -59,55 +59,55 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerSprite:flip_h")
+tracks/1/path = NodePath("Direction:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [1.5708]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Direction:rotation")
+tracks/2/path = NodePath("PlayerSprite2:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5708]
+"update": 1,
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerSprite2:frame")
+tracks/3/path = NodePath("PlayerSprite2:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerSprite2:flip_h")
+tracks/4/path = NodePath("PlayerSprite:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_18b4d"]
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [12]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -158,7 +158,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [12]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -185,7 +185,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -209,7 +209,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_cbfcg"]
@@ -250,6 +250,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite2:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_h8yrx"]
 resource_name = "WalkDown"
@@ -266,7 +290,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 0, 2, 0]
+"values": [8, 9, 10, 11]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -278,7 +302,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0]
+"values": [8, 8, 8, 8]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -308,7 +332,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 3, 5, 3]
+"values": [12, 13, 14, 15]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -332,7 +356,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 3, 3, 3]
+"values": [14, 14, 14, 14]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -374,7 +398,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 3, 5, 3]
+"values": [12, 13, 14, 15]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -398,7 +422,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 3, 3, 3]
+"values": [14, 14, 14, 14]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -440,7 +464,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [7, 6, 8, 6]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -452,7 +476,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [6, 6, 6, 6]
+"values": [1, 1, 1, 1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -543,7 +567,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-184.173, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4y7ne"]
-radius = 12.0416
+radius = 7.66536
 
 [sub_resource type="SystemFont" id="SystemFont_4cjqq"]
 font_names = PackedStringArray("Monospace")
@@ -552,23 +576,27 @@ subpixel_positioning = 0
 multichannel_signed_distance_field = true
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.7, 1.7)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_mwybc")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_4vbna")
-hframes = 3
-vframes = 3
+texture = ExtResource("2_kfb1q")
+flip_h = true
+hframes = 4
+vframes = 4
 
 [node name="PlayerSprite2" type="Sprite2D" parent="."]
-visibility_layer = 3
-texture = ExtResource("4_05vyd")
-hframes = 3
-vframes = 3
+visibility_layer = 15
+texture = ExtResource("3_2vcgl")
+flip_h = true
+hframes = 4
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12.5)
+position = Vector2(1.12197e-06, 8.2353)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aeicx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -590,7 +618,7 @@ visible = false
 visibility_layer = 513
 
 [node name="Direction" type="Marker2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0, 7.64706)
 
 [node name="ActionableFinder" type="Area2D" parent="Direction"]
 position = Vector2(0, 6)
@@ -600,6 +628,7 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
 light_mask = 0
 visibility_layer = 16
+position = Vector2(0, 4.17647)
 shape = SubResource("CircleShape2D_4y7ne")
 
 [node name="Label" type="Label" parent="."]

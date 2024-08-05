@@ -44,3 +44,16 @@ func handle_connect_signal()->void:
 	exit.button_down.connect(on_exit_pressed)
 	setting.button_down.connect(on_setting_pressed)
 	settings_menu.exit_settings_menu.connect(on_exit_settings)
+	
+### VARS FOR THE LOAD FUNC
+#@onready var Player = "res://Scripts/player.gd"
+#@onready var Scene = SceneManager.new() #"res://Game/SceneManager.gd"
+#@onready var Bed = preload("res://Scenes/School/bedroom.tscn")
+#@onready var load_scene = preload("res://Game/scene_manager.tscn") as PackedScene
+#
+### connected to the load button via node signal
+#func _on_load_pressed():
+	#SaveManager.load_data()
+	#PlayerInfo.state["Bedroom"] = true #so it doesn't play intro dialogue
+	#get_tree().change_scene_to_packed(load_scene)
+	#

@@ -1,6 +1,7 @@
 extends Control
 class_name IntroScene
 @export var dialogue_resource: DialogueResource
+@export var dialogue_start: String
 const BALLOON = preload("res://Dialogue/balloon.tscn")
 var player_name
 # Called when the node enters the scene tree for the first time.
@@ -11,17 +12,13 @@ var balloon: Node = BALLOON.instantiate()
 
 var dialogue_line
 signal next_dialog()
-
 func _ready():
-	line_edit.hide()
-	submit.hide()
-	next_dialog.connect(enter_name)
-	
-	get_tree().current_scene.add_child(balloon)
-	balloon.start(dialogue_resource, "Intro")
-	line_edit.text_submitted.connect(_on_submit_pressed)
-
-
+		line_edit.hide()
+		submit.hide()
+		next_dialog.connect(enter_name)
+		get_tree().current_scene.add_child(balloon)
+		balloon.start(dialogue_resource, dialogue_start)
+		line_edit.text_submitted.connect(_on_submit_pressed)
 #function to get name from user
 func dialogue_done()-> void:
 	next_dialog.emit()
@@ -31,7 +28,6 @@ func enter_name() -> void:
 	submit.show()
 	
 
-
 func _on_submit_pressed():
 	print()
 	var input = line_edit.text.strip_edges()
@@ -39,8 +35,4 @@ func _on_submit_pressed():
 		player_name = input
 		PlayerInfo.player_name = input
 		get_tree().change_scene_to_packed(preload("res://Scenes/Intro/Intro2.tscn"))
-		#DialogueFunctions.rename_file("res://Assets/Portraits/YouFace.png", "res://Assets/Portraits/"+player_name+".png")
 
-	
-	
-		

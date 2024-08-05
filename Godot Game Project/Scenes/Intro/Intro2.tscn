@@ -15,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gp4r2")
 dialogue_resource = ExtResource("2_d2pbu")
+dialogue_start = "Name"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

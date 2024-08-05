@@ -1,8 +1,12 @@
 ~ Intro
-Day {{day}} - ???
+Day {{PlayerInfo.day}} - ???
 ...
 ... Who am I again?
 do dialogue_done()
+=> END
+
+~ Load
+Day {{day}} - ???
 => END
 
 ~ Name

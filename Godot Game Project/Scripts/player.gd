@@ -13,7 +13,6 @@ extends CharacterBody2D
 @onready var state = anim_tree.get("parameters/playback")
 # Preload player statsheet to have access to variables at initialization
 @export var statsheet = preload("res://Characters/player_stats.tres")
-
 # Combat variables
 var next_action # store the next action in combat
 var statmods = Array() # create an array to store combat stat buffs and debuffs
@@ -25,6 +24,10 @@ var atkmods = Array() # create an array to store combat attack buffs and debuffs
 #var playerData = Player_Data.new() #you can now access variables from this script
 ##above is linked to file in Resources > Save > PlayerData
 
+# Signal for in combat HP bar 
+signal update_hp_bar
+signal player_damaged
+signal player_healed
 
 	
 func _ready():
@@ -41,7 +44,7 @@ func _physics_process(_delta):
 	velocity = input_dir * move_speed
 	
 	new_state()
-	#move and slide function uses velocity of character to move character on map
+	#move and slide function uses velocity of character to move character on map_hpB
 	move_and_slide()
 
 func _process(_delta):
@@ -117,6 +120,11 @@ func set_spawn(location: Vector2, direction: Vector2):
 	position = location
 
 func play_death_animation():
+	# Remove all combat arrays
+	empty_statmods_array()
+	empty_defmods_array()
+	empty_atkmods_array()
+	
 	queue_free()
 
 # Setters for setting stats 
@@ -145,6 +153,9 @@ func set_ENERGY(value:int):
 	statsheet.ENERGY = value
 
 # Getters for stats
+func get_Name():
+	return PlayerInfo.name
+
 func get_MAX_HP():
 	return statsheet.MAX_HP
 
@@ -225,16 +236,23 @@ func take_damage(damage:int):
 	
 	# subtract current hp by resultant damage
 	statsheet.CURR_HP -= int(damage)
-	
-	#check if damage taken is lethal
-	if statsheet.CURR_HP <= 0:
-		emit_signal("death")
+	# emit to update health bar
+	emit_signal("update_hp_bar")
+	emit_signal("player_damaged")
 	
 	return damage
 
-func heal(value:int):
-	statsheet.CURR_HP += value
-	statsheet.CURR_HP = mini(statsheet.CURR_HP, statsheet.MAX_HP)
+func heal(heal_amount:int):
+	# check to see if heal will over cap
+	if statsheet.CURR_HP + heal_amount > statsheet.MAX_HP:
+		heal_amount = statsheet.MAX_HP - statsheet.CURR_HP
+	statsheet.CURR_HP += heal_amount
+	
+	# emit to update health bar
+	emit_signal("update_hp_bar")
+	emit_signal("player_healed")
+	
+	return heal_amount
 	
 #####################################################
 ##            STATMODS ARRAY FUNCTIONS             ##
@@ -260,6 +278,11 @@ func remove_statmods_helper(ability):
 		ability.remove.call(self)
 		return false
 	return true
+
+func empty_statmods_array():
+	for i in statmods.size():
+		statmods[i].remove.call()
+	statmods.clear()
 
 #####################################################
 ##             DEFMODS ARRAY FUNCTIONS             ##
@@ -292,6 +315,9 @@ func remove_defmods_helper(ability):
 		return false
 	return true
 
+func empty_defmods_array():
+	defmods.clear()
+	
 #####################################################
 ##             ATKMODS ARRAY FUNCTIONS             ##
 #####################################################
@@ -322,4 +348,7 @@ func remove_atkmods_helper(ability):
 	if ability.duration <= 0 || ability.charges <= 0:
 		return false
 	return true
+
+func empty_atkmods_array():
+	atkmods.clear()
 

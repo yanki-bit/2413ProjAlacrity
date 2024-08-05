@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3lwsvo1labuk"
-path="res://.godot/imported/winceMC.png-6be5d5ccc9209c2d80059f6878c4d30c.ctex"
+uid="uid://dx47rn23k4ugj"
+path="res://.godot/imported/LibraryBackground.png-7f785d499bd712fe35d04945d4d82551.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/winceMC.png"
-dest_files=["res://.godot/imported/winceMC.png-6be5d5ccc9209c2d80059f6878c4d30c.ctex"]
+source_file="res://Assets/BG/LibraryBackground.png"
+dest_files=["res://.godot/imported/LibraryBackground.png-7f785d499bd712fe35d04945d4d82551.ctex"]
 
 [params]
 

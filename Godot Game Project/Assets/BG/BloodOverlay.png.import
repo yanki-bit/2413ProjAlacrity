@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3lwsvo1labuk"
-path="res://.godot/imported/winceMC.png-6be5d5ccc9209c2d80059f6878c4d30c.ctex"
+uid="uid://ktto1slh77kt"
+path="res://.godot/imported/BloodOverlay.png-181f8fe4a15eccb46c41bd63b9c3f57d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/winceMC.png"
-dest_files=["res://.godot/imported/winceMC.png-6be5d5ccc9209c2d80059f6878c4d30c.ctex"]
+source_file="res://Assets/BG/BloodOverlay.png"
+dest_files=["res://.godot/imported/BloodOverlay.png-181f8fe4a15eccb46c41bd63b9c3f57d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3lwsvo1labuk"
-path="res://.godot/imported/winceMC.png-6be5d5ccc9209c2d80059f6878c4d30c.ctex"
+uid="uid://cki7sv3oxo4wb"
+path="res://.godot/imported/healpng.png-d850fb8dc42ed3ecb4a407534ffdd78a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/winceMC.png"
-dest_files=["res://.godot/imported/winceMC.png-6be5d5ccc9209c2d80059f6878c4d30c.ctex"]
+source_file="res://Assets/BG/healpng.png"
+dest_files=["res://.godot/imported/healpng.png-d850fb8dc42ed3ecb4a407534ffdd78a.ctex"]
 
 [params]
 

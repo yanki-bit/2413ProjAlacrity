@@ -2,7 +2,9 @@
 class_name EnemyClass extends Area2D
 
 signal contact
-signal death
+
+# Signal for in combat HP bar 
+signal update_hp_bar
 
 # Enemy Information
 enum EnemyType { Minion, Mini_Boss, Boss }
@@ -37,7 +39,6 @@ var ENERGY: int
 # Array of learned abilities
 var learned_abilities
 
-
 # give the unit stats, functionality temporary for testing, should grab information from database not pass by value
 func show_on_map():
 	show()
@@ -48,6 +49,7 @@ func show_in_fight():
 	scale.x = 4
 	scale.y = 4
 	show()
+
 	$AnimationPlayer.play("combat")
 
 func initalize_combat():
@@ -126,6 +128,9 @@ func set_ENERGY(value:int):
 	ENERGY = value
 
 # Getters for stats
+func get_Name():
+	return Name
+
 func get_MAX_HP():
 	return MAX_HP
 
@@ -205,15 +210,25 @@ func take_damage(damage:int):
 	# subtract current hp by resultant damage
 	CURR_HP -= int(damage)
 	
-	#check if damage taken is lethal
-	if CURR_HP <= 0:
-		emit_signal("death")
+	# play damage taken animation
+	$AnimationPlayer.play("damage_taken")
+	$AnimationPlayer.queue("combat")
+	# emit to update health bar
+	emit_signal("update_hp_bar")
 	
 	return damage
 
-func heal(value:int):
-	CURR_HP += value
-	CURR_HP = mini(CURR_HP, MAX_HP)
+func heal(heal_amount:int):
+	# check to see if heal will over cap
+	if CURR_HP + heal_amount > MAX_HP:
+		heal_amount = MAX_HP - CURR_HP
+	CURR_HP += heal_amount
+	
+	# emit to update health bar
+	emit_signal("update_hp_bar")
+	$AnimationPlayer.play("healed")
+	$AnimationPlayer.queue("combat")
+	return heal_amount
 
 #####################################################
 ##            STATMODS ARRAY FUNCTIONS             ##
@@ -240,6 +255,11 @@ func remove_statmods_helper(ability):
 		return false
 	return true
 
+func empty_statmods_array():
+	for i in statmods.size():
+		statmods[i].remove.call()
+	statmods.clear()
+	
 #####################################################
 ##             DEFMODS ARRAY FUNCTIONS             ##
 #####################################################

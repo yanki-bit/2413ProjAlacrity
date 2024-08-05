@@ -37,17 +37,14 @@ func verify_save_directory(path: String):
 
 #load and save
 func load_data():
-	#playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	#on_start_load()
+
 	print("Calling JSON load function")
 	PlayerInfo.loadplayer_info()
 	print("Loaded the latest saved data!")
 func save():
-	#ResourceSaver.save(playerData, save_file_path + save_file_name)
-	#print("Saved the game!")
-	#print(playerData)
 	print("Calling the JSON player save function")
 	PlayerInfo.saveplayer_info()
+	print("The game data was saved to the JSON file!")
 	# note current code always overwrites the current save file :/
 	####
 	

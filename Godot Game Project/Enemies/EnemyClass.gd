@@ -5,7 +5,7 @@ signal contact
 
 # Signal for in combat HP bar 
 signal update_hp_bar
-signal damage_taken
+
 # Enemy Information
 enum EnemyType { Minion, Mini_Boss, Boss }
 var Name: String
@@ -226,7 +226,8 @@ func heal(heal_amount:int):
 	
 	# emit to update health bar
 	emit_signal("update_hp_bar")
-	
+	$AnimationPlayer.play("healed")
+	$AnimationPlayer.queue("combat")
 	return heal_amount
 
 #####################################################

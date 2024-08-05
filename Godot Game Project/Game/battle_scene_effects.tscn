@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://djtmkupfdocdt"]
+[gd_scene load_steps=8 format=3 uid="uid://djtmkupfdocdt"]
 
 [ext_resource type="Script" path="res://Game/battle_scene_effects.gd" id="1_2mnr0"]
 [ext_resource type="Texture2D" uid="uid://ktto1slh77kt" path="res://Assets/BG/BloodOverlay.png" id="1_m3acf"]
+[ext_resource type="Texture2D" uid="uid://cki7sv3oxo4wb" path="res://Assets/BG/healpng.png" id="3_71ot4"]
 
 [sub_resource type="Animation" id="Animation_d0l5t"]
 length = 0.001
@@ -100,7 +101,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_m3acf")
+texture = ExtResource("3_71ot4")
 expand_mode = 1
 
 [node name="EffectAnimations" type="AnimationPlayer" parent="."]

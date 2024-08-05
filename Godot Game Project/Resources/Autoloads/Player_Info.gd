@@ -22,8 +22,6 @@ class_name player_Info
 #callable function to add to game day
 func add_game_day(AddDay = 1) -> void:
 	day += AddDay
-	
-
 
 ##########
 var playersave_path := "res://Resources/Save2/player_data.json"
@@ -32,19 +30,24 @@ func saveplayer_info() -> void:
 	## GG
 	var data := {
 	"Bedroom": 
-		#state["Bedroom"],
 		PlayerInfo.state["Bedroom"],
 	"Classroom": 
 		PlayerInfo.state["Classroom"],
-		#PlayerInfo.data["Classroom"]
-		#state["Classroom"],
 	"Library":
 		PlayerInfo.state["Library"],
-		#PlayerInfo.data["Library"],
 	"Hallway":
-		#PlayerInfo.data["Hallway"]
-		PlayerInfo.state["Hallway"]
+		PlayerInfo.state["Hallway"],
+	"player_name":
+		PlayerInfo.player_name,
+	"day":
+		PlayerInfo.day,
+	"bgm":
+		testPlayer
+		#connect music from bedroom
 	}
+	
+	name = PlayerInfo.player_name
+	day = PlayerInfo.day
 	
 	#references the state Dictionary
 	var json = JSON.new()
@@ -78,4 +81,14 @@ func loadplayer_info() -> void:
 	state["Classroom"] = data.get("Classroom", " ")
 	state["Library"] = data.get("Library", " ")
 	state["Hallway"] = data.get("Hallway", " ")
+	player_name = data.get("player_name")
+	day = data.get("day")
+	
+	#var name: String = json.name
+	#PlayerInfo.player_name = json.name
+	
+	#var day: int = json.day
+	#PlayerInfo.day = json.day
+	
+
 

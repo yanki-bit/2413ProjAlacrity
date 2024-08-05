@@ -684,12 +684,6 @@ shape = SubResource("RectangleShape2D_q2xqn")
 [node name="Player" parent="." instance=ExtResource("4_j31x6")]
 position = Vector2(-79, -106)
 
-[node name="PlayerSprite" parent="Player" index="0"]
-flip_h = true
-
-[node name="PlayerSprite2" parent="Player" index="1"]
-flip_h = true
-
 [node name="ActionableFinder" parent="Player/Direction" index="0"]
 collision_mask = 18
 

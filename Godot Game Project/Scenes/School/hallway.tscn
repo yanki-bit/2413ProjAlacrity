@@ -6935,7 +6935,6 @@ position = Vector2(241, -326)
 
 [node name="Player" parent="." instance=ExtResource("3_tvpua")]
 position = Vector2(566, -253)
-scale = Vector2(1.7, 1.7)
 
 [connection signal="contact" from="vamp_book" to="." method="_on_contact"]
 [connection signal="contact" from="DoorWest" to="." method="_on_contact"]

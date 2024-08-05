@@ -2,8 +2,10 @@ extends Room
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String
 var state = PlayerInfo.state
+@onready var player_menu = $Player/Camera2D3/Player_Menu
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_menu.scale = Vector2(0.4,0.4)
 	get_player($Player)
 	if state:
 		if state.get("Classroom") == false:

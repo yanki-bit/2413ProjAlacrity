@@ -8,7 +8,7 @@ func _on_contact():
 	$Player.set_physics_process(false)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_menu.scale = Vector2(0.65,0.65)
+	player_menu.scale = Vector2(0.4,0.4)
 	get_player($Player)
 	if state:
 		if state.get("Classroom") == true && state.get("Bedroom") == true:

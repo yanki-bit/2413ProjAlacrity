@@ -7,7 +7,7 @@ var player_node : Node = null
 var state = PlayerInfo.state
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_menu.scale = Vector2(0.65,0.65)
+	player_menu.scale = Vector2(0.4,0.4)
 	get_player(player_node)
 	if state:
 		if state.get("Bedroom") == false: # If true, does not play intro dialogue

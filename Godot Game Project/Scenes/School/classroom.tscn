@@ -592,6 +592,7 @@ sources/6 = SubResource("TileSetAtlasSource_yaxt3")
 size = Vector2(28.5, 66)
 
 [node name="Classroom" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ojl8n")
 dialogue_resource = ExtResource("5_re61c")
 dialogue_start = "School"
@@ -679,14 +680,15 @@ position = Vector2(128, -137)
 [node name="PlayerSprite" parent="Player" index="0"]
 z_index = -1
 y_sort_enabled = true
-flip_h = true
 
 [node name="PlayerSprite2" parent="Player" index="1"]
 z_index = 2
-flip_h = true
 
 [node name="AnimationTree" parent="Player" index="4"]
 parameters/Idle/blend_position = Vector2(0, -0.026455)
+
+[node name="Player_Menu" parent="Player/Camera2D3" index="0"]
+visible = true
 
 [node name="Door" parent="." instance=ExtResource("4_obmgj")]
 position = Vector2(178, -127)

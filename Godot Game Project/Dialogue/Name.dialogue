@@ -1,4 +1,0 @@
-~ name
-Right, I'm {{PlayerInfo.player_name}}
-do next_scene()
-=> END

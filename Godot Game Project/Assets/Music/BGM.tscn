@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5eaycr26x67c"]
+
+[ext_resource type="AudioStream" uid="uid://cjpiysv7xjsbr" path="res://Assets/Music/Meadow-Waltz-Classical-Piano-Orchestra-chosic.com_.mp3" id="1_dtl4k"]
+
+[node name="Bgm" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_dtl4k")
+bus = &"BGM"

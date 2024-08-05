@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csu1b7jwt88aa"]
+
+[ext_resource type="AudioStream" uid="uid://dav4x8qs3s7ti" path="res://Assets/Music/COMTelph_Phone ring 5 (ID 0375)_BSB.mp3" id="1_h2tmj"]
+
+[node name="PhoneRing" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_h2tmj")
+volume_db = -15.0
+bus = &"SoundFX"

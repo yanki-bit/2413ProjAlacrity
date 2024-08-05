@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://dt34u35p4pk18"]
+
+[ext_resource type="Texture2D" uid="uid://bvqyp5qpoulsd" path="res://Assets/Sprite/Bob_phone_16x16.png" id="1_jc6qs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wurkg"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cikrq"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8iok"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqtmc"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn1b4"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ma8p"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwgpm"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n7sc"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0jst"]
+atlas = ExtResource("1_jc6qs")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cq6t2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wurkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cikrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8iok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqtmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn1b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ma8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwgpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n7sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0jst")
+}],
+"loop": true,
+"name": &"checkPhone",
+"speed": 5.0
+}]
+
+[node name="professorR" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cq6t2")
+animation = &"checkPhone"
+frame_progress = 0.00513515

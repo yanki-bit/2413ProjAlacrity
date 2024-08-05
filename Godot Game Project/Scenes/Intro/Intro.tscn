@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://de7gtmmqf0o7d"]
 
-[ext_resource type="Script" path="res://Scenes/Intro/Intro.gd" id="1_5oqbu"]
+[ext_resource type="Script" path="res://Scenes/Intro/IntroScript/Intro.gd" id="1_5oqbu"]
 [ext_resource type="Resource" uid="uid://cgoyrumt5egc" path="res://Dialogue/Intro.dialogue" id="2_kpqhn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mmj1"]
@@ -19,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5oqbu")
 dialogue_resource = ExtResource("2_kpqhn")
+dialogue_start = "Intro"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

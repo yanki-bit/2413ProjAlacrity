@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="StatSheet" load_steps=2 format=3 uid="uid://bbiufgk36mkxv"]
 
-[ext_resource type="Script" path="res://Scenes/Resources/stat_sheet.gd" id="1_6d1q7"]
+[ext_resource type="Script" path="res://Resources/stat_sheet.gd" id="1_6d1q7"]
 
 [resource]
 script = ExtResource("1_6d1q7")
-MAX_HP = 100
-CURR_HP = 100
-ATK = 10
-DEF = 4
-SPD = 5
-LCK = 2
+MAX_HP = 75
+CURR_HP = 75
+MIN_ATK = 6
+MAX_ATK = 9
+DEF = 2
+SPD = 1
+LCK = 1
 ENERGY = 0
+learned_abilities = ["ATTACK", "DEFEND", "BITE", "DRAIN"]

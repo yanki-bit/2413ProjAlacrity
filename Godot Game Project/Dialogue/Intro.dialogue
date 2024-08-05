@@ -1,6 +1,19 @@
 ~ Intro
-Day 0 - ???
+Day {{PlayerInfo.day}} - ???
 ...
 ... Who am I again?
 do dialogue_done()
+=> END
+
+~ Load
+Day {{day}} - ???
+=> END
+
+~ Name
+Right, I'm {{PlayerInfo.player_name}}
+
+{{PlayerInfo.player_name}}: What time is it?
+{{PlayerInfo.player_name}}: ...
+{{PlayerInfo.player_name}}: I can't help but feel like there's something I should be doing...
+do next_scene()
 => END

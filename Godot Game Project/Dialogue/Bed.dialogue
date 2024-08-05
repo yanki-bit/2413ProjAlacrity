@@ -1,0 +1,13 @@
+~ Bed
+Your most prized possession. What do you want to do?
+- Sleep
+	do SaveManager.singleSave() #connected to the Save Manager global autoloadfile
+	You decide to sleep. 
+- Save
+	Now saving the game...
+	do SaveManager.singleSave()
+	Saved!
+- Quit
+	do get_tree().quit()
+do DialogueFunctions.start_player_physics()
+=> END

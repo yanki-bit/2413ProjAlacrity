@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ceqyh5kgdtkew"]
 
-[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Player Menu/Menu_Theme.tres" id="1_pis0b"]
-[ext_resource type="Texture2D" uid="uid://ci75magepw08p" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_02.png" id="2_c35rv"]
-[ext_resource type="PackedScene" uid="uid://c2od76bl8chdw" path="res://Characters/PlayerItems/item_list.tscn" id="3_5vf6v"]
+[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="1_pis0b"]
+[ext_resource type="Script" path="res://Menu/Player Menu/PlayerMenuScripts/inventory_equipment.gd" id="1_r5kl7"]
+[ext_resource type="Texture2D" uid="uid://drjc6csjikfqp" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_01.png" id="3_ooqn2"]
 
 [sub_resource type="SystemFont" id="SystemFont_yo4cx"]
 font_names = PackedStringArray("Monospace")
@@ -25,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r5kl7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -51,6 +52,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_yo4cx")
 theme_override_font_sizes/font_size = 18
+toggle_mode = true
+button_pressed = true
 text = "Weapon"
 
 [node name="Armor_btn" type="Button" parent="VBoxContainer/Equipment_Options"]
@@ -63,6 +66,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_yo4cx")
 theme_override_font_sizes/font_size = 18
+toggle_mode = true
 text = "Armor"
 
 [node name="Accessory_btn" type="Button" parent="VBoxContainer/Equipment_Options"]
@@ -75,6 +79,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_yo4cx")
 theme_override_font_sizes/font_size = 18
+toggle_mode = true
 text = "Accessories
 "
 
@@ -129,7 +134,7 @@ shortcut_keys_enabled = false
 [node name="Inventory_Items_Container" type="NinePatchRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_c35rv")
+texture = ExtResource("3_ooqn2")
 patch_margin_left = 3
 patch_margin_top = 1
 patch_margin_right = 3
@@ -142,40 +147,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
-layout_mode = 2
-
-[node name="Weapon_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+[node name="Weapon_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/Weapon_List_Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/Weapon_List_Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 14
+theme_override_constants/separation = 40
 
-[node name="Weapon_Item_List" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/Weapon_List_Container/VBoxContainer" instance=ExtResource("3_5vf6v")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-
-[node name="Armor_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+[node name="Armor_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/Armor_List_Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/Armor_List_Container"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 45
 
-[node name="Accessory_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer"]
+[node name="Accessory_List_Container" type="ScrollContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/VBoxContainer/Accessory_List_Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Inventory_Items_Container/MarginContainer/Accessory_List_Container"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+
+[connection signal="toggled" from="VBoxContainer/Equipment_Options/Weapon_btn" to="." method="_handle_button_toggled" binds= ["weapon"]]
+[connection signal="toggled" from="VBoxContainer/Equipment_Options/Armor_btn" to="." method="_handle_button_toggled" binds= ["armor"]]
+[connection signal="toggled" from="VBoxContainer/Equipment_Options/Accessory_btn" to="." method="_handle_button_toggled" binds= ["accessory"]]

@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="StatSheet" load_steps=2 format=3 uid="uid://dseco147o00b4"]
 
-[ext_resource type="Script" path="res://Scenes/Resources/stat_sheet.gd" id="1_8dn3k"]
+[ext_resource type="Script" path="res://Resources/stat_sheet.gd" id="1_8dn3k"]
 
 [resource]
 script = ExtResource("1_8dn3k")
 MAX_HP = 100
-CURR_HP = 100
-ATK = 57
+CURR_HP = 61
+MIN_ATK = 5
+MAX_ATK = 8
 DEF = 5
 SPD = 3
 LCK = 1
-ENERGY = 1
+ENERGY = 0
+learned_abilities = ["WRITE", "THINK", "TAKE A BREAK", "RESEARCH", "PROOFREAD"]

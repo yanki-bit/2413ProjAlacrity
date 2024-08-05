@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://enetts40s678"]
+
+[ext_resource type="Texture2D" uid="uid://dcajdpeumiinu" path="res://Assets/Portraits/YouFace.png" id="1_he22d"]
+[ext_resource type="Texture2D" uid="uid://b3lwsvo1labuk" path="res://Assets/Portraits/winceMC.png" id="2_fiwhj"]
+[ext_resource type="Script" path="res://Game/player_sprite.gd" id="2_ir3h1"]
+
+[sub_resource type="Animation" id="Animation_x2v26"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_he22d")]
+}
+
+[sub_resource type="Animation" id="Animation_3ammn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_he22d")]
+}
+
+[sub_resource type="Animation" id="Animation_u4fxv"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fiwhj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4j4j"]
+_data = {
+"RESET": SubResource("Animation_3ammn"),
+"default": SubResource("Animation_x2v26"),
+"hit": SubResource("Animation_u4fxv")
+}
+
+[node name="PlayerSprite" type="Sprite2D"]
+position = Vector2(0, 5)
+texture = ExtResource("1_he22d")
+script = ExtResource("2_ir3h1")
+
+[node name="PlayerSpriteAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s4j4j")
+}

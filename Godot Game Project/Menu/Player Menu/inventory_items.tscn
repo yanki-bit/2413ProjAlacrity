@@ -8,6 +8,7 @@
 [sub_resource type="SystemFont" id="SystemFont_oljog"]
 font_names = PackedStringArray("Monospace")
 font_weight = 600
+subpixel_positioning = 0
 multichannel_signed_distance_field = true
 
 [node name="Inventory_Items" type="Control"]

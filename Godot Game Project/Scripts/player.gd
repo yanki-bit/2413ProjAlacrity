@@ -35,6 +35,21 @@ func _ready():
 	update_animation_parameter(start_dir) 
 	#verify_save_directory(save_file_path)
 
+#load and save
+func load_data():
+	print("Calling JSON load function") #calls the function from PlayerInfo
+	PlayerInfo.loadplayer_info()
+	print("Loaded the latest saved data!")
+func save():
+	print("Calling the JSON player save function") #calls the function from PlayerInfo
+	PlayerInfo.saveplayer_info()
+	print("The game data was saved to the JSON file!")
+	# note current code always overwrites the current save file :/
+
+#func on_start_load():
+	#PlayerInfo.loadplayer_info()
+
+
 func _physics_process(_delta):
 	#get input direction
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -77,6 +92,23 @@ func verify_save_directory(path: String):
 	#PlayerInfo.day = playerData.day
 	#PlayerInfo.name = playerData.name
 	
+	
+	## COMMENTING THIS FOR HIDE ##
+	#save and load further debugging
+	if Input.is_action_just_pressed("save"):
+		print("Calling Save Manager single save > player save")
+		SaveManager.singleSave()
+		
+		print("Calling the JSON player save function")
+		PlayerInfo.saveplayer_info()
+		
+	if Input.is_action_just_pressed("load"):
+		print("Calling Save Manager single save > player save")
+		SaveManager.load_data()
+		
+		print("Calling JSON load function")
+		PlayerInfo.loadplayer_info()
+		
 	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):

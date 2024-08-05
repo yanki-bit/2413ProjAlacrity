@@ -20,40 +20,24 @@ var statmods = Array() # create an array to store combat stat buffs and debuffs
 var defmods = Array() # create an array to store combat on defend buffs and debuffs
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
-@onready var manage_data = "res://Resources/Autoloads/SaveManager.gd"
-var save_file_path = "res://Scripts/save/"
-var save_file_name = "DemoPlayerSave.tres"
-var playerData = PlayerData.new() #you can now access variables from this script
-#above is linked to file in Resources > Save2 > PlayerData
-var playerInfo = player_Info
 
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
 	update_animation_parameter(start_dir) 
-	verify_save_directory(save_file_path)
-
-func verify_save_directory(path: String):
-	DirAccess.make_dir_absolute(path)
 
 #load and save
 func load_data():
-
-	print("Calling JSON load function")
+	print("Calling JSON load function") #calls the function from PlayerInfo
 	PlayerInfo.loadplayer_info()
 	print("Loaded the latest saved data!")
 func save():
-	print("Calling the JSON player save function")
+	print("Calling the JSON player save function") #calls the function from PlayerInfo
 	PlayerInfo.saveplayer_info()
 	print("The game data was saved to the JSON file!")
 	# note current code always overwrites the current save file :/
-	####
-	
 
-func on_start_load():
-	self.position = playerData.SavePos
-	playerData.state # check if states update
-	print(playerData.state)
-	PlayerInfo.loadplayer_info()
+#func on_start_load():
+	#PlayerInfo.loadplayer_info()
 
 
 func _physics_process(_delta):
@@ -78,7 +62,6 @@ func _process(_delta):
 	## COMMENTING THIS FOR HIDE ##
 	#save and load further debugging
 	if Input.is_action_just_pressed("save"):
-		#save()
 		print("Calling Save Manager single save > player save")
 		SaveManager.singleSave()
 		
@@ -86,7 +69,6 @@ func _process(_delta):
 		PlayerInfo.saveplayer_info()
 		
 	if Input.is_action_just_pressed("load"):
-		#load_data()
 		print("Calling Save Manager single save > player save")
 		SaveManager.load_data()
 		

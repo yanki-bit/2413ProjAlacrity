@@ -36,6 +36,7 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if "Player" in body.name && self.visible == true:
+		Boss.stream = preload("res://Assets/Music/Colorful-Flowers(chosic.com).mp3")
 		emit_signal("contact")
 		# slight pause to allow player idle animation to begin
 		await get_tree().create_timer(.1).timeout

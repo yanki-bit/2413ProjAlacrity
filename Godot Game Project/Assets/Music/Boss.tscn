@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1ry82m3i5q5e"]
+
+[ext_resource type="AudioStream" uid="uid://126hs6wbj4x8" path="res://Assets/Music/Accept-The-Challenge-chosic.com_.mp3" id="1_m8ebi"]
+
+[node name="Boss" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_m8ebi")
+bus = &"BGM"

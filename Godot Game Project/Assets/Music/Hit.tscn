@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bky51ra8x6qw1"]
+
+[ext_resource type="AudioStream" uid="uid://ct46p7n80romk" path="res://Assets/Music/strong-hit-36455.mp3" id="1_asb84"]
+
+[node name="Hit" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_asb84")
+pitch_scale = 0.5

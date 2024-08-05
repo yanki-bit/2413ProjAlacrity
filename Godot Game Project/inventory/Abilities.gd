@@ -92,6 +92,7 @@ var ABILITIES = {
 
 		#functions
 		"use": func (attacker, defender):
+			Hit.play()
 			return attack(attacker, defender, ABILITIES.WRITE.energy_cost, ABILITIES.WRITE.ability_power),
 	},
 	
@@ -108,6 +109,7 @@ var ABILITIES = {
 
 		#functions
 		"use": func (attacker, defender):
+			Hit.play()
 			return attack(attacker, defender, ABILITIES.ATTACK.energy_cost, ABILITIES.ATTACK.ability_power),
 	},
 	

@@ -34,6 +34,7 @@ func update_combat_numbers():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Boss.play()
 	# setup button handling
 	handle_signal()
 	# Load an instance of player into situation 
@@ -86,6 +87,7 @@ func hide_message():
 #####################################################
 
 func _process(_delta):
+	
 	# Ensure that battle state is waiting for player input
 	if current_state == BATTLE_STATES.WAIT:
 		if Input.is_action_pressed("pause"):
@@ -94,6 +96,7 @@ func _process(_delta):
 	if current_state == BATTLE_STATES.WIN:
 		if Input.is_action_pressed("ui_select"):
 			# unpause game 
+			Boss.stop()
 			get_tree().paused = false
 			get_parent().unpause_player_movement()
 			queue_free()
@@ -149,6 +152,7 @@ func on_escape_pressed():
 	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
 		# Unpause Game
+		Boss.stop()
 		get_tree().paused = false
 		get_parent().unpause_player_movement()
 		# Delete Battle Scene

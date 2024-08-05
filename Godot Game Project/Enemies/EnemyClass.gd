@@ -64,6 +64,7 @@ func initalize_combat():
 	
 	# pause game
 	get_tree().paused = true
+	
 
 	# Create instance of Battle Scene and add enemies to it
 	var fight = battle_scene.instantiate()
@@ -74,7 +75,7 @@ func initalize_combat():
 	# Adds enemies to the fight !!! 0 FOR TESTING ONLY SHOULD BE numberOfMinions
 	fight.add_enemies(this_scene, minion, 0)	
 	
-	
+
 	
 	#free queue to prevent continuous battles spawning
 	queue_free()

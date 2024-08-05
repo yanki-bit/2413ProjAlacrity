@@ -25,10 +25,12 @@ signal update_ui
 #signal to the current day, name and position debugger text
 #unhide the Text control node to see the debugging
 
+@onready var manage_data = "res://Resources/Autoloads/SaveManager.gd"
 var save_file_path = "res://Scripts/save/"
 var save_file_name = "DemoPlayerSave.tres"
 var playerData = PlayerData.new() #you can now access variables from this script
 #above is linked to file in Resources > Save2 > PlayerData
+var playerInfo = player_Info
 
 func _ready():
 	anim_tree.set("parameters/Idle/blend_position",start_dir)
@@ -40,18 +42,26 @@ func verify_save_directory(path: String):
 
 #load and save
 func load_data():
-	playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	on_start_load()
+	#playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
+	#on_start_load()
+	print("Calling JSON load function")
+	PlayerInfo.loadplayer_info()
 	print("Loaded the latest saved data!")
 func save():
-	playerData.day += 1; #add a day when saving
-	ResourceSaver.save(playerData, save_file_path + save_file_name)
-	print("Saved the game!")
-	print(playerData)
+	#ResourceSaver.save(playerData, save_file_path + save_file_name)
+	#print("Saved the game!")
+	#print(playerData)
+	print("Calling the JSON player save function")
+	PlayerInfo.saveplayer_info()
 	# note current code always overwrites the current save file :/
+	####
+	
 
 func on_start_load():
 	self.position = playerData.SavePos
+	playerData.state # check if states update
+	print(playerData.state)
+	PlayerInfo.loadplayer_info()
 
 
 func _physics_process(_delta):
@@ -79,12 +89,21 @@ func _process(_delta):
 		#save()
 		print("Calling Save Manager single save > player save")
 		SaveManager.singleSave()
+		
+		print("Calling the JSON player save function")
+		PlayerInfo.saveplayer_info()
+		
 	if Input.is_action_just_pressed("load"):
 		#load_data()
 		print("Calling Save Manager single save > player save")
 		SaveManager.load_data()
+		
+		print("Calling JSON load function")
+		PlayerInfo.loadplayer_info()
+		
 		emit_signal("update_ui", playerData.name, playerData.day, self.position)
 	playerData.UpdatePos(self.position) #updates player position
+	playerData.UpdateState() #should always get updated player states
 	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):

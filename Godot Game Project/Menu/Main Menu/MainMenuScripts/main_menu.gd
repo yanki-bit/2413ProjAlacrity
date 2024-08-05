@@ -54,7 +54,7 @@ func handle_connect_signal()->void:
 
 ## connected to the load button via node signal
 func _on_load_pressed():
-	SaveManager.load_data()
-	PlayerInfo.state["Bedroom"] = true #so it doesn't play intro dialogue
+	SaveManager.load_player_data()
+	#PlayerInfo.state["Bedroom"] = true #so it doesn't play intro dialogue
 	get_tree().change_scene_to_packed(load_scene)
 	

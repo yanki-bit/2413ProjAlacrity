@@ -15,10 +15,9 @@ var playerData = PlayerData.new() #you can now access variables from this script
 func _ready():
 	SettingsSignalBus.set_settings_dictionary.connect(on_settings_save)
 	load_settings_data()
-	
 	#checks file path
 	verify_save_directory(save_file_path)
-
+	load_player_data() #should load current game state and stats
 
 #saves the settings data
 func on_settings_save(data : Dictionary) -> void:
@@ -43,25 +42,50 @@ func load_settings_data() -> void:
 	load_data = {}
 
 
-## single save var
-#@export var player = preload("res://Scripts/player.gd").new()
-
 ## SINGLE SAVE FUNCTIONS
 func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
 
+var player = preload("res://Scripts/player.gd").new()
+
 #load and save
-func load_data():
-	#playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	print("Calling the function from player script for saving...")
-	var player = preload("res://Scripts/player.gd").new()
+func load_player_data():
 	player.load_data()
+	#load_settings_data() #calls the load settings data
 	print("Successfully called the load data function")
+	print(PlayerInfo)
+	print(PlayerData)
+	
 func singleSave():
-	#playerData.day += 1; #add a day when saving
-	#ResourceSaver.save(playerData, save_file_path + save_file_name)
-	var player = preload("res://Scripts/player.gd").new()
+	#var player = preload("res://Scripts/player.gd").new()
+	PlayerInfo.add_game_day() #adds to day 1
+	print("Calling the function from player script for saving...")
 	player.save()
 	print("Saved the game!")
 	print(playerData)
+	#
+	### GG
+	#var state: Dictionary = {
+	#"Bedroom": PlayerInfo.state["Bedroom"],
+	#"Classroom": 
+		#PlayerInfo.state["Classroom"],
+	#"Library":
+		#PlayerInfo.state["Library"],
+	#"Hallway":
+		#PlayerInfo.state["Hallway"]
+	#}
+	#
+	##references the state Dictionary
+	#var player_json := JSON.stringify(state)
+	#
+	#var playerfile_access := FileAccess.open(save_file_path, FileAccess.WRITE)
+	#if not playerfile_access:
+		#print("Whoops! An error happened while saving data: ", FileAccess.get_open_error() )
+		#return
+	#
+	#playerfile_access.store_line(player_json)
+	#playerfile_access.close()
+	#
+	
 	# note current code always overwrites the current save file :/
+	

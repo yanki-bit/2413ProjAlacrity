@@ -42,8 +42,7 @@ func saveplayer_info() -> void:
 	"day":
 		PlayerInfo.day,
 	"bgm":
-		testPlayer
-		#connect music from bedroom
+		Bgm
 	}
 	
 	name = PlayerInfo.player_name
@@ -65,6 +64,7 @@ func saveplayer_info() -> void:
 func loadplayer_info() -> void:
 	##JSON LOAD
 	if not FileAccess.file_exists(playersave_path):
+		print("File currently doesn't exist...")
 		return
 	var file_access := FileAccess.open(playersave_path, FileAccess.READ)
 	var json_string := file_access.get_line()
@@ -83,12 +83,31 @@ func loadplayer_info() -> void:
 	state["Hallway"] = data.get("Hallway", " ")
 	player_name = data.get("player_name")
 	day = data.get("day")
+	#Bgm = data.get("bgm") # cannot assign value to constant error
 	
-	#var name: String = json.name
-	#PlayerInfo.player_name = json.name
+	if data == {}:
+		print("The save state is empty, using defaults")
+		default_player_settings()
 	
-	#var day: int = json.day
-	#PlayerInfo.day = json.day
+	
+	#trying to load music, let's see if it works...
+	#did not fmlllll
+	#if Bgm.playing == false:
+	#	Bgm.play()
+	Bgm.autoplay
+
+func default_player_settings():
+	state = {
+		"Bedroom": false,
+		"Classroom": false,
+		"Library": false,
+		"Hallway": false
+	}
+	
+	player_name = "Justin"
+	day = 0
+	
+	Bgm.play()
 	
 
 

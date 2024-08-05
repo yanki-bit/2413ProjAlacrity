@@ -697,8 +697,8 @@ offset_top = 23.3333
 offset_right = -145.0
 offset_bottom = 23.3333
 
-[connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
 [connection signal="contact" from="BedroomDoor" to="." method="_on_bedroom_door_contact"]
+[connection signal="contact" from="BedroomDoor" to="." method="_on_contact"]
 [connection signal="interacted" from="PhoneObject/Sprite2D/Actionable" to="." method="_on_actionable_interacted"]
 
 [editable path="BedroomDoor"]

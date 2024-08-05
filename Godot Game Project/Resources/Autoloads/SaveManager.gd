@@ -51,7 +51,7 @@ var player = preload("res://Scripts/player.gd").new()
 #load and save
 func load_player_data():
 	player.load_data()
-	#load_settings_data() #calls the load settings data
+	load_settings_data() 
 	print("Successfully called the load data function")
 	print(PlayerInfo)
 	print(PlayerData)
@@ -63,29 +63,5 @@ func singleSave():
 	player.save()
 	print("Saved the game!")
 	print(playerData)
-	#
-	### GG
-	#var state: Dictionary = {
-	#"Bedroom": PlayerInfo.state["Bedroom"],
-	#"Classroom": 
-		#PlayerInfo.state["Classroom"],
-	#"Library":
-		#PlayerInfo.state["Library"],
-	#"Hallway":
-		#PlayerInfo.state["Hallway"]
-	#}
-	#
-	##references the state Dictionary
-	#var player_json := JSON.stringify(state)
-	#
-	#var playerfile_access := FileAccess.open(save_file_path, FileAccess.WRITE)
-	#if not playerfile_access:
-		#print("Whoops! An error happened while saving data: ", FileAccess.get_open_error() )
-		#return
-	#
-	#playerfile_access.store_line(player_json)
-	#playerfile_access.close()
-	#
-	
-	# note current code always overwrites the current save file :/
+
 	

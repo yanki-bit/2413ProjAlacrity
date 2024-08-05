@@ -20,11 +20,6 @@ var statmods = Array() # create an array to store combat stat buffs and debuffs
 var defmods = Array() # create an array to store combat on defend buffs and debuffs
 var atkmods = Array() # create an array to store combat attack buffs and debuffs
 
-#for save file
-signal update_ui 
-#signal to the current day, name and position debugger text
-#unhide the Text control node to see the debugging
-
 @onready var manage_data = "res://Resources/Autoloads/SaveManager.gd"
 var save_file_path = "res://Scripts/save/"
 var save_file_name = "DemoPlayerSave.tres"
@@ -101,9 +96,6 @@ func _process(_delta):
 		print("Calling JSON load function")
 		PlayerInfo.loadplayer_info()
 		
-		emit_signal("update_ui", playerData.name, playerData.day, self.position)
-	playerData.UpdatePos(self.position) #updates player position
-	playerData.UpdateState() #should always get updated player states
 	
 #Function to update the direction the character faces when input is pressed
 func update_animation_parameter(move_input : Vector2):

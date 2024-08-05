@@ -94,7 +94,7 @@ func loadplayer_info() -> void:
 	#did not fmlllll
 	#if Bgm.playing == false:
 	#	Bgm.play()
-	Bgm.autoplay
+	Bgm.play()
 
 func default_player_settings():
 	state = {

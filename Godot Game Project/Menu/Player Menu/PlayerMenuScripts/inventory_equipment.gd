@@ -22,7 +22,6 @@ enum MENU_STATES {
 
 var current_state # store what items are currently being shown
 func _ready():
-	populate_inventory(Items.databaseItems)
 	_handle_button_toggled(true,"weapon")
 	
 func hover_disconnect():
@@ -42,6 +41,18 @@ func clicked(text):
 	match current_state:
 		MENU_STATES.WEAPON:
 			for child in weapon_container.get_node("VBoxContainer").get_children():
+				if child.button.text == text:
+					child.label.text = "Equipped"
+				else:
+					child.label.text = " "
+		MENU_STATES.ACCESSORY:
+			for child in acc_container.get_node("VBoxContainer").get_children():
+				if child.button.text == text:
+					child.label.text = "Equipped"
+				else:
+					child.label.text = " "
+		MENU_STATES.ARMOR:
+			for child in armor_container.get_node("VBoxContainer").get_children():
 				if child.button.text == text:
 					child.label.text = "Equipped"
 				else:
@@ -127,24 +138,7 @@ func _handle_button_toggled(toggledOn: bool, button: String):
 		remove_all_children(armor_container.get_node("VBoxContainer"))
 		remove_all_children(acc_container.get_node("VBoxContainer"))
 		current_state = MENU_STATES.NOTHING
-#loads item.json
-#func load_items():
-	#var file = FileAccess.open("res://Inventory/Items.json", FileAccess.READ)
-	#if file:
-		#var json_text = file.get_as_text()
-		#file.close()
-		#
-		#var json = JSON.new()
-		#var parse_result = json.parse(json_text)
-		#
-		#if parse_result == OK:
-			#items_data = json.get_data()
-			#populate_inventory(items_data)
-		#else:
-			#print("Failed to parse JSON", json.get_error_message())
-	#else:
-		#print("Failed to open file")
-		
+
 func populate_inventory(item_data):
 	var container
 	if weapon_btn.button_pressed == true:

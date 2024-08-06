@@ -11,12 +11,12 @@ var databaseItems = {
 			"Max_Atk": 7,
 			},
 		"equip" : func (player):
-			player.set_MIN_ATK(player.get_MIN_ATK() + 4)
-			player.set_MAX_ATK(player.get_MAX_ATK() + 7),
+			player.set_MIN_ATK(player.get_MIN_ATK() + databaseItems.I_101.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() + databaseItems.I_101.Stat.Max_Atk),
 			
 		"unequip" : func (player):
-			player.set_MIN_ATK(player.get_MIN_ATK() - 4)
-			player.set_MAX_ATK(player.get_MAX_ATK() - 7),
+			player.set_MIN_ATK(player.get_MIN_ATK() - databaseItems.I_101.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() - databaseItems.I_101.Stat.Max_Atk),
 		},
 		
 	"I_102" : {
@@ -29,12 +29,12 @@ var databaseItems = {
 			"Max_Atk": 8,
 			},
 		"equip" : func (player):
-			player.set_MIN_ATK(player.get_MIN_ATK() + 5)
-			player.set_MAX_ATK(player.get_MAX_ATK() + 8),
+			player.set_MIN_ATK(player.get_MIN_ATK() + databaseItems.I_102.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() + databaseItems.I_102.Stat.Max_Atk),
 			
 		"unequip" : func (player):
-			player.set_MIN_ATK(player.get_MIN_ATK() - 5)
-			player.set_MAX_ATK(player.get_MAX_ATK() - 8),
+			player.set_MIN_ATK(player.get_MIN_ATK() - databaseItems.I_102.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() - databaseItems.I_102.Stat.Max_Atk),
 	},
 	"I_103" : {
 		"Item" : "Highlighter",
@@ -44,7 +44,14 @@ var databaseItems = {
 		"Stat": {
 			"Min_Atk": 6,
 			"Max_Atk": 9,
-			}
+			},
+		"equip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() + databaseItems.I_103.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() + databaseItems.I_103.Stat.Max_Atk),
+			
+		"unequip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() - databaseItems.I_103.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() - databaseItems.I_103.Stat.Max_Atk),
 	},
 	"I_104" : {
 		"Item" : "Mechanical Pencil",
@@ -54,7 +61,14 @@ var databaseItems = {
 		"Stat": {
 			"Min_Atk": 7,
 			"Max_Atk": 10,
-			}
+			},
+		"equip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() + databaseItems.I_104.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() + databaseItems.I_104.Stat.Max_Atk),
+			
+		"unequip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() - databaseItems.I_104.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() - databaseItems.I_104.Stat.Max_Atk),
 	},
 	"I_105" : {
 		"Item" : "Fountain Pen",
@@ -64,7 +78,14 @@ var databaseItems = {
 		"Stat": {
 			"Min_Atk": 8,
 			"Max_Atk": 11,
-			}
+			},
+		"equip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() + databaseItems.I_105.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() + databaseItems.I_105.Stat.Max_Atk),
+			
+		"unequip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() - databaseItems.I_105.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() - databaseItems.I_105.Stat.Max_Atk),
 	},
 	"I_201" : {
 		"Item" : "Water Bottle",
@@ -109,7 +130,12 @@ var databaseItems = {
 		"Price" : "$1",
 		"Stat": {
 			"Spd": 1
-			}
+			},
+		"equip" : func (player):
+			player.set_SPD(player.get_SPD() + databaseItems.I_301.Stat.Spd),
+			
+		"unequip" : func (player):
+			player.set_SPD(player.get_SPD() - databaseItems.I_301.Stat.Spd),
 	},
 	"I_302" : {
 		"Item" : "Sunglasses",
@@ -117,8 +143,13 @@ var databaseItems = {
 		"Description": "Protects your eyes from the sun, doesn't look worn indoors",
 		"Price" : "$1",
 		"Stat": {
-			"Spd": 2
-			}
+			"Def": 1
+			},
+		"equip" : func (player):
+			player.set_DEF(player.get_DEF() + databaseItems.I_302.Stat.Def),
+			
+		"unequip" : func (player):
+			player.set_DEF(player.get_DEF() - databaseItems.I_302.Stat.Def),
 	},
 	"I_303" : {
 		"Item" : "Calculator watch",
@@ -126,17 +157,32 @@ var databaseItems = {
 		"Description": "A wearable reminder that you're running late. Also does math",
 		"Price" : "$1",
 		"Stat": {
-			"Spd": 3
-			}
+			"Min_Atk": 1,
+			"Max_Atk": 1
+			},
+		"equip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() + databaseItems.I_303.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() + databaseItems.I_303.Stat.Max_Atk),
+			
+		"unequip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() - databaseItems.I_303.Stat.Min_Atk)
+			player.set_MAX_ATK(player.get_MAX_ATK() - databaseItems.I_303.Stat.Max_Atk),
 	},
+
 	"I_304" : {
 		"Item" : "Dice",
 		"Type" : "Accessory",
 		"Description": "A four sided dice, useful for multiple choice questions during exams",
 		"Price" : "$1",
 		"Stat": {
-			"Spd": 4
-			}
+			"Lck": 4
+			},
+		"equip" : func (player):
+			player.set_LCK(player.get_LCK() + databaseItems.I_304.Stat.Lck),
+			
+		"unequip" : func (player):
+			player.set_LCK(player.get_LCK() - databaseItems.I_304.Stat.Lck),
+		
 	},
 	"I_401" : {
 		"Item" : "Hoodie",
@@ -145,7 +191,12 @@ var databaseItems = {
 		"Price" : "$1",
 		"Stat": {
 			"Def": 1
-			}
+			},
+		"equip" : func (player):
+			player.set_DEF(player.get_DEF() + databaseItems.I_401.Stat.Def),
+			
+		"unequip" : func (player):
+			player.set_DEF(player.get_DEF() - databaseItems.I_401.Stat.Def),
 	},
 	"I_402" : {
 		"Item" : "Button Down Shirt",
@@ -154,7 +205,12 @@ var databaseItems = {
 		"Price" : "$1",
 		"Stat": {
 			"Def": 2
-			}
+			},
+		"equip" : func (player):
+			player.set_DEF(player.get_DEF() + databaseItems.I_402.Stat.Def),
+			
+		"unequip" : func (player):
+			player.set_DEF(player.get_DEF() - databaseItems.I_402.Stat.Def),
 	},
 	"I_403" : {
 		"Item" : "Denim Jacket",
@@ -163,6 +219,11 @@ var databaseItems = {
 		"Price" : "$1",
 		"Stat": {
 			"Def": 3
-			}
+			},
+		"equip" : func (player):
+			player.set_DEF(player.get_DEF() + databaseItems.I_403.Stat.Def),
+			
+		"unequip" : func (player):
+			player.set_DEF(player.get_DEF() - databaseItems.I_403.Stat.Def),
 	},
 }

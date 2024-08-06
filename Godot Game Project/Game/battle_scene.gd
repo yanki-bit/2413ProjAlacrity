@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 var enemies = [] # variables to store enemies in combat.
+var combat_type # store if battle is a regular fight or a boss fight
+enum EnemyType { Minion, Mini_Boss, Boss }
 var player # store player unit
 var round_count = 0 # store how many rounds of combat have happened
 var turn_count = 0 # store number of turns occured so far in fight 
@@ -35,7 +37,7 @@ func update_combat_numbers():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%NameTag.text = PlayerInfo.player_name
-	Boss.play()
+	BattleMusic.play()
 	# setup button handling
 	handle_signal()
 	# Load an instance of player into situation 
@@ -97,7 +99,7 @@ func _process(_delta):
 	if current_state == BATTLE_STATES.WIN:
 		if Input.is_action_pressed("ui_select"):
 			# unpause game 
-			Boss.stop()
+			BattleMusic.stop()
 			get_tree().paused = false
 			get_parent().unpause_player_movement()
 			queue_free()
@@ -152,12 +154,17 @@ func _on_attack_pressed():
 func on_escape_pressed():
 	# Ensure that player input is expected
 	if current_state == BATTLE_STATES.WAIT:
-		# Unpause Game
-		Boss.stop()
-		get_tree().paused = false
-		get_parent().unpause_player_movement()
-		# Delete Battle Scene
-		queue_free()
+		if combat_type != EnemyType.Boss:
+			# Unpause Game
+			BattleMusic.stop()
+			get_tree().paused = false
+			get_parent().unpause_player_movement()
+			# Delete Battle Scene
+			queue_free()
+		else:
+			show_message("You can't run away from the Boss!")
+			await get_tree().create_timer(2).timeout
+			hide_message()
 
 
 #####################################################
@@ -364,6 +371,7 @@ func add_enemies( mainEnemy, minion, numberOfMinions ):
 	# create instance of main enemy as enemies[0] and initalize stats
 	enemies.insert(0,load(mainEnemy).instantiate())
 	enemies[0].initialize_stats_in_combat()
+	combat_type = enemies[0].type
 
 	# place main enemy into container
 	$BattleSceneContainer/EnemiesContainer/MiddleEnemyContainer/MiddleEnemy/MiddleEnemyControl.add_child(enemies[0])

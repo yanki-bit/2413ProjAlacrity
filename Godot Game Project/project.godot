@@ -28,7 +28,7 @@ Bgm="*res://Assets/Music/BGM.tscn"
 PhoneRing="*res://Assets/Music/PhoneRing.tscn"
 Abilities="*res://inventory/Abilities.gd"
 Items="*res://Inventory/items.gd"
-Boss="*res://Assets/Music/Boss.tscn"
+BattleMusic="*res://Assets/Music/BattleMusic.tscn"
 Hit="*res://Assets/Music/Hit.tscn"
 
 [dialogue_manager]

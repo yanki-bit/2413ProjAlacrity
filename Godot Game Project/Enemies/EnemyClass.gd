@@ -73,7 +73,7 @@ func initalize_combat():
 	get_parent().add_child(fight)
 	
 	# Adds enemies to the fight !!! 0 FOR TESTING ONLY SHOULD BE numberOfMinions
-	fight.add_enemies(this_scene, minion, 0)	
+	fight.add_enemies(this_scene, minion, 0)
 	
 
 	

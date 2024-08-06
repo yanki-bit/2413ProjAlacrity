@@ -45,7 +45,7 @@ func _process(_delta):
 # Initialize combat on encounter with unit
 func _on_body_entered(body):
 	if "Player" in body.name && self.visible == true:
-		Boss.stream = preload("res://Assets/Music/Accept-The-Challenge-chosic.com_.mp3")
+		BattleMusic.stream = preload("res://Assets/Music/Accept-The-Challenge-chosic.com_.mp3")
 		PlayerInfo.state["Library"] = true
 		$"../LibraryDoor".monitoring = false
 		emit_signal("contact")

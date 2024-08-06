@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ceqyh5kgdtkew"]
 
-[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="1_pis0b"]
+[ext_resource type="Theme" uid="uid://djy03p6o81xtd" path="res://Menu/Menu_Theme.tres" id="1_pis0b"]
 [ext_resource type="Script" path="res://Menu/Player Menu/PlayerMenuScripts/inventory_equipment.gd" id="1_r5kl7"]
 [ext_resource type="Texture2D" uid="uid://drjc6csjikfqp" path="res://Assets/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Textfield_01.png" id="3_ooqn2"]
 

@@ -29340,7 +29340,7 @@ position = Vector2(54.6667, -412.667)
 
 [node name="Player" parent="." instance=ExtResource("4_snv7g")]
 z_index = 1
-position = Vector2(1, -121)
+position = Vector2(-0.666667, -128)
 
 [node name="Librarian" parent="." instance=ExtResource("5_phoc2")]
 position = Vector2(-52, -234)

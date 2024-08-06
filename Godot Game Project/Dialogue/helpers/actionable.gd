@@ -8,8 +8,6 @@ func action() -> void:
 	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 	emit_signal("interacted")
 	
-
-
 func _on_body_entered(body):
 	if "Player" in body.name:
 		emit_signal("contact")

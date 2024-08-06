@@ -43,5 +43,11 @@ func finish_transition_to_next_scene():
 	player.set_spawn(player_location, player_direction)
 	
 	$"ScreenTransition/AnimationPlayer".play("Fade_To_Screen")
+	
+func transition_to_credits():
+	$CurrentScene.get_child(0).queue_free()
+	var scene = preload("res://Scenes/Intro/End.tscn") as PackedScene
+	get_tree().change_scene_to_packed(scene)
+	
 func transition_to_combat():
 	pass

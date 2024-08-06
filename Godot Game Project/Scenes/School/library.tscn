@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://divcm5lah685s"]
+[gd_scene load_steps=22 format=3 uid="uid://divcm5lah685s"]
 
 [ext_resource type="Texture2D" uid="uid://brwl8mwuw6cd" path="res://Assets/TileMap/Interiors_free_32x32.png" id="1_aekri"]
 [ext_resource type="Script" path="res://Scenes/School/library.gd" id="1_mm3q5"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://d0bpc71ubxn5" path="res://Objects/door.tscn" id="9_qwy1j"]
 [ext_resource type="PackedScene" uid="uid://dapvpk2ptfo8k" path="res://Enemies/CountBook/count_book.tscn" id="10_px56l"]
 [ext_resource type="PackedScene" uid="uid://x0lg22i75uwa" path="res://Enemies/VampBook/vamp_book.tscn" id="11_cdv0q"]
+[ext_resource type="PackedScene" uid="uid://cfoxv0cbd2qx8" path="res://Dialogue/helpers/actionable.tscn" id="12_8c3ke"]
+[ext_resource type="Resource" uid="uid://xjww3l8q4kfq" path="res://Dialogue/Door.dialogue" id="13_uiov4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3ndkc"]
 tile_data = PackedInt32Array(0, 655360, 68, 65536, 655360, 69, 1, 720896, 68, 65537, 720896, 69)
@@ -29293,6 +29295,9 @@ sources/2 = SubResource("TileSetAtlasSource_d2qyu")
 sources/4 = SubResource("TileSetAtlasSource_l3v1p")
 pattern_0 = SubResource("TileMapPattern_3ndkc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qd7"]
+size = Vector2(74.6667, 66)
+
 [node name="Library" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_mm3q5")
@@ -29310,6 +29315,28 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-65539, 65538, 8, -65538, 196610, 9, -65537, 65538, 8, -196604, 655362, 69, -196602, 655362, 69, -196600, 655362, 69, -196598, 655362, 69, -196596, 655362, 69, -196594, 655362, 69, -196603, 720898, 69, -196601, 720898, 69, -196599, 720898, 69, -196597, 720898, 69, -196595, 720898, 69, -196593, 720898, 69, -196606, 655362, 69, -196605, 720898, 69, -524271, 655362, 70, -524270, 720898, 70, -524273, 655362, 70, -524272, 720898, 70, -524275, 655362, 70, -524274, 720898, 70, -524277, 655362, 70, -524276, 720898, 70, -524279, 655362, 70, -524278, 720898, 70, -524281, 655362, 70, -524280, 720898, 70, -524283, 655362, 70, -524282, 720898, 70, -262142, 655362, 68, -262141, 720898, 68, -262140, 655362, 68, -262139, 720898, 68, -262138, 655362, 68, -262137, 720898, 68, -262136, 655362, 68, -262135, 720898, 68, -262134, 655362, 68, -262133, 720898, 68, -262132, 655362, 68, -262131, 720898, 68, -262130, 655362, 68, -262129, 720898, 68, -589819, 655362, 69, -589818, 720898, 69, -589817, 655362, 69, -589816, 720898, 69, -589815, 655362, 69, -589814, 720898, 69, -589813, 655362, 69, -589812, 720898, 69, -589811, 655362, 69, -589810, 720898, 69, -589809, 655362, 69, -589808, 720898, 69, -589807, 655362, 69, -589806, 720898, 69, -786433, 655362, 70, -851967, 655362, 70, -851965, 655362, 70, -851963, 655362, 70, -851961, 655362, 70, -851968, 720898, 70, -851966, 720898, 70, -851964, 720898, 70, -851962, 720898, 70, -851960, 720898, 70, -786435, 458754, 33, -720899, 458754, 34, -786434, 655362, 33, -720898, 655362, 34, -655363, 458754, 33, -589827, 458754, 34, -655362, 655362, 33, -589826, 655362, 34, -524291, 458754, 33, -458755, 458754, 34, -393219, 327682, 31, -524290, 655362, 33, -458754, 655362, 34, -851957, 655362, 70, -851956, 720898, 70, -851955, 655362, 70, -851954, 720898, 70, -851953, 655362, 70, -851952, 720898, 70, -851958, 720898, 46, -851959, 655362, 46, -917505, 655362, 68, -983040, 720898, 68, -983039, 655362, 68, -983038, 720898, 68, -983037, 655362, 68, -983036, 720898, 68, -983035, 655362, 68, -983034, 720898, 68, -983033, 655362, 68, -983032, 720898, 68, -983031, 655362, 44, -983030, 720898, 44, -983029, 655362, 68, -983028, 720898, 68, -983027, 655362, 68, -983026, 720898, 68, -983025, 655362, 68, -983024, 720898, 68, -851969, 655362, 69, -917504, 720898, 69, -917503, 655362, 69, -917502, 720898, 69, -917501, 655362, 69, -917500, 720898, 69, -917499, 655362, 69, -917498, 720898, 69, -917497, 655362, 69, -917496, 720898, 69, -917495, 655362, 45, -917494, 720898, 45, -917493, 655362, 69, -917492, 720898, 69, -917491, 655362, 69, -917490, 720898, 69, -917489, 655362, 69, -917488, 720898, 69, -655355, 655362, 68, -655354, 720898, 68, -655353, 655362, 68, -655352, 720898, 68, -655351, 655362, 68, -655350, 720898, 68, -655349, 655362, 68, -655348, 720898, 68, -655347, 655362, 68, -655346, 720898, 68, -655345, 655362, 68, -655344, 720898, 68, -655343, 655362, 68, -655342, 720898, 68, -131070, 655362, 70, -131069, 720898, 70, -131068, 655362, 70, -131067, 720898, 70, -131066, 655362, 70, -131065, 720898, 70, -131064, 655362, 70, -131063, 720898, 70, -131062, 655362, 70, -131061, 720898, 70, -131060, 655362, 70, -131059, 720898, 70, -131058, 655362, 70, -131057, 720898, 70, -131074, 196610, 8, -131072, 393218, 7, -131071, 131074, 8, -917508, 720900, 1, -983021, 851972, 1, 65555, 851972, 3, 131068, 720900, 3, 65537, 393220, 2, 131070, 327684, 2, 131069, 786436, 3, 65538, 786436, 3, 65539, 786436, 3, 65540, 786436, 3, 65541, 786436, 3, 65542, 786436, 3, 65543, 786436, 3, 65544, 786436, 3, 65545, 786436, 3, 65546, 786436, 3, 65547, 786436, 3, 65548, 786436, 3, 65549, 786436, 3, 65550, 786436, 3, 65551, 786436, 3, 65552, 786436, 3, 65553, 786436, 3, 65554, 786436, 3, 19, 851972, 2, -65517, 851972, 2, -131053, 851972, 2, -196589, 851972, 2, -262125, 851972, 2, -327661, 851972, 2, -393197, 851972, 2, -458733, 851972, 2, -524269, 851972, 2, -589805, 851972, 2, -655341, 851972, 2, -720877, 851972, 2, -786413, 851972, 2, -851949, 851972, 2, -917485, 851972, 2, -851972, 720900, 2, -786436, 720900, 2, -720900, 720900, 2, -655364, 720900, 2, -589828, 720900, 2, -524292, 720900, 2, -458756, 720900, 2, -393220, 720900, 2, -327684, 720900, 2, -262148, 720900, 2, -196612, 720900, 2, -131076, 720900, 2, -65540, 720900, 2, -4, 720900, 2, 65532, 720900, 2, -327683, 4, 5, -327682, 65540, 5, -327681, 65540, 5, -393216, 65540, 5, -262147, 4, 6, -262146, 65540, 6, -262145, 65540, 6, -327680, 65540, 6, -262143, 4, 5, -196607, 4, 6, -393215, 851972, 1, -327679, 524292, 0)
 layer_2/name = "decorations"
 layer_2/tile_data = PackedInt32Array(-262143, 983040, 3, -196607, 983040, 4, -917507, 458752, 24, -851971, 458752, 25, -851970, 524288, 25, -917506, 524288, 24, -983023, 458754, 24, -917487, 458754, 25, -983022, 524290, 24, -917486, 524290, 25)
+
+[node name="CountBook" parent="." instance=ExtResource("10_px56l")]
+position = Vector2(576, -596)
+scale = Vector2(1.4, 1.4)
+
+[node name="vamp_book" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(381.333, -364.667)
+
+[node name="vamp_book2" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(189.333, -358)
+
+[node name="vamp_book5" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(106.667, -508.667)
+
+[node name="vamp_book6" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(370, -512.667)
+
+[node name="vamp_book4" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(232, -510.667)
+
+[node name="vamp_book3" parent="." instance=ExtResource("11_cdv0q")]
+position = Vector2(54.6667, -412.667)
 
 [node name="Player" parent="." instance=ExtResource("4_snv7g")]
 z_index = 1
@@ -29339,27 +29366,19 @@ next_scene = "Hallway"
 location = "spawn_location_north"
 direction = "spawn_direction_north"
 
-[node name="CountBook" parent="." instance=ExtResource("10_px56l")]
-position = Vector2(576, -596)
-scale = Vector2(1.4, 1.4)
+[node name="LibraryDoor" parent="." instance=ExtResource("12_8c3ke")]
+position = Vector2(220.667, -206.667)
+collision_layer = 5
+collision_mask = 2
+dialogue_resource = ExtResource("13_uiov4")
+dialogue_start = "libraryExit"
 
-[node name="vamp_book" parent="." instance=ExtResource("11_cdv0q")]
-position = Vector2(381.333, -364.667)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryDoor"]
+position = Vector2(-218.667, 140.667)
+shape = SubResource("RectangleShape2D_a0qd7")
 
-[node name="vamp_book2" parent="." instance=ExtResource("11_cdv0q")]
-position = Vector2(189.333, -358)
+[connection signal="body_entered" from="LibraryDoor" to="LibraryDoor" method="_on_body_entered"]
+[connection signal="contact" from="LibraryDoor" to="." method="_on_class_door_contact"]
 
-[node name="vamp_book3" parent="." instance=ExtResource("11_cdv0q")]
-position = Vector2(54.6667, -412.667)
-
-[node name="vamp_book4" parent="." instance=ExtResource("11_cdv0q")]
-position = Vector2(232, -510.667)
-
-[node name="vamp_book5" parent="." instance=ExtResource("11_cdv0q")]
-position = Vector2(106.667, -508.667)
-
-[node name="vamp_book6" parent="." instance=ExtResource("11_cdv0q")]
-position = Vector2(370, -512.667)
-
-[editable path="Librarian"]
 [editable path="CountBook"]
+[editable path="Librarian"]

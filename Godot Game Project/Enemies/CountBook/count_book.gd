@@ -46,6 +46,8 @@ func _process(_delta):
 func _on_body_entered(body):
 	if "Player" in body.name && self.visible == true:
 		Boss.stream = preload("res://Assets/Music/Accept-The-Challenge-chosic.com_.mp3")
+		PlayerInfo.state["Library"] = true
+		$"../LibraryDoor".monitoring = false
 		emit_signal("contact")
 		# Play reveal animation. Also runs the initialize combat function and frees queue at the end of the animation
 		$AnimationPlayer.play("transform")

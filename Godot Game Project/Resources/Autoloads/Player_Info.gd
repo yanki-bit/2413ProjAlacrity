@@ -4,6 +4,9 @@ var score = 0
 var acad = 0
 
 var day = 0
+var part = ["Early Morning", "Late Morning", "Afternoon", "Evening"]
+var time = 0
+
 var state: Dictionary = {
 	"Bedroom":
 		false,

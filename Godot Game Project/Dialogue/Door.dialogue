@@ -2,7 +2,10 @@
 I should take my seat. A quiz is starting.
 do DialogueFunctions.start_player_physics()
 => END
-
+~ libraryExit
+[[I can't leave without that book|I should check the last bookshelf]]
+do DialogueFunctions.start_player_physics()
+=> END
 ~ libraryDoor
 I'm going to be late. I should go to class.
 do DialogueFunctions.start_player_physics()

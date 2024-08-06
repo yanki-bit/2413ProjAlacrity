@@ -6,8 +6,9 @@ do dialogue_done()
 => END
 
 ~ Load
-Day {{day}} - ???
+Day {{day}} - {{part[time]}} [next=2]
 => END
+
 ~ GameOver
 You Lose!
 do game_over()

@@ -165,6 +165,29 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Copyright" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_right = 169.0
+offset_bottom = 293.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+text = "CodeFever © 2024.
+
+Writers:
+Marley Arrojo
+Aiyanna Tiangco
+
+Art/Assets/Map Design:
+Amanda Lauridsen
+
+Game Design / Programmers
+John Lomotan
+Daniel Wu
+
+Game Directors:
+Aiyanna Tiangco
+John Lomotan"
+
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_50fij")
 volume_db = -15.0

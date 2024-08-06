@@ -18,12 +18,18 @@ func transition_to_first_scene():
 	# Fade from black to screen
 	await get_tree().create_timer(0.5).timeout
 	$"ScreenTransition/AnimationPlayer".play("Fade_To_Screen")
-	
+
+func transition_to_transition_scene():
+	var transition = preload("res://Scenes/Intro/Defeat.tscn").instantiate()
+	transition.dialogue_start = "Load"
+	$CurrentScene.get_child(0).queue_free() # delete old location
+	$CurrentScene.add_child(transition)
 # transition to the next scene by recieving location of next scene in file
 func transition_to_next_scene(new_scene: String, spawn_location, spawn_direction):
 	player_location = spawn_location
 	player_direction = spawn_direction
 	$"ScreenTransition/AnimationPlayer".play("Fade_To_Black")
+	
 	next_scene = new_scene
 	
 # finish transition by removing old scene and placing new scene into current scene

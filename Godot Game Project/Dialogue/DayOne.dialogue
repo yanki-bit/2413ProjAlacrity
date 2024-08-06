@@ -1,6 +1,6 @@
 ~ DayOne
 do [[day += 1]] 
-Day {{day}} - Morning  [next=2]
+Day {{day}} - {{part[time]}}  [next=2]
 => END
 
 ~ Monologue1
@@ -139,4 +139,9 @@ do DialogueFunctions.start_player_physics()
 {{player_name}}: Thanks for the help. Have a great day! See you Tomorrow
 Librarian: No worries have a great day.
 do DialogueFunctions.start_player_physics()
+=> END
+
+~ BossDefeat
+[wave amp=25 freq=5] [color=#0023ff] "Programming for Unintelligent" [/color] Obtained! [/wave]
+
 => END

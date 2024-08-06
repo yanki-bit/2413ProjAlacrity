@@ -43,3 +43,7 @@ func scene_two():
 
 func game_over():
 	get_tree().quit()
+	
+func open_link():
+	var url = "https://docs.google.com/forms/d/e/1FAIpQLSfrb5gEfJARbUhAJH_f6ju0oTeScvcqMQQAp4wNeHMjB1s31w/viewform"
+	OS.shell_open(url)

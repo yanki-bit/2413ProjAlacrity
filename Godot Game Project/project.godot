@@ -34,7 +34,7 @@ Hit="*res://Assets/Music/Hit.tscn"
 [dialogue_manager]
 
 general/states=["Intro", "PlayerInfo", "DialogueFunctions"]
-general/balloon_path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn"
+general/balloon_path="res://Scenes/Intro/Credit_balloon.tscn"
 
 [display]
 

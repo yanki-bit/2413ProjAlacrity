@@ -26,6 +26,8 @@ func _on_body_entered(body):
 			PlayerInfo.time = 1
 			if PlayerInfo.state["Library"] == true && next_scene == "Hallway":
 				PlayerInfo.time = 2
+				get_node(NodePath("/root/SceneManager")).transition_to_credits()
+				return
 			get_node(NodePath("/root/SceneManager")).transition_to_transition_scene()
 		else:
 			get_node(NodePath("/root/SceneManager")).transition_to_next_scene(next_scene_path, spawn_location, spawn_direction)

@@ -2,11 +2,28 @@
 I should take my seat. A quiz is starting.
 do DialogueFunctions.start_player_physics()
 => END
+
 ~ libraryExit
 [[I can't leave without that book|I should check the last bookshelf]]
 do DialogueFunctions.start_player_physics()
 => END
+
 ~ libraryDoor
 I'm going to be late. I should go to class.
 do DialogueFunctions.start_player_physics()
+=> END
+
+~ EndCredits
+[center]DEMO OVER[/center] [next=2]
+[center]Script Writers[/center]: [center]Marley Arrojo\nAiyanna Tiangco[/center] [next=2]
+[center]Art Assets /  Map Design[/center]: [center]Amanda Lauridsen[/center] [next=2]
+[center]Concept Art[/center]:  [center]Amanda Lauridsen\nDaniel Wu\nJohn Lomotan[/center] [next=2]
+[center]Lead Programmer[/center]: [center]Daniel Wu\nJohn Lomotan[/center] [next=2]
+[center]Game Design[/center]: [center]Daniel Wu\nJohn Lomotan[/center] [next=2]
+[center]Game Director[/center]: [center]Aiyanna Tiangco\nJohn Lomotan[/center] [next=2]
+[center]CodeFever 2024[/center]: [center]Thank you for playing our demo[/center]
+- Give us your feedback!
+	do open_link()
+	do game_over()
+do game_over()
 => END

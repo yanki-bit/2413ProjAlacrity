@@ -19,7 +19,7 @@ var MAPS = {
 	
 	"Library" : {
 		"scene_path" = "res://Scenes/School/library.tscn",
-		"spawn_location" = Vector2(1,-121),
+		"spawn_location" = Vector2(-1,-128),
 		"spawn_direction" = Vector2(0,-1)
 	},
 	

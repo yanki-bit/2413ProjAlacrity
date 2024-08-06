@@ -83,6 +83,29 @@ grow_vertical = 2
 scale = Vector2(1.21197, 1)
 texture = SubResource("CanvasTexture_svyuh")
 
+[node name="Copyright" type="RichTextLabel" parent="Control/Menu_Options"]
+layout_mode = 0
+offset_right = 169.0
+offset_bottom = 293.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+text = "CodeFever © 2024.
+
+Writers:
+Marley Arrojo
+Aiyanna Tiangco
+
+Art/Assets/Map Design:
+Amanda Lauridsen
+
+Game Design / Programmers
+John Lomotan
+Daniel Wu
+
+Game Directors:
+Aiyanna Tiangco
+John Lomotan"
+
 [node name="Options_Margin" type="MarginContainer" parent="Control/Menu_Options"]
 layout_mode = 1
 anchors_preset = 15
@@ -164,29 +187,6 @@ layout_mode = 1
 [node name="Settings_tab_container" parent="Control/Settings_Menu" instance=ExtResource("4_khit5")]
 visible = false
 layout_mode = 1
-
-[node name="Copyright" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_right = 169.0
-offset_bottom = 293.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 10
-text = "CodeFever © 2024.
-
-Writers:
-Marley Arrojo
-Aiyanna Tiangco
-
-Art/Assets/Map Design:
-Amanda Lauridsen
-
-Game Design / Programmers
-John Lomotan
-Daniel Wu
-
-Game Directors:
-Aiyanna Tiangco
-John Lomotan"
 
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_50fij")

@@ -199,8 +199,11 @@ func _handle_states(new_state):
 			# show player menus
 			$BattleSceneContainer/PlayerBG/PlayerContainer/PlayerActionsContainer/HBoxContainer/PlayerActionCluster.show()
 			print("Waiting... round number " + str(round_count))
-			# print("units in combat turn order: " + str(combat_turn_order.size()))
+			# Update EnergyNumber label with amount of energy player currently has 
+			%EnergyNumber.text = str(player.get_ENERGY())
 			# wait for player action 
+			
+			
 			
 		BATTLE_STATES.PLAYER:
 			# increment turn count
@@ -214,6 +217,9 @@ func _handle_states(new_state):
 			
 			# check if player has won
 			check_player_win()
+			
+			# update player energy number
+			%EnergyNumber.text = str(player.get_ENERGY())
 			
 			# move to message state to display combat log to player
 			combat_turn_order.insert(1,[null,BATTLE_STATES.MESSAGE])
@@ -253,7 +259,6 @@ func _handle_states(new_state):
 			#check for player win/loss
 			if check_player_win():
 				combat_turn_order.insert(1,[null,BATTLE_STATES.WIN])
-				print("here")
 			if check_enemy_win():
 				combat_turn_order.insert(1,[null,BATTLE_STATES.LOSE])
 			

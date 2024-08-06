@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btv1hk271nm3f" path="res://Assets/UI/UI_Flat_Banner_02_Downward.png" id="2_1khe4"]
 [ext_resource type="Texture2D" uid="uid://dx47rn23k4ugj" path="res://Assets/BG/LibraryBackground.png" id="2_p7vto"]
 [ext_resource type="PackedScene" uid="uid://djtmkupfdocdt" path="res://Game/battle_scene_effects.tscn" id="3_g2cfg"]
-[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="4_006qh"]
+[ext_resource type="Theme" uid="uid://djy03p6o81xtd" path="res://Menu/Menu_Theme.tres" id="4_006qh"]
 [ext_resource type="PackedScene" uid="uid://bw2y2p2iwjfpg" path="res://Game/health_bar.tscn" id="4_bhaem"]
 [ext_resource type="Texture2D" uid="uid://2ugf8jeaj3fj" path="res://Assets/UI/UI_Flat_Banner_02_Upward.png" id="5_s4b6i"]
 [ext_resource type="PackedScene" uid="uid://enetts40s678" path="res://Game/player_sprite.tscn" id="6_te1gm"]

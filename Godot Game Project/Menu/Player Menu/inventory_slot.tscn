@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqk4opmljpohi"]
 
 [ext_resource type="Script" path="res://Menu/Player Menu/inventory_slot.gd" id="1_0lxk4"]
-[ext_resource type="Theme" uid="uid://b5kvna3pduhqe" path="res://Menu/Menu_Theme.tres" id="1_pibar"]
+[ext_resource type="Theme" uid="uid://djy03p6o81xtd" path="res://Menu/Menu_Theme.tres" id="1_pibar"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xfkv"]
 

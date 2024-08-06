@@ -184,6 +184,52 @@ func get_learned_abilities(index : int):
 	return statsheet.learned_abilities[index]
 
 #####################################################
+##            Equipped Items Functions             ##
+#####################################################
+
+func equip_item(item_name):
+	var item
+	# turn item name into dictionary object of item
+	for key in Items.databaseItems.keys():
+		var temp_item = Items.databaseItems[key]
+		if temp_item.Item == item_name:
+			item = temp_item
+	
+	# replace currently equipped item with new item 
+	match item.Type:
+		"Weapon" :
+			if PlayerInfo.equipped_weapon.size() > 0:
+				unequip_item(PlayerInfo.equipped_weapon)
+				PlayerInfo.equipped_weapon = item
+				item.equip.call(self)
+			else:
+				PlayerInfo.equipped_weapon = item
+				item.equip.call(self)
+		
+		"Accessory":
+			if PlayerInfo.equipped_accessory.size() > 0:
+				unequip_item(PlayerInfo.equipped_accessory)
+				PlayerInfo.equipped_accessory = item
+				item.equip.call(self)
+			else:
+				PlayerInfo.equipped_accessory = item
+				item.equip.call(self)
+		
+		"Armor":
+			if PlayerInfo.equipped_armor.size() > 0:
+				unequip_item(PlayerInfo.equipped_armor)
+				PlayerInfo.equipped_armor = item
+				item.equip.call(self)
+			else:
+				PlayerInfo.equipped_armor = item
+				item.equip.call(self)
+
+func unequip_item(item):
+	# run unequip function and empty variable
+	item.unequip.call(self)
+	item = {}
+
+#####################################################
 ##               COMBAT FUNCTIONS                  ##
 #####################################################
 func roll_atk():

@@ -9,8 +9,16 @@ var databaseItems = {
 		"Stat": {
 			"Min_Atk": 4,
 			"Max_Atk": 7,
-			}
+			},
+		"equip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() + 4)
+			player.set_MAX_ATK(player.get_MAX_ATK() + 7),
+			
+		"unequip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() - 4)
+			player.set_MAX_ATK(player.get_MAX_ATK() - 7),
 		},
+		
 	"I_102" : {
 		"Item" : "Pen",
 		"Type" : "Weapon",
@@ -19,7 +27,14 @@ var databaseItems = {
 		"Stat": {
 			"Min_Atk": 5,
 			"Max_Atk": 8,
-			}
+			},
+		"equip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() + 5)
+			player.set_MAX_ATK(player.get_MAX_ATK() + 8),
+			
+		"unequip" : func (player):
+			player.set_MIN_ATK(player.get_MIN_ATK() - 5)
+			player.set_MAX_ATK(player.get_MAX_ATK() - 8),
 	},
 	"I_103" : {
 		"Item" : "Highlighter",
@@ -125,7 +140,7 @@ var databaseItems = {
 	},
 	"I_401" : {
 		"Item" : "Hoodie",
-		"Type" : "Clothes",
+		"Type" : "Armor",
 		"Description": "Good enough for school, don't wear it to an interview",
 		"Price" : "$1",
 		"Stat": {
@@ -134,7 +149,7 @@ var databaseItems = {
 	},
 	"I_402" : {
 		"Item" : "Button Down Shirt",
-		"Type" : "Clothes",
+		"Type" : "Armor",
 		"Description": "Now you just need a tie",
 		"Price" : "$1",
 		"Stat": {
@@ -143,7 +158,7 @@ var databaseItems = {
 	},
 	"I_403" : {
 		"Item" : "Denim Jacket",
-		"Type" : "Clothes",
+		"Type" : "Armor",
 		"Description": "Rugged and Resilient. A classic cowboy look",
 		"Price" : "$1",
 		"Stat": {

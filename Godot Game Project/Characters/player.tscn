@@ -644,6 +644,8 @@ text = "(E)INTERACT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="item_clicked" from="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment" to="." method="equip_item"]
+
 [editable path="Camera2D3/Player_Menu"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container"]
 [editable path="Camera2D3/Player_Menu/Menu_Margin/Player_Menu_Container/Player_Data_Container/Information_Container/Inventory_Container/Panel/MarginContainer/Inventory_Equipment"]

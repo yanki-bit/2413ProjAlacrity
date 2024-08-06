@@ -182,6 +182,8 @@ func _handle_states(new_state):
 			print("player energy = " + str(player.get_ENERGY()))
 			print("player defense = " + str(player.get_DEF()))
 			print("player HP = " + str(player.get_CURR_HP()))
+			print("player min_atk" + str(player.get_MIN_ATK()))
+			print("player max_atk" + str(player.get_MAX_ATK()))
 			
 			print("enemy energy = " + str(enemies[0].get_ENERGY()))
 			print("enemy defense = " + str(enemies[0].get_DEF()))

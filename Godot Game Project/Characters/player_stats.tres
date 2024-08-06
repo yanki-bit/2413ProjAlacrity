@@ -6,10 +6,13 @@
 script = ExtResource("1_8dn3k")
 MAX_HP = 100
 CURR_HP = 100
-MIN_ATK = 5
-MAX_ATK = 8
+MIN_ATK = 1
+MAX_ATK = 1
 DEF = 5
-SPD = 3
+SPD = 1
 LCK = 1
 ENERGY = 0
 learned_abilities = ["WRITE", "THINK", "TAKE A BREAK", "RESEARCH", "PROOFREAD"]
+equipped_weapon = {}
+equipped_armor = {}
+equipped_accessory = {}

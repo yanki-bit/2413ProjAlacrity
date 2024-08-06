@@ -18,6 +18,10 @@ var state: Dictionary = {
 		false
 	}
 
+var equipped_weapon : Dictionary
+var equipped_armor : Dictionary
+var equipped_accessory : Dictionary
+
 #callable function to add to game day
 func add_game_day(AddDay = 1) -> void:
 	day += AddDay
